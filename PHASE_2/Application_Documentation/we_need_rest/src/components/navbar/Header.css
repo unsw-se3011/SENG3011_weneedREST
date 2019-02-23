@@ -1,0 +1,29 @@
+.nav {
+    height: 40px;
+    background: #434343;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.active {
+    background: #F0F2F0;
+}
+
+.active a {
+    color: #434343 !important;
+}
+
+.nav ul {
+    list-style-type: none;
+}
+
+.nav li {
+    padding: 5px 20px;
+    float: left;
+}
+
+.nav a {
+    color: #F0F2F0;
+    text-decoration: none;
+}
