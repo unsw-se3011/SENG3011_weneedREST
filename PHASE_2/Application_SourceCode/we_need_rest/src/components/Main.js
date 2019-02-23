@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Home from './home/Home';
 import About from './about/About';
-import Contact from './contact/contact';
+import Contact from './Contact/Contact';
 
 class Main extends Component {
   render() {

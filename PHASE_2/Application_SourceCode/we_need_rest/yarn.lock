@@ -1854,10 +1854,10 @@ boolbase@^1.0.0, boolbase@~1.0.0:
   resolved "https://registry.yarnpkg.com/boolbase/-/boolbase-1.0.0.tgz#68dff5fbe60c51eb37725ea9e3ed310dcc1e776e"
   integrity sha1-aN/1++YMUes3cl6p4+0xDcwed24=
 
-bootstrap4@^0.0.1-security:
-  version "0.0.1-security"
-  resolved "https://registry.yarnpkg.com/bootstrap4/-/bootstrap4-0.0.1-security.tgz#598920d54afcb2ae3ad7351acabc57e3942d9c49"
-  integrity sha1-WYkg1Ur8sq461zUayrxX45QtnEk=
+boostrap@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/boostrap/-/boostrap-2.0.0.tgz#f0a5256bc379c5da540564389e48e85e9ccff9fc"
+  integrity sha512-JEeFMOweKeGXEM9rt95eaVISOkluG9aKcl0jQCETOVH9jynCZxuBZe2oWgcWJpj5wqYWZl625SnW7OgHT2Ineg==
 
 brace-expansion@^1.1.7:
   version "1.1.11"
