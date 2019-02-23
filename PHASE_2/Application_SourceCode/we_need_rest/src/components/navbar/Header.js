@@ -5,28 +5,19 @@ import './Header.css'
 class Header extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            active: '',
-        };
     }
 
     handleClick(elem) {
-        elem.classList.add('active');
-        this.state.active.classList.remove('active');
-        this.setState({active: {elem}});
-    }
-
-    componentDidMount() {
-        let oldActive = document.getElementById('home');
-        oldActive.classList.add('active');
-        this.setState({active: oldActive})
+        let oldActive = document.getElementsByClassName("active")[0];
+        oldActive.classList.remove("active");
+        elem.classList.add("active");
     }
 
     render() {
       return (
         <div className="nav">
             <ul>
-                <li id="home" onClick={()=>this.handleClick(document.getElementById('home'))}>
+                <li className="active" id="home" onClick={()=>this.handleClick(document.getElementById('home'))}>
                     <Link to='/'>Home</Link>
                 </li>
                 <li id="about" onClick={()=>this.handleClick(document.getElementById('about'))}>
