@@ -1,14 +1,27 @@
 # -*- coding: utf-8 -*-
 
-# Define here the models for your scraped items
-#
-# See documentation in:
-# https://doc.scrapy.org/en/latest/topics/items.html
+# Contains items that will be used to collect data from two datasources
+# Preliminary - will need to change once datasources are finalised
+# Written by Bailey Ivancic, February 2019
+
 
 import scrapy
 
 
-class WebscraperItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+class WHOScraper(scrapy.Item):
+    outbreakDate = scrapy.Field()
+    outbreakDay = scrapy.Field()
+    location = scrapy.Field()
+    outbreakSource = scrapy.Field()
+    reportDate = scrapy.Field()
+    numCases = scrapy.Field()
+    numDeats = scrapy.Field()
+    controlMeasures = scrapy.Field()
+
+class globalMapScraper(scrapy.Item):
+    eventType = scrapy.Field()
+    outbreakCountry = scrapy.Field()
+    outbreakCity = scrapy.Field()
+    outbreakDate = scrapy.Field()
+    url = scrapy.Field()
+
