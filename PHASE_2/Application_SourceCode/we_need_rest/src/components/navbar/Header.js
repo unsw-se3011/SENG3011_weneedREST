@@ -8,7 +8,7 @@ class Header extends Component {
         <div className="nav">
             <ul>
                 <li className="active">
-                    <Link to='/home'>Home</Link>
+                    <Link to='/'>Home</Link>
                 </li>
                 <li>
                     <Link to='/about'>About</Link>
