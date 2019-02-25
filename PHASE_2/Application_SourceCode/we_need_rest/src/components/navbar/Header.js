@@ -10,10 +10,9 @@ class Header extends Component {
     componentDidMount() {
         let url = window.location.href;
         
-        console.log(url);
-        if (url.search("about") != -1) {
+        if (url.search("about") !== -1) {
             this.activate(document.getElementById('about'));
-        } else if (url.search("contact") != -1) {
+        } else if (url.search("contact") !== -1) {
             this.activate(document.getElementById('contact'));
         } else {
             this.activate(document.getElementById('home'));

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import './About.css';
+import 'bootstrap/dist/css/bootstrap.css';
 
 class About extends Component {
     render() {
@@ -9,7 +10,7 @@ class About extends Component {
             <div id="contentarea"><div class="cell markdown-cell">
             <p>Making an API that collects data from online sources:</p>
             <ul class="task-list">
-                <li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"/> <a href="http://www.promedmail.org">WHO Website – Outbreaks News</a></li>
+                <li class="task-list-item"><input class="task-list-item-checkbox" checked="true" disabled="" type="checkbox"/> <a href="http://www.promedmail.org">WHO Website – Outbreaks News</a></li>
                 <li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"/> <a href="http://www.promedmail.org">ProMed</a></li>
                 <li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"/> <a href="https://www.cdc.gov/outbreaks/">CDC</a></li>
                 <li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"/> <a href="http://outbreaknewstoday.com">Outbreak News Today</a></li>

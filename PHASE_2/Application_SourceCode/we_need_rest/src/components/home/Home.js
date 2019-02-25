@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import computerbg from "./computer.jpg";
+import computer from "./computer.jpg";
 import './Home.css';
 
 class Home extends Component {
@@ -9,7 +9,7 @@ class Home extends Component {
       <div>
         <BackgroundImage id="bg">
           <h1 class="title">Welcome to our Website</h1>
-          <img id="img" src={computerbg} alt=""/>
+          <img id="img" src={computer} alt=""/>
         </BackgroundImage>
       </div>
     );
