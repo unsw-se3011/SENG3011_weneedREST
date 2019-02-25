@@ -5,7 +5,7 @@ import './Contact.css';
 
 function Card(props) {
     return (
-        <Link to={`/roster/${props.name}`}>
+        <Link to={`/contact/${props.name}`}>
             <div className="card">
                 <img className="card-img-top" src={props.url} alt="Card image cap"/>
                 <div className="card-body">
