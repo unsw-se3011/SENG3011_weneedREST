@@ -10,14 +10,14 @@ class About extends Component {
             <div id="contentarea"><div class="cell markdown-cell">
             <p>Making an API that collects data from online sources:</p>
             <ul class="task-list">
-                <li class="task-list-item"><input class="task-list-item-checkbox" checked="true" disabled="" type="checkbox"/> <a href="http://www.promedmail.org">WHO Website – Outbreaks News</a></li>
-                <li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"/> <a href="http://www.promedmail.org">ProMed</a></li>
-                <li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"/> <a href="https://www.cdc.gov/outbreaks/">CDC</a></li>
-                <li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"/> <a href="http://outbreaknewstoday.com">Outbreak News Today</a></li>
-                <li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"/> <a href="http://www.cidrap.umn.edu">CIDRAP</a></li>
-                <li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"/> <a href="http://outbreaks.globalincidentmap.com">Global Incident Map</a></li>
-                <li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"/> <a href="https://flutrackers.com/forum/">Flu tracker</a></li>
-                <li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"/> <a href="https://crofsblogs.typepad.com/h5n1/">H5N1</a></li>
+                <li class="task-list-item"><input class="task-list-item-checkbox" disabled="true" type="checkbox"/> <a href="http://www.promedmail.org">WHO Website – Outbreaks News</a></li>
+                <li class="task-list-item"><input class="task-list-item-checkbox" disabled="true" type="checkbox"/> <a href="http://www.promedmail.org">ProMed</a></li>
+                <li class="task-list-item"><input class="task-list-item-checkbox" disabled="true" type="checkbox"/> <a href="https://www.cdc.gov/outbreaks/">CDC</a></li>
+                <li class="task-list-item"><input class="task-list-item-checkbox" disabled="true" type="checkbox"/> <a href="http://outbreaknewstoday.com">Outbreak News Today</a></li>
+                <li class="task-list-item"><input class="task-list-item-checkbox" disabled="true" type="checkbox"/> <a href="http://www.cidrap.umn.edu">CIDRAP</a></li>
+                <li class="task-list-item"><input class="task-list-item-checkbox" checked="true" disabled="true" type="checkbox"/> <a href="http://outbreaks.globalincidentmap.com">Global Incident Map</a></li>
+                <li class="task-list-item"><input class="task-list-item-checkbox" disabled="true" type="checkbox"/> <a href="https://flutrackers.com/forum/">Flu tracker</a></li>
+                <li class="task-list-item"><input class="task-list-item-checkbox" disabled="true" type="checkbox"/> <a href="https://crofsblogs.typepad.com/h5n1/">H5N1</a></li>
             </ul>
             <p>
                 <a href="https://webcms3.cse.unsw.edu.au/SENG3011/19T1/resources/24296">Specification</a>
