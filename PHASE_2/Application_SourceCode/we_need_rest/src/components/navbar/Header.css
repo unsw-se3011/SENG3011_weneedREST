@@ -8,10 +8,12 @@
 
 .active {
     background: #F0F2F0;
+    color: #434343 !important;
 }
 
-.active a {
-    color: #434343 !important;
+a :hover {
+    color: #F0F2F0;
+    text-decoration: underline;
 }
 
 .nav ul {

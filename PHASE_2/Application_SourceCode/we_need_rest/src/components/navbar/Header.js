@@ -36,15 +36,21 @@ class Header extends Component {
       return (
         <div className="nav">
             <ul>
-                <li id="home" onClick={()=>this.handleClick(document.getElementById('home'))}>
-                    <Link to='/'>Home</Link>
-                </li>
-                <li id="about" onClick={()=>this.handleClick(document.getElementById('about'))}>
-                    <Link to='/about'>About</Link>
-                </li>
-                <li id="contact" onClick={()=>this.handleClick(document.getElementById('contact'))}>
-                    <Link to='/contact'>Contact</Link>
-                </li>
+                <Link to='/'>
+                    <li id="home" onClick={()=>this.handleClick(document.getElementById('home'))}>
+                        Home
+                    </li>
+                </Link>
+                <Link to='/about'>
+                    <li id="about" onClick={()=>this.handleClick(document.getElementById('about'))}>
+                        About
+                    </li>
+                </Link>
+                <Link to='/contact'>
+                    <li id="contact" onClick={()=>this.handleClick(document.getElementById('contact'))}>
+                        Contact
+                    </li>
+                </Link>
             </ul>
         </div>
       );
