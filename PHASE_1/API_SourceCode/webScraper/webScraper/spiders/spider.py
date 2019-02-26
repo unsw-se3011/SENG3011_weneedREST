@@ -7,13 +7,13 @@ class Spider(scrapy.Spider):
     name="spider"
 
     def start_requests(self):
-        urls = ['https://www.who.int/emergencies/diseases/en/']
+        urls = ['http://outbreaks.globalincidentmap.com/']
         for url in urls:
             yield scrapy.Request(url=url, callback=self.parse)
 
     def parse(self, response):
         page = 1
-        filename = 'WHO-%s.html' % page
+        filename = 'GIM-%s.html' % page
         with open(filename, 'wb') as f:
             f.write(response.body)
         self.log('Saved file %s' % filename)
