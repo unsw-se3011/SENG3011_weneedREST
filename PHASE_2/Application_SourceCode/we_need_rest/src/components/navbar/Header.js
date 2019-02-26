@@ -37,17 +37,17 @@ class Header extends Component {
         <div className="nav">
             <ul>
                 <Link to='/'>
-                    <li id="home" onClick={()=>this.handleClick(document.getElementById('home'))}>
+                    <li className="nav-item" id="home" onClick={()=>this.handleClick(document.getElementById('home'))}>
                         Home
                     </li>
                 </Link>
                 <Link to='/about'>
-                    <li id="about" onClick={()=>this.handleClick(document.getElementById('about'))}>
+                    <li className="nav-item" id="about" onClick={()=>this.handleClick(document.getElementById('about'))}>
                         About
                     </li>
                 </Link>
                 <Link to='/contact'>
-                    <li id="contact" onClick={()=>this.handleClick(document.getElementById('contact'))}>
+                    <li className="nav-item" id="contact" onClick={()=>this.handleClick(document.getElementById('contact'))}>
                         Contact
                     </li>
                 </Link>

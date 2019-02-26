@@ -11,7 +11,7 @@
     color: #434343 !important;
 }
 
-a :hover {
+.nav-item a:hover {
     color: #F0F2F0;
     text-decoration: underline;
 }
