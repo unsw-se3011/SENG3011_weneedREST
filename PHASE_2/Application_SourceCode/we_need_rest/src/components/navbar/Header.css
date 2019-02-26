@@ -1,0 +1,32 @@
+.nav {
+    height: 40px;
+    background: #434343;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.active {
+    background: #F0F2F0;
+    color: #434343 !important;
+}
+
+a :hover {
+    color: #F0F2F0;
+    text-decoration: underline;
+}
+
+.nav ul {
+    list-style-type: none;
+}
+
+.nav li {
+    margin: 5px 20px;
+    padding: 3px 10px;
+    float: left;
+}
+
+.nav a {
+    color: #F0F2F0;
+    text-decoration: none;
+}
