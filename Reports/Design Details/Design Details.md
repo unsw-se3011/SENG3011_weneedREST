@@ -2,7 +2,9 @@
 
 ### 1. Describe how you intend to develop the API module and provide the ability to run it in Web service mode
 
-The API module will be developed on our local machines using GitHub as a source control tool. GitHub was chosen as the source control to be used as it is formally required in the specification, but is also the most ubiquitous and common source control within the industry.
+The API module will be developed on our local machines using GitHub as a source control tool. GitHub was chosen as the source control to be used as it is formally required in the specification, but is also the most ubiquitous and common source control within the industry. As such, there really wasn't much consideration of any other alternatives, since Github was required and provided everything we needed from the source control system.
+
+In terms of hosting the API for the web service mode, we have chosen to use DigitalOcean. The main reason for this choice is the fact that our team has $50 worth of credit free for DigitalOcean included within our Github Student pack, and as a result makes this a very cost-effective solution for us. This is especially important since our team are all full-time university students, and thus do not have the budget to spend on an expensive hosting solution. Another reason for this choice is the ease and simplicity of use that DigitalOcean offers. Compared to a similar cloud hosting service such as AWS or Microsoft Azure, Digital Ocean seems to be much easier to get started with and has a much smoother learning curve. This point is particularly important, since no one in the group has had significant experience with web hosting on cloud-based services.
 
 Notes (remove later):
 * Something about DigitalOcean hosting
