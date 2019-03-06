@@ -4,7 +4,7 @@
 
 This RESTful API provides access to a list of disease reports in the form of JSON data.
 
-<br><br>
+<br>
 
 ## Design Details
 
@@ -19,6 +19,22 @@ Notes (remove later):
 
 ### 2. Discuss your	current thinking about how parameters	can	be passed to your	module and how results are collected. Show an example	of a possible	interaction.
 
+#### API Endpoints
+List all reports
+- **[<code>GET</code> reports](https://github.com/)**
+
+Find all reports matching the query values
+- **[<code>GET</code> reports?{location}&{key_terms}&{date}](https://github.com/)**
+
+Deletes a report
+- **[<code>DELETE</code> reports/\{id\}](https://github.com/)**
+
+Updates an existing report with form data
+- **[<code>POST</code> reports/\{id\}](https://github.com/)**
+
+Updates an existing report
+- **[<code>PUT</code> reports/\{id\}](https://github.com/)**
+
 Notes (remove later):
 * Have a terminal log curl [website] and mark up the expected response
 * Justify every api endpoint and explain its use
@@ -27,6 +43,7 @@ Notes (remove later):
 
 Notes  (remove later):
 * More stuff needed
+* Needs more revision
 
 #### Implementation language
 
@@ -42,7 +59,7 @@ Notes  (remove later):
 
 * The Python Scrapy library was used for the initial web scraping application. Scrapy allowed us to quickly and easily set up the web scraper that we used to scrape information from the Global Incident Map website. Since this was only the initial part of our task, it was decided to use this this library in order to avoid us having to spend more time creating it. Scrapy is also a well documented and widely used library that is publically available, which made development significantly easier.
 
-<br><br>
+<br>
 
 ## Management Information
 
