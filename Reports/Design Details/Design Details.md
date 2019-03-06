@@ -6,6 +6,8 @@ The API module will be developed on our local machines using GitHub as a source 
 
 In terms of hosting the API for the web service mode, we have chosen to use DigitalOcean. The main reason for this choice is the fact that our team has $50 worth of credit free for DigitalOcean included within our Github Student pack, and as a result makes this a very cost-effective solution for us. This is especially important since our team are all full-time university students, and thus do not have the budget to spend on an expensive hosting solution. Another reason for this choice is the ease and simplicity of use that DigitalOcean offers. Compared to a similar cloud hosting service such as AWS or Microsoft Azure, Digital Ocean seems to be much easier to get started with and has a much smoother learning curve. This point is particularly important, since no one in the group has had significant experience with web hosting on cloud-based services.
 
+In terms of the Github workflow being used, our team typically relies ona feature-based branch model. This involves setting up a new branch for each new major feature, so that development of different functionality is segregated and protected from bugs or broken code. Once the team members responsible for a particular feature believe it to be done, they will then open a pull request, and it will then get merged to the main branch once it has been checked ove. Our team has found this to be a logical system that works for us, since all major features are separated to the best of their ability and can be developed concurrently. 
+
 Notes (remove later):
 * Something about DigitalOcean hosting
 * Cost effective with the Github something
