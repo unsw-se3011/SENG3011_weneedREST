@@ -1,4 +1,4 @@
-## Design Details
+# Design Details Report
 
 ### 1. Describe how you intend to develop the API module and provide the ability to run it in Web service mode
 
@@ -32,10 +32,6 @@ Notes (remove later):
 * Justify every api endpoint and explain its use
 
 ### 3. Present and justify implementation	language,	development	and	deployment environment (e.g. Linux,	Windows) and specific	libraries	that you plan to use.
-
-Notes  (remove later):
-* More stuff needed
-* Needs more revision
 
 #### Implementation language
 
