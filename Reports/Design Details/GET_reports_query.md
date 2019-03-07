@@ -32,7 +32,7 @@ and furthermore `d1` must be a date before `d2`.
 
 ### Request
 ```
-   curl http://exampleapi.com/reports?location=1566083&key_terms=Anthrax&date=2019 -X "POST" -H "Content-Type: application/json"
+   curl http://exampleapi.com/reports?location=1566083&key_terms=Anthrax&date=2019 -X "GET" -H "Content-Type: application/json"
 ```
 ### Response
 #### Snippet of the response ####
