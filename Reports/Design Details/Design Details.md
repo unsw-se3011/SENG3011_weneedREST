@@ -32,25 +32,23 @@ Similarly to the deletion function, the post endpoint was added for completeness
 - **[<code>PUT</code> reports/\{id\}](https://github.com/unsw-se3011/SENG3011_weneedREST/blob/documentation/Reports/Design%20Details/PUT_reports.md)**
 Again, added for sake of completeness. Allows for easy posting of reports into the collection for both testing and ease-of-use.
 
-Notes (remove later):
-* Justify every api endpoint and explain its use
 
 ### 3. Present and justify implementation	language,	development	and	deployment environment (e.g. Linux,	Windows) and specific	libraries	that you plan to use.
 
-#### Implementation language
+#### Implementation Language
 
-* **Flask-Restplus** is a lightweight, **Python** web framework that offers the same minimalistic canvas more suited towards a contained web API that we are designing. It is very simple to use with its fast debugger and offers a comprehensive set of documentation and example code. Furthermore, the amount of time needed for the project is short and the team is experienced with using Flask so less time is spent learning. Flask-Restplus offers automatic swagger API documentation.
+* **Flask-Restplus** is a lightweight, **Python** web framework that offers the same minimalistic canvas more suited towards a contained web API similar to what we are designing. It is very simple to use with its fast debugger and offers a comprehensive set of documentation and example code. Furthermore, the amount of time needed for the project is short and the team is experienced with using Flask so less time is spent learning. Flask-Restplus offers automatic swagger API documentation as well.
 
-* **React** has been used for the front-end of the application due to its speed and flexibility. React is able to integrate APIs directly into the front-end, which simplifies the development of our application significantly. React is also extremely well documented, which has allowed our team to pick up this relatively new technology quite quickly and be able to use it’s many benefits within our development.
+* **React** will be used for the front-end of the application due to its speed and flexibility. React is able to integrate APIs directly into the front-end, which simplifies the development of our application significantly. React is also extremely well documented, which has allowed our team to pick up this relatively new technology quite quickly and be able to use it’s many benefits within our development.
 
-#### Development and deployment environment
+#### Development and Deployment Environment
 
-* For our development environment, we have chosen to use a combination of **Mac** and **Linux**. This choice was fairly easy, because this was simply the machines that the team was using as their personal machines. All the development technologies and technologies within our stack were compatible witht eh machines being used, so we saw no reason to change this arrangement.
+* For our development environment, we have chosen to use a combination of **Mac** and **Linux**. This choice was fairly easy, because these were simply the machines that the team were using as their personal machines. All the development technologies and technologies within our stack were compatible with the machines being used, so we saw no reason to change this arrangement.
 
 * We are aiming for the deployment environment to be platform-agnostic, and thus be compatible with all operating systems and browsers. This will therefore need to be tested before final deployment begins.
 
-* For storage of the outbreak data, we have chosen to use a **JSON** file instead of storing the data in a database. The main reason for this decision was our groups fairly limited knowledge of databases, which would increase the development time and learning curve without necessarily providing any tangible benefits to our API. This was also recommended by our mentor. As a result, the web scraper will be run manually at a specified interval, with the outbreak data being stored in a JSON file which is subsequently accessed by the API.
+* For storage of the outbreak data, we have chosen to use a **JSON** file instead of storing the data in a database. The main reason for this decision was because of our group's fairly limited knowledge of databases, which would increase the development time and learning curve without necessarily providing any tangible benefits to our API. This was also recommended by our mentor. As a result, the web scraper will be run manually at a specified interval, with the outbreak data being stored in a JSON file which is subsequently accessed by the API.
 
-#### Specific libraries used
+#### Specific Libraries Used
 
 * The **Python Scrapy library** was used for the initial web scraping application. Scrapy allowed us to quickly and easily set up the web scraper that we used to scrape information from the Global Incident Map website. Since this was only the initial part of our task, it was decided to use this this library in order to avoid us having to spend more time creating it. Scrapy is also a well documented and widely used library that is publically available, which made development significantly easier.
