@@ -19,7 +19,7 @@ Returns the entire list of reports
 
 ### Request
 ```
-   curl http://exampleapi.com/reports -X "POST" -H "Content-Type: application/json"
+   curl http://exampleapi.com/reports -X "GET" -H "Content-Type: application/json"
 ```
 ### Response
 #### Snippet of the response ####
