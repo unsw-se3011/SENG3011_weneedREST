@@ -14,7 +14,7 @@ We have also chosen to use **DigitalOcean** to host the API for the web service 
 #### API Endpoints
 *List all reports*
 - **[<code>GET</code> reports](https://github.com/unsw-se3011/SENG3011_weneedREST/blob/documentation/Reports/Design%20Details/GET_reports.md)**
-This endpoint was included for completeness, since the team felt like having the option to fetch all available reports might be a useful thing for some kinds of users, as well as for testing purposes. Although the user has the option of finding the reports they want using the specific search, this search will allow users to get the entire report base and then manually filter from there.
+This endpoint was included for completeness, since the team felt like having the option to fetch all available reports might be a useful feature for some types of users, as well as for testing purposes. Although the user has the option of finding the reports they want using the specific search, this search will allow users to get the entire report base and then manually filter from there.
 
 *Find all reports matching the query values*
 - **[<code>GET</code> reports?{location}&{key_terms}&{date}](https://github.com/unsw-se3011/SENG3011_weneedREST/blob/documentation/Reports/Design%20Details/GET_reports_query.md)**
