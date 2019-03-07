@@ -14,22 +14,21 @@ In terms of the Github workflow being used, our team typically relies ona featur
 
 #### API Endpoints
 List all reports
-- **[<code>GET</code> reports](https://github.com/)**
+- **[<code>GET</code> reports](https://github.com/unsw-se3011/SENG3011_weneedREST/blob/documentation/Reports/Design%20Details/GET_reports.md)**
 
 Find all reports matching the query values
-- **[<code>GET</code> reports?{location}&{key_terms}&{date}](https://github.com/)**
+- **[<code>GET</code> reports?{location}&{key_terms}&{date}](https://github.com/unsw-se3011/SENG3011_weneedREST/blob/documentation/Reports/Design%20Details/GET_reports_query.md)**
 
 Deletes a report
-- **[<code>DELETE</code> reports/\{id\}](https://github.com/)**
+- **[<code>DELETE</code> reports/\{id\}](https://github.com/unsw-se3011/SENG3011_weneedREST/blob/documentation/Reports/Design%20Details/DELETE_reports.md)**
 
 Updates an existing report with form data
-- **[<code>POST</code> reports/\{id\}](https://github.com/)**
+- **[<code>POST</code> reports/\{id\}](https://github.com/unsw-se3011/SENG3011_weneedREST/blob/documentation/Reports/Design%20Details/POST_reports.md)**
 
 Updates an existing report
-- **[<code>PUT</code> reports/\{id\}](https://github.com/)**
+- **[<code>PUT</code> reports/\{id\}](https://github.com/unsw-se3011/SENG3011_weneedREST/blob/documentation/Reports/Design%20Details/PUT_reports.md)**
 
 Notes (remove later):
-* Have a terminal log curl [website] and mark up the expected response
 * Justify every api endpoint and explain its use
 
 ### 3. Present and justify implementation	language,	development	and	deployment environment (e.g. Linux,	Windows) and specific	libraries	that you plan to use.
