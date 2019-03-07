@@ -1,4 +1,4 @@
-## Management Information
+# Management Information
 
 ### Communication and Agile Development Workflow
 Our team has been working together for 2 years now and as such have a firm grasp on our strengths and weaknesses. In that time we have developed strategies for effective communication, delegation of responsibilities and overall workflow.
