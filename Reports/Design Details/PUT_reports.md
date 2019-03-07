@@ -1,4 +1,4 @@
-# Deletes a report with the corresponding ID
+# Updates a report with the corresponding ID
 
 Usage
 ```
