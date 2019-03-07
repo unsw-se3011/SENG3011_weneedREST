@@ -26,9 +26,11 @@ Deleting a report was a feature that the team has added for the sake of complete
 
 *Updates an existing report with form data*
 - **[<code>POST</code> reports/\{id\}](https://github.com/unsw-se3011/SENG3011_weneedREST/blob/documentation/Reports/Design%20Details/POST_reports.md)**
+Similarly to the deletion function, the post endpoint was added for completeness. Mainly to be used for testing, this function also makes updating form data much simpler.
 
 *Updates an existing report*
 - **[<code>PUT</code> reports/\{id\}](https://github.com/unsw-se3011/SENG3011_weneedREST/blob/documentation/Reports/Design%20Details/PUT_reports.md)**
+Again, added for sake of completeness. Allows for easy posting of reports into the collection for both testing and ease-of-use.
 
 Notes (remove later):
 * Justify every api endpoint and explain its use
