@@ -9,7 +9,7 @@ In terms of hosting the API for the web service mode, we have chosen to use <b>D
 In terms of the Github workflow being used, our team typically relies on a feature-based branch model. This involves setting up a new branch for each new major feature, so that development of different functionality is segregated and protected from bugs or broken code. Once the team members responsible for a particular feature believe it to be done, they will then open a pull request, and it will then get merged to the main branch once it has been checked over. Our team has found this to be a logical system that works for us, since all major features are separated to the best of their ability and can be developed concurrently.
 
 
-### 2. Discuss your	current thinking about how parameters can be passed to your module and how results are collected. Show an example	of a possible interaction.
+### 2. Discuss your	current thinking about how parameters can be passed to your module and how results are collected. Show an example of a possible interaction.
 
 #### API Endpoints
 List all reports
