@@ -3,9 +3,11 @@
 ### Communication and Agile Development Workflow
 Our team has been working together for 2 years now and as such have a firm grasp on our strengths and weaknesses. In that time we have developed strategies for effective communication, delegation of responsibilities and overall workflow.
 
-We communicate regularly via *Facebook Messenger* to discuss our next steps and update each other on our progress. We also have weekly in-person meetings separate to our mentoring sessions which occur immediately after our mentoring timeslot, specifically Wednesday 10:20 am-12:00 pm. In this time, we work together on any tasks from the week before that have yet to be completed, and try to get a headstart on the workload for the week ahead.
+We communicate regularly via **Facebook Messenger** to discuss our next steps and update each other on our progress. We also have weekly in-person meetings separate to our mentoring sessions which occur immediately after our mentoring timeslot, specifically Wednesday 10:20 am-12:00 pm. In this time, we work together on any tasks from the week before that have yet to be completed, and try to get a headstart on the workload for the week ahead.
 
-As we will be using *GitHub* for our project, tasks relating to functionality are posted in the *Issues* section of our repository. There is also a Kanban board in use under the *GitHub Projects* tab, that will be used for keeping track of agile sprint tasks as well as project and sprint backlogs. Other tasks relating to the reports will be written in the report document itself as a checklist. Task delegation will be handled according to our respective roles within the team, and overflow in that section will thus be delegated accordingly. 
+As we will be using **GitHub** for our project, tasks relating to functionality are posted in the *Issues* section of our repository. There is also a Kanban board in use under the *GitHub Projects* tab, that will be used for keeping track of agile sprint tasks as well as project and sprint backlogs. Other tasks relating to the reports will be written in the report document itself as a checklist. Task delegation will be handled according to our respective roles within the team, and overflow in that section will thus be delegated accordingly.
+
+For the meetings our team had, it was decided to collect a short summary of everything that was discussed, achieved and decided in order to aid our project management. Exact minutes were not recorded, as the meetings were less of a formal encounter and functioned more like an informal stand-up meeting that was intended to make sure everyone was on the same page, perform a quick demo of progress and clarify any questions/concerns.
 
 ### Roles and Responsibilities
 #### Meet the team
