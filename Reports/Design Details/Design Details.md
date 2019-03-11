@@ -18,19 +18,15 @@ This endpoint was included for completeness, since the team felt like having the
 
 *Find all reports matching the query values*
 - **[<code>GET</code> reports?{location}&{key_terms}&{date}](https://github.com/unsw-se3011/SENG3011_weneedREST/blob/documentation/Reports/Design%20Details/GET_reports_query.md)**
-This endpoint is necessary for the site, since the main purpose is to allow users to search for reports by different fields. This endpoint allows more granular control over the record fetching, since the user is able to fetch records that match certain criteria, therefore only giving them a subset of the entire records available. This was the most important function to be included in the API, since it was key in the specification.
 
 *Deletes a report*
 - **[<code>DELETE</code> reports/\{id\}](https://github.com/unsw-se3011/SENG3011_weneedREST/blob/documentation/Reports/Design%20Details/DELETE_reports.md)**
-Deleting a report was a feature that the team has added for the sake of completeness. This function simply allows for easy deletion of reports in the collection, and will be mainly used for testing.
 
 *Updates an existing report with form data*
 - **[<code>POST</code> reports/\{id\}](https://github.com/unsw-se3011/SENG3011_weneedREST/blob/documentation/Reports/Design%20Details/POST_reports.md)**
-Similarly to the deletion function, the post endpoint was added for completeness. Mainly to be used for testing, this function also makes updating form data much simpler.
 
 *Updates an existing report*
 - **[<code>PUT</code> reports/\{id\}](https://github.com/unsw-se3011/SENG3011_weneedREST/blob/documentation/Reports/Design%20Details/PUT_reports.md)**
-Again, added for sake of completeness. Allows for easy posting of reports into the collection for both testing and ease-of-use.
 
 
 ### 3. Present and justify implementation	language,	development	and	deployment environment (e.g. Linux,	Windows) and specific	libraries	that you plan to use.
