@@ -41,7 +41,7 @@ This endpoint was included since the team felt like having the option to fetch a
 
 * For our development environment, we have chosen to use a combination of **Mac** and **Linux**. This choice was fairly easy, because these were simply the machines that the team were using as their personal machines. All the development technologies and technologies within our stack were compatible with the machines being used, so we saw no reason to change this arrangement.
 
-* We are aiming for the deployment environment to be platform-agnostic, and thus be compatible with all operating systems and browsers. This will therefore need to be tested before final deployment begins.
+* We are aiming for the deployment environment to be platform-agnostic, and thus be compatible with all operating systems and browsers. This will therefore need to be tested before final deployment begins. Testing and development is done on **Safari**, **Firefox developers edition**, and **Chrome**.
 
 * For storage of the outbreak data, we have chosen to use a **JSON** file instead of storing the data in a database. The main reason for this decision was because of our group's fairly limited knowledge of databases, which would increase the development time and learning curve without necessarily providing any tangible benefits to our API. This was also recommended by our mentor. As a result, the web scraper will be run manually at a specified interval, with the outbreak data being stored in a JSON file which is subsequently accessed by the API.
 
