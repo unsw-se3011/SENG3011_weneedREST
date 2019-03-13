@@ -45,6 +45,8 @@ This endpoint was included since the team felt like having the option to fetch a
 
 * For storage of the outbreak data, we have chosen to use a **JSON** file instead of storing the data in a database. The main reason for this decision was because of our group's fairly limited knowledge of databases, which would increase the development time and learning curve without necessarily providing any tangible benefits to our API. This was also recommended by our mentor. As a result, the web scraper will be run manually at a specified interval, with the outbreak data being stored in a JSON file which is subsequently accessed by the API.
 
+* Postman was used for the testing of our API. Recommended by our tutor, postman allows for team collaboration when writing test cases, as well as an environment for writing, storing and running the test cases. Our current setup includes a team workspace containing all our members and tests, which allows everyone to access the environment as well as keeping it all standardised.
+
 #### Specific Libraries Used
 
 * The **Python Scrapy library** was used for the initial web scraping application. Scrapy allowed us to quickly and easily set up the web scraper that we used to scrape information from the Global Incident Map website. Since this was only the initial part of our task, it was decided to use this this library in order to avoid us having to spend more time creating it. Scrapy is also a well documented and widely used library that is publically available, which made development significantly easier.
