@@ -27,7 +27,7 @@ Updates an existing report with the corresponding ID
 ```
 ### Response
 #### Snippet of the response ####
-```
+```JSON
 
    Status: 200 OK
    Content-Type: application/json

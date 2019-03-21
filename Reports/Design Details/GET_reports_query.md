@@ -36,7 +36,7 @@ and furthermore `d1` must be a date before `d2`.
 ```
 ### Response
 #### Snippet of the response ####
-```
+```JSON
 
    Status: 200 OK
    Content-Type: application/json

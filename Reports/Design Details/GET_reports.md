@@ -23,7 +23,7 @@ Returns the entire list of reports
 ```
 ### Response
 #### Snippet of the response ####
-```
+```JSON
 
    Status: 200 OK
    Content-Type: application/json
