@@ -20,7 +20,7 @@ class Team extends Component {
     render() {
         return (
             <Margin>
-                <h1>idk that's enough for now</h1>
+                <h1>Meet the team</h1>
                 <div className="deck">
                     <Card name="Bailey"   url="https://i.pinimg.com/736x/42/cd/84/42cd84625ba3ed7f52c5bb81a612486d--tarot-card-art-tarot-cards.jpg"/>
                     <Card name="Nabil"    url="http://flavorwire.files.wordpress.com/2013/08/tarot__justice_by_sceithailm-d659u191.jpg"/>
