@@ -13,10 +13,10 @@ Returns a list of the reports that match the following query.
 - **key_terms** - This input contains a comma separated list of all the key terms you want to get news about.
 This input can be empty or omitted in the case where the user doesn’t want to restrict his search. This is not case sensitive.
 - **date** - A date can be either a date-exact or a date-range.
-- **date_exact** - yyyy-mm-ddThh:mm:ss format. Year is mandatory, every other segment is optional.
+    - **date_exact** - yyyy-mm-ddThh:mm:ss format. Year is mandatory, every other segment is optional.
 Use 'x' character if missing. Strings must match the following regular expression:
 `^(\d{4})-(\d\d|xx)-(\d\d|xx)T(\d\d|xx):(\d\d|xx):(\d\d|xx)$`
-- **date-range** - Let `d1` and `d2` both be of format date-exact (see section above). Then, date-range must follow format:
+    - **date-range** - Let `d1` and `d2` both be of format date-exact (see section above). Then, date-range must follow format:
 `d1 to d2`
 and furthermore `d1` must be a date before `d2`.
 

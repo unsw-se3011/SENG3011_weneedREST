@@ -1,6 +1,6 @@
 from server import app
 from flask import Flask
-from flask_restplus import Resource, Api
+from flask_restplus import Resource, Api, reqparse
 
 app = Flask(__name__)
 api = Api(app)
@@ -32,6 +32,12 @@ response ={
         ]
     }
 
+# Testing
+@api.route('/hello')
+class hello(Resource):
+    def get(self):
+        return {'hello': 'world'}
+
 # Returns all reports 
 @api.route('/allReports')
 @api.response(200: 'Success')
@@ -39,6 +45,12 @@ class allReports(Resource):
     def get(self):
         return response, 200
 
+parser = reqparse.RequestParser()
+
+parser.add_argument('n', type=int, required=True, help='n - number of results', location='headers')
+parser.add_argument('location', type=str, required=True, help='location of reports', location='headers')
+parser.add_argument('key_terms', required=True, help='list of key terms', location='headers')
+parser.add_argument('date', required=True, help='date range of reports', location='headers')
 # Returns reports specifying selected criteria
 @api.route('/reports')
 @api.response()
@@ -47,8 +59,10 @@ class specificReports(Resource):
     @api.doc(responses={'200':'Successful', '400':'Invalid Location, Key Term or Date'})
     @api.response(200: 'Success')
     @api.response(400: 'Invalid location, key term or date')
-    def get(self, n, location, key_terms, date):
-        return response
+    def get(self):
+        args = parser.parse_args()
+        print(args)
+        return response, 200
 
 # Deletes a report
 @api.route('/delete')
@@ -58,9 +72,11 @@ class delete(Resource):
     @api.response(400: 'Invalid ID')
     @api.response(404: 'Report not found')
     def delete(self, id):
-        return "deleted"
+        return response
+
 
 # Updates an existing report with form data
+# TODO - create arguments to fill in the response
 @api.route('/postReport')
 @api.doc(params={'id': 'ID of report to be posted'})
 class post(Resource):
@@ -72,12 +88,15 @@ class post(Resource):
         return "posted"
 
 # Updates an existing report
-@api.route('/updateReport')
-@api.doc(params={'id': 'ID of report'})
+# TODO - create arguments to fill in the response
+@api.route('/updateReport<string:id>')
 class updateReport(Resource):
     @api.response(200: 'Success')
     @api.response(400: 'Invalid ID')
     @api.response(404: 'Report not found')
     @api.response(405: 'Invalid data')
-    def put(self, id):
-        return "updated"
+    def post(self, id):
+        return response
+
+# PUT is for updating
+# Post is for creating
