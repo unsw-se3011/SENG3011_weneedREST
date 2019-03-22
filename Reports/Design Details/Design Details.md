@@ -34,19 +34,25 @@ This endpoint was included since the team felt like having the option to fetch a
 #### Implementation Language
 
 * **Flask-Restplus** is a lightweight, **Python** web framework that offers the same minimalistic canvas more suited towards a contained web API similar to what we are designing. It is very simple to use with its fast debugger and offers a comprehensive set of documentation and example code. Furthermore, the amount of time needed for the project is short and the team is experienced with using Flask so less time is spent learning. Flask-Restplus offers automatic swagger API documentation as well.
+We used Flask-Restplus as opposed to **eve** since it offers Swagger documentation, while eve doesn't. This was a major deciding factor in preferring Flask-Restplus over eve and other possible alternatives.
 
 * **React** will be used for the front-end of the application due to its speed and flexibility. React is able to integrate APIs directly into the front-end, which simplifies the development of our application significantly. React is also extremely well documented, which has allowed our team to pick up this relatively new technology quite quickly and be able to use it’s many benefits within our development.
+React was well known by one of our members, so we preferred it over alternatives like Angular JS primarily for this reason.
 
 #### Development and Deployment Environment
 
 * For our development environment, we have chosen to use a combination of **Mac** and **Linux**. This choice was fairly easy, because these were simply the machines that the team were using as their personal machines. All the development technologies and technologies within our stack were compatible with the machines being used, so we saw no reason to change this arrangement.
+We chose these development environments over **Windows** since all of us have experience programming with Mac and Linux, but not Windows, and not all of us have access to a Windows machine.
 
 * We are aiming for the deployment environment to be platform-agnostic, and thus be compatible with all operating systems and browsers. This will therefore need to be tested before final deployment begins. Testing and development is done on **Safari**, **Firefox developers edition**, and **Chrome**.
 
 * For storage of the outbreak data, we have chosen to use a **JSON** file instead of storing the data in a database. The main reason for this decision was because of our group's fairly limited knowledge of databases, which would increase the development time and learning curve without necessarily providing any tangible benefits to our API. This was also recommended by our mentor. As a result, the web scraper will be run manually at a specified interval, with the outbreak data being stored in a JSON file which is subsequently accessed by the API.
+JSON files were used over more complex database platforms like **SQL** precisely for its simplicity. Our database requirements are not dynamic and not complicated, so a JSON file seemed much more appropriate.
 
-* **Postman** was used for the testing of our API. Recommended by our tutor, postman allows for team collaboration when writing test cases, as well as an environment for writing, storing and running the test cases. Our current setup includes a team workspace containing all our members and tests, which allows everyone to access the environment as well as keeping it all standardised.
+* **Postman** was used for the testing of our API. Recommended by our mentor, postman allows for team collaboration when writing test cases, as well as an environment for writing, storing and running the test cases. Our current setup includes a team workspace containing all our members and tests, which allows everyone to access the environment as well as keeping it all standardised.
+Postman was preferred over **Insomnia** since it provides a documentation service that the latter doesn't offer. This was a major factor in selecting Postman over its alternatives, along with the recommendation of Postman by our mentor.
 
 #### Specific Libraries Used
 
-* The **Python Scrapy library** was used for the initial web scraping application. Scrapy allowed us to quickly and easily set up the web scraper that we used to scrape information from the Global Incident Map website. Since this was only the initial part of our task, it was decided to use this this library in order to avoid us having to spend more time creating it. Scrapy is also a well documented and widely used library that is publically available, which made development significantly easier.
+* The **Python Scrapy library** was used for the initial web scraping application. Scrapy allowed us to quickly and easily set up the web scraper that we used to scrape information from the Global Incident Map website. Since this was only the initial part of our task, it was decided to use this this library in order to avoid us having to spend more time creating it. Scrapy is also a well documented and widely used library that is publically available, which made development significantly easier. Since then, we have altered our web-scraper to a simple **Pycurl** library, since we found it more appropriately aligned with the structure of the Global Incident Map website.
+Scrapy offers much more functionality with its larger library, however due to the simplistic nature of our data source, we have decided that the vast majority of this functionality would not be useful to us, so we opted for the simpler Pycurl.
