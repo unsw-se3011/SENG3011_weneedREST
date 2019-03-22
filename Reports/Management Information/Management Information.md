@@ -31,4 +31,8 @@ Harry specialises in backend development, having been part of the backend subtea
 
 Jacob has been known to switch between frontend and backend subteams depending on need and circumstance, however he leans towards the front-end based on preference. As such, he will assist Estella in the design of the project website interface, balancing this with the writing and maintenance of any and all reports required. He is also thorough in his testing methods and is often the one who reports bugs within the project if he cannot resolve them himself.
 
-Estella’s development preferences lie within the visual design of the project and is adept at cleaning up the basic template started by the backend team into a user friendly interface. For this reason she has been assigned the role of the frontend developer and report writer. Since she will be spending a lot of time using the website, it is inevitable that she will encounter bugs regarding its performance, and consequently report them to the backend subteam if she cannot fix them herself
+Estella’s development preferences lie within the visual design of the project and is adept at cleaning up the basic template started by the backend team into a user friendly interface. For this reason she has been assigned the role of the frontend developer and report writer. Since she will be spending a lot of time using the website, it is inevitable that she will encounter bugs regarding its performance, and consequently report them to the backend subteam if she cannot fix them herself.
+
+ #### Project Timeline
+ ![alt text](https://i.gyazo.com/2bc5fb7ba71ade13dd329fb9bb2de8c1.jpg "Gantt Chart")
+
