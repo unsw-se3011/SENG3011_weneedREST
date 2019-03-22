@@ -34,7 +34,7 @@ class specificReports(Resource):
 class delete(Resource):
     @api.doc(responses={'200': 'Successful', '400':'Invalid ID', '404': 'Report not found'})
     def delete(self, id):
-        return "deleted"
+        return reports
 
 # Updates an existing report with form data
 @api.route('/postReport')
@@ -42,7 +42,7 @@ class delete(Resource):
 class postReport(Resource):
     @api.doc(responses={'200': 'Successful', '400':'Invalid ID', '404': 'Report not found', '405': 'Invalid data'})
     def post(self, id):
-        return "posted"
+        return reports
 
 # Updates an existing report
 @api.route('/updateReport')
@@ -50,4 +50,4 @@ class postReport(Resource):
 class updateReport(Resource):
     @api.doc(responses={'200': 'Successful', '400':'Invalid ID', '404': 'Report not found', '405': 'Invalid data'})
     def updateReport(self, id):
-        return "updated"
+        return reports
