@@ -31,13 +31,13 @@ This endpoint was included since the team felt like having the option to fetch a
 
 ### 3. Present and justify implementation	language,	development	and	deployment environment (e.g. Linux,	Windows) and specific	libraries	that you plan to use.
 
-#### Implementation Language
+#### Implementation Frameworks and Languages
 
-* **Flask-Restplus** is a lightweight, **Python** web framework that offers the same minimalistic canvas more suited towards a contained web API similar to what we are designing. It is very simple to use with its fast debugger and offers a comprehensive set of documentation and example code. Furthermore, the amount of time needed for the project is short and the team is experienced with using Flask so less time is spent learning. Flask-Restplus offers automatic swagger API documentation as well.
-We used Flask-Restplus as opposed to **eve** since it offers Swagger documentation, while eve doesn't. This was a major deciding factor in preferring Flask-Restplus over eve and other possible alternatives.
+* We chose to use **Python** as our back-end language due to extensive experience from past projects. This also lead to the decision to use **Flask-Restplus**, a lightweight web framework that offers the same minimalistic canvas more suited towards a contained web API similar to what we are designing. It is very simple to use with its fast debugger and offers a comprehensive set of documentation and example code. Since the amount of time needed for the project is short and the team is experienced with using Flask, less time is spent learning new technologies and more time can be spent on project development. Flask-Restplus offers automatic swagger API documentation as well.
+We chose Flask-Restplus as opposed to **eve** since it offers Swagger documentation, while eve doesn't. This was a major deciding factor in preferring Flask-Restplus over eve and other possible alternatives.
 
 * **React** will be used for the front-end of the application due to its speed and flexibility. React is able to integrate APIs directly into the front-end, which simplifies the development of our application significantly. React is also extremely well documented, which has allowed our team to pick up this relatively new technology quite quickly and be able to use it’s many benefits within our development.
-React was well known by one of our members, so we preferred it over alternatives like Angular JS primarily for this reason.
+React was well known by one of our members, so we preferred it over alternatives like Angular JS primarily for this reason. Regardless, the languages used for the front-end remain to be **JavaScript**, primarily, along with **HTML** and **CSS** (along with Bootstrap).
 
 #### Development and Deployment Environment
 
