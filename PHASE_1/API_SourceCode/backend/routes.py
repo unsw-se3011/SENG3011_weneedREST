@@ -1,6 +1,6 @@
 from server import app
 from flask import Flask
-from flask_restplus import Resource, Api, reqparse
+from flask_restplus import Resource, Api, reqparse, fields
 
 app = Flask(__name__)
 api = Api(app)
@@ -32,59 +32,111 @@ response ={
         ]
     }
 
-# Testing
+parser = reqparse.RequestParser()
+
+'''
+    Testing
+'''
 @api.route('/hello')
 class hello(Resource):
     def get(self):
         return {'hello': 'world'}
 
-# Returns all reports 
+'''
+    Returns all reports 
+'''
 @api.route('/allReports')
 class allReports(Resource):
     def get(self):
         return response, 200
+api.add_resource(allReports, '/allReports', endpoint='allReports')
 
-parser = reqparse.RequestParser()
+'''
+    Returns reports specifying selected criteria
+'''
+parser_report = parser.copy()
+parser_report.add_argument('n', type=int, help='number of results', location='args')
+parser_report.add_argument('location', type=str, required=True, help='location of reports', location='args')
+parser_report.add_argument('key_terms', type=str, required=True, help='list of key terms', location='args')
+parser_report.add_argument('start-date', type=str, required=True, help='start date of date range', location='args')
+parser_report.add_argument('end-date', type=str, required=True, help='end date of date range', location='args')
 
-parser.add_argument('n', type=int, required=True, help='n - number of results', location='headers')
-parser.add_argument('location', type=str, required=True, help='location of reports', location='headers')
-parser.add_argument('key_terms', required=True, help='list of key terms', location='headers')
-parser.add_argument('date', required=True, help='date range of reports', location='headers')
-# Returns reports specifying selected criteria
 @api.route('/reports')
-@api.doc(params={'n': 'Number of results returned', 'location':'Geocode of area affected', 'key_terms':'Comma separated list of of all key items requested by user', 'date':'Date in either date_exact or date_range format', 'date_exact':'yyyy-mm-ddThh:mm:ss. Year field mandatory, every other segment optional', 'date_range':'d1 to d2 with d1 being an exact date before d2'})
+@api.doc(params={'n': 'Number of results returned', 'location':'Geocode of area affected', 'key_terms':'Comma separated list of of all key items requested by user', 'start-date': 'start or date range (yyyy-mm-ddThh:mm:ss)',  'end-date': 'end of date range (yyyy-mm-ddThh:mm:ss)'})
 class specificReports(Resource):
     @api.doc(responses={'200':'Successful', '400':'Invalid Location, Key Term or Date'})
+    @api.doc(parser=parser_report)
     def get(self):
-        args = parser.parse_args()
-        print(args)
-        return response, 200
+        args = parser_report.parse_args()
+        if args['n'] == None:
+            args['n'] = 10
 
-# Deletes a report
+        return {'args': args, 'response': response}, 200
+api.add_resource(specificReports, '/reports', endpoint='reports')
+
+'''
+    Deletes a report
+'''
+parser_delete = parser.copy()
+parser_delete.add_argument('id', type=int, required=True, help='ID of report to be deleted', location='args')
+
 @api.route('/delete')
 @api.doc(params={'id': 'ID of report to be deleted'})
-class delete(Resource):
+class deleteReport(Resource):
     @api.doc(responses={'200': 'Successful', '400':'Invalid ID', '404': 'Report not found'})
-    def delete(self, id):
-        return response
+    @api.doc(parser=parser_delete)
+    def delete(self):
+        args = parser_delete.parse_args()
 
+        return {'args': args, 'response': response}, 200
+api.add_resource(deleteReport, '/delete', endpoint='delete')
 
-# Updates an existing report with form data
-# TODO - create arguments to fill in the response
-@api.route('/postReport')
-@api.doc(params={'id': 'ID number of report'})
-class postReport(Resource):
+'''
+    Updates an existing report with form data
+'''
+# parser.add_argument('url', type=str, required=True, help='url of the event', location='form')
+# parser.add_argument('date_of_publication', type=str, required=True, help='date of pulication (yyyy-mm-ddThh:mm:ss)', location='form')
+# parser.add_argument('headline', type=str, required=True, help='headline for the report', location='form')
+# parser.add_argument('main_text', type=str, required=True, help='main text of the event', location='form')
+parser_create = parser.copy()
+parser_create.add_argument('disease', type=str, required=True, help='comma separated list of diseases', location='form')
+parser_create.add_argument('syndrome', type=str, required=True, help='comma separated list of syndroms', location='form')
+parser_create.add_argument('type', type=str, required=True, help='the type of event e.g death, infected', location='form')
+parser_create.add_argument('location', type=int, required=True, help='geonnames id', location='form')
+parser_create.add_argument('number-affected', type=int, required=True, help='number of people affected', location='form')
+parser_create.add_argument('comment', type=str, required=True, help='comment', location='form')
+parser_create.add_argument('start-date', type=str, required=True, help='start date of date range (yyyy-mm-ddThh:mm:ss)', location='form')
+parser_create.add_argument('end-date', type=str, required=True, help='end date of date range (yyyy-mm-ddThh:mm:ss)', location='form')
+
+@api.route('/createReport')
+class createReport(Resource):
     @api.doc(responses={'200': 'Successful', '400':'Invalid ID', '404': 'Report not found', '405': 'Invalid data'})
+    @api.doc(parser=parser_create)
     def post(self):
-        return response
+        args = parser_create.parse_args()
 
-# Updates an existing report
-# TODO - create arguments to fill in the response
-@api.route('/updateReport<string:id>')
+        return {'args': args, 'response': response}, 200
+api.add_resource(createReport, '/createReport', endpoint='createReport')
+
+'''
+    Updates an existing report
+'''
+parser_update = parser_create.copy()
+parser_update.replace_argument('disease',  required=False)
+parser_update.replace_argument('syndrome',  required=False)
+parser_update.replace_argument('type',  required=False)
+parser_update.replace_argument('location',  required=False)
+parser_update.replace_argument('number-affected',  required=False)
+parser_update.replace_argument('comment',  required=False)
+parser_update.replace_argument('start-date',  required=False)
+parser_update.replace_argument('end-date',  required=False)
+
+@api.route('/updateReport')
 class updateReport(Resource):
     @api.doc(responses={'200': 'Successful', '400':'Invalid ID', '404': 'Report not found', '405': 'Invalid data'})
-    def post(self, id):
-        return response
+    @api.doc(parser=parser_update)
+    def put(self):
+        args = parser_update.parse_args()
 
-# PUT is for updating
-# Post is for creating
+        return {'args': args, 'response': response}, 200
+api.add_resource(updateReport, '/updateReport', endpoint='updateReport')
