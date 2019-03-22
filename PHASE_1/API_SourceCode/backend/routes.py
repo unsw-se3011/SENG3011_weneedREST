@@ -32,13 +32,6 @@ response ={
         ]
     }
 
-
-# Testing
-@api.route('/hello')
-class hello(Resource):
-    def get(self):
-        return {'hello': 'world'}
-
 # Returns all reports 
 @api.route('/allReports')
 @api.response(200: 'Success')
@@ -52,6 +45,8 @@ class allReports(Resource):
 @api.doc(params={'n': 'Number of results returned', 'location':'Geocode of area affected', 'key_terms':'Comma separated list of of all key items requested by user', 'date':'Date in either date_exact or date_range format', 'date_exact':'yyyy-mm-ddThh:mm:ss. Year field mandatory, every other segment optional', 'date_range':'d1 to d2 with d1 being an exact date before d2'})
 class specificReports(Resource):
     @api.doc(responses={'200':'Successful', '400':'Invalid Location, Key Term or Date'})
+    @api.response(200: 'Success')
+    @api.response(400: 'Invalid location, key term or date')
     def get(self, n, location, key_terms, date):
         return response
 
@@ -68,7 +63,7 @@ class delete(Resource):
 # Updates an existing report with form data
 @api.route('/postReport')
 @api.doc(params={'id': 'ID of report to be posted'})
-class postReport(Resource):
+class post(Resource):
     @api.response(200: 'Success')
     @api.response(400: 'Invalid ID')
     @api.response(404: 'Report not found')
@@ -80,6 +75,9 @@ class postReport(Resource):
 @api.route('/updateReport')
 @api.doc(params={'id': 'ID of report'})
 class updateReport(Resource):
-    @api.doc(responses={'200': 'Successful', '400':'Invalid ID', '404': 'Report not found', '405': 'Invalid data'})
-    def updateReport(self, id):
+    @api.response(200: 'Success')
+    @api.response(400: 'Invalid ID')
+    @api.response(404: 'Report not found')
+    @api.response(405: 'Invalid data')
+    def put(self, id):
         return "updated"
