@@ -53,7 +53,7 @@ parser = reqparse.RequestParser()
 parser_report = parser.copy()
 parser_report.add_argument('n', type=int, help='number of results', location='args')
 parser_report.add_argument('location', type=str, help='location of reports', location='args')
-parser_report.add_argument('key_terms', type=list, help='list of key terms', location='args')
+parser_report.add_argument('key_terms', type=str, help='list of key terms', location='args')
 parser_report.add_argument('start-date', type=str, help='start date of date range', location='args')
 parser_report.add_argument('end-date', type=str, help='end date of date range', location='args')
 
@@ -73,16 +73,19 @@ class reports(Resource):
 
         # Arguments supplied, return reports based on search criteria
         else:
+            # Arguments supplied by user
             num = args['n']
             location = args['location']
-            keyterms = args['key_terms']
+            keyterms = [word.strip() for word in args['key_terms'].split(',')]
             start_date = args['start-date']
             end_date = args['end-date']
 
+            # looping through each 
             newResponse = []
             tempkeyTerms = []
             reportCounter = 0
             for event in dummyResponse:
+                
                 # Location of incidents
                 tempLocation = event['reports'][0]['reported_events'][0]['location']['geonames-id'] 
                 
@@ -93,9 +96,22 @@ class reports(Resource):
                 tempkeyTerms.append(event['reports'][0]['syndrome'][0:])
                 tempkeyTerms.append(event['reports'][0]['reported_events'][0]['type'])
 
-                # Put in start and end date
-                if location == tempLocation:
+                # Test keywords
+                # for word in keyterms
+                wordMatch = False
+                for word in keyterms:
+                    for word2 in tempkeyTerms:
+                        if word in word2:
+                            wordMatch = True
+
+                print(wordMatch)
+                print(tempkeyTerms)
+                print(keyterms)
+
+                # Put in start and end date TODO
+                if location == tempLocation and wordMatch==True:
                     newResponse.append(event)
+                    reportCounter+=1
 
 
             return {'args': args, 'response': newResponse}, 300
