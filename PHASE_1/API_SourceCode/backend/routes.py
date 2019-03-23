@@ -85,7 +85,9 @@ class reports(Resource):
             tempkeyTerms = []
             reportCounter = 0
             for event in dummyResponse:
-                
+                if reportCounter >= num:
+                    break
+
                 # Location of incidents
                 tempLocation = event['reports'][0]['reported_events'][0]['location']['geonames-id'] 
                 
