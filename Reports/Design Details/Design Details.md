@@ -29,13 +29,17 @@ This endpoint was included since the team felt like having the option to fetch a
 - **[<code>PUT</code> reports/\{id\}](https://github.com/unsw-se3011/SENG3011_weneedREST/blob/documentation/Reports/Design%20Details/PUT_reports.md)**
 
 
-### 3. Present and justify implementation	language,	development	and	deployment environment (e.g. Linux,	Windows) and specific	libraries	that you plan to use.
+### 3. Present and justify implementation language,	development	and	deployment environment (e.g. Linux,	Windows) and specific	libraries	that you plan to use.
 
 #### Implementation Frameworks and Languages
 
+<<<<<<< HEAD
 * **Flask-Restplus** is a lightweight web framework that offers the same minimalistic canvas more suited towards a contained web API similar to what we are designing. It is very simple to use with its fast debugger and offers a comprehensive set of documentation and example code. Since the amount of time needed for the project is short and the team is experienced with using Flask, less time is spent learning new technologies and more time can be spent on project development. Flask-Restplus offers automatic swagger API documentation as well.
   * We chose Flask-Restplus as opposed to **eve** since it offers Swagger documentation, while eve doesn't. This was a major deciding factor in preferring Flask-Restplus over eve and other possible alternatives.
   * Subsequently, we used **Python** as our back-end language since Flask is Python-based.
+=======
+* **Flask-Restplus** is a lightweight, **Python** web framework that offers the same minimalistic canvas more suited towards a contained web API similar to what we are designing. It is very simple to use with its fast debugger and offers a comprehensive set of documentation and example code. Furthermore, the amount of time needed for the project is short and the team is experienced with using Flask so less time is spent learning. Flask-Restplus offers automatic **Swagger** API documentation as well.
+>>>>>>> backend-flask
 
 * **React** will be used for the front-end of the application due to its speed and flexibility. React is able to integrate APIs directly into the front-end, which simplifies the development of our application significantly. React is also extremely well documented, which has allowed our team to pick up this relatively new technology quite quickly and be able to use it’s many benefits within our development. 
   * Additionally, it is well known by one of our members, so we preferred it over alternatives like Angular JS primarily for this reason. 
@@ -56,5 +60,9 @@ Postman was preferred over **Insomnia** since it provides a documentation servic
 
 #### Specific Libraries Used
 
+<<<<<<< HEAD
 * The **Python Scrapy library** was used for the initial web scraping application. Scrapy allowed us to quickly and easily set up the web scraper that we used to scrape information from the Global Incident Map website. Since this was only the initial part of our task, it was decided to use this this library in order to avoid us having to spend more time creating it. Scrapy is also a well documented and widely used library that is publically available, which made development significantly easier. Since then, we have altered our web-scraper to a simple **Pycurl** library, since we found it more appropriately aligned with the structure of the Global Incident Map website.
 Scrapy offers much more functionality with its larger library, however due to the simplistic nature of our data source, we have decided that the vast majority of this functionality would not be useful to us, so we opted for the simpler Pycurl.
+=======
+* Initially, up until the second deliverable, our team was using the Python **Scrapy** library to extract the raw HTML from the Global Incidents Map page. However, as we started developing the web scraper and API, we realised that the library was a bit excessive for what we were using it for. Since our data source has all the data on a single page, we have no need to crawl through many pages, and as such a simple **Pycurl** request would essentially serve the same task for our project. In terms of ease of use, Pycurl has been even easier to use than scrapy, as there is much less complexity involved and it is a much simpler process. This is evidenced by the fact that we are able to get the same job done in a few lines of code that scrapy required many separate files for. As a result, we have been able to remove al the required folders and files that Scrapy required for use, which has made our program much simpler and efficient. It has also reduced the time it has taken us to get a working prototype.
+>>>>>>> backend-flask
