@@ -85,6 +85,7 @@ class reports(Resource):
             tempkeyTerms = []
             reportCounter = 0
             for event in dummyResponse:
+                # Check for amount of reports added
                 if reportCounter >= num:
                     break
 
@@ -114,7 +115,6 @@ class reports(Resource):
                 if location == tempLocation and wordMatch==True:
                     newResponse.append(event)
                     reportCounter+=1
-
 
             return {'args': args, 'response': newResponse}, 300
 #api.add_resource(reports, '/reports', endpoint='reports')
