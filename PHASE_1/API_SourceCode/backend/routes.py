@@ -6,7 +6,7 @@ app = Flask(__name__)
 api = Api(app)
 
 # Create dummy data here
-response ={
+dummyResponse =[{
         "url": "www.outbreaks.globalincidentmap.com/eventdetail.php?ID=31146",
         "date_of_publication": "2019-02-27T23:20:00 ",
         "headline": "TANZANIA - Anthrax kills two people in northern Tanzania",
@@ -30,9 +30,12 @@ response ={
                 "Comment": 'null'
             }
         ]
-    }
+    }]
 
 parser = reqparse.RequestParser()
+# print("TESTING")
+# print(dummyResponse[0]['reports'][0]['reported_events'][0]['location']['geonames-id'])
+
 
 '''
     Returns all reports 
@@ -50,12 +53,12 @@ parser = reqparse.RequestParser()
 parser_report = parser.copy()
 parser_report.add_argument('n', type=int, help='number of results', location='args')
 parser_report.add_argument('location', type=str, help='location of reports', location='args')
-parser_report.add_argument('key_terms', type=str, help='list of key terms', location='args')
+parser_report.add_argument('key_terms', type=list, help='list of key terms', location='args')
 parser_report.add_argument('start-date', type=str, help='start date of date range', location='args')
 parser_report.add_argument('end-date', type=str, help='end date of date range', location='args')
 
 @api.route('/reports')
-@api.doc(params={'n': 'Number of results returned', 'location':'Geocode of area affected', 'key_terms':'Comma separated list of of all key items requested by user', 'date':'Date in either date_exact or date_range format', 'date_exact':'yyyy-mm-ddThh:mm:ss. Year field mandatory, every other segment optional', 'date_range':'d1 to d2 with d1 being an exact date before d2'})
+@api.doc(params={'n': 'Number of results returned', 'location':'Geocode of area affected', 'key_terms':'Comma separated list of of all key items requested by user', 'start-date':'Starting date of reports', 'end-date':'Ending date or reports'})
 class reports(Resource):
     @api.response(200, 'Success')
     @api.response(400, 'Invalid location, key term or date')
@@ -66,11 +69,36 @@ class reports(Resource):
         # No arguments supplied, return all records
         if all(argument == None for argument in args.values()):
             print(args)
-            return response, 200
+            return dummyResponse, 200
 
         # Arguments supplied, return reports based on search criteria
         else:
-            return {'args': args, 'response': response}, 300
+            num = args['n']
+            location = args['location']
+            keyterms = args['key_terms']
+            start_date = args['start-date']
+            end_date = args['end-date']
+
+            newResponse = []
+            tempkeyTerms = []
+            reportCounter = 0
+            for event in dummyResponse:
+                # Location of incidents
+                tempLocation = event['reports'][0]['reported_events'][0]['location']['geonames-id'] 
+                
+                # Add all searchable terms to list
+                tempkeyTerms.append(event['headline'])
+                tempkeyTerms.append(event['main_text'])
+                tempkeyTerms.append(event['reports'][0]['disease'][0:])
+                tempkeyTerms.append(event['reports'][0]['syndrome'][0:])
+                tempkeyTerms.append(event['reports'][0]['reported_events'][0]['type'])
+
+                # Put in start and end date
+                if location == tempLocation:
+                    newResponse.append(event)
+
+
+            return {'args': args, 'response': newResponse}, 300
 #api.add_resource(reports, '/reports', endpoint='reports')
 
 '''
