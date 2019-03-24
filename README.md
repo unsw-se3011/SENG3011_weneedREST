@@ -17,4 +17,7 @@ In the first deliverable, all the management documentation and implementation pl
 The decisions our team has made in regards to meeting schedules and roles are all outlined in our Management information markdown file. 
 
 ## Deliverable Two - A
-TODO - Outline what is due in Deliverable 2
+The following things were completed in deliverable two:
+1. API deployed as a REST web service via Digital Ocean droplet.
+2. Able to make requests to the API using the Swagger interface. This can be accessed from the url: http://104.248.30.17:5000/
+3. Generates output file / response which can be viewed through Swagger
