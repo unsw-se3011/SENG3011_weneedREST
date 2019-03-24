@@ -201,5 +201,8 @@ class updateReport(Resource):
     def put(self):
         args = parser_update.parse_args()
 
+        # Search for report
+        
+
         return {'args': args, 'response': dummyResponse}, 200
 api.add_resource(updateReport, '/updateReport', endpoint='updateReport')
