@@ -167,10 +167,10 @@ class createReport(Resource):
     def post(self):
         args = parser_create.parse_args()
 
-        dummyResponse['headline'] = args['headline']
-        dummyResponse['main_text'] = args['main_text']
-        dummyResponse['reports'][0]['disease'] = args['disease'].split(',')
-        dummyResponse['resports']['syndrome']
+        dummyResponse[0]['headline'] = args['headline']
+        dummyResponse[0]['main_text'] = args['main_text']
+        dummyResponse[0]['reports'][0]['disease'] = args['disease'].split(',')
+        dummyResponse[0]['resports']['syndrome']
         return dummyResponse, 200
 api.add_resource(createReport, '/createReport', endpoint='createReport')
 
