@@ -249,7 +249,8 @@ class updateReport(Resource):
                     event['reports'][0]['reported-events'][0]['number-affected'] = inputNumberAffected
                 if inputComment is not None:
                     event['reports'][0]['comment'] = inputComment
-                #if inputStartDate is not None:
+                if inputStartDate is not None and inputEnddate is not None:
+                    event['reports'][0]['reported_events'][0]['date'] = f"{args['start-date']} to {args['end-date']}"
 
 
         return {'args': args, 'response': dummyResponse}, 200
