@@ -7,7 +7,7 @@ api = Api(app)
 
 # Create dummy data here
 dummyResponse =[{
-        'id': '0',
+        "id": 0,
         "url": "www.outbreaks.globalincidentmap.com/eventdetail.php?ID=31146",
         "date_of_publication": "2019-02-27T23:20:00 ",
         "headline": "TANZANIA - Anthrax kills two people in northern Tanzania",
@@ -170,18 +170,23 @@ class createReport(Resource):
 
         n = -1
         for article in dummyResponse:
-            if article['id']
-            dummyResponse[0]['headline'] = args['headline']
-            dummyResponse[0]['main_text'] = args['main_text']
-            dummyResponse[0]['reports'][0]['disease'] = args['disease'].split(',')
-            dummyResponse[0]['resports'][0]['syndrome'] = args['syndrome'].split(',')
-            dummyResponse[0]['resports'][0]['reported_events'][0]['type'] = args['type']
-            dummyResponse[0]['resports'][0]['reported_events'][0]['date'] = f"{args['start-date']} to {args['end-date']}"
-            dummyResponse[0]['resports'][0]['reported_events'][0]['location']['geonames-id'] = args['geonames-id'] 
-            dummyResponse[0]['resports'][0]['reported_events'][0]['number-affected'] = args['number-affected']
-            dummyResponse[0]['resports'][0]['comment'] = args['comment']
+            if article['id'] > n:
+                n = article['id']
+        n = n+1
 
-        return dummyResponse, 200
+        newReport = dummyResponse[0]
+        newReport['id'] = n
+        newReport['headline'] = args['headline']
+        newReport['main_text'] = args['main_text']
+        newReport['reports'][0]['disease'] = args['disease'].split(',')
+        newReport['resports'][0]['syndrome'] = args['syndrome'].split(',')
+        newReport['resports'][0]['reported_events'][0]['type'] = args['type']
+        newReport['resports'][0]['reported_events'][0]['date'] = f"{args['start-date']} to {args['end-date']}"
+        newReport['resports'][0]['reported_events'][0]['location']['geonames-id'] = args['geonames-id'] 
+        newReport['resports'][0]['reported_events'][0]['number-affected'] = args['number-affected']
+        newReport['resports'][0]['comment'] = args['comment']
+
+        return newReport, 200
 api.add_resource(createReport, '/createReport', endpoint='createReport')
 
 '''
