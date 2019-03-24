@@ -12,21 +12,18 @@ We have also chosen to use **DigitalOcean** to host the API for the web service 
 ### 2. Discuss your	current thinking about how parameters can be passed to your module and how results are collected. Show an example of a possible interaction.
 
 #### API Endpoints
-*List all reports*
-- **[<code>GET</code> reports](https://github.com/unsw-se3011/SENG3011_weneedREST/blob/documentation/Reports/Design%20Details/GET_reports.md)**
-This endpoint was included since the team felt like having the option to fetch all available reports might be a useful feature for some types of users, as well as for testing purposes. Although the user has the option of finding the reports they want using the specific search, this search will allow users to get the entire report base and then manually filter from there.
-
 *Find all reports matching the query values*
-- **[<code>GET</code> reports?{location}&{key_terms}&{date}](https://github.com/unsw-se3011/SENG3011_weneedREST/blob/documentation/Reports/Design%20Details/GET_reports_query.md)**
+- **[<code>GET</code> /SearchReports](https://github.com/unsw-se3011/SENG3011_weneedREST/blob/documentation/Reports/Design%20Details/GET_reports_query.md)** 
+   <br/><small>*If no filter options are given the API will assume the user wants to return all reports.</small>
 
 *Deletes a report*
-- **[<code>DELETE</code> reports/\{id\}](https://github.com/unsw-se3011/SENG3011_weneedREST/blob/documentation/Reports/Design%20Details/DELETE_reports.md)**
+- **[<code>DELETE</code> delete?{id}](https://github.com/unsw-se3011/SENG3011_weneedREST/blob/documentation/Reports/Design%20Details/DELETE_reports.md)**
 
 *Updates an existing report with form data*
-- **[<code>POST</code> reports/\{id\}](https://github.com/unsw-se3011/SENG3011_weneedREST/blob/documentation/Reports/Design%20Details/POST_reports.md)**
+- **[<code>POST</code> createReport](https://github.com/unsw-se3011/SENG3011_weneedREST/blob/documentation/Reports/Design%20Details/POST_reports.md)**
 
 *Updates an existing report*
-- **[<code>PUT</code> reports/\{id\}](https://github.com/unsw-se3011/SENG3011_weneedREST/blob/documentation/Reports/Design%20Details/PUT_reports.md)**
+- **[<code>PUT</code> updateReport](https://github.com/unsw-se3011/SENG3011_weneedREST/blob/documentation/Reports/Design%20Details/PUT_reports.md)**
 
 
 ### 3. Present and justify implementation language,	development	and	deployment environment (e.g. Linux,	Windows) and specific	libraries	that you plan to use.
@@ -56,9 +53,5 @@ Postman was preferred over **Insomnia** since it provides a documentation servic
 
 #### Specific Libraries Used
 
-<<<<<<< HEAD
-* The **Python Scrapy library** was used for the initial web scraping application. Scrapy allowed us to quickly and easily set up the web scraper that we used to scrape information from the Global Incident Map website. Since this was only the initial part of our task, it was decided to use this this library in order to avoid us having to spend more time creating it. Scrapy is also a well documented and widely used library that is publically available, which made development significantly easier. Since then, we have altered our web-scraper to a simple **Pycurl** library, since we found it more appropriately aligned with the structure of the Global Incident Map website.
-Scrapy offers much more functionality with its larger library, however due to the simplistic nature of our data source, we have decided that the vast majority of this functionality would not be useful to us, so we opted for the simpler Pycurl.
-=======
 * Initially, up until the second deliverable, our team was using the Python **Scrapy** library to extract the raw HTML from the Global Incidents Map page. However, as we started developing the web scraper and API, we realised that the library was a bit excessive for what we were using it for. Since our data source has all the data on a single page, we have no need to crawl through many pages, and as such a simple **Pycurl** request would essentially serve the same task for our project. In terms of ease of use, Pycurl has been even easier to use than scrapy, as there is much less complexity involved and it is a much simpler process. This is evidenced by the fact that we are able to get the same job done in a few lines of code that scrapy required many separate files for. As a result, we have been able to remove al the required folders and files that Scrapy required for use, which has made our program much simpler and efficient. It has also reduced the time it has taken us to get a working prototype.
->>>>>>> backend-flask
+

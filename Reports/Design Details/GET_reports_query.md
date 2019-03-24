@@ -2,7 +2,7 @@
 
 Usage
 ```
-   GET /SearchReports?{location}&{key_terms}&{date}
+   GET /searchReports
 ```
 ## Description
 Returns a list of the reports that match the following query.
@@ -42,6 +42,7 @@ and furthermore `d1` must be a date before `d2`.
    Content-Type: application/json
 
    {
+       "id": 1,
        "url": "www.outbreaks.globalincidentmap.com/eventdetail.php?ID=31146",
        "date_of_publication": "2019-02-27T23:20:00 ",
        "headline": "TANZANIA - Anthrax kills two people in northern Tanzania",

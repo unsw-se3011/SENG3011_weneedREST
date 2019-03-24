@@ -2,7 +2,7 @@
 
 Usage
 ```
-   PUT /reports/{id}
+   PUT /updateReports
 ```
 ## Description
 Updates an existing report with the corresponding ID

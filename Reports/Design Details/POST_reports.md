@@ -2,13 +2,13 @@
 
 Usage
 ```
-   POST /reports/{id}
+   POST /createReports
 ```
 ## Description
 Creates a new report with the corresponding ID
 
 ## Parameters
-- **id (required)** - ID of the Report
+- **id (required)** - ID of the Report <code>- change</code>
 
 ## Codes
 

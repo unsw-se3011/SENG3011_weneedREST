@@ -2,7 +2,7 @@
 
 Usage
 ```
-   DELETE /reports/{id}
+   DELETE /delete
 ```
 ## Description
 Deletes a report with the corresponding ID
@@ -35,7 +35,7 @@ Returns JSON data which contain the following keys:
 ``` json
    {
       "status":200,
-      "message":"Successful"
+      "message":"Successful",
       "error":"null"
    }
 ```
