@@ -147,16 +147,16 @@ api.add_resource(deleteReport, '/delete', endpoint='delete')
 # parser.add_argument('url', type=str, required=True, help='url of the event', location='form')
 # parser.add_argument('date_of_publication', type=str, required=True, help='date of pulication (yyyy-mm-ddThh:mm:ss)', location='form')
 parser_create = parser.copy()
-parser_create.add_argument('headline', type=str, required=True, help='headline for the report', location='form')
-parser_create.add_argument('main_text', type=str, required=True, help='main text of the event', location='form')
-parser_create.add_argument('disease', type=str, required=True, help='comma separated list of diseases', location='form')
-parser_create.add_argument('syndrome', type=str, required=False, help='comma separated list of syndroms', location='form')
-parser_create.add_argument('type', type=str, required=True, help='the type of event e.g death, infected', location='form')
-parser_create.add_argument('geonames-id', type=int, required=True, help='geonnames id', location='form')
-parser_create.add_argument('number-affected', type=int, required=True, help='number of people affected', location='form')
-parser_create.add_argument('comment', type=str, required=False, help='comment', location='form')
-parser_create.add_argument('start-date', type=str, required=True, help='start date of date range (yyyy-mm-ddThh:mm:ss)', location='form')
-parser_create.add_argument('end-date', type=str, required=True, help='end date of date range (yyyy-mm-ddThh:mm:ss)', location='form')
+parser_create.add_argument('headline', type=str, required=True, help='headline for the report', location='args')
+parser_create.add_argument('main_text', type=str, required=True, help='main text of the event', location='args')
+parser_create.add_argument('disease', type=str, required=True, help='comma separated list of diseases', location='args')
+parser_create.add_argument('syndrome', type=str, required=False, help='comma separated list of syndroms', location='args')
+parser_create.add_argument('type', type=str, required=True, help='the type of event e.g death, infected', location='args')
+parser_create.add_argument('geonames-id', type=int, required=True, help='geonnames id', location='args')
+parser_create.add_argument('number-affected', type=int, required=True, help='number of people affected', location='args')
+parser_create.add_argument('comment', type=str, required=False, help='comment', location='args')
+parser_create.add_argument('start-date', type=str, required=True, help='start date of date range (yyyy-mm-ddThh:mm:ss)', location='args')
+parser_create.add_argument('end-date', type=str, required=True, help='end date of date range (yyyy-mm-ddThh:mm:ss)', location='args')
 
 @api.route('/createReport')
 class createReport(Resource):
@@ -178,13 +178,13 @@ class createReport(Resource):
         newReport['id'] = n
         newReport['headline'] = args['headline']
         newReport['main_text'] = args['main_text']
-        newReport['reports'][0]['disease'] = args['disease'].split(',')
-        newReport['resports'][0]['syndrome'] = args['syndrome'].split(',')
-        newReport['resports'][0]['reported_events'][0]['type'] = args['type']
-        newReport['resports'][0]['reported_events'][0]['date'] = f"{args['start-date']} to {args['end-date']}"
-        newReport['resports'][0]['reported_events'][0]['location']['geonames-id'] = args['geonames-id'] 
-        newReport['resports'][0]['reported_events'][0]['number-affected'] = args['number-affected']
-        newReport['resports'][0]['comment'] = args['comment']
+        newReport['reports'][0]['disease'] = list( map(lambda x : x.strip(), args['disease'].split(',')) )
+        newReport['reports'][0]['syndrome'] = list( map(lambda x : x.strip(), args['syndrome'].split(',')) )
+        newReport['reports'][0]['reported_events'][0]['type'] = args['type']
+        newReport['reports'][0]['reported_events'][0]['date'] = f"{args['start-date']} to {args['end-date']}"
+        newReport['reports'][0]['reported_events'][0]['location']['geonames-id'] = args['geonames-id'] 
+        newReport['reports'][0]['reported_events'][0]['number-affected'] = args['number-affected']
+        newReport['reports'][0]['Comment'] = args['comment']
 
         return newReport, 200
 api.add_resource(createReport, '/createReport', endpoint='createReport')
