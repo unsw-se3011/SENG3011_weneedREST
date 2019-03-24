@@ -178,6 +178,8 @@ api.add_resource(createReport, '/createReport', endpoint='createReport')
     Updates an existing report
 '''
 parser_update = parser_create.copy()
+parser_update.replace_argument('headline', required=False)
+parser_update.replace_argument('main_text', required=False)
 parser_update.replace_argument('disease',  required=False)
 parser_update.replace_argument('syndrome',  required=False)
 parser_update.replace_argument('type',  required=False)
