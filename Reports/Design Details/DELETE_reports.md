@@ -28,7 +28,7 @@ Returns JSON data which contain the following keys:
 
 ### Request
 ```
-   curl http://exampleapi.com/reports/31146 -X "DELETE" -H "Content-Type: application/json"
+   curl -X DELETE "http://104.248.30.17:5000/delete?id=5" -H  "accept: application/json"
 ```
 ### Response
 #### Snippet of the response ####

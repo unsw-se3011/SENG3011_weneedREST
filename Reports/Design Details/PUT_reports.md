@@ -23,7 +23,7 @@ Updates an existing report with the corresponding ID
 
 ### Request
 ```
-   curl http://exampleapi.com/reports/31146 -X "PUT" -d "{"headline": "Tanzania - Anthrax kills two people in northern Tanzania"}" -H "Content-Type: application/json"
+   curl -X PUT "http://104.248.30.17:5000/updateReport?id=8&headline=headline&main_text=main_text&disease=disease&syndrome=syndrome&type=type&geonames-id=1234567&number-affected=55&comment=Bad%20spread&start-date=2019-08-12&end-date=2019-08-19" -H  "accept: application/json"
 ```
 ### Response
 #### Snippet of the response ####
@@ -33,28 +33,46 @@ Updates an existing report with the corresponding ID
    Content-Type: application/json
 
    {
-       "url": "www.outbreaks.globalincidentmap.com/eventdetail.php?ID=31146",
-       "date_of_publication": "2019-02-27T23:20:00 ",
-       "headline": "Tanzania - Anthrax kills two people in northern Tanzania"
-       "main_text": "2 people died and 8 others were hospitalized following an anthrax outbreak...",
-       "reports": [
-           {
-               "disease": [
-                   "anthrax",
-               ],
-               "syndrome": [],
-               "reported_events": [
-                   {
-                       "type": "death",
-                       "date": "2018-12-01T23:20:00 to 2018-12-10T23:50:00",
-                       "location": {
-                           "geonames-id": 1566083
-                       },
-                       "number-affected": 2
-                   },
-               ],
-               "Comment": null
-           }
-       ]
-   }
+      "args": {
+        "id": 8,
+        "headline": "headline",
+        "main_text": "main_text",
+        "disease": "disease",
+        "syndrome": "syndrome",
+        "type": "type",
+        "geonames-id": "1234567",
+        "number-affected": "55",
+        "comment": "Bad spread",
+        "start-date": "2019-08-12",
+        "end-date": "2019-08-19"
+      },
+      "response": [
+        {
+          "id": 3,
+          "url": "www.outbreaks.globalincidentmap.com/eventdetail.php?ID=31146",
+          "date_of_publication": "2019-02-27T23:20:00 ",
+          "headline": "headline",
+          "main_text": "main_text",
+          "reports": [
+            {
+              "disease": [
+                "disease"
+              ],
+              "syndrome": [],
+              "reported_events": [
+                {
+                  "type": "type",
+                  "date": "2019-08-12 to 2019-08-19",
+                  "location": {
+                    "geonames-id": 1234567
+                  },
+                  "number-affected": 55
+                }
+              ],
+              "Comment": "Null"
+            }
+          ]
+        }
+      ]
+    }
 ```
