@@ -2,7 +2,7 @@
 
 Usage
 ```
-   GET /reports?{location}&{key_terms}&{date}
+   GET /SearchReports?{location}&{key_terms}&{date}
 ```
 ## Description
 Returns a list of the reports that match the following query.

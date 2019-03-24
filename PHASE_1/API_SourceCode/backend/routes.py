@@ -7,7 +7,7 @@ api = Api(app)
 
 # Create dummy data here
 dummyResponse =[{
-        "id": "1",
+        "id": 1,
         "url": "www.outbreaks.globalincidentmap.com/eventdetail.php?ID=31146",
         "date_of_publication": "2019-02-27T23:20:00 ",
         "headline": "TANZANIA - Anthrax kills two people in northern Tanzania",
@@ -23,7 +23,7 @@ dummyResponse =[{
                         "type": "death",
                         "date": "2018-12-01T23:20:00 to 2018-12-10T23:50:00",
                         "location": {
-                            "geonames-id": "1566083"
+                            "geonames-id": 1566083
                         },
                         "number-affected": "2"
                     },
@@ -34,93 +34,64 @@ dummyResponse =[{
     }]
 
 parser = reqparse.RequestParser()
-# print("TESTING")
-# print(dummyResponse[0]['reports'][0]['reported_events'][0]['location']['geonames-id'])
-
-
-'''
-    Returns all reports 
-'''
-# @api.route('/reports')
-# class allReports(Resource):
-#     @api.response(200, 'Success')
-#     def get(self):
-#         return response, 200
-# api.add_resource(allReports, '/allReports', endpoint='allReports')
 
 '''
     Returns reports specifying selected criteria
 '''
 parser_report = parser.copy()
-parser_report.add_argument('n', type=int, help='number of results', location='args')
-parser_report.add_argument('location', type=str, help='location of reports', location='args')
+parser_report.add_argument('n', type=int, help='Max number of results', location='args')
+parser_report.add_argument('location', type=int, help='Geocode of area affected', location='args')
 parser_report.add_argument('key_terms', type=str, help='list of key terms', location='args')
 parser_report.add_argument('start-date', type=str, help='start date of date range', location='args')
 parser_report.add_argument('end-date', type=str, help='end date of date range', location='args')
 
-@api.route('/reports')
-@api.doc(params={'n': 'Number of results returned', 'location':'Geocode of area affected', 'key_terms':'Comma separated list of of all key items requested by user', 'start-date':'Starting date of reports', 'end-date':'Ending date or reports'})
-class reports(Resource):
-    @api.response(200, 'Success')
+def searchKeyTerms(event):
+    args = parser_report.parse_args()
+    keyterms = [word.strip() for word in args['key_terms'].split(',')]
+    
+    tempkeyTerms = []
+    tempkeyTerms.append(event['headline'])
+    tempkeyTerms.append(event['main_text'])
+    tempkeyTerms.append(event['reports'][0]['disease'][0:])
+    tempkeyTerms.append(event['reports'][0]['syndrome'][0:])
+    tempkeyTerms.append(event['reports'][0]['reported_events'][0]['type'])
+
+    # Test keywords
+    # for word in keyterms
+    for word in keyterms:
+        for word2 in tempkeyTerms:
+            if word in word2:
+                return True
+    return False
+
+@api.route('/SearchReports')
+@api.doc(params={'n': 'Number of results returned (max is 10)', 'location':'Geocode of area affected', 'key_terms':'Comma separated list of of all key items requested by user', 'start-date':'Starting date of reports', 'end-date':'Ending date or reports'})
+class filterReports(Resource):
+    @api.response(200, 'Success - All reports')
+    @api.response(300, 'Success - Filtered reports returned')
     @api.response(400, 'Invalid location, key term or date')
     @api.doc(parser=parser_report)
     def get(self):
         args = parser_report.parse_args()
-        
-        # No arguments supplied, return all records
-        if all(argument == None for argument in args.values()):
-            print(args)
-            return dummyResponse, 200
 
-        # Arguments supplied, return reports based on search criteria
-        else:
-            # Arguments supplied by user
-            num = args['n']
-            location = args['location']
-            keyterms = [word.strip() for word in args['key_terms'].split(',')]
-            start_date = args['start-date']
-            end_date = args['end-date']
+        newResponse = dummyResponse
 
-            # looping through each 
-            newResponse = []
-            tempkeyTerms = []
-            reportCounter = 0
-            for event in dummyResponse:
-                # Check for amount of reports added
-                if reportCounter >= num:
-                    break
+        n = 10 if args['n'] is None or args['n'] > 10 else args['n'] 
 
-                # Location of incidents
-                tempLocation = event['reports'][0]['reported_events'][0]['location']['geonames-id'] 
-                
-                # Add all searchable terms to list
-                tempkeyTerms.append(event['headline'])
-                tempkeyTerms.append(event['main_text'])
-                tempkeyTerms.append(event['reports'][0]['disease'][0:])
-                tempkeyTerms.append(event['reports'][0]['syndrome'][0:])
-                tempkeyTerms.append(event['reports'][0]['reported_events'][0]['type'])
+        if n < 0: 
+            return [], 200
 
-                # Test keywords
-                # for word in keyterms
-                wordMatch = False
-                for word in keyterms:
-                    for word2 in tempkeyTerms:
-                        if word in word2:
-                            wordMatch = True
+        if args['key_terms'] is not None:
+            newResponse = list( filter(searchKeyTerms, newResponse) )
 
-                print(wordMatch)
-                print(tempkeyTerms)
-                print(keyterms)
+        if args['location'] is not None:
+            newResponse = list( filter(lambda x : x['reports'][0]['reported_events'][0]['location']['geonames-id'] == args['location'], newResponse))
 
-                # Put in start and end date TODO
-                if location == tempLocation and wordMatch==True:
-                    newResponse.append(event)
-                    reportCounter+=1
+        newResponse = newResponse[:n]
 
-            return {'args': args, 'response': newResponse}, 300
-#api.add_resource(reports, '/reports', endpoint='reports')
+        return newResponse, 200
 
-
+api.add_resource(filterReports, '/SearchReports')
 
 '''
     Deletes a report
@@ -179,12 +150,12 @@ class createReport(Resource):
         newReport['headline'] = args['headline']
         newReport['main_text'] = args['main_text']
         newReport['reports'][0]['disease'] = list( map(lambda x : x.strip(), args['disease'].split(',')) )
-        newReport['reports'][0]['syndrome'] = list( map(lambda x : x.strip(), args['syndrome'].split(',')) )
+        newReport['reports'][0]['syndrome'] = list( map(lambda x : x.strip(), args['syndrome'].split(',')) ) if args['syndrome'] is not None else [] 
         newReport['reports'][0]['reported_events'][0]['type'] = args['type']
         newReport['reports'][0]['reported_events'][0]['date'] = f"{args['start-date']} to {args['end-date']}"
         newReport['reports'][0]['reported_events'][0]['location']['geonames-id'] = args['geonames-id'] 
         newReport['reports'][0]['reported_events'][0]['number-affected'] = args['number-affected']
-        newReport['reports'][0]['Comment'] = args['comment']
+        newReport['reports'][0]['Comment'] = args['comment'] if args['comment'] else 'Null'
 
         return newReport, 200
 api.add_resource(createReport, '/createReport', endpoint='createReport')
