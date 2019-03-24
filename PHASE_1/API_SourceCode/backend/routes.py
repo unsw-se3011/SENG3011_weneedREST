@@ -170,7 +170,8 @@ class createReport(Resource):
         dummyResponse[0]['headline'] = args['headline']
         dummyResponse[0]['main_text'] = args['main_text']
         dummyResponse[0]['reports'][0]['disease'] = args['disease'].split(',')
-        dummyResponse[0]['resports']['syndrome']
+        dummyResponse[0]['resports'][0]['syndrome'] = args['syndrome'].split(',')
+        dummyResponse[0]['resports'][0]['reported_events'][0]
         return dummyResponse, 200
 api.add_resource(createReport, '/createReport', endpoint='createReport')
 
@@ -178,6 +179,7 @@ api.add_resource(createReport, '/createReport', endpoint='createReport')
     Updates an existing report
 '''
 parser_update = parser_create.copy()
+parser_update.add_argument('id', type=int, required=True, help="ID of report to update", location='args')
 parser_update.replace_argument('headline', required=False)
 parser_update.replace_argument('main_text', required=False)
 parser_update.replace_argument('disease',  required=False)
