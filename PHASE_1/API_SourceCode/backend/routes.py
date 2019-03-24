@@ -7,6 +7,7 @@ api = Api(app)
 
 # Create dummy data here
 dummyResponse =[{
+        'id': '0',
         "url": "www.outbreaks.globalincidentmap.com/eventdetail.php?ID=31146",
         "date_of_publication": "2019-02-27T23:20:00 ",
         "headline": "TANZANIA - Anthrax kills two people in northern Tanzania",
@@ -210,6 +211,10 @@ class updateReport(Resource):
     @api.doc(parser=parser_update)
     def put(self):
         args = parser_update.parse_args()
+
+        # Search for report
+
+
 
         return {'args': args, 'response': dummyResponse}, 200
 api.add_resource(updateReport, '/updateReport', endpoint='updateReport')
