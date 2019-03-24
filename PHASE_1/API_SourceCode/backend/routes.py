@@ -167,11 +167,19 @@ class createReport(Resource):
     def post(self):
         args = parser_create.parse_args()
 
-        dummyResponse[0]['headline'] = args['headline']
-        dummyResponse[0]['main_text'] = args['main_text']
-        dummyResponse[0]['reports'][0]['disease'] = args['disease'].split(',')
-        dummyResponse[0]['resports'][0]['syndrome'] = args['syndrome'].split(',')
-        dummyResponse[0]['resports'][0]['reported_events'][0]
+        n = -1
+        for article in dummyResponse:
+            if article['id']
+            dummyResponse[0]['headline'] = args['headline']
+            dummyResponse[0]['main_text'] = args['main_text']
+            dummyResponse[0]['reports'][0]['disease'] = args['disease'].split(',')
+            dummyResponse[0]['resports'][0]['syndrome'] = args['syndrome'].split(',')
+            dummyResponse[0]['resports'][0]['reported_events'][0]['type'] = args['type']
+            dummyResponse[0]['resports'][0]['reported_events'][0]['date'] = f"{args['start-date']} to {args['end-date']}"
+            dummyResponse[0]['resports'][0]['reported_events'][0]['location']['geonames-id'] = args['geonames-id'] 
+            dummyResponse[0]['resports'][0]['reported_events'][0]['number-affected'] = args['number-affected']
+            dummyResponse[0]['resports'][0]['comment'] = args['comment']
+
         return dummyResponse, 200
 api.add_resource(createReport, '/createReport', endpoint='createReport')
 
@@ -185,7 +193,7 @@ parser_update.replace_argument('main_text', required=False)
 parser_update.replace_argument('disease',  required=False)
 parser_update.replace_argument('syndrome',  required=False)
 parser_update.replace_argument('type',  required=False)
-parser_update.replace_argument('location',  required=False)
+parser_update.replace_argument('geonames-id',  required=False)
 parser_update.replace_argument('number-affected',  required=False)
 parser_update.replace_argument('comment',  required=False)
 parser_update.replace_argument('start-date',  required=False)
