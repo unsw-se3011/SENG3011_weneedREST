@@ -7,7 +7,7 @@ api = Api(app)
 
 # Create dummy data here
 dummyResponse =[{
-        "id": 0,
+        "id": "1",
         "url": "www.outbreaks.globalincidentmap.com/eventdetail.php?ID=31146",
         "date_of_publication": "2019-02-27T23:20:00 ",
         "headline": "TANZANIA - Anthrax kills two people in northern Tanzania",
@@ -217,8 +217,39 @@ class updateReport(Resource):
     def put(self):
         args = parser_update.parse_args()
 
-        # Search for report
+        inputId = args['id']
+        inputHeadline = args['headline']
+        inputMainText = args['main_text']
+        inputDisease = args['disease']
+        inputSyndrome = args['syndrome']
+        inputType = args['type']
+        inputGeonames = args['geonames-id']
+        inputNumberAffected = args['number-affected']
+        inputComment = args['comment']
+        inputStartDate = args['start-date']
+        inputEnddate = args['end-date']
 
+        # Search for report
+        for event in dummyResponse:
+            if event['id'] == id:
+                if inputHeadline is not None:
+                    print("WOOOOOOO")
+                    event['headline'] = inputHeadline
+                if inputMainText is not None:
+                    event['main-text'] = inputMainText
+                if inputDisease is not None:
+                    event['reports'][0]['disease'].append(inputDisease)
+                if inputSyndrome is not None:
+                    event['reports'][0]['syndrome'].append(inputSyndrome)
+                if inputType is not None:
+                    event['reports'][0]['reported-events'][0]['type'] = inputType
+                if inputGeonames is not None:
+                    event['reports'][0]['reported-events'][0]['location']['geonames-id'] = inputGeonames
+                if inputNumberAffected is not None:
+                    event['reports'][0]['reported-events'][0]['number-affected'] = inputNumberAffected
+                if inputComment is not None:
+                    event['reports'][0]['comment'] = inputComment
+                #if inputStartDate is not None:
 
 
         return {'args': args, 'response': dummyResponse}, 200
