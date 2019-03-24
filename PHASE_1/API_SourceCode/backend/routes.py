@@ -213,15 +213,15 @@ class updateReport(Resource):
                 if inputSyndrome is not None:
                     event['reports'][0]['syndrome'].append(inputSyndrome)
                 if inputType is not None:
-                    event['reports'][0]['reported-events'][0]['type'] = inputType
+                    event['reports'][0]['reported_events'][0]['type'] = inputType
                 if inputGeonames is not None:
-                    event['reports'][0]['reported-events'][0]['location']['geonames-id'] = inputGeonames
+                    event['reports'][0]['reported_events'][0]['location']['geonames-id'] = inputGeonames
                 if inputNumberAffected is not None:
-                    event['reports'][0]['reported-events'][0]['number-affected'] = inputNumberAffected
+                    event['reports'][0]['reported_events'][0]['number-affected'] = inputNumberAffected
                 if inputComment is not None:
                     event['reports'][0]['comment'] = inputComment
                 if inputStartDate is not None and inputEnddate is not None:
-                    event['reports'][0]['reported_events'][0]['date'] = f"{args['start-date']} to {args['end-date']}"
+                    event['reports'][0]['reported_events'][0]['date'] = f"{inputStartDate} to {inputEnddate}"
 
 
         return {'args': args, 'response': dummyResponse}, 200
