@@ -134,8 +134,8 @@ class deleteReport(Resource):
     @api.doc(parser=parser_delete)
     def delete(self):
         args = parser_delete.parse_args()
-
-        return {'args': args, 'response': response}, 200
+        id = args['id']
+        return f'deleted report {id}', 200
 api.add_resource(deleteReport, '/delete', endpoint='delete')
 
 '''
@@ -143,15 +143,15 @@ api.add_resource(deleteReport, '/delete', endpoint='delete')
 '''
 # parser.add_argument('url', type=str, required=True, help='url of the event', location='form')
 # parser.add_argument('date_of_publication', type=str, required=True, help='date of pulication (yyyy-mm-ddThh:mm:ss)', location='form')
-# parser.add_argument('headline', type=str, required=True, help='headline for the report', location='form')
-# parser.add_argument('main_text', type=str, required=True, help='main text of the event', location='form')
 parser_create = parser.copy()
+parser_create.add_argument('headline', type=str, required=True, help='headline for the report', location='form')
+parser_create.add_argument('main_text', type=str, required=True, help='main text of the event', location='form')
 parser_create.add_argument('disease', type=str, required=True, help='comma separated list of diseases', location='form')
-parser_create.add_argument('syndrome', type=str, required=True, help='comma separated list of syndroms', location='form')
+parser_create.add_argument('syndrome', type=str, required=False, help='comma separated list of syndroms', location='form')
 parser_create.add_argument('type', type=str, required=True, help='the type of event e.g death, infected', location='form')
-parser_create.add_argument('location', type=int, required=True, help='geonnames id', location='form')
+parser_create.add_argument('geonames-id', type=int, required=True, help='geonnames id', location='form')
 parser_create.add_argument('number-affected', type=int, required=True, help='number of people affected', location='form')
-parser_create.add_argument('comment', type=str, required=True, help='comment', location='form')
+parser_create.add_argument('comment', type=str, required=False, help='comment', location='form')
 parser_create.add_argument('start-date', type=str, required=True, help='start date of date range (yyyy-mm-ddThh:mm:ss)', location='form')
 parser_create.add_argument('end-date', type=str, required=True, help='end date of date range (yyyy-mm-ddThh:mm:ss)', location='form')
 
@@ -165,7 +165,11 @@ class createReport(Resource):
     def post(self):
         args = parser_create.parse_args()
 
-        return {'args': args, 'response': response}, 200
+        dummyResponse['headline'] = args['headline']
+        dummyResponse['main_text'] = args['main_text']
+        dummyResponse['reports'][0]['disease'] = args['disease'].split(',')
+        dummyResponse['resports']['syndrome']
+        return dummyResponse, 200
 api.add_resource(createReport, '/createReport', endpoint='createReport')
 
 '''
@@ -193,5 +197,5 @@ class updateReport(Resource):
     def put(self):
         args = parser_update.parse_args()
 
-        return {'args': args, 'response': response}, 200
+        return {'args': args, 'response': dummyResponse}, 200
 api.add_resource(updateReport, '/updateReport', endpoint='updateReport')
