@@ -7,7 +7,7 @@ api = Api(app)
 
 # Create dummy data here
 dummyResponse =[{
-        "id": "1",
+        "id": 1,
         "url": "www.outbreaks.globalincidentmap.com/eventdetail.php?ID=31146",
         "date_of_publication": "2019-02-27T23:20:00 ",
         "headline": "TANZANIA - Anthrax kills two people in northern Tanzania",
@@ -231,7 +231,7 @@ class updateReport(Resource):
 
         # Search for report
         for event in dummyResponse:
-            if event['id'] == id:
+            if event['id'] ==inputId:
                 if inputHeadline is not None:
                     print("WOOOOOOO")
                     event['headline'] = inputHeadline
