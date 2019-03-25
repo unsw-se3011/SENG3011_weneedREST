@@ -8,7 +8,17 @@ Usage
 Updates an existing report with the corresponding ID
 
 ## Parameters
-- **id (required)** - ID of the Report
+- **id (required)** - ID of the report to update
+- **headline** - headline for the report
+- **main_text** - main text of the event
+- **disease** - comma separated list of diseases
+- **syndrome** - comma separated list of syndromes
+- **type** - the type of event e.g death, infected
+- **geonames-id** - location as a geonname ID
+- **number-affected** - number of people affected
+- **comment** - extra comment
+- **start-date** - start date of date range (yyyy-mm-ddThh:mm:ss)
+- **end-date** - end date of date range (yyyy-mm-ddThh:mm:ss)
 
 ## Codes
 
@@ -33,19 +43,6 @@ Updates an existing report with the corresponding ID
    Content-Type: application/json
 
    {
-      "args": {
-        "id": 8,
-        "headline": "headline",
-        "main_text": "main_text",
-        "disease": "disease",
-        "syndrome": "syndrome",
-        "type": "type",
-        "geonames-id": "1234567",
-        "number-affected": "55",
-        "comment": "Bad spread",
-        "start-date": "2019-08-12",
-        "end-date": "2019-08-19"
-      },
       "response": [
         {
           "id": 3,

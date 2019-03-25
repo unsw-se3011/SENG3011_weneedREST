@@ -1,6 +1,7 @@
 from server import app
 from flask import Flask
 from flask_restplus import Resource, Api, reqparse, fields
+import re
 
 app = Flask(__name__)
 api = Api(app)
@@ -188,41 +189,35 @@ class updateReport(Resource):
     def put(self):
         args = parser_update.parse_args()
 
-        inputId = args['id']
-        inputHeadline = args['headline']
-        inputMainText = args['main_text']
-        inputDisease = args['disease']
-        inputSyndrome = args['syndrome']
-        inputType = args['type']
-        inputGeonames = args['geonames-id']
-        inputNumberAffected = args['number-affected']
-        inputComment = args['comment']
-        inputStartDate = args['start-date']
-        inputEnddate = args['end-date']
+        newReport = dummyResponse[0]
+        newReport['id'] = args['id']
+        
+        # Updating all report details
+        if args['headline'] is not None:
+            newReport['headline'] = args['headline']
+        if args['main_text'] is not None:
+            newReport['main_text'] = args['main_text']
+        if args['disease'] is not None:
+            newReport['reports'][0]['disease'] = list( map(lambda x : x.strip(), args['disease'].split(',')) )
+        if args['syndrome'] is not None:
+            newReport['reports'][0]['syndrome'] = list( map(lambda x : x.strip(), args['syndrome'].split(',')) ) if args['syndrome'] is not None else [] 
+        if args['type'] is not None:
+            newReport['reports'][0]['reported_events'][0]['type'] = args['type']
+        if args['geonames-id'] is not None:
+            newReport['reports'][0]['reported_events'][0]['location']['geonames-id'] = args['geonames-id'] 
+        if args['number-affected'] is not None:
+            newReport['reports'][0]['reported_events'][0]['number-affected'] = args['number-affected']
+        if args['comment'] is not None:
+            newReport['reports'][0]['Comment'] = args['comment']
 
-        # Search for report
-        for event in dummyResponse:
-            if event['id'] ==inputId:
-                if inputHeadline is not None:
-                    print("WOOOOOOO")
-                    event['headline'] = inputHeadline
-                if inputMainText is not None:
-                    event['main-text'] = inputMainText
-                if inputDisease is not None:
-                    event['reports'][0]['disease'].append(inputDisease)
-                if inputSyndrome is not None:
-                    event['reports'][0]['syndrome'].append(inputSyndrome)
-                if inputType is not None:
-                    event['reports'][0]['reported_events'][0]['type'] = inputType
-                if inputGeonames is not None:
-                    event['reports'][0]['reported_events'][0]['location']['geonames-id'] = inputGeonames
-                if inputNumberAffected is not None:
-                    event['reports'][0]['reported_events'][0]['number-affected'] = inputNumberAffected
-                if inputComment is not None:
-                    event['reports'][0]['comment'] = inputComment
-                if inputStartDate is not None and inputEnddate is not None:
-                    event['reports'][0]['reported_events'][0]['date'] = f"{inputStartDate} to {inputEnddate}"
+        # Replacing start-date and end-date with regex
+        temp = newReport['reports'][0]['reported_events'][0]['date']
+        if args['start-date'] is not None and args['end-date'] is not None:
+            newReport['reports'][0]['reported_events'][0]['date'] = f"{args['start-date']} to {args['end-date']}"
+        elif args['start-date'] is not None and args['end-date'] is None:
+            newReport['reports'][0]['reported_events'][0]['date'] = re.sub(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2} to', f"{args['start-date']} to", temp)
+        else: 
+            newReport['reports'][0]['reported_events'][0]['date'] = re.sub(r'to \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}', f"to {args['end-date']}", temp)
 
-
-        return {'args': args, 'response': dummyResponse}, 200
+        return newReport, 200
 api.add_resource(updateReport, '/updateReport', endpoint='updateReport')
