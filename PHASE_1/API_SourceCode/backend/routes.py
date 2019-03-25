@@ -49,6 +49,7 @@ parser_report.add_argument('end-date', type=str, help='end date of date range (y
 
 def searchKeyTerms(event):
     args = parser_report.parse_args()
+
     keyterms = [word.strip() for word in args['key_terms'].split(',')]
     
     tempkeyTerms = []
