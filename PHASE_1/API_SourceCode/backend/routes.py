@@ -2,7 +2,7 @@ from server import app
 from flask import Flask
 from flask_restplus import Resource, Api, reqparse, fields
 import re
-from datetime import *
+from datetime import datetime
 
 app = Flask(__name__)
 api = Api(app)
@@ -77,8 +77,8 @@ def compareStartDate(event):
     date_inputs2, time_inputs2 = args['start-date'].split('T')[0], args['start-date'].split('T')[1]
     date_inputs2, time_inputs2 = list( map(int, date_inputs2.split('-'))), list( map(int, time_inputs2.split(':')))
 
-    dateObj = datetime(date_inputs1[0], date_inputs1[1], date_inputs1[2], time_inputs1[0], time_inputs1[1], time_inputs1[2])
-    start_date = datetime(date_inputs2[0], date_inputs2[1], date_inputs2[2], time_inputs2[0], time_inputs2[1], time_inputs2[2])
+    dateObj = datetime( *(date_inputs1 + time_inputs1) )
+    start_date = datetime( *(date_inputs2 + time_inputs2) )
 
     if start_date > dateObj:  
         return False
@@ -96,8 +96,8 @@ def compareEndDate(event):
     date_inputs2, time_inputs2 = args['end-date'].split('T')[0], args['end-date'].split('T')[1]
     date_inputs2, time_inputs2 = list( map(int, date_inputs2.split('-'))), list( map(int, time_inputs2.split(':')))
 
-    dateObj = datetime(date_inputs1[0], date_inputs1[1], date_inputs1[2], time_inputs1[0], time_inputs1[1], time_inputs1[2])
-    end_date = datetime(date_inputs2[0], date_inputs2[1], date_inputs2[2], time_inputs2[0], time_inputs2[1], time_inputs2[2])
+    dateObj = datetime( *(date_inputs1 + time_inputs1) )
+    end_date = datetime( *(date_inputs2 + time_inputs2) )
 
     if end_date < dateObj:  
         return False
