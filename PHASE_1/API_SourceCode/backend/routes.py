@@ -144,8 +144,6 @@ class filterReports(Resource):
 
         return newResponse, 200
 
-api.add_resource(filterReports, '/SearchReports')
-
 '''
     Deletes a report
 '''
@@ -163,7 +161,6 @@ class deleteReport(Resource):
         args = parser_delete.parse_args()
         id = args['id']
         return f'deleted report {id}', 200
-api.add_resource(deleteReport, '/delete', endpoint='delete')
 
 '''
     Updates an existing report with form data
@@ -217,7 +214,6 @@ class createReport(Resource):
         newReport['reports'][0]['Comment'] = args['comment'] if args['comment'] else 'Null'
 
         return newReport, 200
-api.add_resource(createReport, '/createReport', endpoint='createReport')
 
 '''
     Updates an existing report
@@ -284,4 +280,3 @@ class updateReport(Resource):
             newReport['reports'][0]['reported_events'][0]['date'] = re.sub(r'to \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}', f"to {args['end-date']}", temp)
 
         return newReport, 200
-api.add_resource(updateReport, '/updateReport', endpoint='updateReport')
