@@ -2,6 +2,7 @@ from server import app
 from flask import Flask
 from flask_restplus import Resource, Api, reqparse, fields
 import re
+from datetime import *
 
 app = Flask(__name__)
 api = Api(app)
@@ -43,8 +44,8 @@ parser_report = parser.copy()
 parser_report.add_argument('n', type=int, help='Max number of results', location='args')
 parser_report.add_argument('location', type=int, help='Geocode of area affected', location='args')
 parser_report.add_argument('key_terms', type=str, help='list of key terms', location='args')
-parser_report.add_argument('start-date', type=str, help='start date of date range', location='args')
-parser_report.add_argument('end-date', type=str, help='end date of date range', location='args')
+parser_report.add_argument('start-date', type=str, help='start date of date range (yyyy-mm-ddThh:mm:ss)', location='args')
+parser_report.add_argument('end-date', type=str, help='end date of date range (yyyy-mm-ddThh:mm:ss)', location='args')
 
 def searchKeyTerms(event):
     args = parser_report.parse_args()
@@ -65,6 +66,44 @@ def searchKeyTerms(event):
                 return True
     return False
 
+def compareStartDate(event):
+    args = parser_report.parse_args()
+
+    event_date = event['reports'][0]['reported_events'][0]['date'].split(' to ')[0]
+
+    date_inputs1, time_inputs1 = event_date.split('T')[0], event_date.split('T')[1]
+    date_inputs1, time_inputs1  = list( map(int, date_inputs1.split("-"))), list( map(int, time_inputs1.split(":")))
+
+    date_inputs2, time_inputs2 = args['start-date'].split('T')[0], args['start-date'].split('T')[1]
+    date_inputs2, time_inputs2 = list( map(int, date_inputs2.split('-'))), list( map(int, time_inputs2.split(':')))
+
+    dateObj = datetime(date_inputs1[0], date_inputs1[1], date_inputs1[2], time_inputs1[0], time_inputs1[1], time_inputs1[2])
+    start_date = datetime(date_inputs2[0], date_inputs2[1], date_inputs2[2], time_inputs2[0], time_inputs2[1], time_inputs2[2])
+
+    if start_date > dateObj:  
+        return False
+
+    return True
+
+def compareEndDate(event):
+    args = parser_report.parse_args()
+
+    event_date = event['reports'][0]['reported_events'][0]['date'].split(' to ')[1]
+
+    date_inputs1, time_inputs1 = event_date.split('T')[0], event_date.split('T')[1]
+    date_inputs1, time_inputs1  = list( map(int, date_inputs1.split("-"))), list( map(int, time_inputs1.split(":")))
+
+    date_inputs2, time_inputs2 = args['end-date'].split('T')[0], args['end-date'].split('T')[1]
+    date_inputs2, time_inputs2 = list( map(int, date_inputs2.split('-'))), list( map(int, time_inputs2.split(':')))
+
+    dateObj = datetime(date_inputs1[0], date_inputs1[1], date_inputs1[2], time_inputs1[0], time_inputs1[1], time_inputs1[2])
+    end_date = datetime(date_inputs2[0], date_inputs2[1], date_inputs2[2], time_inputs2[0], time_inputs2[1], time_inputs2[2])
+
+    if end_date < dateObj:  
+        return False
+
+    return True
+
 @api.route('/SearchReports')
 @api.doc(params={'n': 'Number of results returned (max is 10)', 'location':'Geocode of area affected', 'key_terms':'Comma separated list of of all key items requested by user', 'start-date':'Starting date of reports', 'end-date':'Ending date or reports'})
 class filterReports(Resource):
@@ -74,6 +113,12 @@ class filterReports(Resource):
     @api.doc(parser=parser_report)
     def get(self):
         args = parser_report.parse_args()
+
+        if args['start-date'] is not None and re.search(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}', args['start-date']) is None:
+            return "Invalid start-date", 400
+
+        if args['end-date'] is not None and re.search(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}', args['end-date']) is None:
+            return "Invalid end-date", 400
 
         newResponse = dummyResponse
 
@@ -87,6 +132,12 @@ class filterReports(Resource):
 
         if args['location'] is not None:
             newResponse = list( filter(lambda x : x['reports'][0]['reported_events'][0]['location']['geonames-id'] == args['location'], newResponse))
+
+        if args['start-date'] is not None:
+            newResponse = list( filter(compareStartDate, newResponse) )
+
+        if args['end-date'] is not None:
+            newResponse = list( filter(compareEndDate, newResponse))
 
         newResponse = newResponse[:n]
 
@@ -140,6 +191,12 @@ class createReport(Resource):
     def post(self):
         args = parser_create.parse_args()
 
+        if re.search(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}', args['start-date']) is None:
+            return "Invalid start-date", 400
+
+        if re.search(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}', args['end-date']) is None:
+            return "Invalid end-date", 400
+
         n = -1
         for article in dummyResponse:
             if article['id'] > n:
@@ -188,6 +245,12 @@ class updateReport(Resource):
     @api.doc(parser=parser_update)
     def put(self):
         args = parser_update.parse_args()
+
+        if args['start-date'] is not None and re.search(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}', args['start-date']) is None:
+            return "Invalid start-date", 400
+
+        if args['end-date'] is not None and re.search(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}', args['end-date']) is None:
+            return "Invalid end-date", 400
 
         newReport = dummyResponse[0]
         newReport['id'] = args['id']
