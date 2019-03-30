@@ -9,6 +9,8 @@ In terms of the Github workflow being used, our team typically relies on a featu
 We have also chosen to use **DigitalOcean** to host the API for the web service mode. The main reason for this choice is the fact that our team has $50 worth of credit free for DigitalOcean included within our Github Student pack, and as a result makes this a very cost-effective solution for us. This is especially important since our team are all full-time university students, and thus do not have the budget to spend on an expensive hosting solution. Another reason for this choice is the ease and simplicity of use that DigitalOcean offers. Compared to a similar cloud hosting service such as **AWS** or **Microsoft Azure**, Digital Ocean seems to be much easier to get started with and has a much smoother learning curve. This point is particularly important, since no one in the group has had significant experience with web hosting on cloud-based services.
 
 
+
+
 ### 2. Discuss your	current thinking about how parameters can be passed to your module and how results are collected. Show an example of a possible interaction.
 
 #### API Endpoints
@@ -17,13 +19,13 @@ We have also chosen to use **DigitalOcean** to host the API for the web service 
    <br/><small>*If no filter options are given the API will assume the user wants to return all reports.</small>
 
 *Deletes a report*
-- **[<code>DELETE</code> delete?{id}](https://github.com/unsw-se3011/SENG3011_weneedREST/blob/documentation/Reports/Design%20Details/DELETE_reports.md)**
+- **[<code>DELETE</code> /delete](https://github.com/unsw-se3011/SENG3011_weneedREST/blob/documentation/Reports/Design%20Details/DELETE_reports.md)**
 
 *Updates an existing report with form data*
-- **[<code>POST</code> createReport](https://github.com/unsw-se3011/SENG3011_weneedREST/blob/documentation/Reports/Design%20Details/POST_reports.md)**
+- **[<code>POST</code> /createReport](https://github.com/unsw-se3011/SENG3011_weneedREST/blob/documentation/Reports/Design%20Details/POST_reports.md)**
 
 *Updates an existing report*
-- **[<code>PUT</code> updateReport](https://github.com/unsw-se3011/SENG3011_weneedREST/blob/documentation/Reports/Design%20Details/PUT_reports.md)**
+- **[<code>PUT</code> /updateReport](https://github.com/unsw-se3011/SENG3011_weneedREST/blob/documentation/Reports/Design%20Details/PUT_reports.md)**
 
 
 ### 3. Present and justify implementation language,	development	and	deployment environment (e.g. Linux,	Windows) and specific	libraries	that you plan to use.
@@ -32,7 +34,7 @@ We have also chosen to use **DigitalOcean** to host the API for the web service 
 
 * **Flask-Restplus** is a lightweight web framework that offers the same minimalistic canvas more suited towards a contained web API similar to what we are designing. It is very simple to use with its fast debugger and offers a comprehensive set of documentation and example code. Since the amount of time needed for the project is short and the team is experienced with using Flask, less time is spent learning new technologies and more time can be spent on project development. Flask-Restplus offers automatic swagger API documentation as well.
   * We chose Flask-Restplus as opposed to **eve** since it offers Swagger documentation, while eve doesn't. This was a major deciding factor in preferring Flask-Restplus over eve and other possible alternatives.
-  * Subsequently, we used **Python** as our back-end language since Flask is Python-based.
+  * Subsequently, we used **Python** as our back-end language since Flask is Python-based. Python was also a language that all members of the team were familiar with, so development on the application was quick without any major learning-curve.
 
 * **React** will be used for the front-end of the application due to its speed and flexibility. React is able to integrate APIs directly into the front-end, which simplifies the development of our application significantly. React is also extremely well documented, which has allowed our team to pick up this relatively new technology quite quickly and be able to use it’s many benefits within our development. 
   * Additionally, it is well known by one of our members, so we preferred it over alternatives like Angular JS primarily for this reason. 
@@ -53,5 +55,6 @@ Postman was preferred over **Insomnia** since it provides a documentation servic
 
 #### Specific Libraries Used
 
-* Initially, up until the second deliverable, our team was using the Python **Scrapy** library to extract the raw HTML from the Global Incidents Map page. However, as we started developing the web scraper and API, we realised that the library was a bit excessive for what we were using it for. Since our data source has all the data on a single page, we have no need to crawl through many pages, and as such a simple **Pycurl** request would essentially serve the same task for our project. In terms of ease of use, Pycurl has been even easier to use than scrapy, as there is much less complexity involved and it is a much simpler process. This is evidenced by the fact that we are able to get the same job done in a few lines of code that scrapy required many separate files for. As a result, we have been able to remove al the required folders and files that Scrapy required for use, which has made our program much simpler and efficient. It has also reduced the time it has taken us to get a working prototype.
+* Initially, up until the second deliverable, our team was using the Python **Scrapy** library to extract the raw HTML from the Global Incidents Map page. However, as we started developing the web scraper and API, we realised that the library was a bit excessive for what we were using it for. Since our data source has all the data on a single page, we have no need to crawl through many pages, and as such a simple **Pycurl** request would essentially serve the same task for our project. In terms of ease of use, Pycurl has been even easier to use than Scrapy, as there is much less complexity involved and it is a much simpler process. This is evidenced by the fact that we are able to get the same job done in a few lines of code that scrapy required many separate files for. As a result, we have been able to remove al the required folders and files that Scrapy required for use, which has made our program much simpler and efficient. It has also reduced the time it has taken us to get a working prototype.
+* In addition to the newly added Pycurl, our group is planning on uring **Beautifulsoup** in order to process the raw html data that we extract using Pycurl. Beautifulsoup will allow us to easily parse this data and extract the information ready for easy insertion into our JSON format.
 

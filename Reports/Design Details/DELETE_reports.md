@@ -20,9 +20,7 @@ Deletes a report with the corresponding ID
 
 ## Return Format
 Returns JSON data which contain the following keys:
-- **status**
-- **message** 
-- **error**
+- **message****
 
 ## Example
 
@@ -34,8 +32,6 @@ Returns JSON data which contain the following keys:
 #### Snippet of the response ####
 ``` json
    {
-      "status":200,
-      "message":"Successful",
-      "error":"null"
+      "deleted report 5"
    }
 ```

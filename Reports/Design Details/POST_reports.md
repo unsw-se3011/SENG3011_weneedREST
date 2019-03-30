@@ -8,7 +8,7 @@ Usage
 Creates a new report with the corresponding ID
 
 ## Parameters
-- **id (required)** - ID of the Report <code>- change</code>
+- **id (required)** - ID of the Report
 
 ## Codes
 

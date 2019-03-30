@@ -188,6 +188,8 @@ class updateReport(Resource):
     def put(self):
         args = parser_update.parse_args()
 
+        newResponse = dummyResponse.deepcopy()
+
         inputId = args['id']
         inputHeadline = args['headline']
         inputMainText = args['main_text']
@@ -201,10 +203,9 @@ class updateReport(Resource):
         inputEnddate = args['end-date']
 
         # Search for report
-        for event in dummyResponse:
+        for event in newResponse:
             if event['id'] ==inputId:
                 if inputHeadline is not None:
-                    print("WOOOOOOO")
                     event['headline'] = inputHeadline
                 if inputMainText is not None:
                     event['main-text'] = inputMainText
@@ -224,5 +225,5 @@ class updateReport(Resource):
                     event['reports'][0]['reported_events'][0]['date'] = f"{inputStartDate} to {inputEnddate}"
 
 
-        return {'args': args, 'response': dummyResponse}, 200
+        return {'args': args, 'response': newResponse}, 200
 api.add_resource(updateReport, '/updateReport', endpoint='updateReport')
