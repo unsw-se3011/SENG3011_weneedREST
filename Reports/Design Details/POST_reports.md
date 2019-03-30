@@ -8,15 +8,26 @@ Usage
 Creates a new report with the corresponding ID
 
 ## Parameters
+<<<<<<< HEAD
 - **id (required)** - ID of the Report
+=======
+- **headline(required)** - headline for the report
+- **main_text (required)** - main text of the event
+- **disease (required)** - comma separated list of diseases
+- **syndrome** - comma separated list of syndromes
+- **type (required)** - the type of event e.g death, infected
+- **geonames-id (required)** - location as a geonname ID
+- **number-affected (required)** - number of people affected
+- **comment** - extra comment
+- **start-date (required)** - start date of date range (yyyy-mm-ddThh:mm:ss)
+- **end-date (required)** - end date of date range (yyyy-mm-ddThh:mm:ss)
+>>>>>>> d592ec55a588a343cebfe315f8965d4cacacafde
 
 ## Codes
 
 | Code | Description |
 | ---- | ---------- |
 | 200  | Successful |
-| 400  | Invalid ID |
-| 404  | Report not found |
 | 405  | Invalid data |
 
 ## Example
