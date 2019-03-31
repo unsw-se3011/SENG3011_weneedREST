@@ -30,4 +30,5 @@ with open('temp.txt',"r") as f:
     for i in range(6):
         m2 = re.search(r'&ldquo;(.*)&rdquo', a[i]['Description'], re.MULTILINE|re.DOTALL)
         if m2:
-            print("{}: {}".format(i,m2[1]))
+            a[i]['Description'] = m2[1]
+        pprint(a[i])
