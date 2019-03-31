@@ -99,5 +99,8 @@ with open('rawData.txt',"r") as f:
         #else:
         #    event['geonames-id'] = "123456"
 
+    with open('raw.json',"w") as f:
+        json.dump(rawArticles,f)
+    f.closed
           #pprint(json.dumps(rawArticles))
 
