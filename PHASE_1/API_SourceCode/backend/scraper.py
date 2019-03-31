@@ -29,10 +29,25 @@ with open('temp.txt',"r") as f:
     #print(a[3]['Description'])
     for i in a:
         soup = BeautifulSoup(i['Description'], "html.parser")
-        print(soup.get_text())
-        m2 = re.search(r'&ldquo;(.*)&rdquo', i['Description'], re.MULTILINE|re.DOTALL)
+        text = soup.get_text()
+
+        m = re.search(r'\“(.*)\”', text, re.MULTILINE|re.DOTALL)
+        if m:
+            i['Description'] = m[1]
+
+        m2 = re.search(r'\'\'(.*)\'\'', text, re.MULTILINE|re.DOTALL)
         if m2:
             i['Description'] = m2[1]
+
+        m3 = re.search(r'\“(.*)\“', text, re.MULTILINE|re.DOTALL)
+        if m3:
+            i['Description'] = m2[1]
+
+        if not m and not m2 and not m3:
+            i['Description'] = text
+
         i['TipText'] = i['TipText'].capitalize()
-        #pprint(i['Description'])
+        print(i['Description'])
+        print()
+        #print(text)
         #pprint(json.dumps(a))
