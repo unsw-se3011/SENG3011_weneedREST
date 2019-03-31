@@ -86,6 +86,14 @@ with open('rawData.txt',"r") as f:
             num = "undefined"
         event['number-affected'] = num
 
+        # Geocode
+        r = requests.get("http://api.geonames.org/findNearbyJSON?lat={}&lng={}&username=seng3011".format(event['Latitude'],event['Longitude']))
+        if r:
+            res = r.json()
+            event['geonames-id'] = res['geonames'][0]['countryId']
+        else:
+            event['geonames-id'] = "123456"
+            
         #print(event)
         pprint(event)
         #print(text)
