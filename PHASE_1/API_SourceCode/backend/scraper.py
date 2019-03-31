@@ -27,8 +27,10 @@ with open('GIM-1.html',"r",encoding = "ISO-8859-1") as f:
 with open('temp.txt',"r") as f:
     a = eval(f.read())
     #print(a[3]['Description'])
-    for i in range(6):
-        m2 = re.search(r'&ldquo;(.*)&rdquo', a[i]['Description'], re.MULTILINE|re.DOTALL)
+    for i in a:
+        m2 = re.search(r'&ldquo;(.*)&rdquo', i['Description'], re.MULTILINE|re.DOTALL)
         if m2:
-            a[i]['Description'] = m2[1]
-        pprint(a[i])
+            i['Description'] = m2[1]
+        i['TipText'] = i['TipText'].capitalize()
+        pprint(i['Description'])
+        pprint(json.dumps(a))
