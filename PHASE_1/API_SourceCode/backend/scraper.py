@@ -47,7 +47,7 @@ with open('temp.txt',"r") as f:
             i['Description'] = text
 
         i['TipText'] = i['TipText'].capitalize()
-        print(i['Description'])
+        print(i)
         print()
         #print(text)
         #pprint(json.dumps(a))
