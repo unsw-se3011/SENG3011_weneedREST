@@ -76,12 +76,13 @@ with open('rawData.txt',"r") as f:
                 eventType.append("Hospitalised")
             elif word in ["recovered"] and "Recovered" not in eventType:
                 eventType.append("Recovered")
-        #event['event-type']=eventType
+        event['event-type']=eventType
         #print(event['TipText'])
         #print(event['Description'])
         #print(eventType)
 
         # Syndrome
+        event['syndrome'] = []
 
         # Disease
         # Is this doing thr right thing?
@@ -98,13 +99,25 @@ with open('rawData.txt',"r") as f:
         #    res = r.json()
         #    event['geonames-id'] = res['geonames'][0]['countryId']
         #else:
-        #    event['geonames-id'] = "123456"
+        #    event['geonames-id'] = "123456"#
 
     with open('raw.json',"w") as f:
         json.dump(rawArticles,f)
     f.closed
           #pprint(json.dumps(rawArticles))
 
-with open('raw.json','r') as f:
-    data = json.load(f)
-    print(data)
+#with open('raw.json','r') as f:
+#    data = json.load(f)
+#    for article in data:
+#        reports = []
+#        disease = []
+#        syndrome = []
+#        reported_events = []
+#        
+#        articleDict = {}
+#        articleDict['url'] = article['URL']
+#        articleDict['date_of_publication'] = article['date_of_publication']
+#        articleDict['headline'] = article['TipText']
+##        articleDict['main_text'] = article['Description']
+#        #articleDict['reports']
+#    print(data[0])
