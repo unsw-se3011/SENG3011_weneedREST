@@ -3,6 +3,7 @@ import requests
 import pycurl
 import io
 from io import StringIO
+from bs4 import BeautifulSoup
 
 # Pycurl scrapes raw HTML and saves to 
 with open('GIM-1.html', 'wb') as g:
