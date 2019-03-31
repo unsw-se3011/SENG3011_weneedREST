@@ -50,6 +50,8 @@ with open('rawData.txt',"r") as f:
         event['TipText'] = event['TipText'].capitalize()
 
         # Event type
+        #NEED TO CHANGE SO THAT ONLY ONE TYPE IS SELECTED -- CHANGE FROM APPENDING TO STRING
+        # AND ALTER CASES
         searchText = event['Description'] + event['TipText']
         searchText = searchText.split()
         eventType = []
