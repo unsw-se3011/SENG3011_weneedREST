@@ -22,3 +22,7 @@ with open('GIM-1.html',"r",encoding = "ISO-8859-1") as f:
         t.write(m2[1])
         t.close()
     f.closed
+
+with open('temp.txt',"r") as f:
+    a = eval(f.read())
+    print(a[1])
