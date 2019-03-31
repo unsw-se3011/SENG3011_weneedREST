@@ -26,6 +26,7 @@ with open('GIM-1.html',"r",encoding = "ISO-8859-1") as f:
 
 with open('rawData.txt',"r") as f:
     rawArticles = eval(f.read())
+    f.close()
     #print(rawArticles[3]['Description'])
     for event in rawArticles:
         
@@ -49,42 +50,60 @@ with open('rawData.txt',"r") as f:
         #TipText
         event['TipText'] = event['TipText'].capitalize()
 
-        # Event type
-        #NEED TO CHANGE SO THAT ONLY ONE TYPE IS SELECTED -- CHANGE FROM APPENDING TO STRING
-        # AND ALTER CASES
         searchText = event['Description'] + event['TipText']
+
+        # Number affected
+        num = re.search(r'(\d+|one|two|three|four|five|six|seven|eight|nine)', searchText, re.MULTILINE|re.DOTALL)
+        if num is not None:
+            num = num.group(0)
+        else:
+            num = "undefined"
+
+        event['number-affected'] = num
+
+        # Event type
         searchText = searchText.split()
         eventType = []
         for word in searchText:
             word.lower()
-            if word in ["death", "loses", "kill", "killed", "kills"] and "Death" not in eventType:
+            if word in ["death", "loses", "kill", "killed", "kills", "deaths", "dead"] and "Death" not in eventType:
                 eventType.append("Death")
             elif word in ["outbreak", "detected"] and "Presence" not in eventType:
                 eventType.append("Presence")
-            elif word in ["reported"] and "Infected" not in eventType:
+            elif word in ["reported", "spread", "infect"] and "Infected" not in eventType:
                 eventType.append("Infected")
             elif word in ["hospitalised"] and "Hospitalised" not in eventType:
                 eventType.append("Hospitalised")
             elif word in ["recovered"] and "Recovered" not in eventType:
                 eventType.append("Recovered")
-        event['event-type']=eventType
-        print(eventType)
+        #event['event-type']=eventType
+        #print(event['TipText'])
+        #print(event['Description'])
+        #print(eventType)
 
         # Syndrome
 
         # Disease
+        event['disease'] = event['eventtypename']
 
         # Date
+        event['date_of_publication'] = event['DateTime'].replace(" ","T")
+        event['date'] = event['AddedDateTime'].replace(" ","T")
 
-        # Number affected
-        num = re.search(r'\d+', event['TipText'], re.MULTILINE|re.DOTALL)
-        if num is not None:
-            num = num.group(0)
-        else:
-            num = "undefined"
-        event['number-affected'] = num
 
-        #print(event)
-        print()
-        #print(text)
-        #pprint(json.dumps(rawArticles))
+        # Geocode
+        #r = requests.get("http://api.geonames.org/findNearbyJSON?lat={}&lng={}&username=seng3011".format(event['Latitude'],event['Longitude']))
+        #if r:
+        #    res = r.json()
+        #    event['geonames-id'] = res['geonames'][0]['countryId']
+        #else:
+        #    event['geonames-id'] = "123456"
+
+    with open('raw.json',"w") as f:
+        json.dump(rawArticles,f)
+    f.closed
+          #pprint(json.dumps(rawArticles))
+
+with open('raw.json','r') as f:
+    data = json.load(f)
+    print(data)
