@@ -84,6 +84,7 @@ with open('rawData.txt',"r") as f:
         # Syndrome
 
         # Disease
+        # Is this doing thr right thing?
         event['disease'] = event['eventtypename']
 
         # Date

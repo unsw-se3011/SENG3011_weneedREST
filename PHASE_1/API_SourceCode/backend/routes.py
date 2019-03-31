@@ -8,6 +8,7 @@ app = Flask(__name__)
 api = Api(app)
 
 # Create dummy data here
+# READ IN JSON DATA HERE
 dummyResponse =[{
         "id": 1,
         "url": "www.outbreaks.globalincidentmap.com/eventdetail.php?ID=31146",
@@ -55,9 +56,9 @@ def searchKeyTerms(event):
     tempkeyTerms = []
     tempkeyTerms.append(event['headline'])
     tempkeyTerms.append(event['main_text'])
-    tempkeyTerms.append(event['reports'][0]['disease'][0:])
-    tempkeyTerms.append(event['reports'][0]['syndrome'][0:])
-    tempkeyTerms.append(event['reports'][0]['reported_events'][0]['type'])
+    tempkeyTerms.append(event['disease'][0:])
+    tempkeyTerms.append(event['syndrome'][0:])
+    tempkeyTerms.append(event['event-type'])
 
     # Test keywords
     # for word in keyterms
@@ -70,7 +71,7 @@ def searchKeyTerms(event):
 def compareStartDate(event):
     args = parser_report.parse_args()
 
-    event_date = event['reports'][0]['reported_events'][0]['date'].split(' to ')[0]
+    event_date = event['date'].split(' to ')[0]
 
     date_inputs1, time_inputs1 = event_date.split('T')[0], event_date.split('T')[1]
     date_inputs1, time_inputs1  = list( map(int, date_inputs1.split("-"))), list( map(int, time_inputs1.split(":")))
@@ -89,7 +90,7 @@ def compareStartDate(event):
 def compareEndDate(event):
     args = parser_report.parse_args()
 
-    event_date = event['reports'][0]['reported_events'][0]['date'].split(' to ')[1]
+    event_date = event['date'].split(' to ')[1]
 
     date_inputs1, time_inputs1 = event_date.split('T')[0], event_date.split('T')[1]
     date_inputs1, time_inputs1  = list( map(int, date_inputs1.split("-"))), list( map(int, time_inputs1.split(":")))
@@ -132,7 +133,7 @@ class filterReports(Resource):
             newResponse = list( filter(searchKeyTerms, newResponse) )
 
         if args['location'] is not None:
-            newResponse = list( filter(lambda x : x['reports'][0]['reported_events'][0]['location']['geonames-id'] == args['location'], newResponse))
+            newResponse = list( filter(lambda x : x['location']['geonames-id'] == args['location'], newResponse))
 
         if args['start-date'] is not None:
             newResponse = list( filter(compareStartDate, newResponse) )
@@ -172,7 +173,7 @@ parser_create.add_argument('headline', type=str, required=True, help='headline f
 parser_create.add_argument('main_text', type=str, required=True, help='main text of the event', location='args')
 parser_create.add_argument('disease', type=str, required=True, help='comma separated list of diseases', location='args')
 parser_create.add_argument('syndrome', type=str, required=False, help='comma separated list of syndroms', location='args')
-parser_create.add_argument('type', type=str, required=True, help='the type of event e.g death, infected', location='args')
+parser_create.add_argument('event-type', type=str, required=True, help='the type of event e.g death, infected', location='args')
 parser_create.add_argument('geonames-id', type=int, required=True, help='geonnames id', location='args')
 parser_create.add_argument('number-affected', type=int, required=True, help='number of people affected', location='args')
 parser_create.add_argument('comment', type=str, required=False, help='comment', location='args')
@@ -205,13 +206,13 @@ class createReport(Resource):
         newReport['id'] = n
         newReport['headline'] = args['headline']
         newReport['main_text'] = args['main_text']
-        newReport['reports'][0]['disease'] = list( map(lambda x : x.strip(), args['disease'].split(',')) )
-        newReport['reports'][0]['syndrome'] = list( map(lambda x : x.strip(), args['syndrome'].split(',')) ) if args['syndrome'] is not None else [] 
-        newReport['reports'][0]['reported_events'][0]['type'] = args['type']
-        newReport['reports'][0]['reported_events'][0]['date'] = f"{args['start-date']} to {args['end-date']}"
-        newReport['reports'][0]['reported_events'][0]['location']['geonames-id'] = args['geonames-id'] 
-        newReport['reports'][0]['reported_events'][0]['number-affected'] = args['number-affected']
-        newReport['reports'][0]['Comment'] = args['comment'] if args['comment'] else 'Null'
+        newReport['disease'] = list( map(lambda x : x.strip(), args['disease'].split(',')) )
+        newReport['syndrome'] = list( map(lambda x : x.strip(), args['syndrome'].split(',')) ) if args['syndrome'] is not None else [] 
+        newReport['event-type'] = args['type']
+        newReport['date'] = f"{args['start-date']} to {args['end-date']}"
+        newReport['location']['geonames-id'] = args['geonames-id'] 
+        newReport['number-affected'] = args['number-affected']
+        newReport['Comment'] = args['comment'] if args['comment'] else 'Null'
 
         return newReport, 200
 
@@ -224,7 +225,7 @@ parser_update.add_argument('headline', type=str, required=False, help="Headline 
 parser_update.add_argument('main_text', type=str, required=False, help="Main text of report", location='args')
 parser_update.add_argument('disease', type=str, required=False, help="Disease of report", location='args')
 parser_update.add_argument('syndrome', type=str, required=False, help="ID of report to update", location='args')
-parser_update.add_argument('type', type=str, required=False, help="Type of report. Possible types include: 'Death', 'Presence', 'Infected', 'Hospitalised', 'Recovered'", location='args')
+parser_update.add_argument('event-type', type=str, required=False, help="Type of report. Possible types include: 'Death', 'Presence', 'Infected', 'Hospitalised', 'Recovered'", location='args')
 parser_update.add_argument('geonames-id', type=int, required=False, help="Geoname of report", location='args')
 parser_update.add_argument('number-affected', type=int, required=False, help="Number of people affected", location='args')
 parser_update.add_argument('comment', type=str, required=False, help="Comment to add to report", location='args')
@@ -258,25 +259,25 @@ class updateReport(Resource):
         if args['main_text'] is not None:
             newReport['main_text'] = args['main_text']
         if args['disease'] is not None:
-            newReport['reports'][0]['disease'] = list( map(lambda x : x.strip(), args['disease'].split(',')) )
+            newReport['disease'] = list( map(lambda x : x.strip(), args['disease'].split(',')) )
         if args['syndrome'] is not None:
-            newReport['reports'][0]['syndrome'] = list( map(lambda x : x.strip(), args['syndrome'].split(',')) ) if args['syndrome'] is not None else [] 
+            newReport['syndrome'] = list( map(lambda x : x.strip(), args['syndrome'].split(',')) ) if args['syndrome'] is not None else [] 
         if args['type'] is not None:
-            newReport['reports'][0]['reported_events'][0]['type'] = args['type']
+            newReport['event-type'] = args['type']
         if args['geonames-id'] is not None:
-            newReport['reports'][0]['reported_events'][0]['location']['geonames-id'] = args['geonames-id'] 
+            newReport['location']['geonames-id'] = args['geonames-id'] 
         if args['number-affected'] is not None:
-            newReport['reports'][0]['reported_events'][0]['number-affected'] = args['number-affected']
+            newReport['number-affected'] = args['number-affected']
         if args['comment'] is not None:
-            newReport['reports'][0]['Comment'] = args['comment']
+            newReport['Comment'] = args['comment']
 
         # Replacing start-date and end-date with regex
-        temp = newReport['reports'][0]['reported_events'][0]['date']
+        temp = newReport['date']
         if args['start-date'] is not None and args['end-date'] is not None:
-            newReport['reports'][0]['reported_events'][0]['date'] = f"{args['start-date']} to {args['end-date']}"
+            newReport['date'] = f"{args['start-date']} to {args['end-date']}"
         elif args['start-date'] is not None and args['end-date'] is None:
-            newReport['reports'][0]['reported_events'][0]['date'] = re.sub(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2} to', f"{args['start-date']} to", temp)
+            newReport['date'] = re.sub(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2} to', f"{args['start-date']} to", temp)
         else: 
-            newReport['reports'][0]['reported_events'][0]['date'] = re.sub(r'to \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}', f"to {args['end-date']}", temp)
+            newReport['date'] = re.sub(r'to \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}', f"to {args['end-date']}", temp)
 
         return newReport, 200
