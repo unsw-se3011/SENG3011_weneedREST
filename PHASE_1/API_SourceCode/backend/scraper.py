@@ -55,17 +55,18 @@ with open('rawData.txt',"r") as f:
         eventType = []
         for word in searchText:
             word.lower()
-            if word in ["death", "loses", "kill", "killed", "kills"]:
+            if word in ["death", "loses", "kill", "killed", "kills"] and "Death" not in eventType:
                 eventType.append("Death")
-            elif word in ["outbreak", "detected"]:
+            elif word in ["outbreak", "detected"] and "Presence" not in eventType:
                 eventType.append("Presence")
-            elif word in ["reported"]:
-                word.append("Infected")
-            elif word in ["hospitalised"]:
-                word.append("Hospitalised")
-            elif word in ["recovered"]:
-                word.append("Recovered")
+            elif word in ["reported"] and "Infected" not in eventType:
+                eventType.append("Infected")
+            elif word in ["hospitalised"] and "Hospitalised" not in eventType:
+                eventType.append("Hospitalised")
+            elif word in ["recovered"] and "Recovered" not in eventType:
+                eventType.append("Recovered")
         event['event-type']=eventType
+        print(eventType)
 
         # Syndrome
 
@@ -79,7 +80,6 @@ with open('rawData.txt',"r") as f:
             num = num.group(0)
         else:
             num = "undefined"
-            print("Nothing found")
         event['number-affected'] = num
 
         #print(event)
