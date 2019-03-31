@@ -55,24 +55,28 @@ with open('rawData.txt',"r") as f:
         eventType = []
         for word in searchText:
             word.lower()
-            if word in ["death", "loses", "kill", "killed", "kills"] and "Death" not in eventType:
+            if word in ["death", "loses", "kill", "killed", "kills", "deaths", "dead"] and "Death" not in eventType:
                 eventType.append("Death")
             elif word in ["outbreak", "detected"] and "Presence" not in eventType:
                 eventType.append("Presence")
-            elif word in ["reported"] and "Infected" not in eventType:
+            elif word in ["reported", "spread", "infect"] and "Infected" not in eventType:
                 eventType.append("Infected")
             elif word in ["hospitalised"] and "Hospitalised" not in eventType:
                 eventType.append("Hospitalised")
             elif word in ["recovered"] and "Recovered" not in eventType:
                 eventType.append("Recovered")
         event['event-type']=eventType
+        print(event['TipText'])
+        print(event['Description'])
         print(eventType)
 
         # Syndrome
 
         # Disease
+        event['disease'] = event['eventtypename']
 
         # Date
+        event['date_of_publication'] = event['DateTime']
 
         # Number affected
         num = re.search(r'\d+', event['TipText'], re.MULTILINE|re.DOTALL)
@@ -83,6 +87,6 @@ with open('rawData.txt',"r") as f:
         event['number-affected'] = num
 
         #print(event)
-        print()
+        pprint(event)
         #print(text)
         #pprint(json.dumps(rawArticles))
