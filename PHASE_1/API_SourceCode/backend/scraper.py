@@ -50,6 +50,22 @@ with open('rawData.txt',"r") as f:
         event['TipText'] = event['TipText'].capitalize()
 
         # Event type
+        searchText = event['Description'] + event['TipText']
+        searchText = searchText.split()
+        eventType = []
+        for word in searchText:
+            word.lower()
+            if word in ["death", "loses", "kill", "killed", "kills"]:
+                eventType.append("Death")
+            elif word in ["outbreak", "detected"]:
+                eventType.append("Presence")
+            elif word in ["reported"]:
+                word.append("Infected")
+            elif word in ["hospitalised"]:
+                word.append("Hospitalised")
+            elif word in ["recovered"]:
+                word.append("Recovered")
+        event['event-type']=eventType
 
         # Syndrome
 
@@ -60,10 +76,11 @@ with open('rawData.txt',"r") as f:
         # Number affected
         num = re.search(r'\d+', event['TipText'], re.MULTILINE|re.DOTALL)
         if num is not None:
-            print(num.group(0))
+            num = num.group(0)
         else:
             num = "undefined"
             print("Nothing found")
+        event['number-affected'] = num
 
         #print(event)
         print()
