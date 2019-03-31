@@ -93,12 +93,14 @@ with open('rawData.txt',"r") as f:
 
 
         # Geocode
+        # geocode is not working due to rate limiting
         #r = requests.get("http://api.geonames.org/findNearbyJSON?lat={}&lng={}&username=seng3011".format(event['Latitude'],event['Longitude']))
         #if r:
         #    res = r.json()
         #    event['geonames-id'] = res['geonames'][0]['countryId']
         #else:
-        #    event['geonames-id'] = "123456"#
+        #    event['geonames-id'] = "123456"
+
 
     with open('raw.json',"w") as f:
         json.dump(rawArticles,f)

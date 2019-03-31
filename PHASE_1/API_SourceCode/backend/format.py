@@ -19,7 +19,7 @@ with open('raw.json','r') as f:
         reportedEventsDict = {}
         articleDict = {}
         reportDict = {}
-        geonames = {'geonames-id':'123456'}
+        geonames = {'latitude': article['Latitude'], 'longitude': article['Longitude']}
 
         articleDict['url'] = article['URL']
         articleDict['date_of_publication'] = article['date_of_publication']
