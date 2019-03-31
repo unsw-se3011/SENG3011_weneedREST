@@ -2,6 +2,9 @@ import re
 import requests
 from io import StringIO
 from pycurl import Curl
+from pprint import pprint
+import simplejson as json
+import jsonify
 
 # Pycurl scrapes raw HTML and saves to 
 with open('GIM-1.html', 'wb') as g:
@@ -12,13 +15,10 @@ with open('GIM-1.html', 'wb') as g:
     c.close()
     g.close()
 
-with open('GIM-1.html',encoding = "ISO-8859-1") as f:
-    m2 = re.search(r'var incidents = \[.*\]', f.read(), re.MULTILINE|re.DOTALL)
+with open('GIM-1.html',"r",encoding = "ISO-8859-1") as f:
+    m2 = re.search(r'var incidents = \[(.*)\]', f.read(), re.MULTILINE|re.DOTALL)
     if m2:
-        print(m2[0])
         t = open('temp.txt', 'w')
-        t.write(m2[0])
+        t.write(m2[1])
         t.close()
-
-
-f.closed
+    f.closed
