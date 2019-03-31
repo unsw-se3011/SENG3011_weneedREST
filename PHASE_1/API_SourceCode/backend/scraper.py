@@ -5,6 +5,7 @@ from pycurl import Curl
 from pprint import pprint
 import simplejson as json
 import jsonify
+from bs4 import BeautifulSoup
 
 # Pycurl scrapes raw HTML and saves to 
 with open('GIM-1.html', 'wb') as g:
@@ -25,4 +26,8 @@ with open('GIM-1.html',"r",encoding = "ISO-8859-1") as f:
 
 with open('temp.txt',"r") as f:
     a = eval(f.read())
-    print(a[1])
+    #print(a[3]['Description'])
+    for i in range(6):
+        m2 = re.search(r'&ldquo;(.*)&rdquo', a[i]['Description'], re.MULTILINE|re.DOTALL)
+        if m2:
+            print("{}: {}".format(i,m2[1]))
