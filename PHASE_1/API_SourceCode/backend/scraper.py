@@ -53,7 +53,7 @@ with open('rawData.txt',"r") as f:
         searchText = event['Description'] + event['TipText']
 
         # Number affected
-        num = re.search(r'\d+', searchText, re.MULTILINE|re.DOTALL)
+        num = re.search(r'(\d+|one|two|three|four|five|six|seven|eight|nine)', searchText, re.MULTILINE|re.DOTALL)
         if num is not None:
             num = num.group(0)
         else:
@@ -104,3 +104,6 @@ with open('rawData.txt',"r") as f:
     f.closed
           #pprint(json.dumps(rawArticles))
 
+with open('raw.json','r') as f:
+    data = json.load(f)
+    print(data)
