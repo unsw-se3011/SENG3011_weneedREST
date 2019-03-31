@@ -87,6 +87,8 @@ with open('rawData.txt',"r") as f:
         event['disease'] = event['eventtypename']
 
         # Date
+        event['date_of_publication'] = event['DateTime'].replace(" ","T")
+        event['date'] = event['AddedDateTime'].replace(" ","T")
 
 
         # Geocode
