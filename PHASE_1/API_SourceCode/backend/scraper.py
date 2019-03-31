@@ -1,12 +1,11 @@
 import re
 import requests
-import pycurl
-import io
 from io import StringIO
+from pycurl import Curl
 
 # Pycurl scrapes raw HTML and saves to 
 with open('GIM-1.html', 'wb') as g:
-    c = pycurl.Curl()
+    c = Curl()
     c.setopt(c.URL, 'http://outbreaks.globalincidentmap.com/')
     c.setopt(c.WRITEDATA, g)
     c.perform()
