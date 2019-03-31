@@ -26,6 +26,7 @@ with open('GIM-1.html',"r",encoding = "ISO-8859-1") as f:
 
 with open('rawData.txt',"r") as f:
     rawArticles = eval(f.read())
+    f.close()
     #print(rawArticles[3]['Description'])
     for event in rawArticles:
         
@@ -49,8 +50,18 @@ with open('rawData.txt',"r") as f:
         #TipText
         event['TipText'] = event['TipText'].capitalize()
 
-        # Event type
         searchText = event['Description'] + event['TipText']
+
+        # Number affected
+        num = re.search(r'\d+', searchText, re.MULTILINE|re.DOTALL)
+        if num is not None:
+            num = num.group(0)
+        else:
+            num = "undefined"
+
+        event['number-affected'] = num
+
+        # Event type
         searchText = searchText.split()
         eventType = []
         for word in searchText:
@@ -65,36 +76,25 @@ with open('rawData.txt',"r") as f:
                 eventType.append("Hospitalised")
             elif word in ["recovered"] and "Recovered" not in eventType:
                 eventType.append("Recovered")
-        event['event-type']=eventType
-        print(event['TipText'])
-        print(event['Description'])
-        print(eventType)
+        #event['event-type']=eventType
+        #print(event['TipText'])
+        #print(event['Description'])
+        #print(eventType)
 
         # Syndrome
 
         # Disease
-        event['disease'] = event['eventtypename']
 
         # Date
-        event['date_of_publication'] = event['DateTime']
 
-        # Number affected
-        num = re.search(r'\d+', event['TipText'], re.MULTILINE|re.DOTALL)
-        if num is not None:
-            num = num.group(0)
-        else:
-            num = "undefined"
-        event['number-affected'] = num
 
         # Geocode
-        r = requests.get("http://api.geonames.org/findNearbyJSON?lat={}&lng={}&username=seng3011".format(event['Latitude'],event['Longitude']))
-        if r:
-            res = r.json()
-            event['geonames-id'] = res['geonames'][0]['countryId']
-        else:
-            event['geonames-id'] = "123456"
-            
-        #print(event)
-        pprint(event)
-        #print(text)
-        #pprint(json.dumps(rawArticles))
+        #r = requests.get("http://api.geonames.org/findNearbyJSON?lat={}&lng={}&username=seng3011".format(event['Latitude'],event['Longitude']))
+        #if r:
+        #    res = r.json()
+        #    event['geonames-id'] = res['geonames'][0]['countryId']
+        #else:
+        #    event['geonames-id'] = "123456"
+
+          #pprint(json.dumps(rawArticles))
+
