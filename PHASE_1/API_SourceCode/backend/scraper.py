@@ -19,35 +19,53 @@ with open('GIM-1.html', 'wb') as g:
 with open('GIM-1.html',"r",encoding = "ISO-8859-1") as f:
     m2 = re.search(r'var incidents = \[(.*)\]', f.read(), re.MULTILINE|re.DOTALL)
     if m2:
-        t = open('temp.txt', 'w')
+        t = open('rawData.txt', 'w')
         t.write(m2[1])
         t.close()
     f.closed
 
-with open('temp.txt',"r") as f:
-    a = eval(f.read())
-    #print(a[3]['Description'])
-    for i in a:
-        soup = BeautifulSoup(i['Description'], "html.parser")
+with open('rawData.txt',"r") as f:
+    rawArticles = eval(f.read())
+    #print(rawArticles[3]['Description'])
+    for event in rawArticles:
+        
+        #BeautifulSoup initialisation 
+        soup = BeautifulSoup(event['Description'], "html.parser")
         text = soup.get_text()
 
+        # Description of event
         m = re.search(r'\“(.*)\”', text, re.MULTILINE|re.DOTALL)
         if m:
-            i['Description'] = m[1]
-
+            event['Description'] = m[1]
         m2 = re.search(r'\'\'(.*)\'\'', text, re.MULTILINE|re.DOTALL)
         if m2:
-            i['Description'] = m2[1]
-
+            event['Description'] = m2[1]
         m3 = re.search(r'\“(.*)\“', text, re.MULTILINE|re.DOTALL)
         if m3:
-            i['Description'] = m2[1]
-
+            event['Description'] = m2[1]
         if not m and not m2 and not m3:
-            i['Description'] = text
+            event['Description'] = text
 
-        i['TipText'] = i['TipText'].capitalize()
-        print(i)
+        #TipText
+        event['TipText'] = event['TipText'].capitalize()
+
+        # Event type
+
+        # Syndrome
+
+        # Disease
+
+        # Date
+
+        # Number affected
+        num = re.search(r'\d+', event['TipText'], re.MULTILINE|re.DOTALL)
+        if num is not None:
+            print(num.group(0))
+        else:
+            num = "undefined"
+            print("Nothing found")
+
+        #print(event)
         print()
         #print(text)
-        #pprint(json.dumps(a))
+        #pprint(json.dumps(rawArticles))
