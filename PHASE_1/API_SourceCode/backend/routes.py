@@ -14,9 +14,9 @@ with open('clean.json',"r") as f:
     dummyResponse = eval(f.read())
     f.close()
 
-def dumpData(articles):
+def dumpData(data):
     with open('clean.json',"w") as f:
-        f.write(json.dumps(articles))
+        json.dump(data, f)
         f.close()
 
 parser = reqparse.RequestParser()
@@ -217,15 +217,6 @@ class updateReport(Resource):
             newReport['reports'][0]['reported_events'][0]['number-affected'] = args['number-affected']
         if args['comment'] is not None:
             newReport['reports'][0]['Comment'] = args['comment']
-
-        # Replacing start-date and end-date with regex
-        # temp = newReport['reports'][0]['reported_events'][0]['date']
-        # if args['start-date'] is not None and args['end-date'] is not None:
-        #     newReport['reports'][0]['reported_events'][0]['date'] = f"{args['start-date']} to {args['end-date']}"
-        # elif args['start-date'] is not None and args['end-date'] is None:
-        #     newReport['reports'][0]['reported_events'][0]['date'] = re.sub(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2} to', f"{args['start-date']} to", temp)
-        # else: 
-        #     newReport['reports'][0]['reported_events'][0]['date'] = re.sub(r'to \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}', f"to {args['end-date']}", temp)
 
         dumpData(dummyResponse)
 

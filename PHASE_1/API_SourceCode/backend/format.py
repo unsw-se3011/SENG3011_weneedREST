@@ -9,6 +9,8 @@ from bs4 import BeautifulSoup
 
 articles = []
 
+number_names = {'one': 1, 'two': 2, 'three':3, 'four':4, 'five':5, 'six':6, 'seven':7, 'eight':8, 'nine':9, 'ten':10, 'undefined': -1}
+
 with open('raw.json','r') as f:
     data = json.load(f)
     f.close()
@@ -36,6 +38,7 @@ with open('raw.json','r') as f:
         reportedEventsDict['type'] = article['event-type']
         reportedEventsDict['date'] = article['date']
         reportedEventsDict['location'] = geonames
+        reportedEventsDict['number-affected'] = number_names[ article['number-affected'] ] if article['number-affected'] in number_names.keys() else int(article['number-affected'])
 
         reportedEvents.append(reportedEventsDict)
         reportDict['reported_events'] = reportedEvents
