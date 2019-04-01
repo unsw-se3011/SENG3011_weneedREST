@@ -7,10 +7,11 @@ import simplejson as json
 import jsonify
 from bs4 import BeautifulSoup
 
+articles = []
+
 with open('raw.json','r') as f:
     data = json.load(f)
-    articles = []
-
+    f.close()
     for article in data:
         reports = []
         disease = []
@@ -19,7 +20,7 @@ with open('raw.json','r') as f:
         reportedEventsDict = {}
         articleDict = {}
         reportDict = {}
-        geonames = {'geonames-id':'123456'}
+        geonames = {'latitude': article['Latitude'], 'longitude': article['Longitude']}
 
         articleDict['url'] = article['URL']
         articleDict['date_of_publication'] = article['date_of_publication']
@@ -40,4 +41,6 @@ with open('raw.json','r') as f:
         articleDict['reports'] = reports
         articles.append(articleDict)
 
-    pprint(articles[0])
+with open('clean.json',"w") as f:
+    f.write(str(articles))
+f.closed
