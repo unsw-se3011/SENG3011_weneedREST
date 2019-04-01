@@ -2,6 +2,7 @@ from server import app
 from flask import Flask
 from flask_restplus import Resource, Api, reqparse, fields
 import re
+from helper import compareDate, searchKeyTerms
 import simplejson as json
 from datetime import datetime
 
@@ -25,64 +26,6 @@ parser_report.add_argument('longitude', type=float, help='longitude of area affe
 parser_report.add_argument('key_terms', type=str, help='list of key terms', location='args')
 parser_report.add_argument('start-date', type=str, help='start date of date range (yyyy-mm-ddThh:mm:ss)', location='args')
 parser_report.add_argument('end-date', type=str, help='end date of date range (yyyy-mm-ddThh:mm:ss)', location='args')
-
-def searchKeyTerms(event):
-    args = parser_report.parse_args()
-
-    keyterms = [word.strip() for word in args['key_terms'].split(',')]
-    
-    tempkeyTerms = []
-    tempkeyTerms.append(event['headline'])
-    tempkeyTerms.append(event['main_text'])
-    tempkeyTerms.append(event['reports'][0]['disease'][0:])
-    tempkeyTerms.append(event['reports'][0]['syndrome'][0:])
-    tempkeyTerms.append(event['reports'][0]['reported_events'][0]['type'])
-
-    # Test keywords
-    # for word in keyterms
-    for word in keyterms:
-        for word2 in tempkeyTerms:
-            if word in word2:
-                return True
-    return False
-
-def compareStartDate(event):
-    args = parser_report.parse_args()
-
-    event_date = event['reports'][0]['reported_events'][0]['date'].split(' to ')[0]
-
-    date_inputs1, time_inputs1 = event_date.split('T')[0], event_date.split('T')[1]
-    date_inputs1, time_inputs1  = list( map(int, date_inputs1.split("-"))), list( map(int, time_inputs1.split(":")))
-
-    date_inputs2, time_inputs2 = args['start-date'].split('T')[0], args['start-date'].split('T')[1]
-    date_inputs2, time_inputs2 = list( map(int, date_inputs2.split('-'))), list( map(int, time_inputs2.split(':')))
-
-    dateObj = datetime( *(date_inputs1 + time_inputs1) )
-    start_date = datetime( *(date_inputs2 + time_inputs2) )
-
-    if start_date > dateObj:  
-        return False
-
-    return True
-
-def compareEndDate(event):
-    args = parser_report.parse_args()
-
-    event_date = event['reports'][0]['reported_events'][0]['date'].split(' to ')[1]
-
-    date_inputs1, time_inputs1 = event_date.split('T')[0], event_date.split('T')[1]
-    date_inputs1, time_inputs1  = list( map(int, date_inputs1.split("-"))), list( map(int, time_inputs1.split(":")))
-
-    date_inputs2, time_inputs2 = args['end-date'].split('T')[0], args['end-date'].split('T')[1]
-    date_inputs2, time_inputs2 = list( map(int, date_inputs2.split('-'))), list( map(int, time_inputs2.split(':')))
-
-    dateObj = datetime( *(date_inputs1 + time_inputs1) )
-    end_date = datetime( *(date_inputs2 + time_inputs2) )
-
-    if end_date < dateObj:  
-        return False
-
-    return True
 
 @api.route('/SearchReports')
 @api.doc(params={
@@ -116,7 +59,7 @@ class filterReports(Resource):
             return [], 200
 
         if args['key_terms'] is not None:
-            newResponse = list( filter(searchKeyTerms, newResponse) )
+            newResponse = list( filter(lambda x: searchKeyTerms(args['key_terms'], x), newResponse) )
 
         if args['longitude'] is not None:
             newResponse = list( filter(
@@ -127,10 +70,10 @@ class filterReports(Resource):
                 lambda x: x['reports'][0]['reported_events'][0]['location']['latitude'] == args['latitude'], newResponse))
 
         if args['start-date'] is not None:
-            newResponse = list( filter(compareStartDate, newResponse) )
+            newResponse = list( filter(lambda x: compareDate(args['start-date'], "greater",x), newResponse) )
 
         if args['end-date'] is not None:
-            newResponse = list( filter(compareEndDate, newResponse))
+            newResponse = list( filter(lambda x: compareDate(args['end-date'], "less", x), newResponse))
 
         newResponse = newResponse[:n]
 
@@ -157,19 +100,19 @@ class deleteReport(Resource):
 '''
     Updates an existing report with form data
 '''
-# parser.add_argument('url', type=str, required=True, help='url of the event', location='form')
-# parser.add_argument('date_of_publication', type=str, required=True, help='date of pulication (yyyy-mm-ddThh:mm:ss)', location='form')
 parser_create = parser.copy()
+parser_create.add_argument('url', type=str, required=True, help='url of the event', location='form')
+parser_create.add_argument('date_of_publication', type=str, required=True, help='date of pulication (yyyy-mm-ddThh:mm:ss)', location='form')
 parser_create.add_argument('headline', type=str, required=True, help='headline for the report', location='args')
 parser_create.add_argument('main_text', type=str, required=True, help='main text of the event', location='args')
 parser_create.add_argument('disease', type=str, required=True, help='comma separated list of diseases', location='args')
 parser_create.add_argument('syndrome', type=str, required=False, help='comma separated list of syndroms', location='args')
 parser_create.add_argument('type', type=str, required=True, help='the type of event e.g death, infected', location='args')
-parser_create.add_argument('geonames-id', type=int, required=True, help='geonnames id', location='args')
+parser_create.add_argument('longitude', type=float, required=True, help='longitude of location', location='args')
+parser_create.add_argument('latitude', type=float, required=True, help='latitude of location', location='args')
 parser_create.add_argument('number-affected', type=int, required=True, help='number of people affected', location='args')
 parser_create.add_argument('comment', type=str, required=False, help='comment', location='args')
-parser_create.add_argument('start-date', type=str, required=True, help='start date of date range (yyyy-mm-ddThh:mm:ss)', location='args')
-parser_create.add_argument('end-date', type=str, required=True, help='end date of date range (yyyy-mm-ddThh:mm:ss)', location='args')
+parser_create.add_argument('date', type=str, required=True, help='date of the event (yyyy-mm-ddThh:mm:ss)', location='args')
 
 @api.route('/createReport')
 class createReport(Resource):
@@ -200,8 +143,9 @@ class createReport(Resource):
         newReport['reports'][0]['disease'] = list( map(lambda x : x.strip(), args['disease'].split(',')) )
         newReport['reports'][0]['syndrome'] = list( map(lambda x : x.strip(), args['syndrome'].split(',')) ) if args['syndrome'] is not None else [] 
         newReport['reports'][0]['reported_events'][0]['type'] = args['type']
-        newReport['reports'][0]['reported_events'][0]['date'] = f"{args['start-date']} to {args['end-date']}"
-        newReport['reports'][0]['reported_events'][0]['location']['geonames-id'] = args['geonames-id'] 
+        newReport['reports'][0]['reported_events'][0]['date'] = args['date']
+        newReport['reports'][0]['reported_events'][0]['location']['longitude'] = args['longitude'] 
+        newReport['reports'][0]['reported_events'][0]['location']['latitude'] = args['latitude']
         newReport['reports'][0]['reported_events'][0]['number-affected'] = args['number-affected']
         newReport['reports'][0]['Comment'] = args['comment'] if args['comment'] else 'Null'
 
