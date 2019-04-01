@@ -79,16 +79,21 @@ class ReportList(Resource):
             return [], 200
 
         if args['key_terms'] is not None:
-            newResponse = list( filter(searchKeyTerms, newResponse) )
+            newResponse = list( filter(lambda x: searchKeyTerms(args['key_terms'], x), newResponse) )
 
-        if args['location'] is not None:
-            newResponse = list( filter(lambda x : x['location']['geonames-id'] == args['location'], newResponse))
+        if args['longitude'] is not None:
+            newResponse = list( filter(
+                lambda x : x['reports'][0]['reported_events'][0]['location']['longitude'] == args['longitude'], newResponse))
+
+        if args['latitude'] is not None:
+            newResponse = list( filter(
+                lambda x: x['reports'][0]['reported_events'][0]['location']['latitude'] == args['latitude'], newResponse))
 
         if args['start-date'] is not None:
-            newResponse = list( filter(compareStartDate, newResponse) )
+            newResponse = list( filter(lambda x: compareDate(args['start-date'], "greater",x), newResponse) )
 
         if args['end-date'] is not None:
-            newResponse = list( filter(compareEndDate, newResponse))
+            newResponse = list( filter(lambda x: compareDate(args['end-date'], "less", x), newResponse))
 
         newResponse = newResponse[:n]
 
@@ -98,76 +103,80 @@ class ReportList(Resource):
     def post(self):
         args = parser_create.parse_args()
 
-        if re.search(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}', args['start-date']) is None:
-            return "Invalid start-date", 400
-
-        if re.search(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}', args['end-date']) is None:
+        if re.search(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}', args['date']) is None:
             return "Invalid end-date", 400
 
-        n = -1
-        for article in dummyResponse:
-            if article['id'] > n:
-                n = article['id']
-        n = n+1
+        n = len(dummyResponse)+1
 
-        newReport = dummyResponse[0]
+        newReport = dummyResponse[0].copy()
         newReport['id'] = n
+        newReport['url'] = args['url']
+        newReport['date_of_publication'] = args['date_of_publication']
         newReport['headline'] = args['headline']
         newReport['main_text'] = args['main_text']
-        newReport['disease'] = list( map(lambda x : x.strip(), args['disease'].split(',')) )
-        newReport['syndrome'] = list( map(lambda x : x.strip(), args['syndrome'].split(',')) ) if args['syndrome'] is not None else [] 
-        newReport['event-type'] = args['event-type']
-        newReport['date'] = f"{args['start-date']} to {args['end-date']}"
-        newReport['location']['geonames-id'] = args['geonames-id'] 
-        newReport['number-affected'] = args['number-affected']
-        newReport['Comment'] = args['comment'] if args['comment'] else 'Null'
+        newReport['reports'][0]['disease'] = list( map(lambda x : x.strip(), args['disease'].split(',')) )
+        newReport['reports'][0]['syndrome'] = list( map(lambda x : x.strip(), args['syndrome'].split(',')) ) if args['syndrome'] is not None else [] 
+        newReport['reports'][0]['reported_events'][0]['type'] = args['event-type']
+        newReport['reports'][0]['reported_events'][0]['date'] = args['date']
+        newReport['reports'][0]['reported_events'][0]['location']['longitude'] = args['longitude'] 
+        newReport['reports'][0]['reported_events'][0]['location']['latitude'] = args['latitude']
+        newReport['reports'][0]['reported_events'][0]['number-affected'] = args['number-affected']
+        newReport['reports'][0]['Comment'] = args['comment'] if args['comment'] else 'Null'
+
+
+        dummyResponse.append(newReport)
+        dumpData(dummyResponse)
 
         return newReport, 200
 
 
 class Report(Resource):
-    def delete(self, report_id):
-        return f'deleted report {report_id}', 200
+    @api.response(200, 'Success')
+    @api.response(400, 'Report not found')
+    def delete(self, report_id):   
+        article = findReport(report_id, dummyResponse)
+        if article:
+            dummyResponse.remove( article )
+            return f'deleted report \n{article}\n', 200
+        
+        return "No report to be found", 400
 
+    @api.response(200, 'Success')
+    @api.response(400, 'Invalid date param')
     @api.doc(parser=parser_update)
     def put(self, report_id):
         args = parser_update.parse_args()
 
-        if args['start-date'] is not None and re.search(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}', args['start-date']) is None:
+        if args['date'] is not None and re.search(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}', args['start-date']) is None:
             return "Invalid start-date", 400
 
-        if args['end-date'] is not None and re.search(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}', args['end-date']) is None:
-            return "Invalid end-date", 400
-
-        newReport = dummyResponse[0]
-        newReport['id'] = args['id']
+        newReport = findReport(args['id'], dummyResponse)
         
         # Updating all report details
+        if args['url'] is not None:
+            newReport['url'] = args['url']
+        if args['date_of_publication'] is not None:
+            newReport['date_of_publication'] = args['date_of_publication']
         if args['headline'] is not None:
             newReport['headline'] = args['headline']
         if args['main_text'] is not None:
             newReport['main_text'] = args['main_text']
         if args['disease'] is not None:
-            newReport['disease'] = list( map(lambda x : x.strip(), args['disease'].split(',')) )
+            newReport['reports'][0]['disease'] = list( map(lambda x : x.strip(), args['disease'].split(',')) )
         if args['syndrome'] is not None:
-            newReport['syndrome'] = list( map(lambda x : x.strip(), args['syndrome'].split(',')) ) if args['syndrome'] is not None else [] 
-        if args['type'] is not None:
-            newReport['event-type'] = args['type']
-        if args['geonames-id'] is not None:
-            newReport['location']['geonames-id'] = args['geonames-id'] 
+            newReport['reports'][0]['syndrome'] = list( map(lambda x : x.strip(), args['syndrome'].split(',')) ) if args['syndrome'] is not None else [] 
+        if args['event-type'] is not None:
+            newReport['reports'][0]['reported_events'][0]['event-type'] = args['event-type']
+        if args['longitude'] is not None:
+            newReport['reports'][0]['reported_events'][0]['location']['longitude'] = args['longitude'] 
+        if args['latitude'] is not None:
+            newReport['reports'][0]['reported_events'][0]['location']['latitude'] = args['latitude']
         if args['number-affected'] is not None:
-            newReport['number-affected'] = args['number-affected']
+            newReport['reports'][0]['reported_events'][0]['number-affected'] = args['number-affected']
         if args['comment'] is not None:
-            newReport['Comment'] = args['comment']
+            newReport['reports'][0]['Comment'] = args['comment']
 
-        # Replacing start-date and end-date with regex
-        temp = newReport['date']
-        if args['start-date'] is not None and args['end-date'] is not None:
-            newReport['date'] = f"{args['start-date']} to {args['end-date']}"
-        elif args['start-date'] is not None and args['end-date'] is None:
-            newReport['date'] = re.sub(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2} to', f"{args['start-date']} to", temp)
-        else: 
-            newReport['date'] = re.sub(r'to \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}', f"to {args['end-date']}", temp)
+        dumpData(dummyResponse)
 
         return newReport, 200
 
