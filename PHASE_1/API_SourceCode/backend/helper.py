@@ -1,3 +1,5 @@
+from datetime import datetime
+
 def searchKeyTerms(args, event):
     keyterms = [word.strip() for word in args.split(',')]
     
@@ -35,3 +37,9 @@ def compareDate(compareDate, compare, event):
         return False
 
     return True
+
+def findReport(id, A):
+    for article in A:
+            if article['id'] == id
+                return article
+    return None

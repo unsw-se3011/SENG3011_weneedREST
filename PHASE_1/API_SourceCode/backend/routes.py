@@ -2,7 +2,7 @@ from server import app
 from flask import Flask
 from flask_restplus import Resource, Api, reqparse, fields
 import re
-from helper import compareDate, searchKeyTerms
+from helper import compareDate, searchKeyTerms, findReport
 import simplejson as json
 from datetime import datetime
 
@@ -100,11 +100,11 @@ class deleteReport(Resource):
     def delete(self):
         args = parser_delete.parse_args()
         n = args['id']
-
-        for article in dummyResponse:
-            if article['id'] == n
-                dummyResponse.remove(article)
-                return f'deleted report \n{article}\n', 200
+        
+        article = findReport(n, dummyResponse)
+        if article:
+            dummyResponse.remove( article )
+            return f'deleted report \n{article}\n', 200
         
         return "No report to be found", 400
 
@@ -112,8 +112,8 @@ class deleteReport(Resource):
     Updates an existing report with form data
 '''
 parser_create = parser.copy()
-parser_create.add_argument('url', type=str, required=True, help='url of the event', location='form')
-parser_create.add_argument('date_of_publication', type=str, required=True, help='date of pulication (yyyy-mm-ddThh:mm:ss)', location='form')
+parser_create.add_argument('url', type=str, required=True, help='url of the event', location='args')
+parser_create.add_argument('date_of_publication', type=str, required=True, help='date of pulication (yyyy-mm-ddThh:mm:ss)', location='args')
 parser_create.add_argument('headline', type=str, required=True, help='headline for the report', location='args')
 parser_create.add_argument('main_text', type=str, required=True, help='main text of the event', location='args')
 parser_create.add_argument('disease', type=str, required=True, help='comma separated list of diseases', location='args')
@@ -141,14 +141,12 @@ class createReport(Resource):
         if re.search(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}', args['end-date']) is None:
             return "Invalid end-date", 400
 
-        n = -1
-        for article in dummyResponse:
-            if article['id'] > n:
-                n = article['id']
-        n = n+1
+        n = len(dummyResponse)+1
 
         newReport = dummyResponse[0]
         newReport['id'] = n
+        newReport['url'] = args['url']
+        newReport['date_of_publication'] = args['date_of_publication']
         newReport['headline'] = args['headline']
         newReport['main_text'] = args['main_text']
         newReport['reports'][0]['disease'] = list( map(lambda x : x.strip(), args['disease'].split(',')) )
@@ -167,16 +165,18 @@ class createReport(Resource):
 '''
 parser_update = parser_create.copy()
 parser_update.add_argument('id', type=int, required=True, help="ID of report to update", location='args')
-parser_update.add_argument('headline', type=str, required=False, help="Headline of report", location='args')
-parser_update.add_argument('main_text', type=str, required=False, help="Main text of report", location='args')
-parser_update.add_argument('disease', type=str, required=False, help="Disease of report", location='args')
-parser_update.add_argument('syndrome', type=str, required=False, help="ID of report to update", location='args')
-parser_update.add_argument('type', type=str, required=False, help="Type of report. Possible types include: 'Death', 'Presence', 'Infected', 'Hospitalised', 'Recovered'", location='args')
-parser_update.add_argument('geonames-id', type=int, required=False, help="Geoname of report", location='args')
-parser_update.add_argument('number-affected', type=int, required=False, help="Number of people affected", location='args')
-parser_update.add_argument('comment', type=str, required=False, help="Comment to add to report", location='args')
-parser_update.add_argument('start-date', type=str, required=False, help="Start date of report", location='args')
-parser_update.add_argument('end-date', type=str, required=False, help="End date of report", location='args')
+parser_update.replace_argument('url', required=False)
+parser_update.replace_argument('date_of_publication',required=False)
+parser_update.replace_argument('headline', required=False)
+parser_update.replace_argument('main_text', required=False)
+parser_update.replace_argument('disease', required=False)
+parser_update.replace_argument('syndrome', required=False)
+parser_update.replace_argument('type', required=False)
+parser_update.replace_argument('geonames-id', required=False)
+parser_update.replace_argument('number-affected', required=False)
+parser_update.replace_argument('comment', required=False)
+parser_update.replace_argument('start-date', required=False)
+parser_update.replace_argument('end-date', required=False)
 
 @api.route('/updateReport')
 class updateReport(Resource):
@@ -196,8 +196,7 @@ class updateReport(Resource):
         if args['end-date'] is not None and re.search(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}', args['end-date']) is None:
             return "Invalid end-date", 400
 
-        newReport = dummyResponse[0]
-        newReport['id'] = args['id']
+        newReport = findReport(args['id'], dummyResponse)
         
         # Updating all report details
         if args['headline'] is not None:
