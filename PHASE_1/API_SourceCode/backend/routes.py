@@ -135,10 +135,7 @@ class createReport(Resource):
     def post(self):
         args = parser_create.parse_args()
 
-        if re.search(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}', args['start-date']) is None:
-            return "Invalid start-date", 400
-
-        if re.search(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}', args['end-date']) is None:
+        if re.search(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}', args['date']) is None:
             return "Invalid end-date", 400
 
         n = len(dummyResponse)+1
