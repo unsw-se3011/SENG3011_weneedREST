@@ -2,38 +2,16 @@ from server import app
 from flask import Flask
 from flask_restplus import Resource, Api, reqparse, fields
 import re
+import simplejson as json
 from datetime import datetime
 
 app = Flask(__name__)
 api = Api(app)
 
 # Create dummy data here
-dummyResponse =[{
-        "id": 1,
-        "url": "www.outbreaks.globalincidentmap.com/eventdetail.php?ID=31146",
-        "date_of_publication": "2019-02-27T23:20:00 ",
-        "headline": "TANZANIA - Anthrax kills two people in northern Tanzania",
-        "main_text": "2 people died and 8 others were hospitalized following an anthrax outbreak...",
-        "reports": [
-            {
-                "disease": [
-                    "anthrax",
-                ],
-                "syndrome": [],
-                "reported_events": [
-                    {
-                        "type": "death",
-                        "date": "2018-12-01T23:20:00 to 2018-12-10T23:50:00",
-                        "location": {
-                            "geonames-id": 1566083
-                        },
-                        "number-affected": "2"
-                    },
-                ],
-                "Comment": 'null'
-            }
-        ]
-    }]
+with open('clean.json',"r") as f:
+    dummyResponse = eval(f.read())
+f.closed
 
 parser = reqparse.RequestParser()
 
