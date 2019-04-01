@@ -2,7 +2,7 @@ from server import app
 from flask import Flask
 from flask_restplus import Resource, Api, reqparse, fields
 import re
-from helper import compareDate, searchKeyTerms, findReport
+from helper import compareDate, searchKeyTerms, findReport, dumpData
 import simplejson as json
 from datetime import datetime
 
@@ -13,11 +13,6 @@ api = Api(app)
 with open('clean.json',"r") as f:
     dummyResponse = eval(f.read())
     f.close()
-
-def dumpData(data):
-    with open('clean.json',"w") as f:
-        json.dump(data, f)
-        f.close()
 
 parser = reqparse.RequestParser()
 

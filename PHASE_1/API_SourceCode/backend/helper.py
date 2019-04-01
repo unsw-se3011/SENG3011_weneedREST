@@ -1,4 +1,5 @@
 from datetime import datetime
+import json
 
 def searchKeyTerms(args, event):
     keyterms = [word.strip() for word in args.split(',')]
@@ -43,3 +44,8 @@ def findReport(n, A):
             if article['id'] == n:
                 return article
     return None
+
+def dumpData(data):
+    with open('clean.json',"w") as f:
+        json.dump(data, f)
+        f.close()
