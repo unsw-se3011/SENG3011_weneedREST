@@ -20,7 +20,8 @@ parser = reqparse.RequestParser()
 '''
 parser_report = parser.copy()
 parser_report.add_argument('n', type=int, help='Max number of results', location='args')
-parser_report.add_argument('location', type=int, help='Geocode of area affected', location='args')
+parser_report.add_argument('latitude', type=float, help='latitude of area affected', location='args')
+parser_report.add_argument('longitude', type=float, help='longitude of area affected', location='args')
 parser_report.add_argument('key_terms', type=str, help='list of key terms', location='args')
 parser_report.add_argument('start-date', type=str, help='start date of date range (yyyy-mm-ddThh:mm:ss)', location='args')
 parser_report.add_argument('end-date', type=str, help='end date of date range (yyyy-mm-ddThh:mm:ss)', location='args')
@@ -84,7 +85,15 @@ def compareEndDate(event):
     return True
 
 @api.route('/SearchReports')
-@api.doc(params={'n': 'Number of results returned (max is 10)', 'location':'Geocode of area affected', 'key_terms':'Comma separated list of of all key items requested by user', 'start-date':'Starting date of reports', 'end-date':'Ending date or reports'})
+@api.doc(params={
+    'n': 'Number of results returned (max is 10)', 
+    'longitude':'longitude of area affected', 
+    'latitude':'latitude of area affected', 
+    'key_terms':'Comma separated list of of all key items requested by user', 
+    'start-date':'Starting date of reports', 
+    'end-date':'Ending date or reports'
+    }
+)
 class filterReports(Resource):
     @api.response(200, 'Success - All reports')
     @api.response(300, 'Success - Filtered reports returned')
@@ -109,8 +118,13 @@ class filterReports(Resource):
         if args['key_terms'] is not None:
             newResponse = list( filter(searchKeyTerms, newResponse) )
 
-        if args['location'] is not None:
-            newResponse = list( filter(lambda x : x['reports'][0]['reported_events'][0]['location']['geonames-id'] == args['location'], newResponse))
+        if args['longitude'] is not None:
+            newResponse = list( filter(
+                lambda x : x['reports'][0]['reported_events'][0]['location']['longitude'] == args['longitude'], newResponse))
+
+        if args['latitude'] is not None:
+            newResponse = list( filter(
+                lambda x: x['reports'][0]['reported_events'][0]['location']['latitude'] == args['latitude'], newResponse))
 
         if args['start-date'] is not None:
             newResponse = list( filter(compareStartDate, newResponse) )
