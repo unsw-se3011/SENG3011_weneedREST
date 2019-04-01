@@ -43,4 +43,4 @@ with open('raw.json','r') as f:
 
 with open('clean.json',"w") as f:
     f.write(str(articles))
-f.closed
+    f.close()

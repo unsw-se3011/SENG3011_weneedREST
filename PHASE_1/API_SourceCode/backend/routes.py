@@ -12,7 +12,12 @@ api = Api(app)
 # Create dummy data here
 with open('clean.json',"r") as f:
     dummyResponse = eval(f.read())
-f.closed
+    f.close()
+
+def dumpData(articles):
+    with open('clean.json',"w") as f:
+        f.write(str(articles))
+        f.close()
 
 parser = reqparse.RequestParser()
 
@@ -94,8 +99,14 @@ class deleteReport(Resource):
     @api.doc(parser=parser_delete)
     def delete(self):
         args = parser_delete.parse_args()
-        id = args['id']
-        return f'deleted report {id}', 200
+        n = args['id']
+
+        for article in dummyResponse:
+            if article['id'] == n
+                dummyResponse.remove(article)
+                return f'deleted report \n{article}\n', 200
+        
+        return "No report to be found", 400
 
 '''
     Updates an existing report with form data
