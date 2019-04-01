@@ -12,6 +12,7 @@ articles = []
 with open('raw.json','r') as f:
     data = json.load(f)
     f.close()
+    i = 1
     for article in data:
         reports = []
         disease = []
@@ -22,6 +23,7 @@ with open('raw.json','r') as f:
         reportDict = {}
         geonames = {'latitude': article['Latitude'], 'longitude': article['Longitude']}
 
+        articleDict['id'] = i
         articleDict['url'] = article['URL']
         articleDict['date_of_publication'] = article['date_of_publication']
         articleDict['headline'] = article['TipText']
@@ -40,6 +42,7 @@ with open('raw.json','r') as f:
         reports.append(reportDict)
         articleDict['reports'] = reports
         articles.append(articleDict)
+        i += 1
 
 with open('clean.json',"w") as f:
     f.write(str(articles))
