@@ -38,8 +38,8 @@ def compareDate(compareDate, compare, event):
 
     return True
 
-def findReport(id, A):
+def findReport(n, A):
     for article in A:
-            if article['id'] == id
+            if article['id'] == n:
                 return article
     return None

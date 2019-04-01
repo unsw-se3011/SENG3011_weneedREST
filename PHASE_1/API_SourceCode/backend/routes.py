@@ -118,7 +118,7 @@ parser_create.add_argument('headline', type=str, required=True, help='headline f
 parser_create.add_argument('main_text', type=str, required=True, help='main text of the event', location='args')
 parser_create.add_argument('disease', type=str, required=True, help='comma separated list of diseases', location='args')
 parser_create.add_argument('syndrome', type=str, required=False, help='comma separated list of syndroms', location='args')
-parser_create.add_argument('type', type=str, required=True, help='the type of event e.g death, infected', location='args')
+parser_create.add_argument('event-type', type=str, required=True, help='the type of event e.g death, infected', location='args')
 parser_create.add_argument('longitude', type=float, required=True, help='longitude of location', location='args')
 parser_create.add_argument('latitude', type=float, required=True, help='latitude of location', location='args')
 parser_create.add_argument('number-affected', type=int, required=True, help='number of people affected', location='args')
@@ -151,7 +151,7 @@ class createReport(Resource):
         newReport['main_text'] = args['main_text']
         newReport['reports'][0]['disease'] = list( map(lambda x : x.strip(), args['disease'].split(',')) )
         newReport['reports'][0]['syndrome'] = list( map(lambda x : x.strip(), args['syndrome'].split(',')) ) if args['syndrome'] is not None else [] 
-        newReport['reports'][0]['reported_events'][0]['type'] = args['type']
+        newReport['reports'][0]['reported_events'][0]['type'] = args['event-type']
         newReport['reports'][0]['reported_events'][0]['date'] = args['date']
         newReport['reports'][0]['reported_events'][0]['location']['longitude'] = args['longitude'] 
         newReport['reports'][0]['reported_events'][0]['location']['latitude'] = args['latitude']
