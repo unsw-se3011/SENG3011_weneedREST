@@ -16,7 +16,7 @@ with open('clean.json',"r") as f:
 
 def dumpData(articles):
     with open('clean.json',"w") as f:
-        f.write(str(articles))
+        f.write(json.dumps(articles))
         f.close()
 
 parser = reqparse.RequestParser()
@@ -207,7 +207,7 @@ class updateReport(Resource):
             newReport['reports'][0]['disease'] = list( map(lambda x : x.strip(), args['disease'].split(',')) )
         if args['syndrome'] is not None:
             newReport['reports'][0]['syndrome'] = list( map(lambda x : x.strip(), args['syndrome'].split(',')) ) if args['syndrome'] is not None else [] 
-        if args['type'] is not None:
+        if args['event-type'] is not None:
             newReport['reports'][0]['reported_events'][0]['event-type'] = args['event-type']
         if args['longitude'] is not None:
             newReport['reports'][0]['reported_events'][0]['location']['longitude'] = args['longitude'] 
