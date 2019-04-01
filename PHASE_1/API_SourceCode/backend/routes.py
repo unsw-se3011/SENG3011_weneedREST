@@ -128,9 +128,7 @@ parser_create.add_argument('date', type=str, required=True, help='date of the ev
 @api.route('/createReport')
 class createReport(Resource):
     @api.response(200, 'Success')
-    @api.response(400, 'Invalid ID')
-    @api.response(404, 'Report not found')
-    @api.response(405, 'Invalid data')
+    @api.response(400, 'Invalid date param')
     @api.doc(parser=parser_create)
     def post(self):
         args = parser_create.parse_args()
@@ -140,7 +138,7 @@ class createReport(Resource):
 
         n = len(dummyResponse)+1
 
-        newReport = dummyResponse[0]
+        newReport = dummyResponse[0].copy()
         newReport['id'] = n
         newReport['url'] = args['url']
         newReport['date_of_publication'] = args['date_of_publication']
@@ -155,6 +153,10 @@ class createReport(Resource):
         newReport['reports'][0]['reported_events'][0]['number-affected'] = args['number-affected']
         newReport['reports'][0]['Comment'] = args['comment'] if args['comment'] else 'Null'
 
+
+        dummyResponse.append(newReport)
+        dumpData(dummyResponse)
+
         return newReport, 200
 
 '''
@@ -168,12 +170,12 @@ parser_update.replace_argument('headline', required=False)
 parser_update.replace_argument('main_text', required=False)
 parser_update.replace_argument('disease', required=False)
 parser_update.replace_argument('syndrome', required=False)
-parser_update.replace_argument('type', required=False)
-parser_update.replace_argument('geonames-id', required=False)
+parser_update.replace_argument('event-type', required=False)
+parser_update.replace_argument('longitude', required=False)
+parser_update.replace_argument('latitude', required=False)
 parser_update.replace_argument('number-affected', required=False)
 parser_update.replace_argument('comment', required=False)
-parser_update.replace_argument('start-date', required=False)
-parser_update.replace_argument('end-date', required=False)
+parser_update.replace_argument('date', required=False)
 
 @api.route('/updateReport')
 class updateReport(Resource):
@@ -187,15 +189,16 @@ class updateReport(Resource):
     def put(self):
         args = parser_update.parse_args()
 
-        if args['start-date'] is not None and re.search(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}', args['start-date']) is None:
+        if args['date'] is not None and re.search(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}', args['start-date']) is None:
             return "Invalid start-date", 400
-
-        if args['end-date'] is not None and re.search(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}', args['end-date']) is None:
-            return "Invalid end-date", 400
 
         newReport = findReport(args['id'], dummyResponse)
         
         # Updating all report details
+        if args['url'] is not None:
+            newReport['url'] = args['url']
+        if args['date_of_publication'] is not None:
+            newReport['date_of_publication'] = args['date_of_publication']
         if args['headline'] is not None:
             newReport['headline'] = args['headline']
         if args['main_text'] is not None:
@@ -205,21 +208,25 @@ class updateReport(Resource):
         if args['syndrome'] is not None:
             newReport['reports'][0]['syndrome'] = list( map(lambda x : x.strip(), args['syndrome'].split(',')) ) if args['syndrome'] is not None else [] 
         if args['type'] is not None:
-            newReport['reports'][0]['reported_events'][0]['type'] = args['type']
-        if args['geonames-id'] is not None:
-            newReport['reports'][0]['reported_events'][0]['location']['geonames-id'] = args['geonames-id'] 
+            newReport['reports'][0]['reported_events'][0]['event-type'] = args['event-type']
+        if args['longitude'] is not None:
+            newReport['reports'][0]['reported_events'][0]['location']['longitude'] = args['longitude'] 
+        if args['latitude'] is not None:
+            newReport['reports'][0]['reported_events'][0]['location']['latitude'] = args['latitude']
         if args['number-affected'] is not None:
             newReport['reports'][0]['reported_events'][0]['number-affected'] = args['number-affected']
         if args['comment'] is not None:
             newReport['reports'][0]['Comment'] = args['comment']
 
         # Replacing start-date and end-date with regex
-        temp = newReport['reports'][0]['reported_events'][0]['date']
-        if args['start-date'] is not None and args['end-date'] is not None:
-            newReport['reports'][0]['reported_events'][0]['date'] = f"{args['start-date']} to {args['end-date']}"
-        elif args['start-date'] is not None and args['end-date'] is None:
-            newReport['reports'][0]['reported_events'][0]['date'] = re.sub(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2} to', f"{args['start-date']} to", temp)
-        else: 
-            newReport['reports'][0]['reported_events'][0]['date'] = re.sub(r'to \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}', f"to {args['end-date']}", temp)
+        # temp = newReport['reports'][0]['reported_events'][0]['date']
+        # if args['start-date'] is not None and args['end-date'] is not None:
+        #     newReport['reports'][0]['reported_events'][0]['date'] = f"{args['start-date']} to {args['end-date']}"
+        # elif args['start-date'] is not None and args['end-date'] is None:
+        #     newReport['reports'][0]['reported_events'][0]['date'] = re.sub(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2} to', f"{args['start-date']} to", temp)
+        # else: 
+        #     newReport['reports'][0]['reported_events'][0]['date'] = re.sub(r'to \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}', f"to {args['end-date']}", temp)
+
+        dumpData(dummyResponse)
 
         return newReport, 200
