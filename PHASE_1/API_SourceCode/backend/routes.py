@@ -184,8 +184,8 @@ class updateReport(Resource):
     def put(self):
         args = parser_update.parse_args()
 
-        if args['date'] is not None and re.search(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}', args['start-date']) is None:
-            return "Invalid start-date", 400
+        if args['date'] is not None and re.search(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}', args['date']) is None:
+            return "Invalid date", 400
 
         newReport = findReport(args['id'], dummyResponse)
         
