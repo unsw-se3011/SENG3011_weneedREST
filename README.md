@@ -19,11 +19,12 @@ The decisions our team has made in regards to meeting schedules and roles are al
 ## Deliverable Two - A
 The following things were completed in deliverable two:
 1. API deployed as a REST web service via Digital Ocean droplet.
-<<<<<<< HEAD
 2. Able to make requests to the API using the Swagger interface. This can be accessed from the url: http://104.248.30.17:5000/
 3. Generates output file / response which can be viewed through Swagger
+
+
 1. 
-1. Address Problems Side
+1. 1. Address Problems Side
 1. State Background
 1. Coming from this perspective to solve these problems
 1. Frontned data Graphs visualisation, analytics, heatmap
@@ -32,7 +33,3 @@ The following things were completed in deliverable two:
 1. ML
 1. Live Data
 1. Output reports based on user-specified criteria (country, disease, dates)
-=======
-2. Able to make requests to the API using the Swagger interface. This can be accessed from the url: http://46.101.226.130:5000
-3. Generates output file / response which can be viewed through Swagger
->>>>>>> d592ec55a588a343cebfe315f8965d4cacacafde
