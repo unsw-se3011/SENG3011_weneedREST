@@ -11,6 +11,36 @@ api = Api(app, version='1.0', title='Disease report API',
     description='A simple Disease Report API',
 )
 
+location_model = {
+    'latitude': fields.Float, 
+    'longitude': fields.Float
+}
+
+event_model = {
+    'type': fields.List( fields.String ), 
+    'date': fields.String, 
+    'location': fields.Nested( location_model ), 
+    'number-affected': fields.Integer
+}
+
+report_model = {
+    'disease': fields.List( fields.String ), 
+    'syndrome': fields.List( fields.String ), 
+    'comment': fields.String, 
+    'reported_events': fields.List( fields.Nested( event_model ) )
+}
+
+article_model = api.model('Report', {
+    'id': fields.Integer, 
+    'url': fields.String, 
+    'date_of_publication': fields.String, 
+    'headline': fields.String, 
+    'main_text': fields.String, 
+    'reports': fields.List( fields.Nested( report_model ) )
+})
+
+article_list_model = api.model('ReportList', fields.List( fields.Nested( article_model ) ))
+
 ns_rep = api.namespace('reports', description='Report operations')
 
 parser = reqparse.RequestParser()
