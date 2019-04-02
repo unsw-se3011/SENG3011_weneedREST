@@ -14,9 +14,11 @@ We have also chosen to use **DigitalOcean** to host the API for the web service 
 ### 2. Discuss your	current thinking about how parameters can be passed to your module and how results are collected. Show an example of a possible interaction.
 
 #### API Endpoints
+*Return all reports currently in collection*
+- **[<code>GET</code> /getAllReports](https://github.com/unsw-se3011/SENG3011_weneedREST/blob/documentation/Reports/Design%20Details/GET_reports_query.md)** 
+
 *Find all reports matching the query values*
-- **[<code>GET</code> /SearchReports](https://github.com/unsw-se3011/SENG3011_weneedREST/blob/documentation/Reports/Design%20Details/GET_reports_query.md)** 
-   <br/><small>*If no filter options are given the API will assume the user wants to return all reports.</small>
+- **[<code>GET</code> /searchReports](https://github.com/unsw-se3011/SENG3011_weneedREST/blob/documentation/Reports/Design%20Details/GET_reports_query.md)** 
 
 *Deletes a report*
 - **[<code>DELETE</code> /delete](https://github.com/unsw-se3011/SENG3011_weneedREST/blob/documentation/Reports/Design%20Details/DELETE_reports.md)**
