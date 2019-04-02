@@ -9,12 +9,28 @@ from datetime import datetime
 app = Flask(__name__)
 api = Api(app)
 
-# Create dummy data here
+# Json data being read in from clean file
 with open('clean.json',"r") as f:
-    dummyResponse = eval(f.read())
+    jsonReports = eval(f.read())
     f.close()
 
 parser = reqparse.RequestParser()
+
+
+'''
+    Returns all reports
+'''
+parser_report = parser.copy()
+@api.route('/getAllReports')
+class getAllReports(Resource):
+    @api.response(200, 'Successful')
+    @api.response(400, 'Error occurred')
+    def get(self):
+        if jsonReports:
+            return jsonReports, 200
+        else:
+            return [], 400
+
 
 '''
     Returns reports specifying selected criteria
@@ -27,9 +43,9 @@ parser_report.add_argument('key_terms', type=str, help='list of key terms', loca
 parser_report.add_argument('start-date', type=str, help='start date of date range (yyyy-mm-ddThh:mm:ss)', location='args')
 parser_report.add_argument('end-date', type=str, help='end date of date range (yyyy-mm-ddThh:mm:ss)', location='args')
 
-@api.route('/SearchReports')
+@api.route('/searchReports')
 @api.doc(params={
-    'n': 'Number of results returned (max is 10)', 
+    'n': 'Number of results returned', 
     'longitude':'longitude of area affected', 
     'latitude':'latitude of area affected', 
     'key_terms':'Comma separated list of of all key items requested by user', 
@@ -38,8 +54,7 @@ parser_report.add_argument('end-date', type=str, help='end date of date range (y
     }
 )
 class filterReports(Resource):
-    @api.response(200, 'Success - All reports')
-    @api.response(300, 'Success - Filtered reports returned')
+    @api.response(200, 'Success - Filtered results returned')
     @api.response(400, 'Invalid location, key term or date')
     @api.doc(parser=parser_report)
     def get(self):
@@ -51,9 +66,9 @@ class filterReports(Resource):
         if args['end-date'] is not None and re.search(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}', args['end-date']) is None:
             return "Invalid end-date", 400
 
-        newResponse = dummyResponse
+        newResponse = jsonReports
 
-        n = 10 if args['n'] is None or args['n'] > 10 else args['n'] 
+        n = len(jsonReports) if args['n'] is None or args['n'] > 10 else args['n'] 
 
         if n < 0: 
             return [], 200
@@ -85,7 +100,7 @@ class filterReports(Resource):
 parser_delete = parser.copy()
 parser_delete.add_argument('id', type=int, required=True, help='ID of report to be deleted', location='args')
 
-@api.route('/delete')
+@api.route('/delete/{id}')
 @api.doc(params={'id': 'ID of report to be deleted'})
 class deleteReport(Resource):
     @api.response(200, 'Success')
@@ -96,9 +111,9 @@ class deleteReport(Resource):
         args = parser_delete.parse_args()
         n = args['id']
         
-        article = findReport(n, dummyResponse)
+        article = findReport(n, jsonReports)
         if article:
-            dummyResponse.remove( article )
+            jsonReports.remove( article )
             return f'deleted report \n{article}\n', 200
         
         return "No report to be found", 400
@@ -131,9 +146,9 @@ class createReport(Resource):
         if re.search(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}', args['date']) is None:
             return "Invalid end-date", 400
 
-        n = len(dummyResponse)+1
+        n = len(jsonReports)+1
 
-        newReport = dummyResponse[0].copy()
+        newReport = jsonReports[0].copy()
         newReport['id'] = n
         newReport['url'] = args['url']
         newReport['date_of_publication'] = args['date_of_publication']
@@ -149,8 +164,8 @@ class createReport(Resource):
         newReport['reports'][0]['Comment'] = args['comment'] if args['comment'] else 'Null'
 
 
-        dummyResponse.append(newReport)
-        dumpData(dummyResponse)
+        jsonReports.append(newReport)
+        dumpData(jsonReports)
 
         return newReport, 200
 
@@ -187,7 +202,7 @@ class updateReport(Resource):
         if args['date'] is not None and re.search(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}', args['date']) is None:
             return "Invalid date", 400
 
-        newReport = findReport(args['id'], dummyResponse)
+        newReport = findReport(args['id'], jsonReports)
         
         # Updating all report details
         if args['url'] is not None:
@@ -213,6 +228,6 @@ class updateReport(Resource):
         if args['comment'] is not None:
             newReport['reports'][0]['Comment'] = args['comment']
 
-        dumpData(dummyResponse)
+        dumpData(jsonReports)
 
         return newReport, 200

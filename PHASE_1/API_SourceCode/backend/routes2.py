@@ -73,6 +73,9 @@ class ReportList(Resource):
 
         newResponse = dummyResponse
 
+        print("LENGTH")
+        print(dummyResponse.length())
+
         n = 10 if args['n'] is None or args['n'] > 10 else args['n'] 
 
         if n < 0: 
