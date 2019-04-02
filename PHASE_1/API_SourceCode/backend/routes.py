@@ -1,23 +1,22 @@
-from server import app
 from flask import Flask
 from flask_restplus import Resource, Api, reqparse, fields
 import re
-from helper import compareDate, searchKeyTerms, findReport, dumpData
-import simplejson as json
 from datetime import datetime
+from helper import compareDate, searchKeyTerms, findReport, dumpData, readData
+from werkzeug.contrib.fixers import ProxyFix
 
 app = Flask(__name__)
-api = Api(app)
+app.wsgi_app = ProxyFix(app.wsgi_app)
+api = Api(app, version='1.0', title='Disease report API',
+    description='A simple Disease Report API',
+)
 
-# Create dummy data here
-with open('clean.json',"r") as f:
-    dummyResponse = eval(f.read())
-    f.close()
+ns_rep = api.namespace('reports', description='Report operations')
 
 parser = reqparse.RequestParser()
 
 '''
-    Returns reports specifying selected criteria
+    parse the arguments for filtering reports
 '''
 parser_report = parser.copy()
 parser_report.add_argument('n', type=int, help='Max number of results', location='args')
@@ -27,22 +26,50 @@ parser_report.add_argument('key_terms', type=str, help='list of key terms', loca
 parser_report.add_argument('start-date', type=str, help='start date of date range (yyyy-mm-ddThh:mm:ss)', location='args')
 parser_report.add_argument('end-date', type=str, help='end date of date range (yyyy-mm-ddThh:mm:ss)', location='args')
 
-@api.route('/SearchReports')
-@api.doc(params={
-    'n': 'Number of results returned (max is 10)', 
-    'longitude':'longitude of area affected', 
-    'latitude':'latitude of area affected', 
-    'key_terms':'Comma separated list of of all key items requested by user', 
-    'start-date':'Starting date of reports', 
-    'end-date':'Ending date or reports'
-    }
-)
-class filterReports(Resource):
-    @api.response(200, 'Success - All reports')
-    @api.response(300, 'Success - Filtered reports returned')
-    @api.response(400, 'Invalid location, key term or date')
+'''
+    parse the arguments for creating a report
+'''
+parser_create = parser.copy()
+parser_create.add_argument('url', type=str, required=True, help='url of the event', location='args')
+parser_create.add_argument('date_of_publication', type=str, required=True, help='date of pulication (yyyy-mm-ddThh:mm:ss)', location='args')
+parser_create.add_argument('headline', type=str, required=True, help='headline for the report', location='args')
+parser_create.add_argument('main_text', type=str, required=True, help='main text of the event', location='args')
+parser_create.add_argument('disease', type=str, required=True, help='comma separated list of diseases', location='args')
+parser_create.add_argument('syndrome', type=str, required=False, help='comma separated list of syndroms', location='args')
+parser_create.add_argument('event-type', type=str, required=True, help='the type of event e.g death, infected', location='args')
+parser_create.add_argument('longitude', type=float, required=True, help='longitude of location', location='args')
+parser_create.add_argument('latitude', type=float, required=True, help='latitude of location', location='args')
+parser_create.add_argument('number-affected', type=int, required=True, help='number of people affected', location='args')
+parser_create.add_argument('comment', type=str, required=False, help='comment', location='args')
+parser_create.add_argument('date', type=str, required=True, help='date of the event (yyyy-mm-ddThh:mm:ss)', location='args')
+
+class ReportManager(object):
+    def __init__(self, data):
+        self.reports = data
+        self.n = len(data)
+    
+    def create(self, data):
+        newReport = self.reports[0].copy()
+
+    def filter(self, args):
+        for key in args.keys(): 
+            pass
+        
+    def delete(self, report_id):
+        article = findReport(report_id, self.reports)
+
+reportDAO = ReportManager(readData())
+
+@ns_rep.route('/')
+class ReportList(Resource):
+    '''
+        Shows a list of all reports and lets you POST to create a report and GET to search for reports
+    '''
     @api.doc(parser=parser_report)
     def get(self):
+        '''
+            Search/filter for reports
+        '''
         args = parser_report.parse_args()
 
         if args['start-date'] is not None and re.search(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}', args['start-date']) is None:
@@ -51,7 +78,7 @@ class filterReports(Resource):
         if args['end-date'] is not None and re.search(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}', args['end-date']) is None:
             return "Invalid end-date", 400
 
-        newResponse = dummyResponse
+        newResponse = reportDAO.reports
 
         n = 10 if args['n'] is None or args['n'] > 10 else args['n'] 
 
@@ -79,61 +106,19 @@ class filterReports(Resource):
 
         return newResponse, 200
 
-'''
-    Deletes a report
-'''
-parser_delete = parser.copy()
-parser_delete.add_argument('id', type=int, required=True, help='ID of report to be deleted', location='args')
-
-@api.route('/delete')
-@api.doc(params={'id': 'ID of report to be deleted'})
-class deleteReport(Resource):
-    @api.response(200, 'Success')
-    @api.response(400, 'Invalid ID')
-    @api.response(404, 'Report not found')
-    @api.doc(parser=parser_delete)
-    def delete(self):
-        args = parser_delete.parse_args()
-        n = args['id']
-        
-        article = findReport(n, dummyResponse)
-        if article:
-            dummyResponse.remove( article )
-            return f'deleted report \n{article}\n', 200
-        
-        return "No report to be found", 400
-
-'''
-    Updates an existing report with form data
-'''
-parser_create = parser.copy()
-parser_create.add_argument('url', type=str, required=True, help='url of the event', location='args')
-parser_create.add_argument('date_of_publication', type=str, required=True, help='date of pulication (yyyy-mm-ddThh:mm:ss)', location='args')
-parser_create.add_argument('headline', type=str, required=True, help='headline for the report', location='args')
-parser_create.add_argument('main_text', type=str, required=True, help='main text of the event', location='args')
-parser_create.add_argument('disease', type=str, required=True, help='comma separated list of diseases', location='args')
-parser_create.add_argument('syndrome', type=str, required=False, help='comma separated list of syndroms', location='args')
-parser_create.add_argument('event-type', type=str, required=True, help='the type of event e.g death, infected', location='args')
-parser_create.add_argument('longitude', type=float, required=True, help='longitude of location', location='args')
-parser_create.add_argument('latitude', type=float, required=True, help='latitude of location', location='args')
-parser_create.add_argument('number-affected', type=int, required=True, help='number of people affected', location='args')
-parser_create.add_argument('comment', type=str, required=False, help='comment', location='args')
-parser_create.add_argument('date', type=str, required=True, help='date of the event (yyyy-mm-ddThh:mm:ss)', location='args')
-
-@api.route('/createReport')
-class createReport(Resource):
-    @api.response(200, 'Success')
-    @api.response(400, 'Invalid date param')
     @api.doc(parser=parser_create)
     def post(self):
+        '''
+            Create a report
+        '''
         args = parser_create.parse_args()
 
         if re.search(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}', args['date']) is None:
             return "Invalid end-date", 400
 
-        n = len(dummyResponse)+1
+        n = reportDAO.n + 1
 
-        newReport = dummyResponse[0].copy()
+        newReport = reportDAO[0].copy()
         newReport['id'] = n
         newReport['url'] = args['url']
         newReport['date_of_publication'] = args['date_of_publication']
@@ -149,16 +134,16 @@ class createReport(Resource):
         newReport['reports'][0]['Comment'] = args['comment'] if args['comment'] else 'Null'
 
 
-        dummyResponse.append(newReport)
-        dumpData(dummyResponse)
+        reportDAO.append(newReport)
+        dumpData(reportDAO)
 
         return newReport, 200
 
+
 '''
-    Updates an existing report
+    parse the arguments for updating
 '''
 parser_update = parser_create.copy()
-parser_update.add_argument('id', type=int, required=True, help="ID of report to update", location='args')
 parser_update.replace_argument('url', required=False)
 parser_update.replace_argument('date_of_publication',required=False)
 parser_update.replace_argument('headline', required=False)
@@ -172,22 +157,37 @@ parser_update.replace_argument('number-affected', required=False)
 parser_update.replace_argument('comment', required=False)
 parser_update.replace_argument('date', required=False)
 
-@api.route('/updateReport')
-class updateReport(Resource):
-# PUT is for updating
-# Post is for creating
+@ns_rep.route('/<int:report_id>')
+class Report(Resource):
+    '''
+        Shows an individual report and lets you DELETE a report or PUT to update a reports
+    '''
     @api.response(200, 'Success')
-    @api.response(400, 'Invalid ID')
-    @api.response(404, 'Report not found')
-    @api.response(405, 'Invalid data')
+    @api.response(400, 'Report not found')
+    def delete(self, report_id):   
+        '''
+            Deletes a report
+        '''
+        article = findReport(report_id, reportDAO)
+        if article:
+            reportDAO.remove( article )
+            return f'deleted report \n{article}\n', 200
+        
+        return "No report to be found", 400
+
+    @api.response(200, 'Success')
+    @api.response(400, 'Invalid date param')
     @api.doc(parser=parser_update)
-    def put(self):
+    def put(self, report_id):
+        '''
+            Updates a given report
+        '''
         args = parser_update.parse_args()
 
-        if args['date'] is not None and re.search(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}', args['date']) is None:
-            return "Invalid date", 400
+        if args['date'] is not None and re.search(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}', args['start-date']) is None:
+            return "Invalid start-date", 400
 
-        newReport = findReport(args['id'], dummyResponse)
+        newReport = findReport(args['id'], reportDAO)
         
         # Updating all report details
         if args['url'] is not None:
@@ -213,6 +213,6 @@ class updateReport(Resource):
         if args['comment'] is not None:
             newReport['reports'][0]['Comment'] = args['comment']
 
-        dumpData(dummyResponse)
+        dumpData(reportDAO)
 
         return newReport, 200

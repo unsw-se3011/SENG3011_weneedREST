@@ -2,6 +2,10 @@ from datetime import datetime
 import json
 
 def searchKeyTerms(args, event):
+    '''
+        Searches through the report object event for all key terms in args \n
+            returns true or false
+    '''
     keyterms = [word.strip() for word in args.split(',')]
     
     tempkeyTerms = []
@@ -20,6 +24,13 @@ def searchKeyTerms(args, event):
     return False
 
 def compareDate(compareDate, compare, event):
+    '''
+        Compares if \n
+            1. compareDate is "less" than event or 
+            2. compareDate is "greater" than event
+        based on compare={"less", "greater"}
+        returns true or false 
+    '''
     event_date = event['reports'][0]['reported_events'][0]['date']
 
     date_inputs1, time_inputs1 = event_date.split('T')[0], event_date.split('T')[1]
@@ -39,13 +50,31 @@ def compareDate(compareDate, compare, event):
 
     return True
 
-def findReport(n, A):
-    for article in A:
+def findReport(n, data):
+    '''
+        Finds and returns report\n
+            n: id of the report
+            data: arrayList of reports \n
+        returns report or None if not found
+    '''
+    for article in data:
             if article['id'] == n:
                 return article
     return None
 
 def dumpData(data):
+    '''
+        Dumps data into clean.json 
+    '''
     with open('clean.json',"w") as f:
         json.dump(data, f)
         f.close()
+
+def readData():
+    '''
+        reads from clean.json and returns data
+    '''
+    with open('clean.json',"r") as f:
+        dummyResponse = eval(f.read())
+        f.close()
+        return dummyResponse
