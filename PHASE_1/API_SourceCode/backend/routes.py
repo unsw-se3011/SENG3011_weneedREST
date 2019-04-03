@@ -52,7 +52,7 @@ class ReportManager(object):
         self.n = len(data)
     
     def create(self, args):
-        n = self.reports[0]['id'] + 1
+        n = self.n + 1
 
         newReport = self.reports[0].copy()
         newReport['id'] = n
@@ -70,8 +70,10 @@ class ReportManager(object):
         newReport['reports'][0]['Comment'] = args['comment'] if args['comment'] else 'Null'
 
         self.reports.append(newReport)
-
+        self.n = self.n + 1
+        
         dumpData(self.reports)
+
 
         return newReport
 
@@ -175,18 +177,18 @@ parser_update.replace_argument('number-affected', required=False)
 parser_update.replace_argument('comment', required=False)
 parser_update.replace_argument('date', required=False)
 
-@ns_rep.route('/<int:report_id>')
+@ns_rep.route('/<int:id>')
 class Report(Resource):
     '''
         Shows an individual report and lets you DELETE a report or PUT to update a reports
     '''
     @api.response(200, 'Success')
     @api.response(400, 'Report not found')
-    def get(self, report_id):
+    def get(self, id):
         '''
             Fetches a singular report
         '''
-        report = reportDAO.findReport(report_id)
+        report = reportDAO.findReport(id)
         if report:
             return report, 200
         
@@ -194,11 +196,11 @@ class Report(Resource):
 
     @api.response(200, 'Success')
     @api.response(400, 'Report not found')
-    def delete(self, report_id):   
+    def delete(self, id):   
         '''
             Deletes a report
         '''
-        article = reportDAO.findReport(report_id)
+        article = reportDAO.findReport(id)
 
         if article:
             reportDAO.delete( article )
@@ -209,7 +211,7 @@ class Report(Resource):
     @api.response(200, 'Success')
     @api.response(400, 'Invalid date param')
     @api.doc(parser=parser_update)
-    def put(self, report_id):
+    def put(self, id):
         '''
             Updates a given report
         '''
@@ -218,7 +220,7 @@ class Report(Resource):
         if args['date'] is not None and re.search(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}', args['date']) is None:
             return "Invalid date", 400
 
-        newReport = reportDAO.findReport(report_id)
+        newReport = reportDAO.findReport(id)
         
         # Updating all report details
         if args['url'] is not None:
