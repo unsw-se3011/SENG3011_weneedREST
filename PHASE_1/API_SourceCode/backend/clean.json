@@ -1,5 +1,5 @@
 [{
-    "id": 31441,
+    "id": 1,
     "type-id": 41,
     "url": "https://www.reuters.com/article/health-birdflu-china/china-reports-h5n1-bird-flu-outbreak-in-liaoning-province-idUSB9N20U024",
     "date_of_publication": "2019-04-02T23:11:00",
@@ -20,7 +20,7 @@
         }]
     }]
 }, {
-    "id": 31440,
+    "id": 2,
     "type-id": 44,
     "url": "https://today.rtl.lu/news/luxembourg/a/1328551.html",
     "date_of_publication": "2019-03-28T23:07:00",
@@ -41,7 +41,7 @@
         }]
     }]
 }, {
-    "id": 31439,
+    "id": 3,
     "type-id": 20,
     "url": "http://news.trust.org//item/20190402030634-09fpw/",
     "date_of_publication": "2019-04-02T22:53:00",
@@ -62,7 +62,7 @@
         }]
     }]
 }, {
-    "id": 31438,
+    "id": 4,
     "type-id": 57,
     "url": "http://outbreaknewstoday.com/toxoplasmosis-outbreak-reported-quebec-hunters-74794/",
     "date_of_publication": "2019-04-01T22:48:00",
@@ -83,7 +83,7 @@
         }]
     }]
 }, {
-    "id": 31437,
+    "id": 5,
     "type-id": 30,
     "url": "https://www.acidadeon.com/ribeiraopreto/cotidiano/regiao/NOT,0,0,1413861,ribeirao+preto+registra+293+casos+de+dengue+em+marco.aspx",
     "date_of_publication": "2019-04-02T22:06:00",
@@ -104,7 +104,7 @@
         }]
     }]
 }, {
-    "id": 31436,
+    "id": 6,
     "type-id": 30,
     "url": "https://www.radionz.co.nz/news/pacific/386166/14-confirmed-dengue-cases-in-cook-islands",
     "date_of_publication": "2019-04-02T21:58:00",
@@ -125,7 +125,7 @@
         }]
     }]
 }, {
-    "id": 31435,
+    "id": 7,
     "type-id": 30,
     "url": "https://www.ptvnews.ph/26-deaths-in-w-visayas-due-to-dengue/",
     "date_of_publication": "2019-04-02T21:55:00",
@@ -146,7 +146,7 @@
         }]
     }]
 }, {
-    "id": 31434,
+    "id": 8,
     "type-id": 26,
     "url": "http://www.xinhuanet.com/english/2019-04/01/c_137940693.htm",
     "date_of_publication": "2019-04-01T01:48:00",
@@ -167,7 +167,7 @@
         }]
     }]
 }, {
-    "id": 31433,
+    "id": 9,
     "type-id": 44,
     "url": "https://www.porkbusiness.com/article/new-african-swine-fever-outbreak-reported-hubei-province",
     "date_of_publication": "2019-03-31T01:45:00",
@@ -188,7 +188,7 @@
         }]
     }]
 }, {
-    "id": 31432,
+    "id": 10,
     "type-id": 28,
     "url": "http://outbreaknewstoday.com/rift-valley-fever-update-114-human-cases-mayotte-16230/",
     "date_of_publication": "2019-04-01T01:41:00",
@@ -209,7 +209,7 @@
         }]
     }]
 }, {
-    "id": 31431,
+    "id": 11,
     "type-id": 45,
     "url": "https://www.brecorder.com/2019/04/01/484892/deadly-congo-fever-takes-life-of-youngster/",
     "date_of_publication": "2019-04-01T01:38:00",
@@ -230,7 +230,7 @@
         }]
     }]
 }, {
-    "id": 31430,
+    "id": 12,
     "type-id": 23,
     "url": "http://www.newindianexpress.com/states/odisha/2019/apr/01/state-records-132-swine-flu-cases-4-deaths-1958606.html",
     "date_of_publication": "2019-04-01T01:36:00",
@@ -251,7 +251,7 @@
         }]
     }]
 }, {
-    "id": 31429,
+    "id": 13,
     "type-id": 41,
     "url": "https://timesofindia.indiatimes.com/city/bhubaneswar/bird-flu-detected-in-cuttack/articleshow/68661313.cms",
     "date_of_publication": "2019-03-31T01:34:00",
@@ -272,7 +272,7 @@
         }]
     }]
 }, {
-    "id": 31428,
+    "id": 14,
     "type-id": 30,
     "url": "http://www.nanduti.com.py/2019/03/31/965-casos-dengue-lo-va-2019/",
     "date_of_publication": "2019-03-31T23:14:00",
@@ -293,7 +293,7 @@
         }]
     }]
 }, {
-    "id": 31427,
+    "id": 15,
     "type-id": 30,
     "url": "https://raajje.mv/en/news/53605",
     "date_of_publication": "2019-04-01T22:19:00",
@@ -314,7 +314,7 @@
         }]
     }]
 }, {
-    "id": 31426,
+    "id": 16,
     "type-id": 30,
     "url": "https://www.brecorder.com/2019/04/01/484807/more-dengue-fever-cases-in-karachi/",
     "date_of_publication": "2019-04-01T22:13:00",
@@ -335,7 +335,7 @@
         }]
     }]
 }, {
-    "id": 31425,
+    "id": 17,
     "type-id": 30,
     "url": "https://indianexpress.com/article/lifestyle/health/six-dengue-cases-reported-in-delhi-this-year-municipal-report-5653385/",
     "date_of_publication": "2019-04-01T21:55:00",
@@ -356,7 +356,7 @@
         }]
     }]
 }, {
-    "id": 31424,
+    "id": 18,
     "type-id": 11,
     "url": "https://www.bostonherald.com/2019/04/01/mozambique-confirms-1st-cholera-death-as-cases-above-500/",
     "date_of_publication": "2019-04-01T21:51:00",
@@ -377,7 +377,7 @@
         }]
     }]
 }, {
-    "id": 31423,
+    "id": 19,
     "type-id": 37,
     "url": "https://timesofindia.indiatimes.com/city/ranchi/two-students-test-positive-for-chikungunya-in-khunti/articleshow/68649630.cms",
     "date_of_publication": "2019-03-31T01:07:00",
@@ -398,7 +398,7 @@
         }]
     }]
 }, {
-    "id": 31422,
+    "id": 20,
     "type-id": 24,
     "url": "https://timesofindia.indiatimes.com/city/nagpur/swine-flu-toll-reaches-19-hepatitis-claims-3-lives-in-wadi/articleshow/68648299.cms",
     "date_of_publication": "2019-03-31T23:42:00",
@@ -419,7 +419,7 @@
         }]
     }]
 }, {
-    "id": 31421,
+    "id": 21,
     "type-id": 30,
     "url": "https://www.quadratin.com.mx/salud/michoacan-suman-71-casos-de-dengue-en-2019/",
     "date_of_publication": "2019-03-31T23:35:00",
@@ -440,7 +440,7 @@
         }]
     }]
 }, {
-    "id": 31420,
+    "id": 22,
     "type-id": 30,
     "url": "https://misionescuatro.com/regionales/paraguay-casos-confirmados-dengue/",
     "date_of_publication": "2019-03-31T22:18:00",
@@ -461,7 +461,7 @@
         }]
     }]
 }, {
-    "id": 31419,
+    "id": 23,
     "type-id": 30,
     "url": "https://www.pakistantoday.com.pk/2019/03/31/93-new-dengue-cases-reported-in-kech/",
     "date_of_publication": "2019-03-31T22:12:00",
@@ -482,7 +482,7 @@
         }]
     }]
 }, {
-    "id": 31418,
+    "id": 24,
     "type-id": 56,
     "url": "https://www.africanews.com/2019/03/30/drc-records-15-new-ebola-cases-in-one-day/",
     "date_of_publication": "2019-03-31T01:21:00",
@@ -503,7 +503,7 @@
         }]
     }]
 }, {
-    "id": 31417,
+    "id": 25,
     "type-id": 26,
     "url": "https://www.precisionvaccinations.com/nigeria-and-pakistan-reported-4-new-polio-cases",
     "date_of_publication": "2019-03-27T00:50:00",
@@ -524,7 +524,7 @@
         }]
     }]
 }, {
-    "id": 31416,
+    "id": 26,
     "type-id": 26,
     "url": "https://www.precisionvaccinations.com/nigeria-and-pakistan-reported-4-new-polio-cases",
     "date_of_publication": "2019-03-27T00:48:00",
@@ -545,7 +545,7 @@
         }]
     }]
 }, {
-    "id": 31415,
+    "id": 27,
     "type-id": 47,
     "url": "https://www.biobiochile.cl/noticias/nacional/region-de-nuble/2019/03/30/confirman-2-nuevos-casos-de-hantavirus-en-nuble-suman-seis-contagios-en-la-region.shtml",
     "date_of_publication": "2019-03-30T00:39:00",
@@ -566,7 +566,7 @@
         }]
     }]
 }, {
-    "id": 31414,
+    "id": 28,
     "type-id": 30,
     "url": "https://g1.globo.com/sp/sao-carlos-regiao/noticia/2019/03/29/com-217-casos-de-dengue-rincao-vive-uma-epidemia-da-doenca.ghtml",
     "date_of_publication": "2019-03-30T23:38:00",
@@ -587,7 +587,7 @@
         }]
     }]
 }, {
-    "id": 31413,
+    "id": 29,
     "type-id": 30,
     "url": "https://g1.globo.com/sp/sorocaba-jundiai/alerta-dengue/noticia/2019/03/29/prefeitura-confirma-28-casos-de-dengue-em-votorantim-este-ano.ghtml",
     "date_of_publication": "2019-03-30T23:16:00",
@@ -608,7 +608,7 @@
         }]
     }]
 }, {
-    "id": 31412,
+    "id": 30,
     "type-id": 30,
     "url": "https://www.plenglish.com/index.php?o=rn&id=40394&SEO=paraguay-reports-more-cases-of-dengue",
     "date_of_publication": "2019-03-30T22:55:00",
@@ -629,7 +629,7 @@
         }]
     }]
 }, {
-    "id": 31411,
+    "id": 31,
     "type-id": 48,
     "url": "https://punchng.com/ncdc-confirms-15-new-cases-of-lassa-fever/",
     "date_of_publication": "2019-03-30T22:53:00",
@@ -650,7 +650,7 @@
         }]
     }]
 }, {
-    "id": 31410,
+    "id": 32,
     "type-id": 23,
     "url": "http://jamaica-gleaner.com/article/news/20190329/update-three-confirmed-deaths-h1-n1-influenza-virus",
     "date_of_publication": "2019-03-29T22:45:00",
@@ -671,7 +671,7 @@
         }]
     }]
 }, {
-    "id": 31409,
+    "id": 33,
     "type-id": 21,
     "url": "https://timesofindia.indiatimes.com/city/surat/nine-new-swine-flu-cases-in-city-and-surat-district/articleshow/68621794.cms",
     "date_of_publication": "2019-03-28T23:04:00",
@@ -692,7 +692,7 @@
         }]
     }]
 }, {
-    "id": 31408,
+    "id": 34,
     "type-id": 30,
     "url": "https://g1.globo.com/sp/piracicaba-regiao/noticia/2019/03/29/com-86-casos-de-dengue-limeira-tem-mutirao-de-combate-ao-aedes-em-seis-bairros.ghtml",
     "date_of_publication": "2019-03-29T22:19:00",
@@ -713,7 +713,7 @@
         }]
     }]
 }, {
-    "id": 31407,
+    "id": 35,
     "type-id": 30,
     "url": "https://claytoncaller.com/one-more-dengue-patient-dies-toll-rises-to-five/18884/",
     "date_of_publication": "2019-03-28T22:14:00",
@@ -734,7 +734,7 @@
         }]
     }]
 }, {
-    "id": 31406,
+    "id": 36,
     "type-id": 11,
     "url": "https://www.znbc.co.zm/cholera-breaks-out-in-nsama-district/",
     "date_of_publication": "2019-03-29T22:11:00",
@@ -755,7 +755,7 @@
         }]
     }]
 }, {
-    "id": 31405,
+    "id": 37,
     "type-id": 11,
     "url": "http://www.xinhuanet.com/english/2019-03/29/c_137934328.htm",
     "date_of_publication": "2019-03-29T22:05:00",
@@ -776,7 +776,7 @@
         }]
     }]
 }, {
-    "id": 31404,
+    "id": 38,
     "type-id": 23,
     "url": "https://www.mumbailive.com/en/health/73-deaths-in-three-months-due-to-swine-flu-34372",
     "date_of_publication": "2019-03-27T21:54:00",
@@ -797,7 +797,7 @@
         }]
     }]
 }, {
-    "id": 31403,
+    "id": 39,
     "type-id": 24,
     "url": "https://timesofindia.indiatimes.com/city/bhopal/h1n1-claims-105-lives-in-state/articleshow/68621695.cms",
     "date_of_publication": "2019-03-28T21:51:00",
@@ -818,7 +818,7 @@
         }]
     }]
 }, {
-    "id": 31402,
+    "id": 40,
     "type-id": 44,
     "url": "https://112.international/society/african-swine-flu-outbreak-detected-in-zaporizhia-region-38259.html",
     "date_of_publication": "2019-03-28T00:25:00",
@@ -839,7 +839,7 @@
         }]
     }]
 }, {
-    "id": 31401,
+    "id": 41,
     "type-id": 30,
     "url": "https://noticiasya.com/laredo/2019/03/27/confirman-2-casos-de-dengue-en-nuevo-laredo-y-piden-tomar-precauciones/",
     "date_of_publication": "2019-03-28T22:57:00",
@@ -860,7 +860,7 @@
         }]
     }]
 }, {
-    "id": 31400,
+    "id": 42,
     "type-id": 30,
     "url": "https://www.cronica.com.ar/info-general/Ya-son-23-los-casos-confirmados-de-dengue-en-Jujuy-20190327-0019.html",
     "date_of_publication": "2019-03-28T22:16:00",
@@ -881,7 +881,7 @@
         }]
     }]
 }, {
-    "id": 31399,
+    "id": 43,
     "type-id": 30,
     "url": "https://diarionline.com.br/?s=noticia&id=109019",
     "date_of_publication": "2019-03-27T22:09:00",
@@ -902,7 +902,7 @@
         }]
     }]
 }, {
-    "id": 31398,
+    "id": 44,
     "type-id": 30,
     "url": "http://ionnews.mu/dengue-58-cas-enregistres-pas-de-nouveau-cas-280319/",
     "date_of_publication": "2019-03-27T22:02:00",
@@ -923,7 +923,7 @@
         }]
     }]
 }, {
-    "id": 31397,
+    "id": 45,
     "type-id": 30,
     "url": "https://www.sigamais.com/noticias/saude/adamantina-registra-50-casos-de-dengue/",
     "date_of_publication": "2019-03-28T21:56:00",
@@ -944,7 +944,7 @@
         }]
     }]
 }, {
-    "id": 31396,
+    "id": 46,
     "type-id": 11,
     "url": "https://reliefweb.int/report/kenya/14-hospitalised-nairobi-after-cholera-outbreak",
     "date_of_publication": "2019-03-28T21:54:00",
@@ -965,7 +965,7 @@
         }]
     }]
 }, {
-    "id": 31395,
+    "id": 47,
     "type-id": 21,
     "url": "https://www.daijiworld.com/news/newsDisplay.aspx?newsID=574031",
     "date_of_publication": "2019-03-28T21:33:00",
@@ -986,7 +986,7 @@
         }]
     }]
 }, {
-    "id": 31394,
+    "id": 48,
     "type-id": 21,
     "url": "https://www.nippon.com/en/news/yjj2019032800542/another-swine-fever-case-confirmed-in-central-japan.html",
     "date_of_publication": "2019-03-28T21:27:00",
@@ -1007,7 +1007,7 @@
         }]
     }]
 }, {
-    "id": 31393,
+    "id": 49,
     "type-id": 5,
     "url": "http://www.fox46charlotte.com/news/local-news/case-of-bacterial-meningitis-confirmed-at-south-stanly-high-school",
     "date_of_publication": "2019-03-26T00:56:00",
@@ -1028,7 +1028,7 @@
         }]
     }]
 }, {
-    "id": 31392,
+    "id": 50,
     "type-id": 47,
     "url": "https://www.10news.com/news/local-news/hantavirus-found-in-three-deer-mice-in-east-county-vector-control-says",
     "date_of_publication": "2019-03-27T00:51:00",
@@ -1049,7 +1049,7 @@
         }]
     }]
 }, {
-    "id": 31391,
+    "id": 51,
     "type-id": 41,
     "url": "https://thehimalayantimes.com/nepal/bird-flu-scare-over-50000-fowls-culled-in-makawanpur/",
     "date_of_publication": "2019-03-27T00:32:00",
@@ -1070,7 +1070,7 @@
         }]
     }]
 }, {
-    "id": 31390,
+    "id": 52,
     "type-id": 11,
     "url": "https://citizen.co.za/news/news-africa/2107268/five-cases-of-cholera-confirmed-in-mozambique-following-cyclone/",
     "date_of_publication": "2019-03-27T23:25:00",
@@ -1091,7 +1091,7 @@
         }]
     }]
 }, {
-    "id": 31389,
+    "id": 53,
     "type-id": 21,
     "url": "https://www.news.com.au/world/breaking-news/japan-to-cull-4100-pigs-over-swine-fever/news-story/dc24b54c38324d265db7cd50115a73a2",
     "date_of_publication": "2019-03-27T23:21:00",
@@ -1112,7 +1112,7 @@
         }]
     }]
 }, {
-    "id": 31388,
+    "id": 54,
     "type-id": 30,
     "url": "https://www.zinfos974.com/682-nouveaux-cas-de-dengue-confirmes_a138780.html",
     "date_of_publication": "2019-03-27T22:54:00",
@@ -1133,7 +1133,7 @@
         }]
     }]
 }, {
-    "id": 31387,
+    "id": 55,
     "type-id": 30,
     "url": "https://www.h2foz.com.br/noticia/alerta-contra-a-dengue-foz-registra-116-casos",
     "date_of_publication": "2019-03-26T22:20:00",
@@ -1154,7 +1154,7 @@
         }]
     }]
 }, {
-    "id": 31386,
+    "id": 56,
     "type-id": 30,
     "url": "https://www.sunstar.com.ph/article/1798837/ILOILO/Local-News/3-dengue-deaths-250-cases-in-Iloilo-City",
     "date_of_publication": "2019-03-27T22:14:00",
@@ -1175,7 +1175,7 @@
         }]
     }]
 }, {
-    "id": 31385,
+    "id": 57,
     "type-id": 30,
     "url": "",
     "date_of_publication": "2019-03-27T22:09:00",
@@ -1196,7 +1196,7 @@
         }]
     }]
 }, {
-    "id": 31384,
+    "id": 58,
     "type-id": 30,
     "url": "https://www.thestar.com.my/news/nation/2019/03/27/sharp-rise-in-dengue-cases-in-negri-sembilan/",
     "date_of_publication": "2019-03-27T22:01:00",
@@ -1217,7 +1217,7 @@
         }]
     }]
 }, {
-    "id": 31383,
+    "id": 59,
     "type-id": 18,
     "url": "https://timesofindia.indiatimes.com/city/thiruvananthapuram/samples-of-crows-test-negative-for-west-nile-virus/articleshow/68569538.cms",
     "date_of_publication": "2019-03-26T00:19:00",
@@ -1238,7 +1238,7 @@
         }]
     }]
 }, {
-    "id": 31382,
+    "id": 60,
     "type-id": 20,
     "url": "http://www.xinhuanet.com/english/2019-03/26/c_137925343.htm",
     "date_of_publication": "2019-03-26T00:15:00",
@@ -1259,7 +1259,7 @@
         }]
     }]
 }, {
-    "id": 31381,
+    "id": 61,
     "type-id": 30,
     "url": "https://g1.globo.com/mg/centro-oeste/noticia/2019/03/25/mais-de-450-casos-provaveis-de-dengue-sao-registrados-em-uma-semana-nas-cidades-do-centro-oeste-de-minas.ghtml",
     "date_of_publication": "2019-03-25T22:15:00",
@@ -1280,7 +1280,7 @@
         }]
     }]
 }, {
-    "id": 31380,
+    "id": 62,
     "type-id": 30,
     "url": "https://www.elintra.com.ar/sociedad/2019/3/25/hay-500-casos-de-dengue-en-salta-146249.html",
     "date_of_publication": "2019-03-25T22:09:00",
@@ -1301,7 +1301,7 @@
         }]
     }]
 }, {
-    "id": 31379,
+    "id": 63,
     "type-id": 30,
     "url": "https://jornalboavista.com.br/25032019primeiro-caso-de-dengue-e-confirmado-em-erechim",
     "date_of_publication": "2019-03-26T22:05:00",
@@ -1322,7 +1322,7 @@
         }]
     }]
 }, {
-    "id": 31378,
+    "id": 64,
     "type-id": 30,
     "url": "https://g1.globo.com/sp/campinas-regiao/noticia/2019/03/26/campinas-confirma-556-casos-de-dengue-tipo-2-circula-em-100percent-da-cidade.ghtml",
     "date_of_publication": "2019-03-25T22:01:00",
@@ -1343,7 +1343,7 @@
         }]
     }]
 }, {
-    "id": 31377,
+    "id": 65,
     "type-id": 30,
     "url": "https://news.mb.com.ph/2019/03/26/dengue-deaths-increase-in-cavite/",
     "date_of_publication": "2019-03-26T21:56:00",
@@ -1364,7 +1364,7 @@
         }]
     }]
 }, {
-    "id": 31376,
+    "id": 66,
     "type-id": 30,
     "url": "https://www.thehindu.com/news/cities/Delhi/5-dengue-cases-reported-so-far/article26638538.ece",
     "date_of_publication": "2019-03-25T21:47:00",
@@ -1385,7 +1385,7 @@
         }]
     }]
 }, {
-    "id": 31375,
+    "id": 67,
     "type-id": 11,
     "url": "https://reliefweb.int/report/yemen/1000-children-infected-every-day-yemen-cholera-outbreak-spikes",
     "date_of_publication": "2019-03-26T21:43:00",
@@ -1406,7 +1406,7 @@
         }]
     }]
 }, {
-    "id": 31374,
+    "id": 68,
     "type-id": 21,
     "url": "https://timesofindia.indiatimes.com/city/meerut/two-more-patients-test-positive-for-swine-flu-count-reaches-385-in-meerut/articleshow/68568975.cms",
     "date_of_publication": "2019-03-25T21:39:00",
@@ -1427,7 +1427,7 @@
         }]
     }]
 }, {
-    "id": 31373,
+    "id": 69,
     "type-id": 5,
     "url": "https://www.cbc.ca/news/canada/montreal/montreal-bacterial-meningitis-1.5069962",
     "date_of_publication": "2019-03-23T00:37:00",
@@ -1448,7 +1448,7 @@
         }]
     }]
 }, {
-    "id": 31372,
+    "id": 70,
     "type-id": 30,
     "url": "http://www.enlineadirecta.info/noticia.php?article=349132",
     "date_of_publication": "2019-03-21T22:24:00",
@@ -1469,7 +1469,7 @@
         }]
     }]
 }, {
-    "id": 31371,
+    "id": 71,
     "type-id": 30,
     "url": "https://pr.ricmais.com.br/parana-no-ar/videos/numero-de-casos-de-dengue-volta-a-subir-em-londrina#gref",
     "date_of_publication": "2019-03-25T22:09:00",
@@ -1490,7 +1490,7 @@
         }]
     }]
 }, {
-    "id": 31370,
+    "id": 72,
     "type-id": 30,
     "url": "https://sg.news.yahoo.com/doh-records-44-000-dengue-040801649.html",
     "date_of_publication": "2019-03-25T21:58:00",
@@ -1511,7 +1511,7 @@
         }]
     }]
 }, {
-    "id": 31369,
+    "id": 73,
     "type-id": 30,
     "url": "https://www.business-standard.com/article/pti-stories/five-dengue-cases-reported-in-delhi-three-in-march-119032500481_1.html",
     "date_of_publication": "2019-03-25T21:53:00",
@@ -1532,7 +1532,7 @@
         }]
     }]
 }, {
-    "id": 31368,
+    "id": 74,
     "type-id": 21,
     "url": "http://www.newindianexpress.com/states/andhra-pradesh/2019/mar/25/eight-h1n1-influenza-cases-reported-in-vizag-in-two-days-1955529.html",
     "date_of_publication": "2019-03-24T21:49:00",
@@ -1553,7 +1553,7 @@
         }]
     }]
 }, {
-    "id": 31367,
+    "id": 75,
     "type-id": 21,
     "url": "https://timesofindia.indiatimes.com/city/surat/12-fresh-cases-of-swine-flu-reported/articleshow/68552917.cms",
     "date_of_publication": "2019-03-24T21:44:00",
@@ -1574,7 +1574,7 @@
         }]
     }]
 }, {
-    "id": 31366,
+    "id": 76,
     "type-id": 41,
     "url": "http://www.thepoultrysite.com/poultrynews/41181/china-reports-h7n9-bird-flu-outbreak-in-liaoning-province/",
     "date_of_publication": "2019-03-25T21:37:00",
@@ -1595,7 +1595,7 @@
         }]
     }]
 }, {
-    "id": 31365,
+    "id": 77,
     "type-id": 23,
     "url": "http://www.asianage.com/metros/mumbai/240319/maharashtra-loses-71-to-swine-flu-virus-in-three-months.html",
     "date_of_publication": "2019-03-24T23:26:00",
@@ -1616,7 +1616,7 @@
         }]
     }]
 }, {
-    "id": 31364,
+    "id": 78,
     "type-id": 30,
     "url": "https://pulsoslp.com.mx/slp/confirman-22-casos-de-dengue-en-la-entidad/910249",
     "date_of_publication": "2019-03-24T23:03:00",
@@ -1637,7 +1637,7 @@
         }]
     }]
 }, {
-    "id": 31363,
+    "id": 79,
     "type-id": 30,
     "url": "https://g1.globo.com/rj/rio-de-janeiro/noticia/2019/03/24/condominio-no-jardim-botanico-tem-mais-de-20-casos-de-dengue-e-chikungunya.ghtml",
     "date_of_publication": "2019-03-23T22:55:00",
@@ -1658,7 +1658,7 @@
         }]
     }]
 }, {
-    "id": 31362,
+    "id": 80,
     "type-id": 30,
     "url": "https://www.larepublica.ec/blog/sociedad/2019/03/24/305-casos-dengue-paraguay/",
     "date_of_publication": "2019-03-24T22:47:00",
@@ -1679,7 +1679,7 @@
         }]
     }]
 }, {
-    "id": 31361,
+    "id": 81,
     "type-id": 30,
     "url": "https://www.pakistantoday.com.pk/2019/03/24/dengue-claims-three-lives-in-kech/",
     "date_of_publication": "2019-03-24T22:43:00",
@@ -1700,7 +1700,7 @@
         }]
     }]
 }, {
-    "id": 31360,
+    "id": 82,
     "type-id": 48,
     "url": "https://www.thisdaylive.com/index.php/2019/03/24/lassa-fever-kills-four-as-ncdc-confirms-23-fresh-cases/",
     "date_of_publication": "2019-03-24T22:35:00",
@@ -1721,7 +1721,7 @@
         }]
     }]
 }, {
-    "id": 31359,
+    "id": 83,
     "type-id": 24,
     "url": "https://timesofindia.indiatimes.com/city/kolkata/80-year-old-woman-dies-of-swine-flu-toll-rises-to-8/articleshow/68530027.cms",
     "date_of_publication": "2019-03-23T01:13:00",
@@ -1742,7 +1742,7 @@
         }]
     }]
 }, {
-    "id": 31358,
+    "id": 84,
     "type-id": 24,
     "url": "https://www.business-standard.com/article/news-ani/indore-41-dead-due-to-swine-flu-in-2019-119032300124_1.html",
     "date_of_publication": "2019-03-23T01:09:00",
@@ -1763,7 +1763,7 @@
         }]
     }]
 }, {
-    "id": 31357,
+    "id": 85,
     "type-id": 30,
     "url": "https://www.gruporioclarosp.com.br/rio-claro-registra-30-casos-de-dengue-e-intensifica-combate-ao-aedes/",
     "date_of_publication": "2019-03-23T23:49:00",
@@ -1784,7 +1784,7 @@
         }]
     }]
 }, {
-    "id": 31356,
+    "id": 86,
     "type-id": 30,
     "url": "https://www.reporterdiario.com.br/noticia/2647205/abc-confirma-29-casos-de-dengue/",
     "date_of_publication": "2019-03-23T23:41:00",
@@ -1805,7 +1805,7 @@
         }]
     }]
 }, {
-    "id": 31355,
+    "id": 87,
     "type-id": 30,
     "url": "http://www.navhindtimes.in/2-cases-of-suspected-dengue-in-mapusa/",
     "date_of_publication": "2019-03-23T23:36:00",
@@ -1826,7 +1826,7 @@
         }]
     }]
 }, {
-    "id": 31354,
+    "id": 88,
     "type-id": 30,
     "url": "http://outbreaknewstoday.com/dengue-outbreak-reunion-500-additional-cases-reported-70012/",
     "date_of_publication": "2019-03-23T22:52:00",
@@ -1847,7 +1847,7 @@
         }]
     }]
 }, {
-    "id": 31353,
+    "id": 89,
     "type-id": 30,
     "url": "https://www.kgns.tv/content/news/Dengue-Fever-cases-reported-in-Nuevo-LAREDO-507526501.html",
     "date_of_publication": "2019-03-22T22:43:00",
@@ -1868,7 +1868,7 @@
         }]
     }]
 }, {
-    "id": 31352,
+    "id": 90,
     "type-id": 11,
     "url": "https://www.sbs.com.au/news/cyclone-idai-death-toll-nearing-700",
     "date_of_publication": "2019-03-22T22:31:00",
@@ -1889,7 +1889,7 @@
         }]
     }]
 }, {
-    "id": 31351,
+    "id": 91,
     "type-id": 23,
     "url": "https://claytoncaller.com/swine-flu-in-up-kheri-patient-dies-at-kgmu/18639/",
     "date_of_publication": "2019-03-21T22:15:00",
@@ -1910,7 +1910,7 @@
         }]
     }]
 }, {
-    "id": 31350,
+    "id": 92,
     "type-id": 26,
     "url": "https://reliefweb.int/report/pakistan/first-polio-case-year-sindh-emerges-lyari",
     "date_of_publication": "2019-03-21T00:28:00",
@@ -1931,7 +1931,7 @@
         }]
     }]
 }, {
-    "id": 31349,
+    "id": 93,
     "type-id": 44,
     "url": "https://www.novinite.com/articles/195989/Three+New+Cases+of+African+Swine+Fever+in+Wild+Boars+in+Bulgaria",
     "date_of_publication": "2019-03-22T00:25:00",
@@ -1952,7 +1952,7 @@
         }]
     }]
 }, {
-    "id": 31348,
+    "id": 94,
     "type-id": 23,
     "url": "https://www.deccanchronicle.com/nation/in-other-news/220319/hyderabad-swine-flu-kills-13-in-state-so-far-this-year.html",
     "date_of_publication": "2019-03-22T00:16:00",
@@ -1973,7 +1973,7 @@
         }]
     }]
 }, {
-    "id": 31347,
+    "id": 95,
     "type-id": 21,
     "url": "https://www.nyoooz.com/news/pune/1355154/10-swine-flu-patients-on-ventilator-support/",
     "date_of_publication": "2019-03-22T23:44:00",
@@ -1994,7 +1994,7 @@
         }]
     }]
 }, {
-    "id": 31346,
+    "id": 96,
     "type-id": 30,
     "url": "https://www.oncenoticias.hn/video-reportan-12-casos-de-dengue-hemorragico-en-esta-semana/",
     "date_of_publication": "2019-03-22T22:13:00",
@@ -2015,7 +2015,7 @@
         }]
     }]
 }, {
-    "id": 31345,
+    "id": 97,
     "type-id": 30,
     "url": "https://g1.globo.com/sp/campinas-regiao/noticia/2019/03/21/mogi-mirim-confirma-63-casos-de-dengue-e-anuncia-acao-casa-a-casa-em-regiao-mais-afetada.ghtml",
     "date_of_publication": "2019-03-22T22:08:00",
@@ -2036,7 +2036,7 @@
         }]
     }]
 }, {
-    "id": 31344,
+    "id": 98,
     "type-id": 30,
     "url": "https://www.tourmag.com/Tahiti-deux-cas-de-dengue-2-preoccupent-les-autorites-sanitaires_a97955.html",
     "date_of_publication": "2019-03-22T22:03:00",
@@ -2057,7 +2057,7 @@
         }]
     }]
 }, {
-    "id": 31343,
+    "id": 99,
     "type-id": 30,
     "url": "http://fijivillage.com/news/Nine-deaths-and-4000-confirmed-dengue-fever-cases-recorded-in-2018-2ksr95/",
     "date_of_publication": "2019-03-22T22:00:00",
@@ -2078,7 +2078,7 @@
         }]
     }]
 }, {
-    "id": 31342,
+    "id": 100,
     "type-id": 30,
     "url": "https://www.pakistantoday.com.pk/2019/03/21/another-diagnosed-with-dengue-virus-in-lahore/",
     "date_of_publication": "2019-03-21T21:55:00",
@@ -2099,7 +2099,7 @@
         }]
     }]
 }, {
-    "id": 31341,
+    "id": 101,
     "type-id": 30,
     "url": "https://www.eltiempo.com/colombia/barranquilla/se-incrementan-casos-de-dengue-en-el-atlantico-340004",
     "date_of_publication": "2019-03-21T23:06:00",
@@ -2120,7 +2120,7 @@
         }]
     }]
 }, {
-    "id": 31340,
+    "id": 102,
     "type-id": 30,
     "url": "http://caracol.com.co/emisora/2019/03/21/pereira/1553170288_384387.html",
     "date_of_publication": "2019-03-21T22:20:00",
@@ -2141,7 +2141,7 @@
         }]
     }]
 }, {
-    "id": 31339,
+    "id": 103,
     "type-id": 30,
     "url": "https://www.elterritorio.com.ar/itapua-confirman-18-casos-de-dengue-del-serotipo-den4-23299-et",
     "date_of_publication": "2019-03-21T22:16:00",
@@ -2162,7 +2162,7 @@
         }]
     }]
 }, {
-    "id": 31338,
+    "id": 104,
     "type-id": 11,
     "url": "http://www.xinhuanet.com/english/2019-03/21/c_137913624.htm",
     "date_of_publication": "2019-03-21T21:53:00",
@@ -2183,7 +2183,7 @@
         }]
     }]
 }, {
-    "id": 31337,
+    "id": 105,
     "type-id": 23,
     "url": "https://www.hindustantimes.com/gurugram/swine-flu-death-toll-touches-five-at-four-year-high/story-88MByoyfcslLhwhLpoXqJJ.html",
     "date_of_publication": "2019-03-20T21:51:00",
@@ -2204,7 +2204,7 @@
         }]
     }]
 }, {
-    "id": 31336,
+    "id": 106,
     "type-id": 23,
     "url": "https://www.dnaindia.com/mumbai/report-61-people-died-of-swine-flu-across-maharashtra-this-year-2731184",
     "date_of_publication": "2019-03-20T01:20:00",
@@ -2225,7 +2225,7 @@
         }]
     }]
 }, {
-    "id": 31335,
+    "id": 107,
     "type-id": 30,
     "url": "https://g1.globo.com/sp/presidente-prudente-regiao/noticia/2019/03/19/vigilancia-epidemiologica-confirma-84-casos-de-dengue-em-presidente-prudente.ghtml",
     "date_of_publication": "2019-03-19T01:02:00",
@@ -2246,7 +2246,7 @@
         }]
     }]
 }, {
-    "id": 31334,
+    "id": 108,
     "type-id": 30,
     "url": "https://defimedia.info/dengue-la-barre-de-50-cas-franchie-mardi",
     "date_of_publication": "2019-03-19T00:33:00",
@@ -2267,7 +2267,7 @@
         }]
     }]
 }, {
-    "id": 31333,
+    "id": 109,
     "type-id": 30,
     "url": "https://www.sigamais.com/noticias/saude/adamantina-tem-36-casos-de-dengue/",
     "date_of_publication": "2019-03-20T22:23:00",
@@ -2288,7 +2288,7 @@
         }]
     }]
 }, {
-    "id": 31332,
+    "id": 110,
     "type-id": 30,
     "url": "https://www.ultimahora.com/hombre-fallece-ips-posible-caso-dengue-n2808003.html",
     "date_of_publication": "2019-03-19T22:18:00",
@@ -2309,7 +2309,7 @@
         }]
     }]
 }, {
-    "id": 31331,
+    "id": 111,
     "type-id": 30,
     "url": "https://www.elheraldo.co/atlantico/este-ano-van-496-casos-de-dengue-en-atlantico-609714",
     "date_of_publication": "2019-03-20T22:14:00",
@@ -2330,7 +2330,7 @@
         }]
     }]
 }, {
-    "id": 31330,
+    "id": 112,
     "type-id": 30,
     "url": "http://outbreaknewstoday.com/palau-dengue-outbreak-reaches-124-cases-73351/",
     "date_of_publication": "2019-03-20T22:10:00",
@@ -2351,7 +2351,7 @@
         }]
     }]
 }, {
-    "id": 31329,
+    "id": 113,
     "type-id": 30,
     "url": "https://www.bworldonline.com/33-deaths-due-to-dengue-reported-in-central-visayas/",
     "date_of_publication": "2019-03-20T22:06:00",
@@ -2372,7 +2372,7 @@
         }]
     }]
 }, {
-    "id": 31328,
+    "id": 114,
     "type-id": 24,
     "url": "https://timesofindia.indiatimes.com/city/ahmedabad/state-registers-4296-h1n1-cases-govt-on-alert/articleshow/68489208.cms",
     "date_of_publication": "2019-03-20T22:01:00",
@@ -2393,7 +2393,7 @@
         }]
     }]
 }, {
-    "id": 31327,
+    "id": 115,
     "type-id": 33,
     "url": "https://wfxl.com/news/local/lowndes-county-horse-tests-positive-for-eastern-equine-encephalitis",
     "date_of_publication": "2019-03-19T00:16:00",
@@ -2414,7 +2414,7 @@
         }]
     }]
 }, {
-    "id": 31326,
+    "id": 116,
     "type-id": 35,
     "url": "https://www.actionnewsnow.com/content/news/First-case-of--507312761.html",
     "date_of_publication": "2019-03-18T00:09:00",
@@ -2435,7 +2435,7 @@
         }]
     }]
 }, {
-    "id": 31325,
+    "id": 117,
     "type-id": 45,
     "url": "http://www.cidrap.umn.edu/news-perspective/2019/03/drc-24-ebola-cases-confirmed-past-72-hours",
     "date_of_publication": "2019-03-18T00:05:00",
@@ -2456,7 +2456,7 @@
         }]
     }]
 }, {
-    "id": 31324,
+    "id": 118,
     "type-id": 36,
     "url": "http://outbreaknewstoday.com/brucella-outbreak-in-villa-juarez-mexico-28911/",
     "date_of_publication": "2019-03-17T00:01:00",
@@ -2477,7 +2477,7 @@
         }]
     }]
 }, {
-    "id": 31323,
+    "id": 119,
     "type-id": 21,
     "url": "https://indiablooms.com/news-details/N/47744/swine-flu-toll-reaches-40-in-madhya-pradesh.html",
     "date_of_publication": "2019-03-18T23:47:00",
@@ -2498,7 +2498,7 @@
         }]
     }]
 }, {
-    "id": 31322,
+    "id": 120,
     "type-id": 41,
     "url": "https://thehimalayantimes.com/nepal/bird-flu-checkpoints-in-kavrepalanchok/",
     "date_of_publication": "2019-03-19T23:42:00",
@@ -2519,7 +2519,7 @@
         }]
     }]
 }, {
-    "id": 31321,
+    "id": 121,
     "type-id": 60,
     "url": "https://www.precisionvaccinations.com/international-travelers-continue-returning-usa-infected-zika-virus",
     "date_of_publication": "2019-03-18T23:39:00",
@@ -2540,7 +2540,7 @@
         }]
     }]
 }, {
-    "id": 31320,
+    "id": 122,
     "type-id": 60,
     "url": "https://www.precisionvaccinations.com/international-travelers-continue-returning-usa-infected-zika-virus",
     "date_of_publication": "2019-03-18T23:37:00",
@@ -2561,7 +2561,7 @@
         }]
     }]
 }, {
-    "id": 31319,
+    "id": 123,
     "type-id": 30,
     "url": "https://diarinho.com.br/noticias/geral/confirmados-dois-casos-de-dengue-em-camboriu/",
     "date_of_publication": "2019-03-19T22:13:00",
@@ -2582,7 +2582,7 @@
         }]
     }]
 }, {
-    "id": 31318,
+    "id": 124,
     "type-id": 30,
     "url": "http://www.xinhuanet.com/english/2019-03/19/c_137906733.htm",
     "date_of_publication": "2019-03-18T22:07:00",
@@ -2603,7 +2603,7 @@
         }]
     }]
 }, {
-    "id": 31317,
+    "id": 125,
     "type-id": 30,
     "url": "https://www.dailypioneer.com/2019/state-editions/1-more-dengue-case-reported--doctors-advise-delhiites-to-take-precautionary-measures.html",
     "date_of_publication": "2019-03-19T22:02:00",
@@ -2624,7 +2624,7 @@
         }]
     }]
 }, {
-    "id": 31316,
+    "id": 126,
     "type-id": 48,
     "url": "https://punchng.com/lassa-fever-kills-83-in-2019-ncdc/",
     "date_of_publication": "2019-03-19T21:58:00",
@@ -2645,7 +2645,7 @@
         }]
     }]
 }, {
-    "id": 31315,
+    "id": 127,
     "type-id": 11,
     "url": "https://www.standardmedia.co.ke/article/2001317198/one-case-of-cholera-reported-in-kajiado",
     "date_of_publication": "2019-03-19T21:55:00",
@@ -2666,7 +2666,7 @@
         }]
     }]
 }, {
-    "id": 31314,
+    "id": 128,
     "type-id": 21,
     "url": "https://timesofindia.indiatimes.com/city/bareilly/with-two-more-swine-flu-cases-number-touches-54-in-bareilly/articleshow/68471364.cms",
     "date_of_publication": "2019-03-19T21:52:00",
@@ -2687,7 +2687,7 @@
         }]
     }]
 }, {
-    "id": 31313,
+    "id": 129,
     "type-id": 18,
     "url": "https://scroll.in/latest/917009/kerala-seven-year-old-boy-dies-of-west-nile-virus-in-kozhikode",
     "date_of_publication": "2019-03-18T23:27:00",
@@ -2708,7 +2708,7 @@
         }]
     }]
 }, {
-    "id": 31312,
+    "id": 130,
     "type-id": 47,
     "url": "http://biorednoticias.cl/2019/03/18/confirman-tercer-caso-hantavirus-la-region-del-bio-bio/",
     "date_of_publication": "2019-03-18T23:12:00",
@@ -2729,7 +2729,7 @@
         }]
     }]
 }, {
-    "id": 31311,
+    "id": 131,
     "type-id": 28,
     "url": "http://outbreaknewstoday.com/rift-valley-fever-update-101-human-cases-mayotte-55618/",
     "date_of_publication": "2019-03-18T23:03:00",
@@ -2750,7 +2750,7 @@
         }]
     }]
 }, {
-    "id": 31310,
+    "id": 132,
     "type-id": 30,
     "url": "https://www.acidadeon.com/araraquara/cotidiano/regiao/NOT,0,0,1410840,araraquara+confirma+1034+casos+de+dengue+em+uma+semana.aspx",
     "date_of_publication": "2019-03-18T22:18:00",
@@ -2771,7 +2771,7 @@
         }]
     }]
 }, {
-    "id": 31309,
+    "id": 133,
     "type-id": 30,
     "url": "https://www.prensa-latina.cu/index.php?o=rn&id=262078&SEO=reportan-mas-de-40-mil-casos-de-dengue-en-2019-en-filipinas",
     "date_of_publication": "2019-03-18T22:14:00",
@@ -2792,7 +2792,7 @@
         }]
     }]
 }, {
-    "id": 31308,
+    "id": 134,
     "type-id": 30,
     "url": "https://www.pakistantoday.com.pk/2019/03/18/16-new-dengue-fever-cases-reported/",
     "date_of_publication": "2019-03-18T22:10:00",
@@ -2813,7 +2813,7 @@
         }]
     }]
 }, {
-    "id": 31307,
+    "id": 135,
     "type-id": 48,
     "url": "https://www.premiumtimesng.com/news/more-news/320787-52-new-cases-of-lassa-fever-recorded-in-the-last-seven-days-ncdc.html",
     "date_of_publication": "2019-03-18T22:07:00",
@@ -2834,7 +2834,7 @@
         }]
     }]
 }, {
-    "id": 31306,
+    "id": 136,
     "type-id": 11,
     "url": "http://www.xinhuanet.com/english/2019-03/18/c_137903182_2.htm",
     "date_of_publication": "2019-03-17T22:04:00",
@@ -2855,7 +2855,7 @@
         }]
     }]
 }, {
-    "id": 31305,
+    "id": 137,
     "type-id": 23,
     "url": "https://www.hindustantimes.com/mumbai-news/swine-flu-cases-spike-across-maharashtra-in-march/story-59c7p2uyMzDfzivcgFsyMK.html",
     "date_of_publication": "2019-03-15T21:53:00",
@@ -2876,7 +2876,7 @@
         }]
     }]
 }, {
-    "id": 31304,
+    "id": 138,
     "type-id": 23,
     "url": "https://timesofindia.indiatimes.com/city/nashik/3-die-of-swine-flu-in-city-since-january-1/articleshow/68443445.cms",
     "date_of_publication": "2019-03-17T23:03:00",
@@ -2897,7 +2897,7 @@
         }]
     }]
 }, {
-    "id": 31303,
+    "id": 139,
     "type-id": 41,
     "url": "https://setopati.net/social/142157",
     "date_of_publication": "2019-03-17T22:56:00",
@@ -2918,7 +2918,7 @@
         }]
     }]
 }, {
-    "id": 31302,
+    "id": 140,
     "type-id": 60,
     "url": "https://lahora.pe/aumentan-a-12-los-casos-de-zika-en-piura/",
     "date_of_publication": "2019-03-17T22:55:00",
@@ -2939,7 +2939,7 @@
         }]
     }]
 }, {
-    "id": 31301,
+    "id": 141,
     "type-id": 30,
     "url": "https://g1.globo.com/sp/sao-carlos-regiao/noticia/2019/03/16/com-118-casos-de-dengue-leme-faz-mutirao-com-voluntarios-e-enche-9-caminhoes-com-entulho.ghtml",
     "date_of_publication": "2019-03-16T22:29:00",
@@ -2960,7 +2960,7 @@
         }]
     }]
 }, {
-    "id": 31300,
+    "id": 142,
     "type-id": 30,
     "url": "https://www.vanguardia.com/area-metropolitana/bucaramanga/aumentaron-los-casos-de-dengue-en-santander-EY643745",
     "date_of_publication": "2019-03-17T22:20:00",
@@ -2981,7 +2981,7 @@
         }]
     }]
 }, {
-    "id": 31299,
+    "id": 143,
     "type-id": 30,
     "url": "https://timesofindia.indiatimes.com/city/jaipur/dengue-strikes-even-in-winters-93-cases-so-far/articleshow/68447187.cms",
     "date_of_publication": "2019-03-16T22:13:00",
@@ -3002,7 +3002,7 @@
         }]
     }]
 }, {
-    "id": 31298,
+    "id": 144,
     "type-id": 37,
     "url": "https://www.ultimahora.com/dengue-confirman-cerca-300-casos-n2807537.html",
     "date_of_publication": "2019-03-16T22:05:00",
@@ -3023,7 +3023,7 @@
         }]
     }]
 }, {
-    "id": 31297,
+    "id": 145,
     "type-id": 30,
     "url": "https://www.ultimahora.com/dengue-confirman-cerca-300-casos-n2807537.html",
     "date_of_publication": "2019-03-16T22:03:00",
@@ -3044,7 +3044,7 @@
         }]
     }]
 }, {
-    "id": 31296,
+    "id": 146,
     "type-id": 44,
     "url": "https://www.theepochtimes.com/us-seizes-1-million-pounds-of-pork-from-china-on-swine-fever-concerns_2840951.html",
     "date_of_publication": "2019-03-15T21:36:00",
@@ -3065,7 +3065,7 @@
         }]
     }]
 }, {
-    "id": 31295,
+    "id": 147,
     "type-id": 21,
     "url": "https://timesofindia.indiatimes.com/city/aurangabad/swine-flu-claims-two-lives-32-positive-in-city-since-jan/articleshow/68445046.cms",
     "date_of_publication": "2019-03-16T21:31:00",
@@ -3086,7 +3086,7 @@
         }]
     }]
 }, {
-    "id": 31294,
+    "id": 148,
     "type-id": 23,
     "url": "https://www.business-standard.com/article/pti-stories/two-more-die-of-swine-flu-in-indore-119031600699_1.html",
     "date_of_publication": "2019-03-16T00:18:00",
@@ -3107,7 +3107,7 @@
         }]
     }]
 }, {
-    "id": 31293,
+    "id": 149,
     "type-id": 30,
     "url": "https://www.lanacion.com.py/pais/2019/03/16/registran-292-casos-de-dengue-en-el-pais/",
     "date_of_publication": "2019-03-16T00:14:00",
@@ -3128,7 +3128,7 @@
         }]
     }]
 }, {
-    "id": 31292,
+    "id": 150,
     "type-id": 30,
     "url": "https://www.jornalopcao.com.br/ultimas-noticias/goias-registra-mais-de-25-mil-casos-de-dengue-em-tres-meses-171113/",
     "date_of_publication": "2019-03-15T23:37:00",
@@ -3149,7 +3149,7 @@
         }]
     }]
 }, {
-    "id": 31291,
+    "id": 151,
     "type-id": 30,
     "url": "https://www.eltribuno.com/salta/nota/2019-3-16-0-0-0-confirmaron-362-casos-de-dengue-en-la-provincia",
     "date_of_publication": "2019-03-16T22:07:00",
@@ -3170,7 +3170,7 @@
         }]
     }]
 }, {
-    "id": 31290,
+    "id": 152,
     "type-id": 30,
     "url": "https://gauchazh.clicrbs.com.br/porto-alegre/noticia/2019/03/confirmados-mais-dois-casos-de-dengue-contraidos-em-porto-alegre-cjtarbr7703wh01uja84k36t6.html",
     "date_of_publication": "2019-03-16T21:58:00",
@@ -3191,7 +3191,7 @@
         }]
     }]
 }, {
-    "id": 31289,
+    "id": 153,
     "type-id": 30,
     "url": "http://outbreaknewstoday.com/philippines-dengue-cases-top-40k-1st-two-months-2019/",
     "date_of_publication": "2019-03-16T21:55:00",
@@ -3212,7 +3212,7 @@
         }]
     }]
 }, {
-    "id": 31288,
+    "id": 154,
     "type-id": 48,
     "url": "https://www.thisdaylive.com/index.php/2019/03/16/nigeria-records-93-deaths-from-lassa-fever-in-2019/",
     "date_of_publication": "2019-03-16T21:50:00",
@@ -3233,7 +3233,7 @@
         }]
     }]
 }, {
-    "id": 31287,
+    "id": 155,
     "type-id": 21,
     "url": "https://www.dnaindia.com/ahmedabad/report-53-more-swine-flu-cases-one-death-reported-in-gujarat-2729894",
     "date_of_publication": "2019-03-15T21:46:00",
@@ -3254,7 +3254,7 @@
         }]
     }]
 }, {
-    "id": 31286,
+    "id": 156,
     "type-id": 44,
     "url": "https://www.businesstimes.com.sg/consumer/south-korea-finds-african-swine-fever-in-sausage-brought-in-by-chinese-traveller",
     "date_of_publication": "2019-03-15T23:01:00",
@@ -3275,7 +3275,7 @@
         }]
     }]
 }, {
-    "id": 31285,
+    "id": 157,
     "type-id": 59,
     "url": "http://unb.com.bd/category/Bangladesh/3-of-a-family-suspected-to-be-infected-with-nipah-virus/14589",
     "date_of_publication": "2019-03-15T22:58:00",
@@ -3296,7 +3296,7 @@
         }]
     }]
 }, {
-    "id": 31284,
+    "id": 158,
     "type-id": 45,
     "url": "https://www.aa.com.tr/en/africa/ebola-death-toll-in-dr-congo-rises-to-522/1419205",
     "date_of_publication": "2019-03-15T22:56:00",
@@ -3317,7 +3317,7 @@
         }]
     }]
 }, {
-    "id": 31283,
+    "id": 159,
     "type-id": 21,
     "url": "https://timesofindia.indiatimes.com/city/surat/13-fresh-cases-of-swine-flu-in-city-and-rural-areas-of-surat/articleshow/68416498.cms",
     "date_of_publication": "2019-03-14T22:15:00",
@@ -3338,7 +3338,7 @@
         }]
     }]
 }, {
-    "id": 31282,
+    "id": 160,
     "type-id": 23,
     "url": "http://www.newindianexpress.com/states/telangana/2019/mar/15/two-die-of-swine-flu-in-hyderabad-1951262.html",
     "date_of_publication": "2019-03-14T22:13:00",
@@ -3359,7 +3359,7 @@
         }]
     }]
 }, {
-    "id": 31281,
+    "id": 161,
     "type-id": 30,
     "url": "https://elmercurio.com.mx/la-region/dengue-al-acecho-ya-son-195-casos-en-estudio",
     "date_of_publication": "2019-03-15T22:08:00",
@@ -3380,7 +3380,7 @@
         }]
     }]
 }, {
-    "id": 31280,
+    "id": 162,
     "type-id": 30,
     "url": "https://www.americatv.com.pe/noticias/actualidad/chosica-al-menos-34-casos-dengue-se-confirmaron-zona-n363299",
     "date_of_publication": "2019-03-15T22:05:00",
@@ -3401,7 +3401,7 @@
         }]
     }]
 }, {
-    "id": 31279,
+    "id": 163,
     "type-id": 30,
     "url": "https://defimedia.info/26-cas-de-dengue",
     "date_of_publication": "2019-03-14T22:02:00",
@@ -3422,7 +3422,7 @@
         }]
     }]
 }, {
-    "id": 31278,
+    "id": 164,
     "type-id": 30,
     "url": "http://www.agenciafe.com/nota/306979-Son-88-los-casos-de-dengue-en-la-ciudad",
     "date_of_publication": "2019-03-14T21:58:00",
@@ -3443,7 +3443,7 @@
         }]
     }]
 }, {
-    "id": 31277,
+    "id": 165,
     "type-id": 30,
     "url": "https://g1.globo.com/sp/itapetininga-regiao/noticia/2019/03/14/bernardino-de-campos-confirma-30-novos-casos-de-dengue-neste-ano.ghtml",
     "date_of_publication": "2019-03-15T21:53:00",
@@ -3464,7 +3464,7 @@
         }]
     }]
 }, {
-    "id": 31276,
+    "id": 166,
     "type-id": 30,
     "url": "https://www.pattayamail.com/news/public-health-workers-hit-nirun-condo-after-dengue-report-249167",
     "date_of_publication": "2019-03-15T21:50:00",
@@ -3485,7 +3485,7 @@
         }]
     }]
 }, {
-    "id": 31275,
+    "id": 167,
     "type-id": 30,
     "url": "https://reliefweb.int/report/philippines/dengue-claims-29-cv-march-2019",
     "date_of_publication": "2019-03-14T21:47:00",
@@ -3506,7 +3506,7 @@
         }]
     }]
 }, {
-    "id": 31274,
+    "id": 168,
     "type-id": 45,
     "url": "http://www.cidrap.umn.edu/news-perspective/2019/03/drc-reports-2-new-ebola-cases-study-notes-seroprevalence-region",
     "date_of_publication": "2019-03-13T00:16:00",
@@ -3527,7 +3527,7 @@
         }]
     }]
 }, {
-    "id": 31273,
+    "id": 169,
     "type-id": 41,
     "url": "https://www.reuters.com/article/us-bulgaria-birdflu/bulgaria-reports-bird-flu-outbreak-at-duck-farm-idUSKCN1QV1B9",
     "date_of_publication": "2019-03-14T00:14:00",
@@ -3548,7 +3548,7 @@
         }]
     }]
 }, {
-    "id": 31272,
+    "id": 170,
     "type-id": 35,
     "url": "https://www.dawn.com/news/1469474/thousands-of-chickens-dead-of-ranikhet-disease-in-hassanabdals-poultry-farms",
     "date_of_publication": "2019-03-14T00:08:00",
@@ -3569,7 +3569,7 @@
         }]
     }]
 }, {
-    "id": 31271,
+    "id": 171,
     "type-id": 30,
     "url": "https://www.bonde.com.br/saude/noticias/tamarana-confirma-tres-casos-de-dengue-492992.html",
     "date_of_publication": "2019-03-12T22:09:00",
@@ -3590,7 +3590,7 @@
         }]
     }]
 }, {
-    "id": 31270,
+    "id": 172,
     "type-id": 30,
     "url": "https://andina.pe/agencia/noticia-reportan-76-casos-dengue-region-lambayeque-745263.aspx",
     "date_of_publication": "2019-03-13T22:05:00",
@@ -3611,7 +3611,7 @@
         }]
     }]
 }, {
-    "id": 31269,
+    "id": 173,
     "type-id": 44,
     "url": "http://focustaiwan.tw/news/asoc/201903140021.aspx",
     "date_of_publication": "2019-03-14T21:56:00",
@@ -3632,7 +3632,7 @@
         }]
     }]
 }, {
-    "id": 31268,
+    "id": 174,
     "type-id": 23,
     "url": "https://www.dnaindia.com/ahmedabad/report-swine-flu-52-cases-come-to-light-in-ahmedabad-1-dead-2729392",
     "date_of_publication": "2019-03-13T21:54:00",
@@ -3653,7 +3653,7 @@
         }]
     }]
 }, {
-    "id": 31267,
+    "id": 175,
     "type-id": 23,
     "url": "https://www.freepressjournal.in/indore/indore-swine-flu-one-more-dies-six-test-positive/1481620",
     "date_of_publication": "2019-03-13T21:52:00",
@@ -3674,7 +3674,7 @@
         }]
     }]
 }, {
-    "id": 31266,
+    "id": 176,
     "type-id": 24,
     "url": "https://timesofindia.indiatimes.com/city/surat/11-new-cases-of-swine-flu-registered/articleshow/68382807.cms",
     "date_of_publication": "2019-03-13T23:37:00",
@@ -3695,7 +3695,7 @@
         }]
     }]
 }, {
-    "id": 31265,
+    "id": 177,
     "type-id": 21,
     "url": "https://www.business-standard.com/article/pti-stories/swine-flu-claims-3-more-lives-in-indore-death-toll-reaches-32-119031201030_1.html",
     "date_of_publication": "2019-03-12T22:24:00",
@@ -3716,7 +3716,7 @@
         }]
     }]
 }, {
-    "id": 31264,
+    "id": 178,
     "type-id": 47,
     "url": "http://carmeloportal.com/42015-fallecio-joven-de-17-anos-por-hantavirus",
     "date_of_publication": "2019-03-12T22:21:00",
@@ -3737,7 +3737,7 @@
         }]
     }]
 }, {
-    "id": 31263,
+    "id": 179,
     "type-id": 30,
     "url": "http://correodelsur.com/local/20190313_cuarto-caso-positivo-de-dengue-en-chuquisaca.html",
     "date_of_publication": "2019-03-13T22:12:00",
@@ -3758,7 +3758,7 @@
         }]
     }]
 }, {
-    "id": 31262,
+    "id": 180,
     "type-id": 30,
     "url": "https://cbncuritiba.com/%EF%BB%BFsobe-para-88-o-numero-de-municipios-com-casos-confirmados-de-dengue-no-parana/",
     "date_of_publication": "2019-03-13T22:10:00",
@@ -3779,7 +3779,7 @@
         }]
     }]
 }, {
-    "id": 31261,
+    "id": 181,
     "type-id": 30,
     "url": "https://g1.globo.com/sp/campinas-regiao/noticia/2019/03/12/circulacao-do-tipo-2-da-dengue-liga-alerta-para-possivel-epidemia-na-regiao-diz-epidemiologista.ghtml",
     "date_of_publication": "2019-03-13T22:07:00",
@@ -3800,7 +3800,7 @@
         }]
     }]
 }, {
-    "id": 31260,
+    "id": 182,
     "type-id": 37,
     "url": "http://outbreaknewstoday.com/thailand-chikungunya-cases-500-past-week-nearly-10000-dengue-cases-reported-2019/",
     "date_of_publication": "2019-03-13T21:55:00",
@@ -3821,7 +3821,7 @@
         }]
     }]
 }, {
-    "id": 31259,
+    "id": 183,
     "type-id": 11,
     "url": "https://www.aa.com.tr/en/middle-east/sanaa-sees-fresh-cholera-outbreak-health-official/1417016",
     "date_of_publication": "2019-03-13T21:49:00",
@@ -3842,7 +3842,7 @@
         }]
     }]
 }, {
-    "id": 31258,
+    "id": 184,
     "type-id": 26,
     "url": "http://www.uniindia.com/~/over-66-000-children-administered-polio-drops-in-jalandhar/States/news/1526482.html",
     "date_of_publication": "2019-03-12T23:51:00",
@@ -3863,7 +3863,7 @@
         }]
     }]
 }, {
-    "id": 31257,
+    "id": 185,
     "type-id": 7,
     "url": "https://www.countrynews.com.au/2019/03/12/482679/anthrax-found-in-swan-hill-sheep",
     "date_of_publication": "2019-03-12T23:48:00",
@@ -3884,7 +3884,7 @@
         }]
     }]
 }, {
-    "id": 31256,
+    "id": 186,
     "type-id": 23,
     "url": "https://azertag.az/en/xeber/Swine_flu_kills_605_in_India-1257455",
     "date_of_publication": "2019-03-12T23:44:00",
@@ -3905,7 +3905,7 @@
         }]
     }]
 }, {
-    "id": 31255,
+    "id": 187,
     "type-id": 24,
     "url": "https://www.hindustantimes.com/delhi-news/2-835-cases-of-swine-flu-reported-in-delhi-this-year/story-DthPdIChjSBddSWwnzbvMO.html",
     "date_of_publication": "2019-03-11T23:41:00",
@@ -3926,7 +3926,7 @@
         }]
     }]
 }, {
-    "id": 31254,
+    "id": 188,
     "type-id": 39,
     "url": "https://www.dawn.com/news/1469049/suspected-cases-of-zika-monkeypox-reported-in-lahore-hospital",
     "date_of_publication": "2019-03-12T23:38:00",
@@ -3947,7 +3947,7 @@
         }]
     }]
 }, {
-    "id": 31253,
+    "id": 189,
     "type-id": 60,
     "url": "https://www.dawn.com/news/1469049",
     "date_of_publication": "2019-03-12T22:17:00",
@@ -3968,7 +3968,7 @@
         }]
     }]
 }, {
-    "id": 31252,
+    "id": 190,
     "type-id": 30,
     "url": "https://www.sigamais.com/noticias/saude/21-casos-de-dengue-sao-registrados-em-adamantina/",
     "date_of_publication": "2019-03-12T22:13:00",
@@ -3989,7 +3989,7 @@
         }]
     }]
 }, {
-    "id": 31251,
+    "id": 191,
     "type-id": 5,
     "url": "https://www.iol.co.za/dailynews/news/kwazulu-natal/nine-cases-of-meningitis-recorded-in-durban-two-months-19789783",
     "date_of_publication": "2019-03-12T22:09:00",
@@ -4010,7 +4010,7 @@
         }]
     }]
 }, {
-    "id": 31250,
+    "id": 192,
     "type-id": 18,
     "url": "https://timesofindia.indiatimes.com/city/kozhikode/west-nile-fever-case-confirmed-in-malappuram/articleshow/68378544.cms",
     "date_of_publication": "2019-03-12T22:04:00",
@@ -4031,7 +4031,7 @@
         }]
     }]
 }, {
-    "id": 31249,
+    "id": 193,
     "type-id": 8,
     "url": "https://www.reuters.com/article/us-health-plague-uganda-congo/deadly-plague-breaks-out-on-uganda-congo-border-who-says-idUSKBN1QS26B",
     "date_of_publication": "2019-03-11T01:21:00",
@@ -4052,7 +4052,7 @@
         }]
     }]
 }, {
-    "id": 31248,
+    "id": 194,
     "type-id": 41,
     "url": "https://plustvafrica.com/health-news/environment/27-penguins-in-namibia-die-of-bird-flu/",
     "date_of_publication": "2019-03-11T01:15:00",
@@ -4073,7 +4073,7 @@
         }]
     }]
 }, {
-    "id": 31246,
+    "id": 195,
     "type-id": 21,
     "url": "https://www.dailypioneer.com/2019/state-editions/second-swine-flu-patient-at-vimsar.html",
     "date_of_publication": "2019-03-11T22:07:00",
@@ -4094,7 +4094,7 @@
         }]
     }]
 }, {
-    "id": 31245,
+    "id": 196,
     "type-id": 21,
     "url": "https://timesofindia.indiatimes.com/city/ranchi/two-kids-tested-positive-for-swine-flu-in-ranchi/articleshow/68349240.cms",
     "date_of_publication": "2019-03-11T22:05:00",
@@ -4115,7 +4115,7 @@
         }]
     }]
 }, {
-    "id": 31244,
+    "id": 197,
     "type-id": 30,
     "url": "https://misionescuatro.com/regionales/paraguay-dengue-confirmados-itapua/",
     "date_of_publication": "2019-03-11T21:59:00",
@@ -4136,7 +4136,7 @@
         }]
     }]
 }, {
-    "id": 31243,
+    "id": 198,
     "type-id": 30,
     "url": "http://www.jamaicaobserver.com/latestnews/St_Lucia_on_alert_amidst_reported_dengue_deaths_in_Martinique",
     "date_of_publication": "2019-03-10T21:56:00",
@@ -4157,7 +4157,7 @@
         }]
     }]
 }, {
-    "id": 31242,
+    "id": 199,
     "type-id": 48,
     "url": "http://www.thetidenewsonline.com/2019/03/11/fg-records-1447-lassa-fever-cases-in-33-states/",
     "date_of_publication": "2019-03-11T21:52:00",
@@ -4178,7 +4178,7 @@
         }]
     }]
 }, {
-    "id": 31241,
+    "id": 200,
     "type-id": 30,
     "url": "https://www.defimedia.info/sept-cas-de-dengue-en-10-jours",
     "date_of_publication": "2019-03-09T00:10:00",
@@ -4199,7 +4199,7 @@
         }]
     }]
 }, {
-    "id": 31240,
+    "id": 201,
     "type-id": 21,
     "url": "https://www.dnaindia.com/ahmedabad/report-ahmedabad-67-cases-of-swine-flu-come-to-light-2728135",
     "date_of_publication": "2019-03-09T00:04:00",
@@ -4220,7 +4220,7 @@
         }]
     }]
 }, {
-    "id": 31239,
+    "id": 202,
     "type-id": 26,
     "url": "http://www.newindianexpress.com/states/andhra-pradesh/2019/mar/10/over-4l-kids-to-get-polio-vaccination-from-today-1949055.html",
     "date_of_publication": "2019-03-10T23:48:00",
@@ -4241,7 +4241,7 @@
         }]
     }]
 }, {
-    "id": 31238,
+    "id": 203,
     "type-id": 47,
     "url": "http://outbreaknewstoday.com/argentina-hantavirus-outbreak-strain-characterized-42040/",
     "date_of_publication": "2019-03-07T23:43:00",
@@ -4262,7 +4262,7 @@
         }]
     }]
 }, {
-    "id": 31237,
+    "id": 204,
     "type-id": 28,
     "url": "http://outbreaknewstoday.com/rift-valley-fever-mayotte-82-human-cases-67169/",
     "date_of_publication": "2019-03-10T22:59:00",
@@ -4283,7 +4283,7 @@
         }]
     }]
 }, {
-    "id": 31236,
+    "id": 205,
     "type-id": 56,
     "url": "https://www.npr.org/2019/03/09/701888768/1-killed-in-latest-attack-on-ebola-treatment-center-in-congo",
     "date_of_publication": "2019-03-09T22:53:00",
@@ -4304,7 +4304,7 @@
         }]
     }]
 }, {
-    "id": 31235,
+    "id": 206,
     "type-id": 5,
     "url": "http://www.wave3.com/2019/03/09/uofl-student-diagnosed-with-bacterial-meningitis/",
     "date_of_publication": "2019-03-08T00:33:00",
@@ -4325,7 +4325,7 @@
         }]
     }]
 }, {
-    "id": 31234,
+    "id": 207,
     "type-id": 33,
     "url": "https://rutherfordsource.com/equine-inquine-influenza-detected-tennessee-horses/",
     "date_of_publication": "2019-03-09T00:28:00",
@@ -4346,7 +4346,7 @@
         }]
     }]
 }, {
-    "id": 31233,
+    "id": 208,
     "type-id": 44,
     "url": "http://www.xinhuanet.com/english/2019-03/09/c_137882035.htm",
     "date_of_publication": "2019-03-09T00:25:00",
@@ -4367,7 +4367,7 @@
         }]
     }]
 }, {
-    "id": 31232,
+    "id": 209,
     "type-id": 44,
     "url": "http://www.xinhuanet.com/english/2019-03/09/c_137882035.htm",
     "date_of_publication": "2019-03-09T00:24:00",
@@ -4388,7 +4388,7 @@
         }]
     }]
 }, {
-    "id": 31231,
+    "id": 210,
     "type-id": 8,
     "url": "http://outbreaknewstoday.com/madagascar-plague-cases-top-100/",
     "date_of_publication": "2019-03-09T00:21:00",
@@ -4409,7 +4409,7 @@
         }]
     }]
 }, {
-    "id": 31230,
+    "id": 211,
     "type-id": 30,
     "url": "https://www.eleco.com.ar/nacionales/nuevo-caso-de-dengue-en-la-capital-federal/",
     "date_of_publication": "2019-03-09T00:12:00",
@@ -4430,7 +4430,7 @@
         }]
     }]
 }, {
-    "id": 31229,
+    "id": 212,
     "type-id": 30,
     "url": "http://valenews.com.br/2019/03/08/taubate-confirma-18-casos-de-dengue-em-2019/",
     "date_of_publication": "2019-03-08T23:59:00",
@@ -4451,7 +4451,7 @@
         }]
     }]
 }, {
-    "id": 31228,
+    "id": 213,
     "type-id": 30,
     "url": "https://elmundo.sv/suben-a-1304-los-casos-de-dengue/",
     "date_of_publication": "2019-03-09T23:56:00",
@@ -4472,7 +4472,7 @@
         }]
     }]
 }, {
-    "id": 31227,
+    "id": 214,
     "type-id": 30,
     "url": "https://sg.news.yahoo.com/dengue-cases-hit-36-000-084651921.html",
     "date_of_publication": "2019-03-09T23:53:00",
@@ -4493,7 +4493,7 @@
         }]
     }]
 }, {
-    "id": 31226,
+    "id": 215,
     "type-id": 30,
     "url": "https://www.malaysiakini.com/news/467248",
     "date_of_publication": "2019-03-09T23:50:00",
@@ -4514,7 +4514,7 @@
         }]
     }]
 }, {
-    "id": 31225,
+    "id": 216,
     "type-id": 48,
     "url": "http://www.xinhuanet.com/english/2019-03/09/c_137881839.htm",
     "date_of_publication": "2019-03-09T23:45:00",
@@ -4535,7 +4535,7 @@
         }]
     }]
 }, {
-    "id": 31224,
+    "id": 217,
     "type-id": 21,
     "url": "https://www.hindustantimes.com/gurugram/swine-flu-toll-at-5-in-gurugram-doctors-expect-fewer-cases-in-summer/story-ZzXk9MTz8epZ7HQgmrOFxM.html",
     "date_of_publication": "2019-03-09T23:43:00",
@@ -4556,7 +4556,7 @@
         }]
     }]
 }, {
-    "id": 31223,
+    "id": 218,
     "type-id": 12,
     "url": "https://www.plenglish.com/index.php?o=rn&id=39572&SEO=libya-reports-one-case-of-malaria",
     "date_of_publication": "2019-03-08T03:45:00",
@@ -4577,7 +4577,7 @@
         }]
     }]
 }, {
-    "id": 31222,
+    "id": 219,
     "type-id": 53,
     "url": "https://milbankmonitor.com/british-soldier-sues-army-over-q-fever-chronic-fatigue/08/03/2019/",
     "date_of_publication": "2019-03-08T03:43:00",
@@ -4598,7 +4598,7 @@
         }]
     }]
 }, {
-    "id": 31221,
+    "id": 220,
     "type-id": 21,
     "url": "https://www.dnaindia.com/ahmedabad/report-swine-flu-cases-in-gujarat-dip-to-74-2727485",
     "date_of_publication": "2019-03-07T03:38:00",
@@ -4619,7 +4619,7 @@
         }]
     }]
 }, {
-    "id": 31220,
+    "id": 221,
     "type-id": 23,
     "url": "https://www.business-standard.com/article/pti-stories/swine-flu-kills-4-women-in-indore-death-toll-reaches-28-119030801291_1.html",
     "date_of_publication": "2019-03-08T03:36:00",
@@ -4640,7 +4640,7 @@
         }]
     }]
 }, {
-    "id": 31219,
+    "id": 222,
     "type-id": 41,
     "url": "http://www.xinhuanet.com/english/2019-03/08/c_137879213.htm",
     "date_of_publication": "2019-03-08T03:33:00",
@@ -4661,7 +4661,7 @@
         }]
     }]
 }, {
-    "id": 31218,
+    "id": 223,
     "type-id": 30,
     "url": "https://fmalba.com.ar/dengue-suman-mas-de-60-los-positivos-en-tartagal/",
     "date_of_publication": "2019-03-08T00:45:00",
@@ -4682,7 +4682,7 @@
         }]
     }]
 }, {
-    "id": 31217,
+    "id": 224,
     "type-id": 30,
     "url": "https://www.diariodaregiao.com.br/_conteudo/2019/03/cidades/saude/1143093-saude-confirma-mais-347-casos-de-dengue.html",
     "date_of_publication": "2019-03-08T00:42:00",
@@ -4703,7 +4703,7 @@
         }]
     }]
 }, {
-    "id": 31216,
+    "id": 225,
     "type-id": 30,
     "url": "https://www.folhadelondrina.com.br/geral/parana-confirma-mais-de-600-casos-de-dengue-em-dois-meses-1028292.html",
     "date_of_publication": "2019-03-08T00:39:00",
@@ -4724,7 +4724,7 @@
         }]
     }]
 }, {
-    "id": 31215,
+    "id": 226,
     "type-id": 30,
     "url": "https://www.radionz.co.nz/international/pacific-news/384288/ten-confirmed-dengue-cases-in-cook-islands",
     "date_of_publication": "2019-03-08T00:30:00",
@@ -4745,7 +4745,7 @@
         }]
     }]
 }, {
-    "id": 31214,
+    "id": 227,
     "type-id": 30,
     "url": "https://news.mb.com.ph/2019/03/08/dengue-on-the-rise-in-cavite/",
     "date_of_publication": "2019-03-08T00:29:00",
@@ -4766,7 +4766,7 @@
         }]
     }]
 }, {
-    "id": 31213,
+    "id": 228,
     "type-id": 48,
     "url": "https://allafrica.com/stories/201903080024.html",
     "date_of_publication": "2019-03-08T00:23:00",
@@ -4787,7 +4787,7 @@
         }]
     }]
 }, {
-    "id": 31212,
+    "id": 229,
     "type-id": 11,
     "url": "http://www.cajnews.co.zw/13-killed-in-rampaging-cholera-outbreaks/",
     "date_of_publication": "2019-03-08T22:35:00",
@@ -4808,7 +4808,7 @@
         }]
     }]
 }, {
-    "id": 31211,
+    "id": 230,
     "type-id": 44,
     "url": "https://www.reuters.com/article/us-china-swinefever/china-reports-new-african-swine-fever-outbreak-in-guangxi-region-idUSKCN1QO13N",
     "date_of_publication": "2019-03-07T00:35:00",
@@ -4829,7 +4829,7 @@
         }]
     }]
 }, {
-    "id": 31210,
+    "id": 231,
     "type-id": 30,
     "url": "https://g1.globo.com/sp/campinas-regiao/noticia/2019/03/06/mogi-guacu-registra-111-casos-de-dengue-confirmados-numero-e-o-maior-da-regiao.ghtml",
     "date_of_publication": "2019-03-06T22:16:00",
@@ -4850,7 +4850,7 @@
         }]
     }]
 }, {
-    "id": 31209,
+    "id": 232,
     "type-id": 30,
     "url": "https://www.lanacion.com.py/pais/2019/03/06/ya-suman-205-los-casos-confirmados-de-dengue-a-nivel-pais/",
     "date_of_publication": "2019-03-07T22:12:00",
@@ -4871,7 +4871,7 @@
         }]
     }]
 }, {
-    "id": 31208,
+    "id": 233,
     "type-id": 37,
     "url": "http://outbreaknewstoday.com/chikungunya-outbreak-tops-2000-thailand-93565/",
     "date_of_publication": "2019-03-04T22:07:00",
@@ -4892,7 +4892,7 @@
         }]
     }]
 }, {
-    "id": 31207,
+    "id": 234,
     "type-id": 23,
     "url": "https://hwnews.in/news/national-news/swine-flu-death-toll-crosses-150-rajasthan/81411",
     "date_of_publication": "2019-03-07T22:02:00",
@@ -4913,7 +4913,7 @@
         }]
     }]
 }, {
-    "id": 31206,
+    "id": 235,
     "type-id": 21,
     "url": "https://timesofindia.indiatimes.com/city/lucknow/10-others-test-positive-for-swine-flu-in-lucknow-tally-now-touches-334/articleshow/68278821.cms",
     "date_of_publication": "2019-03-05T00:14:00",
@@ -4934,7 +4934,7 @@
         }]
     }]
 }, {
-    "id": 31205,
+    "id": 236,
     "type-id": 23,
     "url": "https://timesofindia.indiatimes.com/city/jaipur/swine-flu-claims-3-more-lives-in-rajasthan-toll-rises-to-153/articleshow/68292867.cms",
     "date_of_publication": "2019-03-06T00:12:00",
@@ -4955,7 +4955,7 @@
         }]
     }]
 }, {
-    "id": 31204,
+    "id": 237,
     "type-id": 30,
     "url": "http://www.latribuna.hn/2019/03/06/reportan-800-casos-de-dengue-grave/",
     "date_of_publication": "2019-03-06T22:12:00",
@@ -4976,7 +4976,7 @@
         }]
     }]
 }, {
-    "id": 31203,
+    "id": 238,
     "type-id": 21,
     "url": "https://timesofindia.indiatimes.com/city/surat/no-let-up-in-swine-flu-12-more-test-h1n1-positive/articleshow/68276935.cms",
     "date_of_publication": "2019-03-06T22:03:00",
@@ -4997,7 +4997,7 @@
         }]
     }]
 }, {
-    "id": 31202,
+    "id": 239,
     "type-id": 21,
     "url": "https://timesofindia.indiatimes.com/city/surat/9-more-test-positive-for-swine-flu-in-city/articleshow/68262069.cms",
     "date_of_publication": "2019-03-04T23:27:00",
@@ -5018,7 +5018,7 @@
         }]
     }]
 }, {
-    "id": 31201,
+    "id": 240,
     "type-id": 41,
     "url": "http://www.orissapost.com/bird-flu-scare-in-kendrapara/",
     "date_of_publication": "2019-03-05T23:20:00",
@@ -5039,7 +5039,7 @@
         }]
     }]
 }, {
-    "id": 31200,
+    "id": 241,
     "type-id": 30,
     "url": "http://folhanobre.com.br/sulista/santa-catarina/municipio-ja-contabiliza-250-focos-do-mosquito-da-dengue/27473",
     "date_of_publication": "2019-03-04T22:14:00",
@@ -5060,7 +5060,7 @@
         }]
     }]
 }, {
-    "id": 31199,
+    "id": 242,
     "type-id": 30,
     "url": "http://recordtv.r7.com/jornal-da-record/videos/campo-grande-ms-enfrenta-nova-epidemia-de-dengue-apos-17-anos-04032019",
     "date_of_publication": "2019-03-04T22:09:00",
@@ -5081,7 +5081,7 @@
         }]
     }]
 }, {
-    "id": 31198,
+    "id": 243,
     "type-id": 30,
     "url": "https://g1.globo.com/sp/sao-jose-do-rio-preto-aracatuba/alerta-dengue/noticia/2019/03/04/birigui-registra-quase-200-casos-de-dengue-e-cria-centro-de-hidratacao.ghtml",
     "date_of_publication": "2019-03-05T22:05:00",
@@ -5102,7 +5102,7 @@
         }]
     }]
 }, {
-    "id": 31197,
+    "id": 244,
     "type-id": 24,
     "url": "https://www.radionz.co.nz/news/national/383975/suspected-swine-flu-outbreak-in-hawke-s-bay",
     "date_of_publication": "2019-03-05T21:43:00",
@@ -5123,7 +5123,7 @@
         }]
     }]
 }, {
-    "id": 31196,
+    "id": 245,
     "type-id": 56,
     "url": "https://www.aa.com.tr/en/africa/ebola-death-toll-in-dr-congo-climbs-to-496-/1408316",
     "date_of_publication": "2019-03-04T23:34:00",
@@ -5144,7 +5144,7 @@
         }]
     }]
 }, {
-    "id": 31194,
+    "id": 246,
     "type-id": 37,
     "url": "https://raajje.mv/en/news/51690",
     "date_of_publication": "2019-03-04T22:15:00",
@@ -5165,7 +5165,7 @@
         }]
     }]
 }, {
-    "id": 31193,
+    "id": 247,
     "type-id": 30,
     "url": "https://raajje.mv/en/news/51690",
     "date_of_publication": "2019-03-04T22:13:00",
@@ -5186,7 +5186,7 @@
         }]
     }]
 }, {
-    "id": 31192,
+    "id": 248,
     "type-id": 37,
     "url": "https://www.malaymail.com/news/malaysia/2019/03/04/kelantan-records-107-new-dengue-cases/1728833",
     "date_of_publication": "2019-03-04T22:09:00",
@@ -5207,7 +5207,7 @@
         }]
     }]
 }, {
-    "id": 31191,
+    "id": 249,
     "type-id": 30,
     "url": "https://www.malaymail.com/news/malaysia/2019/03/04/kelantan-records-107-new-dengue-cases/1728833",
     "date_of_publication": "2019-03-04T22:07:00",
@@ -5228,7 +5228,7 @@
         }]
     }]
 }, {
-    "id": 31189,
+    "id": 250,
     "type-id": 30,
     "url": "http://outbreaknewstoday.com/sri-lanka-reports-8900-dengue-cases-1st-two-months-2019/",
     "date_of_publication": "2019-03-04T22:00:00",
@@ -5249,7 +5249,7 @@
         }]
     }]
 }, {
-    "id": 31188,
+    "id": 251,
     "type-id": 30,
     "url": "https://www.thejakartapost.com/news/2019/03/04/dengue-fever-infects-2282-people-kills-one-in-jakarta.html",
     "date_of_publication": "2019-03-04T21:57:00",
@@ -5270,7 +5270,7 @@
         }]
     }]
 }, {
-    "id": 31186,
+    "id": 252,
     "type-id": 23,
     "url": "https://timesofindia.indiatimes.com/city/nashik/in-2-months-3-die-of-swine-flu-at-civil-hosp/articleshow/68245942.cms",
     "date_of_publication": "2019-03-04T21:43:00",
@@ -5291,7 +5291,7 @@
         }]
     }]
 }, {
-    "id": 31184,
+    "id": 253,
     "type-id": 7,
     "url": "http://outbreaknewstoday.com/anthrax-confirmed-near-swan-hill-victoria-73350/",
     "date_of_publication": "2019-03-04T21:36:00",
