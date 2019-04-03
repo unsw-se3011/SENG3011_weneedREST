@@ -96,7 +96,7 @@ class ReportManager(object):
     def update(self, args):
         args_events = args_reports = None 
 
-        newReport = self.findReport( id )
+        newReport = self.findReport( args['id'] )
 
         if 'reports' in args.keys():
             args_reports = args.pop('reports')
