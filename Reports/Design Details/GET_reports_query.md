@@ -2,7 +2,7 @@
 
 Usage
 ```
-   GET /searchReports
+   GET /reports
 ```
 ## Description
 Returns a list of the reports that match the following filters. All dates must be in the format `^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})$`. If only one date is specified the API will assume that you want all reports after or before the given date. 
