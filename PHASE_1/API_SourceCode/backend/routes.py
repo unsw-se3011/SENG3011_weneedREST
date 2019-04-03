@@ -1,9 +1,9 @@
 from flask import Flask
-from flask_restplus import Resource, Api, reqparse, fields
+from flask_restplus import Resource, Api, reqparse, fields, marshal
 import re
 from datetime import datetime
 import models
-from helper import compareDate, searchKeyTerms, dumpData, readData
+from helper import *
 from werkzeug.contrib.fixers import ProxyFix
 
 app = Flask(__name__)
@@ -39,7 +39,7 @@ parser_create.add_argument('headline', type=str, required=True, help='headline f
 parser_create.add_argument('main_text', type=str, required=True, help='main text of the event', location='args')
 parser_create.add_argument('disease', type=str, required=True, help='comma separated list of diseases', location='args')
 parser_create.add_argument('syndrome', type=str, required=False, help='comma separated list of syndroms', location='args')
-parser_create.add_argument('event-type', type=str, required=True, help='the type of event e.g death, infected', location='args')
+parser_create.add_argument('type', type=str, required=True, help='the type of event e.g death, infected', location='args')
 parser_create.add_argument('longitude', type=float, required=True, help='longitude of location', location='args')
 parser_create.add_argument('latitude', type=float, required=True, help='latitude of location', location='args')
 parser_create.add_argument('number-affected', type=int, required=True, help='number of people affected', location='args')
@@ -52,28 +52,19 @@ class ReportManager(object):
         self.n = len(data)
     
     def create(self, args):
-        n = self.n + 1
+        # set up the args 
+        args['id'] = self.n +1
 
-        newReport = self.reports[0].copy()
-        newReport['id'] = n
-        newReport['url'] = args['url']
-        newReport['date_of_publication'] = args['date_of_publication']
-        newReport['headline'] = args['headline']
-        newReport['main_text'] = args['main_text']
-        newReport['reports'][0]['disease'] = list( map(lambda x : x.strip(), args['disease'].split(',')) )
-        newReport['reports'][0]['syndrome'] = list( map(lambda x : x.strip(), args['syndrome'].split(',')) ) if args['syndrome'] is not None else [] 
-        newReport['reports'][0]['reported_events'][0]['type'] = args['event-type']
-        newReport['reports'][0]['reported_events'][0]['date'] = args['date']
-        newReport['reports'][0]['reported_events'][0]['location']['longitude'] = args['longitude'] 
-        newReport['reports'][0]['reported_events'][0]['location']['latitude'] = args['latitude']
-        newReport['reports'][0]['reported_events'][0]['number-affected'] = args['number-affected']
-        newReport['reports'][0]['Comment'] = args['comment'] if args['comment'] else 'Null'
+        # marshal/format the args
+        newReport = marshal(args, models.nested_article_model)
+        newReport = format_raw_article( newReport )
 
+        # update reportDAO
         self.reports.append(newReport)
         self.n = self.n + 1
-        
-        dumpData(self.reports)
 
+        # update clean.json
+        dumpData(self.reports)
 
         return newReport
 
@@ -101,6 +92,27 @@ class ReportManager(object):
         
     def delete(self, article):
         self.reports.remove( article )
+    
+    def update(self, args):
+        args_events = args_reports = None 
+
+        newReport = self.findReport( id )
+
+        if 'reports' in args.keys():
+            args_reports = args.pop('reports')
+            if 'reported_events' in args_reports.keys():
+                args_events = args_reports.pop('reported_events')
+                if 'location' in args_events.keys():
+                    args_loc = args_events.pop('location')
+                    
+                    newReport['reports'][0]['reported_events'][0]['location'].update( args_loc )
+                newReport['reports'][0]['reported_events'][0].update( args_events )
+            newReport['reports'][0].update( args_reports )
+        newReport.update( args )
+
+        dumpData(self.reports)
+
+        return newReport
     
     def findReport(self, n):
         '''
@@ -145,6 +157,8 @@ class ReportList(Resource):
 
         return newResponse, 200
 
+    @api.response(200, "Sucess")
+    @api.response(404, "Invalid date param")
     @api.doc(parser=parser_create)
     def post(self):
         '''
@@ -153,7 +167,7 @@ class ReportList(Resource):
         args = parser_create.parse_args()
 
         if re.search(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}', args['date']) is None:
-            return "Invalid end-date", 400
+            return "Invalid end-date", 404
 
         newReport = reportDAO.create(args)
 
@@ -170,7 +184,7 @@ parser_update.replace_argument('headline', required=False)
 parser_update.replace_argument('main_text', required=False)
 parser_update.replace_argument('disease', required=False)
 parser_update.replace_argument('syndrome', required=False)
-parser_update.replace_argument('event-type', required=False)
+parser_update.replace_argument('type', required=False)
 parser_update.replace_argument('longitude', required=False)
 parser_update.replace_argument('latitude', required=False)
 parser_update.replace_argument('number-affected', required=False)
@@ -220,32 +234,11 @@ class Report(Resource):
         if args['date'] is not None and re.search(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}', args['date']) is None:
             return "Invalid date", 400
 
-        newReport = reportDAO.findReport(id)
-        
-        # Updating all report details
-        if args['url'] is not None:
-            newReport['url'] = args['url']
-        if args['date_of_publication'] is not None:
-            newReport['date_of_publication'] = args['date_of_publication']
-        if args['headline'] is not None:
-            newReport['headline'] = args['headline']
-        if args['main_text'] is not None:
-            newReport['main_text'] = args['main_text']
-        if args['disease'] is not None:
-            newReport['reports'][0]['disease'] = list( map(lambda x : x.strip(), args['disease'].split(',')) )
-        if args['syndrome'] is not None:
-            newReport['reports'][0]['syndrome'] = list( map(lambda x : x.strip(), args['syndrome'].split(',')) ) if args['syndrome'] is not None else [] 
-        if args['event-type'] is not None:
-            newReport['reports'][0]['reported_events'][0]['event-type'] = args['event-type']
-        if args['longitude'] is not None:
-            newReport['reports'][0]['reported_events'][0]['location']['longitude'] = args['longitude'] 
-        if args['latitude'] is not None:
-            newReport['reports'][0]['reported_events'][0]['location']['latitude'] = args['latitude']
-        if args['number-affected'] is not None:
-            newReport['reports'][0]['reported_events'][0]['number-affected'] = args['number-affected']
-        if args['comment'] is not None:
-            newReport['reports'][0]['Comment'] = args['comment']
+        #set up the args
+        args['id'] = id
 
-        dumpData(reportDAO)
+        args = marshal(args, models.nested_article_model, skip_none=True)
+
+        newReport = reportDAO.update(args)
 
         return newReport, 200

@@ -70,6 +70,5 @@ def readData():
     
 def format_raw_article(article):
     article['reports']['reported_events'] = [ article['reports']['reported_events'] ]
-    article['reports']['disease'] = [ article['reports']['disease'] ]
     article['reports'] = [ article['reports'] ]
     return article
