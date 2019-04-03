@@ -52,7 +52,7 @@ class ReportManager(object):
         self.n = len(data)
     
     def create(self, args):
-        n = self.reports[0]['id'] + 1
+        n = self.n + 1
 
         newReport = self.reports[0].copy()
         newReport['id'] = n
@@ -70,8 +70,10 @@ class ReportManager(object):
         newReport['reports'][0]['Comment'] = args['comment'] if args['comment'] else 'Null'
 
         self.reports.append(newReport)
-
+        self.n = self.n + 1
+        
         dumpData(self.reports)
+
 
         return newReport
 

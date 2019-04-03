@@ -16,8 +16,11 @@ with open('raw.json','r') as f:
     data = json.load(f)
     f.close()
 
+i = 1
 for article in data:
     article = marshal(article, models.nested_article_model)
+    article['id'] = i
     articles.append( format_raw_article( article ) )
+    i = i + 1
 
 dumpData(articles)
