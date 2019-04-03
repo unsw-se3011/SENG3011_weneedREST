@@ -28,6 +28,8 @@ for article in data:
     article = marshal(article, models.article_model)
     article['reports'] = [ report ]
 
+    article['reports'][0]['comment'] = ""
+
     articles.append(article)
 
 dumpData(articles)

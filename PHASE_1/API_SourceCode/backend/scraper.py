@@ -102,5 +102,3 @@ with open('rawData.txt',"r") as f:
     with open('raw.json',"w") as f:
         json.dump(rawArticles,f)
     f.closed
-
-with with open('raw.json',"w") as f:
