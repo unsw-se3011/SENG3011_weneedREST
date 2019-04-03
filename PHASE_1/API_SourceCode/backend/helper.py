@@ -50,18 +50,6 @@ def compareDate(compareDate, compare, event):
 
     return True
 
-def findReport(n, data):
-    '''
-        Finds and returns report\n
-            n: id of the report
-            data: arrayList of reports \n
-        returns report or None if not found
-    '''
-    for article in data:
-            if article['id'] == n:
-                return article
-    return None
-
 def dumpData(data):
     '''
         Dumps data into clean.json 
@@ -77,4 +65,5 @@ def readData():
     with open('clean.json',"r") as f:
         dummyResponse = eval(f.read())
         f.close()
-        return dummyResponse
+    
+    return dummyResponse

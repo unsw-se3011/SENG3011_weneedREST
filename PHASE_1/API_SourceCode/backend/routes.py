@@ -2,7 +2,8 @@ from flask import Flask
 from flask_restplus import Resource, Api, reqparse, fields
 import re
 from datetime import datetime
-from helper import compareDate, searchKeyTerms, findReport, dumpData, readData
+import models
+from helper import compareDate, searchKeyTerms, dumpData, readData
 from werkzeug.contrib.fixers import ProxyFix
 
 app = Flask(__name__)
@@ -11,33 +12,7 @@ api = Api(app, version='1.0', title='Disease report API',
     description='A simple Disease Report API',
 )
 
-location_model = {
-    'latitude': fields.Float, 
-    'longitude': fields.Float
-}
-
-event_model = {
-    'type': fields.List( fields.String ), 
-    'date': fields.String, 
-    'location': fields.Nested( location_model ), 
-    'number-affected': fields.Integer
-}
-
-report_model = {
-    'disease': fields.List( fields.String ), 
-    'syndrome': fields.List( fields.String ), 
-    'comment': fields.String, 
-    'reported_events': fields.List( fields.Nested( event_model ) )
-}
-
-article_model = api.model('Report', {
-    'id': fields.Integer, 
-    'url': fields.String, 
-    'date_of_publication': fields.String, 
-    'headline': fields.String, 
-    'main_text': fields.String, 
-    'reports': fields.List( fields.Nested( report_model ) )
-})
+article_model = api.model('Article', models.article_model)
 
 ns_rep = api.namespace('reports', description='Report operations')
 
@@ -76,42 +51,31 @@ class ReportManager(object):
         self.reports = data
         self.n = len(data)
     
-    def create(self, data):
+    def create(self, args):
+        n = self.n + 1
+
         newReport = self.reports[0].copy()
+        newReport['id'] = n
+        newReport['url'] = args['url']
+        newReport['date_of_publication'] = args['date_of_publication']
+        newReport['headline'] = args['headline']
+        newReport['main_text'] = args['main_text']
+        newReport['reports'][0]['disease'] = list( map(lambda x : x.strip(), args['disease'].split(',')) )
+        newReport['reports'][0]['syndrome'] = list( map(lambda x : x.strip(), args['syndrome'].split(',')) ) if args['syndrome'] is not None else [] 
+        newReport['reports'][0]['reported_events'][0]['type'] = args['event-type']
+        newReport['reports'][0]['reported_events'][0]['date'] = args['date']
+        newReport['reports'][0]['reported_events'][0]['location']['longitude'] = args['longitude'] 
+        newReport['reports'][0]['reported_events'][0]['location']['latitude'] = args['latitude']
+        newReport['reports'][0]['reported_events'][0]['number-affected'] = args['number-affected']
+        newReport['reports'][0]['Comment'] = args['comment'] if args['comment'] else 'Null'
+
+        self.reports.append(newReport)
+        dumpData(reportDAO)
+
+        return newReport
 
     def filter(self, args):
-        for key in args.keys(): 
-            pass
-        
-    def delete(self, report_id):
-        article = findReport(report_id, self.reports)
-
-reportDAO = ReportManager(readData())
-
-@ns_rep.route('/')
-class ReportList(Resource):
-    '''
-        Shows a list of all reports and lets you POST to create a report and GET to search for reports
-    '''
-    @api.doc(parser=parser_report)
-    def get(self):
-        '''
-            Search/filter for reports
-        '''
-        args = parser_report.parse_args()
-
-        if args['start-date'] is not None and re.search(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}', args['start-date']) is None:
-            return "Invalid start-date", 400
-
-        if args['end-date'] is not None and re.search(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}', args['end-date']) is None:
-            return "Invalid end-date", 400
-
-        newResponse = reportDAO.reports
-
-        n = 10 if args['n'] is None or args['n'] > 10 else args['n'] 
-
-        if n < 0: 
-            return [], 200
+        newResponse = self.reports
 
         if args['key_terms'] is not None:
             newResponse = list( filter(lambda x: searchKeyTerms(args['key_terms'], x), newResponse) )
@@ -130,7 +94,51 @@ class ReportList(Resource):
         if args['end-date'] is not None:
             newResponse = list( filter(lambda x: compareDate(args['end-date'], "less", x), newResponse))
 
-        newResponse = newResponse[:n]
+        return newResponse[:args['n']]
+        
+    def delete(self, article):
+        self.reports.remove( article )
+    
+    def findReport(self, n):
+        '''
+            Finds and returns report\n
+                n: id of the report
+            returns report or None if not found
+        '''
+        for article in self.reports:
+            if article['id'] == n:
+                return article
+        return None
+
+reportDAO = ReportManager(readData())
+
+@ns_rep.route('/')
+class ReportList(Resource):
+    '''
+        Shows a list of all reports and lets you POST to create a report and GET to search for reports
+    '''
+    @api.response(200, "Sucess")
+    @api.response(400, "Invalid search")
+    @api.response(404, "Invalid date param")
+    @api.doc(parser=parser_report)
+    def get(self):
+        '''
+            Search/filter for reports
+        '''
+        args = parser_report.parse_args()
+
+        if args['start-date'] is not None and re.search(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}', args['start-date']) is None:
+            return "Invalid start-date", 404
+
+        if args['end-date'] is not None and re.search(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}', args['end-date']) is None:
+            return "Invalid end-date", 404
+
+        args['n'] = 100 if args['n'] is None or args['n'] > 100 else args['n'] 
+
+        if args['n'] < 0: 
+            return [], 200
+
+        newResponse = reportDAO.filter(args)
 
         return newResponse, 200
 
@@ -144,26 +152,7 @@ class ReportList(Resource):
         if re.search(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}', args['date']) is None:
             return "Invalid end-date", 400
 
-        n = reportDAO.n + 1
-
-        newReport = reportDAO[0].copy()
-        newReport['id'] = n
-        newReport['url'] = args['url']
-        newReport['date_of_publication'] = args['date_of_publication']
-        newReport['headline'] = args['headline']
-        newReport['main_text'] = args['main_text']
-        newReport['reports'][0]['disease'] = list( map(lambda x : x.strip(), args['disease'].split(',')) )
-        newReport['reports'][0]['syndrome'] = list( map(lambda x : x.strip(), args['syndrome'].split(',')) ) if args['syndrome'] is not None else [] 
-        newReport['reports'][0]['reported_events'][0]['type'] = args['event-type']
-        newReport['reports'][0]['reported_events'][0]['date'] = args['date']
-        newReport['reports'][0]['reported_events'][0]['location']['longitude'] = args['longitude'] 
-        newReport['reports'][0]['reported_events'][0]['location']['latitude'] = args['latitude']
-        newReport['reports'][0]['reported_events'][0]['number-affected'] = args['number-affected']
-        newReport['reports'][0]['Comment'] = args['comment'] if args['comment'] else 'Null'
-
-
-        reportDAO.append(newReport)
-        dumpData(reportDAO)
+        newReport = reportDAO.create(args)
 
         return newReport, 200
 
@@ -192,13 +181,26 @@ class Report(Resource):
     '''
     @api.response(200, 'Success')
     @api.response(400, 'Report not found')
+    def get(self, report_id):
+        '''
+            Fetches a singular report
+        '''
+        report = reportDAO.findReport(report_id)
+        if report:
+            return report, 200
+        
+        return None, 400
+
+    @api.response(200, 'Success')
+    @api.response(400, 'Report not found')
     def delete(self, report_id):   
         '''
             Deletes a report
         '''
-        article = findReport(report_id, reportDAO)
+        article = reportDAO.findReport(report_id)
+
         if article:
-            reportDAO.remove( article )
+            reportDAO.delete( article )
             return f'deleted report \n{article}\n', 200
         
         return "No report to be found", 400
@@ -215,7 +217,7 @@ class Report(Resource):
         if args['date'] is not None and re.search(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}', args['start-date']) is None:
             return "Invalid start-date", 400
 
-        newReport = findReport(args['id'], reportDAO)
+        newReport = reportDAO.findReport(report_id)
         
         # Updating all report details
         if args['url'] is not None:
