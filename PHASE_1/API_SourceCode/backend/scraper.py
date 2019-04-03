@@ -98,6 +98,14 @@ with open('rawData.txt',"r") as f:
         #else:
         #    event['geonames-id'] = "123456"
 
+        event['latitude'] = event.pop('Latitude')
+        event['longitude'] = event.pop('Longitude')
+        event['type'] = event.pop('event-type')
+        event['id'] = event.pop('ID')
+        event['url'] = event.pop('URL')
+        event['headline'] = event.pop('TipText')
+        event['main_text'] = event.pop('Description')
+
 
     with open('raw.json',"w") as f:
         json.dump(rawArticles,f)

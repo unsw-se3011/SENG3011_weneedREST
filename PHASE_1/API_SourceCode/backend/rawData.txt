@@ -1,4 +1,148 @@
-{'ID':31423,'Type_ID':37,'Country':'IN','City':'Khunti District','DateTime':'2019-03-31 01:07:00','Latitude':23.024,'Longitude':85.189,'Description':'<div>&nbsp;<br  />\
+{'ID':31441,'Type_ID':41,'Country':'CN','City':'Liaoning Province','DateTime':'2019-04-02 23:11:00','Latitude':41.944,'Longitude':122.529,'Description':'<div><strong>&nbsp;<br  />\
+[Reuters] CHINA - China reports H5N1 bird flu outbreak in Liaoning province<br  />\
+<br type="_moz"  />\
+</strong></div>\
+<div><strong>&ldquo;China reported an outbreak of a highly pathogenic strain of H5N1 bird flu at a farm in northeastern Liaoning province, the Ministry of Agriculture and Rural Affairs said on Tuesday.&rdquo;<br  />\
+<br type="_moz"  />\
+</strong></div>\
+<div><strong>Read the full article: <br  />\
+</strong><a href="https://www.reuters.com/article/health-birdflu-china/china-reports-h5n1-bird-flu-outbreak-in-liaoning-province-idUSB9N20U024"><strong>https://www.reuters.com/article/health-birdflu-china/china-reports-h5n1-bird-flu-outbreak-in-liaoning-province-idUSB9N20U024</strong></a></div>','TipText':'CHINA - China Reports H5N1 Bird Flu Outbreak In Liaoning Province','URL':'https://www.reuters.com/article/health-birdflu-china/china-reports-h5n1-bird-flu-outbreak-in-liaoning-province-idUSB9N20U024','Addedbywhom':'Orti','AddedDateTime':'2019-04-02 12:12:53','IsonMap':1,'imagefilepath':'mapicons/hemmoragic.gif','street':'','mapzoom':4,'maptype':'G_NORMAL_MAP','location_granularity':7,'country':'China','eventtypename':'H7N9 / H5N1 / H5N2 / H7N1 / H7N3 / H7N7 / H5N8'},{'ID':31440,'Type_ID':44,'Country':'CN','City':'Jiangsu Province','DateTime':'2019-03-28 23:07:00','Latitude':33.140,'Longitude':119.789,'Description':'<div><strong>&nbsp;<br  />\
+[CNA] CHINA - 2 more Chinese pork products test positive for African swine fever<br  />\
+<br type="_moz"  />\
+</strong></div>\
+<div><strong>&ldquo;Two more Chinese pork products have tested positive for African swine fever (ASF), bringing the total number of cases to 36, Taiwan\'s Central Emergency Operation Center for ASF said Tuesday.&rdquo;<br  />\
+<br type="_moz"  />\
+</strong></div>\
+<div><strong>Read the full article: <br  />\
+</strong><a href="https://today.rtl.lu/news/luxembourg/a/1328551.html"><strong>http://focustaiwan.tw/news/asoc/201904020018.aspx</strong></a></div>','TipText':'CHINA - 2 More Chinese Pork Products Test Positive For African Swine Fever','URL':'https://today.rtl.lu/news/luxembourg/a/1328551.html','Addedbywhom':'Orti','AddedDateTime':'2019-04-02 12:09:16','IsonMap':1,'imagefilepath':'mapicons/swinefever.gif','street':'','mapzoom':4,'maptype':'G_NORMAL_MAP','location_granularity':7,'country':'China','eventtypename':'African Swine Fever / Swine Fever'},{'ID':31439,'Type_ID':20,'Country':'CN','City':'Xinjiang','DateTime':'2019-04-02 22:53:00','Latitude':42.525,'Longitude':87.540,'Description':'<div><strong>&nbsp;<br  />\
+[Reuters] CHINA - China finds foot-and-mouth disease in cattle in Xinjiang region<br  />\
+<br type="_moz"  />\
+</strong></div>\
+<div><strong>&ldquo;The Chinese agriculture ministry said on Tuesday it found O-type foot-and-mouth disease in a truck transporting cattle in northwest China\'s Xinjiang region.&rdquo;<br  />\
+<br type="_moz"  />\
+</strong></div>\
+<div><strong>Read the full article: <br  />\
+</strong><a href="http://news.trust.org//item/20190402030634-09fpw/"><strong>http://news.trust.org//item/20190402030634-09fpw/</strong></a></div>','TipText':'CHINA - China Finds Foot-And-Mouth Disease In Cattle In Xinjiang Region','URL':'http://news.trust.org//item/20190402030634-09fpw/','Addedbywhom':'Orti','AddedDateTime':'2019-04-02 12:05:10','IsonMap':1,'imagefilepath':'mapicons/ico19.gif','street':'','mapzoom':4,'maptype':'G_NORMAL_MAP','location_granularity':7,'country':'China','eventtypename':'Foot-And-Mouth Disease'},{'ID':31438,'Type_ID':57,'Country':'CA','City':'Quebec','DateTime':'2019-04-01 22:48:00','Latitude':52.940,'Longitude':-73.549,'Description':'<div><strong>&nbsp;<br  />\
+[Outbreaknewstoday.com] CANADA - Toxoplasmosis outbreak reported in Quebec hunters<br  />\
+<br type="_moz"  />\
+</strong></div>\
+<div><strong>&ldquo;Quebec health officials reported an outbreak of the parasitic infection, toxoplasmosis, in a at least six hunters who consumed the deer meat they killed during a hunting trip to the United States last November-December.&rdquo;<br  />\
+<br type="_moz"  />\
+</strong></div>\
+<div><strong>Read the full article: <br  />\
+</strong><a href="http://outbreaknewstoday.com/toxoplasmosis-outbreak-reported-quebec-hunters-74794/"><strong>http://outbreaknewstoday.com/toxoplasmosis-outbreak-reported-quebec-hunters-74794/</strong></a></div>','TipText':'CANADA - Toxoplasmosis Outbreak Reported In Quebec Hunters','URL':'http://outbreaknewstoday.com/toxoplasmosis-outbreak-reported-quebec-hunters-74794/','Addedbywhom':'Orti','AddedDateTime':'2019-04-02 11:50:10','IsonMap':1,'imagefilepath':'mapicons/general_outbreaks.gif','street':'','mapzoom':4,'maptype':'G_NORMAL_MAP','location_granularity':7,'country':'Canada','eventtypename':'General News'},{'ID':31437,'Type_ID':30,'Country':'BR','City':'Ribeirao Preto','DateTime':'2019-04-02 22:06:00','Latitude':-21.170,'Longitude':-47.810,'Description':'<div><strong>&nbsp;<br  />\
+Manual Google Translation <br  />\
+[Acidadeon.com] BRAZIL - Ribeir&atilde;o Preto records 293 cases of dengue fever in March<br  />\
+<br type="_moz"  />\
+</strong></div>\
+<div><strong>&ldquo;Ribeir&atilde;o Preto continues to record a growth in dengue cases. In March of this year were 293 diagnoses of the disease, an increase of 946.4% over the same period of 2018, with 28 cases.&rdquo;<br  />\
+</strong></div>\
+<div><strong>Read the full article: <br  />\
+</strong><a href="https://www.acidadeon.com/ribeiraopreto/cotidiano/regiao/NOT,0,0,1413861,ribeirao+preto+registra+293+casos+de+dengue+em+marco.aspx"><strong>https://www.acidadeon.com/ribeiraopreto/cotidiano/regiao/NOT,0,0,1413861,ribeirao+preto+registra+293+casos+de+dengue+em+marco.aspx</strong></a></div>','TipText':'BRAZIL - Ribeirao Preto Records 293 Cases Of Dengue Fever In March','URL':'https://www.acidadeon.com/ribeiraopreto/cotidiano/regiao/NOT,0,0,1413861,ribeirao+preto+registra+293+casos+de+dengue+em+marco.aspx','Addedbywhom':'Orti','AddedDateTime':'2019-04-02 11:07:25','IsonMap':1,'imagefilepath':'mapicons/BiologicalIncident.gif','street':'','mapzoom':4,'maptype':'G_NORMAL_MAP','location_granularity':5,'country':'Brazil','eventtypename':'Dengue / Hemorrhagic Fever'},{'ID':31436,'Type_ID':30,'Country':'CK','City':'Avarua','DateTime':'2019-04-02 21:58:00','Latitude':-21.213,'Longitude':-159.782,'Description':'<div>&nbsp;<br  />\
+<strong>[Radionz.co.nz] COOK ISLANDS - 14 confirmed dengue cases in Cook Islands<br  />\
+<br type="_moz"  />\
+</strong></div>\
+<div><strong>&ldquo;The outbreak, which is concentrated on the main island of Rarotonga, has escalated since it was declared in early March.&rdquo;<br  />\
+<br type="_moz"  />\
+</strong></div>\
+<div><strong>Read the full article: <br  />\
+</strong><a href="https://www.radionz.co.nz/news/pacific/386166/14-confirmed-dengue-cases-in-cook-islands"><strong>https://www.radionz.co.nz/news/pacific/386166/14-confirmed-dengue-cases-in-cook-islands</strong></a></div>','TipText':'COOK ISLANDS - 14 Confirmed Dengue Cases In Cook Islands','URL':'https://www.radionz.co.nz/news/pacific/386166/14-confirmed-dengue-cases-in-cook-islands','Addedbywhom':'Orti','AddedDateTime':'2019-04-02 11:03:04','IsonMap':1,'imagefilepath':'mapicons/BiologicalIncident.gif','street':'','mapzoom':4,'maptype':'G_NORMAL_MAP','location_granularity':8,'country':'Cook Islands','eventtypename':'Dengue / Hemorrhagic Fever'},{'ID':31435,'Type_ID':30,'Country':'PH','City':'Visayas','DateTime':'2019-04-02 21:55:00','Latitude':11.000,'Longitude':123.500,'Description':'<div>&nbsp;<br  />\
+<strong>[PNA] PHILIPPINES - 26 deaths in W. Visayas due to dengue<br  />\
+<br type="_moz"  />\
+</strong></div>\
+<div><strong>&ldquo;Dengue fever already claimed 26 lives in Western Visayas based on the 11th morbidity week of monitoring by the Department of Health &ndash;Center for Health Development (DOH-CHD).&rdquo;<br  />\
+<br type="_moz"  />\
+</strong></div>\
+<div><strong>Read the full article: <br  />\
+</strong><a href="https://www.ptvnews.ph/26-deaths-in-w-visayas-due-to-dengue/"><strong>https://www.ptvnews.ph/26-deaths-in-w-visayas-due-to-dengue/</strong></a></div>','TipText':'PHILIPPINES - 26 Deaths In W Visayas Due To Dengue','URL':'https://www.ptvnews.ph/26-deaths-in-w-visayas-due-to-dengue/','Addedbywhom':'Orti','AddedDateTime':'2019-04-02 10:55:54','IsonMap':1,'imagefilepath':'mapicons/BiologicalIncident.gif','street':'','mapzoom':4,'maptype':'G_NORMAL_MAP','location_granularity':5,'country':'Philippines','eventtypename':'Dengue / Hemorrhagic Fever'},{'ID':31434,'Type_ID':26,'Country':'AF','City':'Urozgan Province','DateTime':'2019-04-01 01:48:00','Latitude':32.927,'Longitude':66.142,'Description':'<div><strong>&nbsp;<br  />\
+[Xinhua] AFGHANISTAN - Fresh polio case identified in Afghanistan: official<br  />\
+<br type="_moz"  />\
+</strong></div>\
+<div><strong>&ldquo;A two-year-old child was reported to have been affected by poliovirus despite receiving anti-polio vaccination in Afghanistan\'s southern province of Uruzgan, a local official said Monday.&rdquo;<br  />\
+<br type="_moz"  />\
+</strong></div>\
+<div><strong>Read the full article: <br  />\
+</strong><a href="http://www.xinhuanet.com/english/2019-04/01/c_137940693.htm"><strong>http://www.xinhuanet.com/english/2019-04/01/c_137940693.htm</strong></a></div>','TipText':'AFGHANISTAN - Fresh Polio Case Identified In Afghanistan - Official','URL':'http://www.xinhuanet.com/english/2019-04/01/c_137940693.htm','Addedbywhom':'Orti','AddedDateTime':'2019-04-01 14:49:51','IsonMap':1,'imagefilepath':'mapicons/food-tamper-b.jpg','street':'','mapzoom':4,'maptype':'G_NORMAL_MAP','location_granularity':7,'country':'Afghanistan','eventtypename':'Polio'},{'ID':31433,'Type_ID':44,'Country':'CN','City':'Hubei Province','DateTime':'2019-03-31 01:45:00','Latitude':30.738,'Longitude':112.238,'Description':'<div><strong>&nbsp;<br  />\
+[Porkbusiness.com] CHINA - New African Swine Fever Outbreak Reported in Hubei Province<br  />\
+<br type="_moz"  />\
+</strong></div>\
+<div><strong>&ldquo;Reports of another outbreak of African swine fever (ASF) in China&rsquo;s Hubei province in the central part of the country were confirmed on March 31.&rdquo;<br  />\
+</strong></div>\
+<div><strong>Read the full article: <br  />\
+</strong><a href="https://www.porkbusiness.com/article/new-african-swine-fever-outbreak-reported-hubei-province"><strong>https://www.porkbusiness.com/article/new-african-swine-fever-outbreak-reported-hubei-province</strong></a></div>','TipText':'CHINA - New African Swine Fever Outbreak Reported In Hubei Province','URL':'https://www.porkbusiness.com/article/new-african-swine-fever-outbreak-reported-hubei-province','Addedbywhom':'Orti','AddedDateTime':'2019-04-01 14:46:42','IsonMap':1,'imagefilepath':'mapicons/swinefever.gif','street':'','mapzoom':4,'maptype':'G_NORMAL_MAP','location_granularity':7,'country':'China','eventtypename':'African Swine Fever / Swine Fever'},{'ID':31432,'Type_ID':28,'Country':'FR','City':'Mayotte','DateTime':'2019-04-01 01:41:00','Latitude':-12.828,'Longitude':45.166,'Description':'<div>&nbsp;<br  />\
+<strong>[Outbreaknewstoday.com] FRANCE - Rift Valley Fever update: 114 human cases in Mayotte<br  />\
+<br type="_moz"  />\
+</strong></div>\
+<div><strong>&ldquo;In an update on the Rift Valley fever (RVF) situation in Mayotte, health officials report 114 human cases have been reported since November 2018.&rdquo;<br  />\
+<br type="_moz"  />\
+</strong></div>\
+<div><strong>Read the full article: <br  />\
+</strong><a href="http://outbreaknewstoday.com/rift-valley-fever-update-114-human-cases-mayotte-16230/"><strong>http://outbreaknewstoday.com/rift-valley-fever-update-114-human-cases-mayotte-16230/</strong></a></div>','TipText':'FRANCE - Rift Valley Fever Update - 114 Human Cases In Mayotte','URL':'http://outbreaknewstoday.com/rift-valley-fever-update-114-human-cases-mayotte-16230/','Addedbywhom':'Orti','AddedDateTime':'2019-04-01 14:43:26','IsonMap':1,'imagefilepath':'mapicons/Vandalism.gif','street':'','mapzoom':4,'maptype':'G_NORMAL_MAP','location_granularity':7,'country':'France','eventtypename':'Rift Valley Fever'},{'ID':31431,'Type_ID':45,'Country':'PK','City':'Jinnah Postgraduate Medical Centre','DateTime':'2019-04-01 01:38:00','Latitude':24.852,'Longitude':67.046,'Description':'<div><strong>&nbsp;<br  />\
+[Brecorder.com] PAKISTAN - Deadly Congo fever takes life of youngster<br  />\
+<br type="_moz"  />\
+</strong></div>\
+<div><strong>&ldquo;Deadly Congo Hemorrhagic Fever (CCHF) has claimed the life of a youngster at Jinnah Postgraduate Medical Centre (JPMC) on Monday after which the death toll due to the Congo mounted to three this year.&rdquo;<br  />\
+<br type="_moz"  />\
+</strong></div>\
+<div><strong>Read the full article: <br  />\
+</strong><a href="https://www.brecorder.com/2019/04/01/484892/deadly-congo-fever-takes-life-of-youngster/"><strong>https://www.brecorder.com/2019/04/01/484892/deadly-congo-fever-takes-life-of-youngster/</strong></a></div>','TipText':'PAKISTAN - Deadly Congo Fever Takes Life Of Youngster','URL':'https://www.brecorder.com/2019/04/01/484892/deadly-congo-fever-takes-life-of-youngster/','Addedbywhom':'Orti','AddedDateTime':'2019-04-01 14:40:37','IsonMap':1,'imagefilepath':'mapicons/congo.gif','street':'','mapzoom':4,'maptype':'G_NORMAL_MAP','location_granularity':4,'country':'Pakistan','eventtypename':'Congo Fever'},{'ID':31430,'Type_ID':23,'Country':'IN','City':'Odisha','DateTime':'2019-04-01 01:36:00','Latitude':20.952,'Longitude':85.099,'Description':'<div><strong>&nbsp;<br  />\
+[Express News] INDIA - State records 132 swine flu cases, 4 deaths<br  />\
+<br type="_moz"  />\
+</strong></div>\
+<div><strong>&ldquo;Even as day time temperature soars, seasonal influenza swine flu continues to infect people at regular intervals in the State.&rdquo;<br  />\
+<br type="_moz"  />\
+</strong></div>\
+<div><strong>Read the full article: <br  />\
+</strong><a href="http://www.newindianexpress.com/states/odisha/2019/apr/01/state-records-132-swine-flu-cases-4-deaths-1958606.html"><strong>http://www.newindianexpress.com/states/odisha/2019/apr/01/state-records-132-swine-flu-cases-4-deaths-1958606.html</strong></a></div>','TipText':'INDIA - State Records 132 Swine Flu Cases - 4 Deaths','URL':'http://www.newindianexpress.com/states/odisha/2019/apr/01/state-records-132-swine-flu-cases-4-deaths-1958606.html','Addedbywhom':'Orti','AddedDateTime':'2019-04-01 14:38:07','IsonMap':1,'imagefilepath':'mapicons/Black1.gif','street':'','mapzoom':4,'maptype':'G_NORMAL_MAP','location_granularity':7,'country':'India','eventtypename':'Swine Flu - Confirmed / Possible Related Death'},{'ID':31429,'Type_ID':41,'Country':'IN','City':'Cuttack','DateTime':'2019-03-31 01:34:00','Latitude':20.463,'Longitude':85.883,'Description':'<div><strong>&nbsp;<br  />\
+[TNN] INDIA - Bird flu detected in Cuttack<br  />\
+<br type="_moz"  />\
+</strong></div>\
+<div><strong>&ldquo;A team of veterinary doctors and experts culled more than 600 ducks and 66 chickens on Sunday following confirmation of bird flu ....&rdquo;<br  />\
+<br type="_moz"  />\
+</strong></div>\
+<div><strong>Read the full article: <br  />\
+</strong><a href="https://timesofindia.indiatimes.com/city/bhubaneswar/bird-flu-detected-in-cuttack/articleshow/68661313.cms"><strong>https://timesofindia.indiatimes.com/city/bhubaneswar/bird-flu-detected-in-cuttack/articleshow/68661313.cms</strong></a></div>','TipText':'INDIA - Bird Flu Detected In Cuttack','URL':'https://timesofindia.indiatimes.com/city/bhubaneswar/bird-flu-detected-in-cuttack/articleshow/68661313.cms','Addedbywhom':'Orti','AddedDateTime':'2019-04-01 14:35:15','IsonMap':1,'imagefilepath':'mapicons/hemmoragic.gif','street':'','mapzoom':4,'maptype':'G_NORMAL_MAP','location_granularity':5,'country':'India','eventtypename':'H7N9 / H5N1 / H5N2 / H7N1 / H7N3 / H7N7 / H5N8'},{'ID':31428,'Type_ID':30,'Country':'PY','City':'Asuncion','DateTime':'2019-03-31 23:14:00','Latitude':-25.264,'Longitude':-57.576,'Description':'<div>&nbsp;<br  />\
+<strong>Manual Google Translation <br  />\
+[Nanduti.com.py] PARAGUAY - 965 cases of dengue so far in 2019<br  />\
+<br type="_moz"  />\
+</strong></div>\
+<div><strong>&ldquo;Amambay, also in the south of the country, is the second department with the highest number of cases with a volume of 177 infections in 2019, followed by Itap&uacute;a (56), Central (26) and Guair&aacute; (25).&rdquo;<br  />\
+<br type="_moz"  />\
+</strong></div>\
+<div><strong>Read the full article: <br  />\
+</strong><a href="http://www.nanduti.com.py/2019/03/31/965-casos-dengue-lo-va-2019/"><strong>http://www.nanduti.com.py/2019/03/31/965-casos-dengue-lo-va-2019/</strong></a></div>','TipText':'PARAGUAY - 965 Cases Of Dengue So Far In 2019','URL':'http://www.nanduti.com.py/2019/03/31/965-casos-dengue-lo-va-2019/','Addedbywhom':'Orti','AddedDateTime':'2019-04-01 12:15:25','IsonMap':1,'imagefilepath':'mapicons/BiologicalIncident.gif','street':'','mapzoom':4,'maptype':'G_NORMAL_MAP','location_granularity':8,'country':'Paraguay','eventtypename':'Dengue / Hemorrhagic Fever'},{'ID':31427,'Type_ID':30,'Country':'MV','City':'Male','DateTime':'2019-04-01 22:19:00','Latitude':4.175,'Longitude':73.509,'Description':'<div><strong>&nbsp;<br  />\
+[Raajje.mv] MALDIVES - 1303 cases of dengue reported this year<br  />\
+<br type="_moz"  />\
+</strong></div>\
+<div><strong>&ldquo;A total of 1,303 cases of dengue have been reported thus far this year, says Health Protection Agency (HPA). HPA launched a month-long campaign on Monday, for the prevention and control of mosquito-borne illnesses.&rdquo;<br  />\
+</strong></div>\
+<div><strong>Read the full article: <br  />\
+</strong><a href="https://raajje.mv/en/news/53605"><strong>https://raajje.mv/en/news/53605</strong></a><strong><br  />\
+<br type="_moz"  />\
+</strong></div>\
+<div>&nbsp;</div>','TipText':'MALDIVES - 1303 Cases Of Dengue Reported This Year','URL':'https://raajje.mv/en/news/53605','Addedbywhom':'Orti','AddedDateTime':'2019-04-01 11:22:03','IsonMap':1,'imagefilepath':'mapicons/BiologicalIncident.gif','street':'','mapzoom':4,'maptype':'G_NORMAL_MAP','location_granularity':1,'country':'Maldives','eventtypename':'Dengue / Hemorrhagic Fever'},{'ID':31426,'Type_ID':30,'Country':'PK','City':'Karachi','DateTime':'2019-04-01 22:13:00','Latitude':24.861,'Longitude':67.001,'Description':'<div><strong>&nbsp;<br  />\
+[Brecorder.com] PAKISTAN - 19 More Dengue Fever Cases In Karachi<br  />\
+<br type="_moz"  />\
+</strong></div>\
+<div><strong>&ldquo;Nineteen more dengue fever cases were reported in Karachi in a week, taking the reported cases&rsquo; toll to 309 since 1st January 2019.&rdquo;<br  />\
+<br type="_moz"  />\
+</strong></div>\
+<div><strong>Read the full article: <br  />\
+</strong><a href="https://www.brecorder.com/2019/04/01/484807/more-dengue-fever-cases-in-karachi/"><strong>https://www.brecorder.com/2019/04/01/484807/more-dengue-fever-cases-in-karachi/</strong></a></div>','TipText':'PAKISTAN - 19 More Dengue Fever Cases In Karachi','URL':'https://www.brecorder.com/2019/04/01/484807/more-dengue-fever-cases-in-karachi/','Addedbywhom':'Orti','AddedDateTime':'2019-04-01 11:16:29','IsonMap':1,'imagefilepath':'mapicons/BiologicalIncident.gif','street':'','mapzoom':4,'maptype':'G_NORMAL_MAP','location_granularity':5,'country':'Pakistan','eventtypename':'Dengue / Hemorrhagic Fever'},{'ID':31425,'Type_ID':30,'Country':'IN','City':'New Delhi','DateTime':'2019-04-01 21:55:00','Latitude':28.614,'Longitude':77.209,'Description':'<div>&nbsp;<br  />\
+<strong>[PTI] INDIA - Six dengue cases reported in Delhi this year<br  />\
+<br type="_moz"  />\
+</strong></div>\
+<div><strong>&ldquo;At least six dengue cases have been reported in Delhi this year, four of which were in March, even though the vector-borne disease is usually reported between July and November, according to a municipal report released on April 1.&rdquo;<br  />\
+</strong></div>\
+<div><strong>Read the full article: <br  />\
+</strong><a href="https://indianexpress.com/article/lifestyle/health/six-dengue-cases-reported-in-delhi-this-year-municipal-report-5653385/"><strong>https://indianexpress.com/article/lifestyle/health/six-dengue-cases-reported-in-delhi-this-year-municipal-report-5653385/</strong></a></div>','TipText':'INDIA - Six Dengue Cases Reported In Delhi This Year','URL':'https://indianexpress.com/article/lifestyle/health/six-dengue-cases-reported-in-delhi-this-year-municipal-report-5653385/','Addedbywhom':'Orti','AddedDateTime':'2019-04-01 10:56:24','IsonMap':1,'imagefilepath':'mapicons/BiologicalIncident.gif','street':'','mapzoom':4,'maptype':'G_NORMAL_MAP','location_granularity':5,'country':'India','eventtypename':'Dengue / Hemorrhagic Fever'},{'ID':31424,'Type_ID':11,'Country':'MZ','City':'Maputo','DateTime':'2019-04-01 21:51:00','Latitude':-25.969,'Longitude':32.573,'Description':'<div>&nbsp;<br  />\
+<strong>[ASSOCIATED PRESS] MOZAMBIQUE - Mozambique races to contain 1,000 cases of cholera<br  />\
+<br type="_moz"  />\
+</strong></div>\
+<div><strong>&ldquo;Mozambican and international health workers raced on Monday to contain the outbreak of cholera in the cyclone-hit city of Beira and surrounding areas, where cases of the disease has jumped to more than 1,000.&rdquo;<br  />\
+</strong></div>\
+<div><strong>Read the full article: <br  />\
+</strong><a href="https://www.bostonherald.com/2019/04/01/mozambique-confirms-1st-cholera-death-as-cases-above-500/"><strong>https://www.bostonherald.com/2019/04/01/mozambique-confirms-1st-cholera-death-as-cases-above-500/</strong></a></div>','TipText':'MOZAMBIQUE - Mozambique Races To Contain 1000 Cases Of Cholera','URL':'https://www.bostonherald.com/2019/04/01/mozambique-confirms-1st-cholera-death-as-cases-above-500/','Addedbywhom':'Orti','AddedDateTime':'2019-04-01 10:52:58','IsonMap':1,'imagefilepath':'mapicons/Black1.gif','street':'','mapzoom':4,'maptype':'G_NORMAL_MAP','location_granularity':8,'country':'Mozambique','eventtypename':'Cholera Outbreak'},{'ID':31423,'Type_ID':37,'Country':'IN','City':'Khunti District','DateTime':'2019-03-31 01:07:00','Latitude':23.024,'Longitude':85.189,'Description':'<div>&nbsp;<br  />\
 <strong>[TNN] INDIA - Two students test positive for chikungunya in Khunti<br  />\
 <br type="_moz"  />\
 </strong></div>\
@@ -1840,15 +1984,7 @@ Manual Google Translation <br  />\
 <br type="_moz"  />\
 </strong></div>\
 <div><strong>Read the full article: <br  />\
-</strong><a href="https://www.aa.com.tr/en/africa/ebola-death-toll-in-dr-congo-climbs-to-496-/1408316"><strong>https://www.aa.com.tr/en/africa/ebola-death-toll-in-dr-congo-climbs-to-496-/1408316</strong></a></div>','TipText':'DEMOCRATIC REPUBLIC OF CONGO - Ebola Death Toll In DR Congo Climbs To 496','URL':'https://www.aa.com.tr/en/africa/ebola-death-toll-in-dr-congo-climbs-to-496-/1408316','Addedbywhom':'Orti','AddedDateTime':'2019-03-04 11:34:55','IsonMap':1,'imagefilepath':'mapicons/TriangleOrange.gif','street':'','mapzoom':4,'maptype':'G_NORMAL_MAP','location_granularity':8,'country':'Congo (Kinshasa)','eventtypename':'Ebola / Marburg'},{'ID':31195,'Type_ID':59,'Country':'BD','City':'Thakurgaon District','DateTime':'2019-03-03 22:58:00','Latitude':26.042,'Longitude':88.428,'Description':'<div><br  />\
-<strong>[Dhakatribune.com] BANGLADESH - Death of 5 in Thakurgaon linked to Nipah virus<br  />\
-<br type="_moz"  />\
-</strong></div>\
-<div><strong>\'\'Nipah virus spreads via unfiltered date juice contaminated by bats, and then is transmitted via interpersonal contact. Government medical experts have tracked the mysterious death of five people of a family in Thakurgaon to Nipah virus.\'\'<br  />\
-<br type="_moz"  />\
-</strong></div>\
-<div><strong>Read the full article: <br  />\
-</strong><a href="https://www.dhakatribune.com/health/2019/03/03/death-of-5-in-thakurgaon-linked-to-nipah-virus"><strong>https://www.dhakatribune.com/health/2019/03/03/death-of-5-in-thakurgaon-linked-to-nipah-virus</strong></a></div>','TipText':'BANGLADESH - Death Of 5 In Thakurgaon Linked To Nipah Virus','URL':'https://www.dhakatribune.com/health/2019/03/03/death-of-5-in-thakurgaon-linked-to-nipah-virus','Addedbywhom':'Orti','AddedDateTime':'2019-03-04 11:33:26','IsonMap':1,'imagefilepath':'mapicons/general_outbreaks.gif','street':'','mapzoom':4,'maptype':'G_NORMAL_MAP','location_granularity':6,'country':'Bangladesh','eventtypename':'Nipah Virus'},{'ID':31194,'Type_ID':37,'Country':'MV','City':'Male','DateTime':'2019-03-04 22:15:00','Latitude':4.175,'Longitude':73.509,'Description':'<div><strong>&nbsp;<br  />\
+</strong><a href="https://www.aa.com.tr/en/africa/ebola-death-toll-in-dr-congo-climbs-to-496-/1408316"><strong>https://www.aa.com.tr/en/africa/ebola-death-toll-in-dr-congo-climbs-to-496-/1408316</strong></a></div>','TipText':'DEMOCRATIC REPUBLIC OF CONGO - Ebola Death Toll In DR Congo Climbs To 496','URL':'https://www.aa.com.tr/en/africa/ebola-death-toll-in-dr-congo-climbs-to-496-/1408316','Addedbywhom':'Orti','AddedDateTime':'2019-03-04 11:34:55','IsonMap':1,'imagefilepath':'mapicons/TriangleOrange.gif','street':'','mapzoom':4,'maptype':'G_NORMAL_MAP','location_granularity':8,'country':'Congo (Kinshasa)','eventtypename':'Ebola / Marburg'},{'ID':31194,'Type_ID':37,'Country':'MV','City':'Male','DateTime':'2019-03-04 22:15:00','Latitude':4.175,'Longitude':73.509,'Description':'<div><strong>&nbsp;<br  />\
 [Raajje.mv] MALDIVES - 75 cases of chikungunya Reported In February<br  />\
 <br type="_moz"  />\
 </strong></div>\
@@ -1879,14 +2015,7 @@ Manual Google Translation <br  />\
 <br type="_moz"  />\
 </strong></div>\
 <div><strong>Read the full article: </strong><a href="https://www.malaymail.com/news/malaysia/2019/03/04/kelantan-records-107-new-dengue-cases/1728833"><strong><br  />\
-https://www.malaymail.com/news/malaysia/2019/03/04/kelantan-records-107-new-dengue-cases/1728833</strong></a></div>','TipText':'MALAYSIA - Kelantan Records 107 New Dengue Cases','URL':'https://www.malaymail.com/news/malaysia/2019/03/04/kelantan-records-107-new-dengue-cases/1728833','Addedbywhom':'Orti','AddedDateTime':'2019-03-04 10:08:50','IsonMap':1,'imagefilepath':'mapicons/BiologicalIncident.gif','street':'','mapzoom':4,'maptype':'G_NORMAL_MAP','location_granularity':7,'country':'Malaysia','eventtypename':'Dengue / Hemorrhagic Fever'},{'ID':31190,'Type_ID':30,'Country':'PH','City':'Bicol Region','DateTime':'2019-03-02 22:04:00','Latitude':13.421,'Longitude':123.414,'Description':'<div><strong>&nbsp;<br  />\
-[Newsinfo.inquirer.net] PHILIPPINES - Dengue claims 5 in Bicol<br  />\
-<br type="_moz"  />\
-</strong></div>\
-<div><strong>\'\'The Department of Health (DOH) in Bicol recorded five fatalities due to Dengue in the entire region from January 1 to March 2.\'\'<br  />\
-</strong></div>\
-<div><strong>Read the full article: <br  />\
-</strong><a href="https://newsinfo.inquirer.net/1091888/doh-dengue-claims-5-in-bicol?utm_expid=.XqNwTug2W6nwDVUSgFJXed.1"><strong>https://newsinfo.inquirer.net/1091888/doh-dengue-claims-5-in-bicol?utm_expid=.XqNwTug2W6nwDVUSgFJXed.1</strong></a></div>','TipText':'PHILIPPINES - Dengue Claims 5 In Bicol','URL':'https://newsinfo.inquirer.net/1091888/doh-dengue-claims-5-in-bicol?utm_expid=.XqNwTug2W6nwDVUSgFJXed.1','Addedbywhom':'Orti','AddedDateTime':'2019-03-04 10:05:26','IsonMap':1,'imagefilepath':'mapicons/BiologicalIncident.gif','street':'','mapzoom':4,'maptype':'G_NORMAL_MAP','location_granularity':7,'country':'Philippines','eventtypename':'Dengue / Hemorrhagic Fever'},{'ID':31189,'Type_ID':30,'Country':'LK','City':'Colombo','DateTime':'2019-03-04 22:00:00','Latitude':6.927,'Longitude':79.861,'Description':'<div><strong>&nbsp;<br  />\
+https://www.malaymail.com/news/malaysia/2019/03/04/kelantan-records-107-new-dengue-cases/1728833</strong></a></div>','TipText':'MALAYSIA - Kelantan Records 107 New Dengue Cases','URL':'https://www.malaymail.com/news/malaysia/2019/03/04/kelantan-records-107-new-dengue-cases/1728833','Addedbywhom':'Orti','AddedDateTime':'2019-03-04 10:08:50','IsonMap':1,'imagefilepath':'mapicons/BiologicalIncident.gif','street':'','mapzoom':4,'maptype':'G_NORMAL_MAP','location_granularity':7,'country':'Malaysia','eventtypename':'Dengue / Hemorrhagic Fever'},{'ID':31189,'Type_ID':30,'Country':'LK','City':'Colombo','DateTime':'2019-03-04 22:00:00','Latitude':6.927,'Longitude':79.861,'Description':'<div><strong>&nbsp;<br  />\
 [Outbreaknewstoday.com] SRI LANKA - Sri Lanka reports 8,900 dengue cases in 1st two months of 2019<br  />\
 <br type="_moz"  />\
 </strong></div>\
@@ -1902,29 +2031,14 @@ https://www.malaymail.com/news/malaysia/2019/03/04/kelantan-records-107-new-deng
 <br type="_moz"  />\
 </strong></div>\
 <div><strong>Read the full article: <br  />\
-</strong><a href="https://www.thejakartapost.com/news/2019/03/04/dengue-fever-infects-2282-people-kills-one-in-jakarta.html"><strong>https://www.thejakartapost.com/news/2019/03/04/dengue-fever-infects-2282-people-kills-one-in-jakarta.html</strong></a></div>','TipText':'INDONESIA - Dengue Fever Infects 2282 People - Kills One In Jakarta','URL':'https://www.thejakartapost.com/news/2019/03/04/dengue-fever-infects-2282-people-kills-one-in-jakarta.html','Addedbywhom':'Orti','AddedDateTime':'2019-03-04 09:58:00','IsonMap':1,'imagefilepath':'mapicons/BiologicalIncident.gif','street':'','mapzoom':4,'maptype':'G_NORMAL_MAP','location_granularity':5,'country':'Indonesia','eventtypename':'Dengue / Hemorrhagic Fever'},{'ID':31187,'Type_ID':21,'Country':'IN','City':'Surat','DateTime':'2019-03-03 21:53:00','Latitude':21.170,'Longitude':72.831,'Description':'<div><strong>&nbsp;<br  />\
-[TNN] INDIA - Ten new cases of swine flu in city, Surat rural<br  />\
-<br type="_moz"  />\
-</strong></div>\
-<div><strong>\'\'Eight people tested positive for swine flu in the city and two in Surat rural on Sunday. This has taken the number of swine flu cases in the ....\'\'<br  />\
-</strong></div>\
-<div><strong>Read the full article: <br  />\
-</strong><a href="https://timesofindia.indiatimes.com/city/surat/ten-new-cases-of-swine-flu-in-city-surat-rural/articleshow/68246468.cms"><strong>https://timesofindia.indiatimes.com/city/surat/ten-new-cases-of-swine-flu-in-city-surat-rural/articleshow/68246468.cms</strong></a><br  />\
-&nbsp;</div>','TipText':'INDIA - Ten New Cases Of Swine Flu In City - Surat Rural','URL':'https://timesofindia.indiatimes.com/city/surat/ten-new-cases-of-swine-flu-in-city-surat-rural/articleshow/68246468.cms','Addedbywhom':'Orti','AddedDateTime':'2019-03-04 09:54:47','IsonMap':1,'imagefilepath':'mapicons/ico17.gif','street':'','mapzoom':4,'maptype':'G_NORMAL_MAP','location_granularity':5,'country':'India','eventtypename':'Swine Flu - Confirmed Cases'},{'ID':31186,'Type_ID':23,'Country':'IN','City':'Nashik','DateTime':'2019-03-04 21:43:00','Latitude':19.997,'Longitude':73.790,'Description':'<div><strong>&nbsp;<br  />\
+</strong><a href="https://www.thejakartapost.com/news/2019/03/04/dengue-fever-infects-2282-people-kills-one-in-jakarta.html"><strong>https://www.thejakartapost.com/news/2019/03/04/dengue-fever-infects-2282-people-kills-one-in-jakarta.html</strong></a></div>','TipText':'INDONESIA - Dengue Fever Infects 2282 People - Kills One In Jakarta','URL':'https://www.thejakartapost.com/news/2019/03/04/dengue-fever-infects-2282-people-kills-one-in-jakarta.html','Addedbywhom':'Orti','AddedDateTime':'2019-03-04 09:58:00','IsonMap':1,'imagefilepath':'mapicons/BiologicalIncident.gif','street':'','mapzoom':4,'maptype':'G_NORMAL_MAP','location_granularity':5,'country':'Indonesia','eventtypename':'Dengue / Hemorrhagic Fever'},{'ID':31186,'Type_ID':23,'Country':'IN','City':'Nashik','DateTime':'2019-03-04 21:43:00','Latitude':19.997,'Longitude':73.790,'Description':'<div><strong>&nbsp;<br  />\
 [TNN] INDIA - In 2 months, 3 die of swine flu at civil hospital<br  />\
 <br type="_moz"  />\
 </strong></div>\
 <div><strong>\'\'Three people have died of swine flu at the Nashik civil hospital over the past two months, senior officials at the hosptilal said.\'\'<br  />\
 </strong></div>\
 <div><strong>Read the full article: <br  />\
-</strong><a href="https://timesofindia.indiatimes.com/city/nashik/in-2-months-3-die-of-swine-flu-at-civil-hosp/articleshow/68245942.cms"><strong>https://timesofindia.indiatimes.com/city/nashik/in-2-months-3-die-of-swine-flu-at-civil-hosp/articleshow/68245942.cms</strong></a></div>','TipText':'INDIA - In 2 Months - 3 Die Of Swine Flu At Civil Hospital','URL':'https://timesofindia.indiatimes.com/city/nashik/in-2-months-3-die-of-swine-flu-at-civil-hosp/articleshow/68245942.cms','Addedbywhom':'Orti','AddedDateTime':'2019-03-04 09:50:04','IsonMap':1,'imagefilepath':'mapicons/Black1.gif','street':'','mapzoom':4,'maptype':'G_NORMAL_MAP','location_granularity':5,'country':'India','eventtypename':'Swine Flu - Confirmed / Possible Related Death'},{'ID':31185,'Type_ID':21,'Country':'IN','City':'Indore','DateTime':'2019-03-02 21:39:00','Latitude':22.720,'Longitude':75.858,'Description':'<div><strong>&nbsp;<br  />\
-[TNN] INDIA - 11 more test swine flu positive<br  />\
-<br type="_moz"  />\
-</strong></div>\
-<div><strong>\'Eleven more people have been reported swine flu positive on Saturday taking total tally of H1N1 positive patients to 74 this year.\'\'<br  />\
-</strong></div>\
-<div><strong>Read the full article: <br  />\
-</strong><a href="https://timesofindia.indiatimes.com/city/indore/11-more-test-swine-flu-positive/articleshow/68237495.cms"><strong>https://timesofindia.indiatimes.com/city/indore/11-more-test-swine-flu-positive/articleshow/68237495.cms</strong></a></div>','TipText':'INDIA - 11 More Test Swine Flu Positive','URL':'https://timesofindia.indiatimes.com/city/indore/11-more-test-swine-flu-positive/articleshow/68237495.cms','Addedbywhom':'Orti','AddedDateTime':'2019-03-04 09:40:56','IsonMap':1,'imagefilepath':'mapicons/ico17.gif','street':'','mapzoom':4,'maptype':'G_NORMAL_MAP','location_granularity':5,'country':'India','eventtypename':'Swine Flu - Confirmed Cases'},{'ID':31184,'Type_ID':7,'Country':'AU','City':'Swan Hill','DateTime':'2019-03-04 21:36:00','Latitude':-35.340,'Longitude':143.552,'Description':'<div><strong>&nbsp;<br  />\
+</strong><a href="https://timesofindia.indiatimes.com/city/nashik/in-2-months-3-die-of-swine-flu-at-civil-hosp/articleshow/68245942.cms"><strong>https://timesofindia.indiatimes.com/city/nashik/in-2-months-3-die-of-swine-flu-at-civil-hosp/articleshow/68245942.cms</strong></a></div>','TipText':'INDIA - In 2 Months - 3 Die Of Swine Flu At Civil Hospital','URL':'https://timesofindia.indiatimes.com/city/nashik/in-2-months-3-die-of-swine-flu-at-civil-hosp/articleshow/68245942.cms','Addedbywhom':'Orti','AddedDateTime':'2019-03-04 09:50:04','IsonMap':1,'imagefilepath':'mapicons/Black1.gif','street':'','mapzoom':4,'maptype':'G_NORMAL_MAP','location_granularity':5,'country':'India','eventtypename':'Swine Flu - Confirmed / Possible Related Death'},{'ID':31184,'Type_ID':7,'Country':'AU','City':'Swan Hill','DateTime':'2019-03-04 21:36:00','Latitude':-35.340,'Longitude':143.552,'Description':'<div><strong>&nbsp;<br  />\
 [Outbreaknewstoday.com] AUSTRALIA - Anthrax confirmed near Swan Hill, Victoria<br  />\
 <br type="_moz"  />\
 </strong></div>\
@@ -1933,116 +2047,4 @@ https://www.malaymail.com/news/malaysia/2019/03/04/kelantan-records-107-new-deng
 </strong></div>\
 <div><strong>Read the full article: <br  />\
 </strong><a href="http://outbreaknewstoday.com/anthrax-confirmed-near-swan-hill-victoria-73350/"><strong>http://outbreaknewstoday.com/anthrax-confirmed-near-swan-hill-victoria-73350/</strong></a><br  />\
-&nbsp;</div>','TipText':'AUSTRALIA - Anthrax Confirmed Near Swan Hill - Victoria','URL':'http://outbreaknewstoday.com/anthrax-confirmed-near-swan-hill-victoria-73350/','Addedbywhom':'Orti','AddedDateTime':'2019-03-04 09:37:21','IsonMap':1,'imagefilepath':'mapicons/BlueTri.gif','street':'','mapzoom':4,'maptype':'G_NORMAL_MAP','location_granularity':5,'country':'Australia','eventtypename':'Anthrax '},{'ID':31183,'Type_ID':21,'Country':'IN','City':'Lucknow','DateTime':'2019-03-03 23:33:00','Latitude':26.847,'Longitude':80.946,'Description':'<div><strong>&nbsp;<br  />\
-[TNN] INDIA - With 17 new cases, swine flu tally reaches 311 in Lucknow<br  />\
-<br type="_moz"  />\
-</strong></div>\
-<div><strong>\'\'Greet like an Indian to keep swine flu away. That\'s the advisory issued by the district health office after a review of the swine flu ....\'\'<br  />\
-</strong></div>\
-<div><strong>Read the full article: <br  />\
-</strong><a href="https://timesofindia.indiatimes.com/city/lucknow/with-17-new-cases-swine-flu-tally-reaches-311-in-lucknow/articleshow/68239837.cms"><strong>https://timesofindia.indiatimes.com/city/lucknow/with-17-new-cases-swine-flu-tally-reaches-311-in-lucknow/articleshow/68239837.cms</strong></a></div>','TipText':'INDIA - With 17 New Cases - Swine Flu Tally Reaches 311 In Lucknow','URL':'https://timesofindia.indiatimes.com/city/lucknow/with-17-new-cases-swine-flu-tally-reaches-311-in-lucknow/articleshow/68239837.cms','Addedbywhom':'Orti','AddedDateTime':'2019-03-03 11:34:53','IsonMap':1,'imagefilepath':'mapicons/ico17.gif','street':'','mapzoom':4,'maptype':'G_NORMAL_MAP','location_granularity':5,'country':'India','eventtypename':'Swine Flu - Confirmed Cases'},{'ID':31182,'Type_ID':44,'Country':'VN','City':'Hai Duong','DateTime':'2019-03-03 23:31:00','Latitude':20.937,'Longitude':106.315,'Description':'<div><strong>&nbsp;<br  />\
-[Sggpnews.org.vn] VIETNAM - African swine fever hit hog herd in seven northern provinces<br  />\
-<br type="_moz"  />\
-</strong></div>\
-<div><strong>\'\'African swine fever (ASF) hit hog herd in the northern province of Hai Duong of Vietnam, bringing total seven provinces reporting the deadly virus while the Ministry of Agriculture and Rural Development said it faced difficulties in quarantine.\'\'<br  />\
-<br type="_moz"  />\
-</strong></div>\
-<div><strong>Read the full article: <br  />\
-</strong><a href="http://sggpnews.org.vn/health/african-swine-fever-hit-hog-herd-in-seven-northern-provinces-80600.html"><strong>http://sggpnews.org.vn/health/african-swine-fever-hit-hog-herd-in-seven-northern-provinces-80600.html</strong></a></div>','TipText':'VIETNAM - African Swine Fever Hit Hog Herd In Seven Northern Provinces','URL':'http://sggpnews.org.vn/health/african-swine-fever-hit-hog-herd-in-seven-northern-provinces-80600.html','Addedbywhom':'Orti','AddedDateTime':'2019-03-03 11:31:55','IsonMap':1,'imagefilepath':'mapicons/swinefever.gif','street':'','mapzoom':4,'maptype':'G_NORMAL_MAP','location_granularity':7,'country':'Vietnam','eventtypename':'African Swine Fever / Swine Fever'},{'ID':31181,'Type_ID':5,'Country':'US','City':'Buffalo, SC','DateTime':'2019-03-03 23:25:00','Latitude':34.726,'Longitude':-81.683,'Description':'<div><strong>&nbsp;<br  />\
-[Union Times] SOUTH CAROLINA - BES employee diagnosed with bacterial meningitis<br  />\
-<br type="_moz"  />\
-</strong></div>\
-<div><strong>\'\'Officials with the Union County School District are seeking to reassure the public after an employee at Buffalo Elementary School was recently diagnosed with bacterial meningitis.\'\'<br  />\
-<br type="_moz"  />\
-</strong></div>\
-<div><strong>Read the full article: <br  />\
-</strong><a href="https://www.uniondailytimes.com/features/health/20043/bes-employee-diagnosed-with-bacterial-meningitis"><strong>https://www.uniondailytimes.com/features/health/20043/bes-employee-diagnosed-with-bacterial-meningitis</strong></a></div>','TipText':'SOUTH CAROLINA - BES Employee Diagnosed With Bacterial Meningitis','URL':'https://www.uniondailytimes.com/features/health/20043/bes-employee-diagnosed-with-bacterial-meningitis','Addedbywhom':'Orti','AddedDateTime':'2019-03-03 11:26:00','IsonMap':1,'imagefilepath':'mapicons/TriangleGreen.gif','street':'','mapzoom':4,'maptype':'G_NORMAL_MAP','location_granularity':5,'country':'United States','eventtypename':'Meningitis Outbreak ( Suspected or Confirmed)'},{'ID':31179,'Type_ID':23,'Country':'IN','City':'Gujarat','DateTime':'2019-03-02 22:50:00','Latitude':22.259,'Longitude':71.192,'Description':'<div><strong>&nbsp;<br  />\
-[Dnaindia.com] INDIA - 98 more swine flu cases reported, two patients die<br  />\
-<br type="_moz"  />\
-</strong></div>\
-<div><strong>\'\'Almost 100 more swine flu cases were reported in the state on Saturday, while two patients succumbed to the H1N1 virus, the state government said.\'\'<br  />\
-</strong></div>\
-<div><strong>Read the full article: <br  />\
-</strong><a href="https://www.dnaindia.com/ahmedabad/report-gujarat-98-more-swine-flu-cases-reported-two-patients-die-2725867"><strong>https://www.dnaindia.com/ahmedabad/report-gujarat-98-more-swine-flu-cases-reported-two-patients-die-2725867</strong></a></div>','TipText':'INDIA - 98 More Swine Flu Cases Reported - Two Patients Die','URL':'https://www.dnaindia.com/ahmedabad/report-gujarat-98-more-swine-flu-cases-reported-two-patients-die-2725867','Addedbywhom':'Orti','AddedDateTime':'2019-03-03 10:51:15','IsonMap':1,'imagefilepath':'mapicons/Black1.gif','street':'','mapzoom':4,'maptype':'G_NORMAL_MAP','location_granularity':7,'country':'India','eventtypename':'Swine Flu - Confirmed / Possible Related Death'},{'ID':31178,'Type_ID':23,'Country':'IN','City':'Rajasthan','DateTime':'2019-03-03 22:47:00','Latitude':27.024,'Longitude':74.218,'Description':'<div><strong>&nbsp;<br  />\
-[Milbank News] INDIA - Swine flu kills at least 40 in India&lsquo;s Rajasthan state<br  />\
-<br type="_moz"  />\
-</strong></div>\
-<div><strong>At least 40 people have died and more than 1000 have tested positive for swine flu since the beginning of the year in a western Indian state popular with foreigners, according to authorities.&rdquo;<br  />\
-<br type="_moz"  />\
-</strong></div>\
-<div><strong>Read the full article: <br  />\
-</strong><a href="https://milbankmonitor.com/news24-com-swine-flu-kills-at-least-40-in-indias-rajasthan-state/03/03/2019/"><strong>https://milbankmonitor.com/news24-com-swine-flu-kills-at-least-40-in-indias-rajasthan-state/03/03/2019/</strong></a></div>','TipText':'INDIA - Swine Flu Kills At Least 40 In India Rajasthan State','URL':'https://milbankmonitor.com/news24-com-swine-flu-kills-at-least-40-in-indias-rajasthan-state/03/03/2019/','Addedbywhom':'Orti','AddedDateTime':'2019-03-03 10:48:47','IsonMap':1,'imagefilepath':'mapicons/Black1.gif','street':'','mapzoom':4,'maptype':'G_NORMAL_MAP','location_granularity':7,'country':'India','eventtypename':'Swine Flu - Confirmed / Possible Related Death'},{'ID':31177,'Type_ID':7,'Country':'TZ','City':'Siha District','DateTime':'2019-03-02 00:28:00','Latitude':-6.369,'Longitude':34.889,'Description':'<div><strong>&nbsp;<br  />\
-[The Guardian] TAZANIA - Anthrax still hits Siha District as two infected<br  />\
-<br type="_moz"  />\
-</strong></div>\
-<div><strong>&ldquo;TWO more people in Siha District, Kilimanjaro Region are feared to have been infected with anthrax&mdash;the disease which has so far killed seven ...&rdquo;<br  />\
-</strong></div>\
-<div><strong>Read the full article: <br  />\
-</strong><a href="https://www.ippmedia.com/en/news/anthrax-still-hits-siha-district-two-infected"><strong>https://www.ippmedia.com/en/news/anthrax-still-hits-siha-district-two-infected</strong></a></div>','TipText':'TAZANIA - Anthrax Still Hits Siha District As Two Infected','URL':'https://www.ippmedia.com/en/news/anthrax-still-hits-siha-district-two-infected','Addedbywhom':'Orti','AddedDateTime':'2019-03-02 12:30:33','IsonMap':1,'imagefilepath':'mapicons/BlueTri.gif','street':'','mapzoom':4,'maptype':'G_NORMAL_MAP','location_granularity':6,'country':'Tanzania','eventtypename':'Anthrax '},{'ID':31176,'Type_ID':23,'Country':'IN','City':'Ahmedabad','DateTime':'2019-03-02 00:23:00','Latitude':23.023,'Longitude':72.571,'Description':'<div><strong>&nbsp;<br  />\
-[TNN] INDIA - 1 more dead, H1N1 toll reaches 20 in Ahmedabad<br  />\
-<br type="_moz"  />\
-</strong></div>\
-<div><strong>&ldquo;1 more dead, H1N1 toll reaches 20 in Ahmedabad ... According to the figures released by the state government, the city had recorded 213 ...&rdquo;<br  />\
-<br type="_moz"  />\
-</strong></div>\
-<div><strong>Read the full article: <br  />\
-</strong><a href="https://timesofindia.indiatimes.com/city/ahmedabad/1-more-dead-h1n1-toll-reaches-20-in-city/articleshow/68225788.cms"><strong>https://timesofindia.indiatimes.com/city/ahmedabad/1-more-dead-h1n1-toll-reaches-20-in-city/articleshow/68225788.cms</strong></a><br  />\
-&nbsp;</div>','TipText':'INDIA - 1 More Dead - H1N1 Toll Reaches 20 In Ahmedabad','URL':'https://timesofindia.indiatimes.com/city/ahmedabad/1-more-dead-h1n1-toll-reaches-20-in-city/articleshow/68225788.cms','Addedbywhom':'Orti','AddedDateTime':'2019-03-02 12:27:08','IsonMap':1,'imagefilepath':'mapicons/Black1.gif','street':'','mapzoom':4,'maptype':'G_NORMAL_MAP','location_granularity':5,'country':'India','eventtypename':'Swine Flu - Confirmed / Possible Related Death'},{'ID':31175,'Type_ID':12,'Country':'CO','City':'Cauca Department','DateTime':'2019-03-02 23:36:00','Latitude':2.705,'Longitude':-76.826,'Description':'<div><strong>&nbsp;<br  />\
-[Outbreaknewstoday.com] COLOMBIA - Malaria outbreak reported in Cauca Department<br  />\
-<br type="_moz"  />\
-</strong></div>\
-<div><strong>&ldquo;Health officials are reporting a malaria outbreak in Cauca Department in southwestern Colombia, according to a RCNRadio report (computer translated).&rdquo;<br  />\
-<br type="_moz"  />\
-</strong></div>\
-<div><strong>Read the full article: <br  />\
-</strong><a href="http://outbreaknewstoday.com/colombia-malaria-outbreak-reported-cauca-department-99336/"><strong>http://outbreaknewstoday.com/colombia-malaria-outbreak-reported-cauca-department-99336/</strong></a></div>','TipText':'COLOMBIA - Malaria Outbreak Reported In Cauca Department','URL':'http://outbreaknewstoday.com/colombia-malaria-outbreak-reported-cauca-department-99336/','Addedbywhom':'Orti','AddedDateTime':'2019-03-02 12:20:20','IsonMap':1,'imagefilepath':'mapicons/ico19.gif','street':'','mapzoom':4,'maptype':'G_NORMAL_MAP','location_granularity':7,'country':'Colombia','eventtypename':'Malaria'},{'ID':31173,'Type_ID':30,'Country':'BR','City':'Jau','DateTime':'2019-03-02 22:56:00','Latitude':-22.303,'Longitude':-48.576,'Description':'<div><strong><br  />\
-Manual Google Translation <br  />\
-[Comerciodojahu.com] BRAZIL - Dengue reaches 52 cases in Ja&uacute;<br  />\
-<br type="_moz"  />\
-</strong></div>\
-<div><strong>&ldquo;The Secretary of Health of Ja&uacute; announced late yesterday afternoon, through the Department of Communication, that the Municipality has 52 positive cases of dengue this year.&rdquo;<br  />\
-</strong></div>\
-<div><strong>Read the full article: <br  />\
-</strong><a href="http://www.comerciodojahu.com.br/noticia/1386933/dengue-chega-a-52-casos-em-jau"><strong>http://www.comerciodojahu.com.br/noticia/1386933/dengue-chega-a-52-casos-em-jau</strong></a></div>','TipText':'BRAZIL - Dengue Reaches 52 Cases In Jau','URL':'http://www.comerciodojahu.com.br/noticia/1386933/dengue-chega-a-52-casos-em-jau','Addedbywhom':'Orti','AddedDateTime':'2019-03-02 10:57:38','IsonMap':1,'imagefilepath':'mapicons/BiologicalIncident.gif','street':'','mapzoom':4,'maptype':'G_NORMAL_MAP','location_granularity':5,'country':'Brazil','eventtypename':'Dengue / Hemorrhagic Fever'},{'ID':31172,'Type_ID':30,'Country':'BR','City':'Adamantina','DateTime':'2019-03-02 22:53:00','Latitude':-21.682,'Longitude':-51.074,'Description':'<div><strong>&nbsp;<br  />\
-Manual Google Translation <br  />\
-[Sigamais.com] BRAZIL - Adamantina records 16 cases of dengue fever<br  />\
-<br type="_moz"  />\
-</strong></div>\
-<div><strong>&ldquo;The Epidemiological Surveillance of Adamantina recorded 16 positive cases of dengue fever being 15 autochthonous cases (disease is contracted within the city) and 1 case imported.&rdquo;<br  />\
-<br type="_moz"  />\
-</strong></div>\
-<div><strong>Read the full article: <br  />\
-</strong><a href="https://www.sigamais.com/noticias/cidades/adamantina-registra-16-casos-de-dengue/"><strong>https://www.sigamais.com/noticias/cidades/adamantina-registra-16-casos-de-dengue/</strong></a></div>','TipText':'BRAZIL - Adamantina Records 16 Cases Of Dengue Fever','URL':'https://www.sigamais.com/noticias/cidades/adamantina-registra-16-casos-de-dengue/','Addedbywhom':'Orti','AddedDateTime':'2019-03-02 10:54:24','IsonMap':1,'imagefilepath':'mapicons/BiologicalIncident.gif','street':'','mapzoom':4,'maptype':'G_NORMAL_MAP','location_granularity':5,'country':'Brazil','eventtypename':'Dengue / Hemorrhagic Fever'},{'ID':31171,'Type_ID':30,'Country':'PH','City':'Soccsksargen','DateTime':'2019-03-02 22:47:00','Latitude':6.271,'Longitude':124.686,'Description':'<div><strong>&nbsp;<br  />\
-[Pna.gov.ph] PHILIPPINES - Dengue claims 5 lives in Soccsksargen<br  />\
-<br type="_moz"  />\
-</strong></div>\
-<div><strong>&ldquo;Dengue has claimed the lives of five people, three of them from North Cotabato province, since January 1, the regional health office said Friday.&rdquo;<br  />\
-<br type="_moz"  />\
-</strong></div>\
-<div><strong>Read the full article: <br  />\
-</strong><a href="http://www.pna.gov.ph/articles/1063396"><strong>http://www.pna.gov.ph/articles/1063396</strong></a></div>','TipText':'PHILIPPINES - Dengue Claims 5 Lives In Soccsksargen','URL':'http://www.pna.gov.ph/articles/1063396','Addedbywhom':'Orti','AddedDateTime':'2019-03-02 10:51:04','IsonMap':1,'imagefilepath':'mapicons/BiologicalIncident.gif','street':'','mapzoom':4,'maptype':'G_NORMAL_MAP','location_granularity':7,'country':'Philippines','eventtypename':'Dengue / Hemorrhagic Fever'},{'ID':31169,'Type_ID':30,'Country':'MX','City':'Veracruz','DateTime':'2019-03-02 22:40:00','Latitude':19.174,'Longitude':-96.134,'Description':'<div><strong>&nbsp;<br  />\
-Manual Google Translation <br  />\
-[Diarioeyipantla.com] MEXICO - Veracruz, first national place with 170 cases of dengue<br  />\
-<br type="_moz"  />\
-</strong></div>\
-<div><strong>&ldquo;The misfortunes persecute Veracruz, which began the month of March with the sad news that at the national level it occupies the first place in confirmed cases of dengue with 170, according to the report of Epidemiological Panorama of Dengue 2019, and the most affected municipalities are Cosamaloapan and Carlos A.&rdquo;<br  />\
-<br type="_moz"  />\
-</strong></div>\
-<div><strong>Read the full article: <br  />\
-</strong><a href="https://www.diarioeyipantla.com/veracruz-primer-lugar-nacional-con-170-casos-de-dengue/"><strong>https://www.diarioeyipantla.com/veracruz-primer-lugar-nacional-con-170-casos-de-dengue/</strong></a></div>','TipText':'MEXICO - Veracruz - First National Place With 170 Cases Of Dengue','URL':'https://www.diarioeyipantla.com/veracruz-primer-lugar-nacional-con-170-casos-de-dengue/','Addedbywhom':'Orti','AddedDateTime':'2019-03-02 10:42:12','IsonMap':1,'imagefilepath':'mapicons/BiologicalIncident.gif','street':'','mapzoom':4,'maptype':'G_NORMAL_MAP','location_granularity':7,'country':'Mexico','eventtypename':'Dengue / Hemorrhagic Fever'},{'ID':31168,'Type_ID':48,'Country':'NG','City':'Abuja','DateTime':'2019-03-02 21:32:00','Latitude':9.076,'Longitude':7.399,'Description':'<div><strong>&nbsp;<br  />\
-[Wetinhappen.com.ng] NIGERIA - Six Die From Lassa Fever In Six States This Week <br  />\
-<br type="_moz"  />\
-</strong></div>\
-<div><strong>\'\'Six persons have been confirmed dead from Lassa fever in the country this week, one each in Edo, Ondo, Bauchi, Nasarawa, Taraba and Cross River States, according to the Nigeria Centre for Disease Control (NCDC).\'\' <br  />\
-<br type="_moz"  />\
-</strong></div>\
-<div><strong>Read the full article:<br  />\
-</strong><a href="https://www.wetinhappen.com.ng/six-die-from-lassa-fever-in-six-states-this-week/"><strong>https://www.wetinhappen.com.ng/six-die-from-lassa-fever-in-six-states-this-week/</strong></a></div>','TipText':'NIGERIA - Six Die From Lassa Fever In Six States This Week','URL':'https://www.wetinhappen.com.ng/six-die-from-lassa-fever-in-six-states-this-week/','Addedbywhom':'Orti','AddedDateTime':'2019-03-02 09:33:50','IsonMap':1,'imagefilepath':'mapicons/lassa.gif','street':'','mapzoom':4,'maptype':'G_NORMAL_MAP','location_granularity':8,'country':'Nigeria','eventtypename':'Lassa Fever'},{'ID':31167,'Type_ID':57,'Country':'CA','City':'Alberta','DateTime':'2019-03-02 21:27:00','Latitude':53.933,'Longitude':-116.577,'Description':'<div><strong>&nbsp;<br  />\
-[Country-guide.ca] CANADA - Alberta confirms third and fourth PED cases<br  />\
-<br type="_moz"  />\
-</strong></div>\
-<div><strong>\'\'Alberta, which until January was one of the remaining hog-producing provinces clear of porcine epidemic diarrhea (PED), is now up to four cases in three months.\'\' <br  />\
-<br type="_moz"  />\
-</strong></div>\
-<div><strong>Read the full article:</strong><br  />\
-<a href="https://www.country-guide.ca/daily/third-ped-case-appears-in-alberta/"><strong>https://www.country-guide.ca/daily/third-ped-case-appears-in-alberta/</strong></a></div>','TipText':'CANADA - Alberta Confirms Third And Fourth PED Cases','URL':'https://www.country-guide.ca/daily/third-ped-case-appears-in-alberta/','Addedbywhom':'Orti','AddedDateTime':'2019-03-02 09:28:44','IsonMap':1,'imagefilepath':'mapicons/general_outbreaks.gif','street':'','mapzoom':4,'maptype':'G_NORMAL_MAP','location_granularity':7,'country':'Canada','eventtypename':'General News'},
+&nbsp;</div>','TipText':'AUSTRALIA - Anthrax Confirmed Near Swan Hill - Victoria','URL':'http://outbreaknewstoday.com/anthrax-confirmed-near-swan-hill-victoria-73350/','Addedbywhom':'Orti','AddedDateTime':'2019-03-04 09:37:21','IsonMap':1,'imagefilepath':'mapicons/BlueTri.gif','street':'','mapzoom':4,'maptype':'G_NORMAL_MAP','location_granularity':5,'country':'Australia','eventtypename':'Anthrax '},

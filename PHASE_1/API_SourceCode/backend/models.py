@@ -6,32 +6,30 @@ class ToNumber(fields.Raw):
         return number_names[ value ] if value in number_names.keys() else int(value)
 
 location_model = {
-    'latitude': fields.Float(attribute='Latitude'), 
-    'longitude': fields.Float(attribute='Longitude')
+    'latitude': fields.Float(), 
+    'longitude': fields.Float()
 }
 
 event_model = {
-    'type': fields.List( fields.String, attribute='event-type'), 
+    'type': fields.List( fields.String ), 
     'date': fields.String, 
-    'location': fields.Nested( location_model ), 
+    'location': location_model, 
     'number-affected': ToNumber()
 }
 
 report_model = {
     'disease': fields.String, 
     'syndrome': fields.List( fields.String ), 
-    'comment': fields.String, 
-    'reported_events': fields.Nested( event_model )
+    'comment': fields.String(default="None"), 
+    'reported_events': event_model
 }
 
-article_model = {
-    'id': fields.String(attribute='ID'),
+nested_article_model = {
+    'id': fields.Integer,
     'type-id': fields.Integer(attribute='Type_ID'),
-    'url': fields.String(attribute='URL'), 
+    'url': fields.String(), 
     'date_of_publication': fields.String, 
-    'headline': fields.String(attribute='TipText'), 
-    'main_text': fields.String(attribute='Description'), 
-    'reports': fields.Nested( report_model )
+    'headline': fields.String(), 
+    'main_text': fields.String(), 
+    'reports': report_model
 }
-
-article_list_model = fields.List( fields.Nested( article_model ) )

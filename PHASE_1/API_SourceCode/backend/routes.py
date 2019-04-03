@@ -12,7 +12,7 @@ api = Api(app, version='1.0', title='Disease report API',
     description='A simple Disease Report API',
 )
 
-article_model = api.model('Article', models.article_model)
+article_model = api.model('Article', models.nested_article_model)
 
 ns_rep = api.namespace('reports', description='Report operations')
 
@@ -52,7 +52,7 @@ class ReportManager(object):
         self.n = len(data)
     
     def create(self, args):
-        n = self.n + 1
+        n = self.reports[0]['id'] + 1
 
         newReport = self.reports[0].copy()
         newReport['id'] = n
@@ -70,7 +70,8 @@ class ReportManager(object):
         newReport['reports'][0]['Comment'] = args['comment'] if args['comment'] else 'Null'
 
         self.reports.append(newReport)
-        dumpData(reportDAO)
+
+        dumpData(self.reports)
 
         return newReport
 
@@ -123,7 +124,7 @@ class ReportList(Resource):
     @api.doc(parser=parser_report)
     def get(self):
         '''
-            Search/filter for reports
+            Filter all reports
         '''
         args = parser_report.parse_args()
 
