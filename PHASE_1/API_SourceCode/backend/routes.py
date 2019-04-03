@@ -39,8 +39,6 @@ article_model = api.model('Report', {
     'reports': fields.List( fields.Nested( report_model ) )
 })
 
-article_list_model = api.model('ReportList', fields.List( fields.Nested( article_model ) ))
-
 ns_rep = api.namespace('reports', description='Report operations')
 
 parser = reqparse.RequestParser()

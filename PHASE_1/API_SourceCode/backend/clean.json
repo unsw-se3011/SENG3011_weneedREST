@@ -10,7 +10,7 @@
         {
           "disease": "Chikungunya",
           "syndrome": [],
-          "comment": null,
+          "comment": "",
           "reported_events": [
             {
               "type": [],
@@ -36,7 +36,7 @@
         {
           "disease": "Swine Flu - Suspected or Probable Cases",
           "syndrome": [],
-          "comment": null,
+          "comment": "",
           "reported_events": [
             {
               "type": [
@@ -64,7 +64,7 @@
         {
           "disease": "Swine Flu - Confirmed Cases",
           "syndrome": [],
-          "comment": null,
+          "comment": "",
           "reported_events": [
             {
               "type": [
@@ -92,7 +92,7 @@
         {
           "disease": "Swine Flu - Suspected or Probable Cases",
           "syndrome": [],
-          "comment": null,
+          "comment": "",
           "reported_events": [
             {
               "type": [
@@ -121,7 +121,7 @@
         {
           "disease": "West Nile Virus (suspected or confirmed)",
           "syndrome": [],
-          "comment": null,
+          "comment": "",
           "reported_events": [
             {
               "type": [
@@ -149,7 +149,7 @@
         {
           "disease": "Swine Flu - Confirmed Cases",
           "syndrome": [],
-          "comment": null,
+          "comment": "",
           "reported_events": [
             {
               "type": [],
@@ -175,7 +175,7 @@
         {
           "disease": "Swine Flu - Confirmed Cases",
           "syndrome": [],
-          "comment": null,
+          "comment": "",
           "reported_events": [
             {
               "type": [
@@ -204,7 +204,7 @@
         {
           "disease": "Swine Flu - Suspected or Probable Cases",
           "syndrome": [],
-          "comment": null,
+          "comment": "",
           "reported_events": [
             {
               "type": [],
@@ -230,7 +230,7 @@
         {
           "disease": "Swine Flu - Suspected or Probable Cases",
           "syndrome": [],
-          "comment": null,
+          "comment": "",
           "reported_events": [
             {
               "type": [],
@@ -256,7 +256,7 @@
         {
           "disease": "Swine Flu - Confirmed Cases",
           "syndrome": [],
-          "comment": null,
+          "comment": "",
           "reported_events": [
             {
               "type": [
@@ -284,7 +284,7 @@
         {
           "disease": "Swine Flu - Confirmed / Possible Related Death",
           "syndrome": [],
-          "comment": null,
+          "comment": "",
           "reported_events": [
             {
               "type": [],
@@ -310,7 +310,7 @@
         {
           "disease": "Dengue / Hemorrhagic Fever",
           "syndrome": [],
-          "comment": null,
+          "comment": "",
           "reported_events": [
             {
               "type": [],
@@ -336,7 +336,7 @@
         {
           "disease": "Swine Flu - Confirmed Cases",
           "syndrome": [],
-          "comment": null,
+          "comment": "",
           "reported_events": [
             {
               "type": [],
@@ -362,7 +362,7 @@
         {
           "disease": "Swine Flu - Confirmed Cases",
           "syndrome": [],
-          "comment": null,
+          "comment": "",
           "reported_events": [
             {
               "type": [
@@ -390,7 +390,7 @@
         {
           "disease": "Swine Flu - Suspected or Probable Cases",
           "syndrome": [],
-          "comment": null,
+          "comment": "",
           "reported_events": [
             {
               "type": [
@@ -418,7 +418,7 @@
         {
           "disease": "West Nile Virus (suspected or confirmed)",
           "syndrome": [],
-          "comment": null,
+          "comment": "",
           "reported_events": [
             {
               "type": [
@@ -446,7 +446,7 @@
         {
           "disease": "Swine Flu - Confirmed Cases",
           "syndrome": [],
-          "comment": null,
+          "comment": "",
           "reported_events": [
             {
               "type": [],
@@ -472,7 +472,7 @@
         {
           "disease": "Swine Flu - Confirmed Cases",
           "syndrome": [],
-          "comment": null,
+          "comment": "",
           "reported_events": [
             {
               "type": [],
@@ -498,7 +498,7 @@
         {
           "disease": "Swine Flu - Confirmed / Possible Related Death",
           "syndrome": [],
-          "comment": null,
+          "comment": "",
           "reported_events": [
             {
               "type": [
@@ -527,7 +527,7 @@
         {
           "disease": "Swine Flu - Confirmed Cases",
           "syndrome": [],
-          "comment": null,
+          "comment": "",
           "reported_events": [
             {
               "type": [
@@ -555,7 +555,7 @@
         {
           "disease": "Swine Flu - Confirmed Cases",
           "syndrome": [],
-          "comment": null,
+          "comment": "",
           "reported_events": [
             {
               "type": [
@@ -583,7 +583,7 @@
         {
           "disease": "Swine Flu - Confirmed Cases",
           "syndrome": [],
-          "comment": null,
+          "comment": "",
           "reported_events": [
             {
               "type": [],
@@ -609,7 +609,7 @@
         {
           "disease": "Swine Flu - Confirmed / Possible Related Death",
           "syndrome": [],
-          "comment": null,
+          "comment": "",
           "reported_events": [
             {
               "type": [],
@@ -630,12 +630,12 @@
       "url": "https://timesofindia.indiatimes.com/city/indore/11-more-test-swine-flu-positive/articleshow/68237495.cms",
       "date_of_publication": "2019-03-02T21:39:00",
       "headline": "India - 11 more test swine flu positive",
-      "main_text": " [TNN] INDIA - 11 more test swine flu positive'Eleven more people have been reported swine flu positive on Saturday taking total tally of H1N1 positive patients to 74 this year.''Read the full article: https://timesofindia.indiatimes.com/city/indore/11-more-test-swine-flu-positive/articleshow/68237495.cms",
+      "main_text": " [TNN] INDIA - 11 more test swine flu positive'Eleven more people have been reported swine flu positive on Saturday taking total tally of H1N1 positive patients to 74 this year.""Read the full article: https://timesofindia.indiatimes.com/city/indore/11-more-test-swine-flu-positive/articleshow/68237495.cms",
       "reports": [
         {
           "disease": "Swine Flu - Confirmed Cases",
           "syndrome": [],
-          "comment": null,
+          "comment": "",
           "reported_events": [
             {
               "type": [
@@ -663,7 +663,7 @@
         {
           "disease": "Swine Flu - Confirmed Cases",
           "syndrome": [],
-          "comment": null,
+          "comment": "",
           "reported_events": [
             {
               "type": [],
@@ -689,7 +689,7 @@
         {
           "disease": "Swine Flu - Confirmed / Possible Related Death",
           "syndrome": [],
-          "comment": null,
+          "comment": "",
           "reported_events": [
             {
               "type": [
