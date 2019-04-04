@@ -18,8 +18,10 @@ ns_rep = api.namespace('reports', description='Report operations')
 
 parser = reqparse.RequestParser()
 
+# PARSER DOCUMENTATION 
+
 '''
-    parse the arguments for filtering reports
+    Arguments for filtering reports
 '''
 parser_report = parser.copy()
 parser_report.add_argument('n', type=int, help='Max number of results', location='args')
@@ -30,21 +32,48 @@ parser_report.add_argument('start-date', type=str, help='start date of date rang
 parser_report.add_argument('end-date', type=str, help='end date of date range (yyyy-mm-ddThh:mm:ss)', location='args')
 
 '''
-    parse the arguments for creating a report
+    Arguments for creating reports
 '''
 parser_create = parser.copy()
 parser_create.add_argument('url', type=str, required=True, help='url of the event', location='args')
-parser_create.add_argument('date_of_publication', type=str, required=True, help='date of pulication (yyyy-mm-ddThh:mm:ss)', location='args')
+parser_create.add_argument('date_of_publication', type=str, required=True, help='date of publication (yyyy-mm-ddThh:mm:ss)', location='args')
 parser_create.add_argument('headline', type=str, required=True, help='headline for the report', location='args')
 parser_create.add_argument('main_text', type=str, required=True, help='main text of the event', location='args')
 parser_create.add_argument('disease', type=str, required=True, help='comma separated list of diseases', location='args')
-parser_create.add_argument('syndrome', type=str, required=False, help='comma separated list of syndroms', location='args')
-parser_create.add_argument('event-type', type=str, required=True, help='the type of event e.g death, infected', location='args')
+parser_create.add_argument('syndrome', type=str, required=False, help='comma separated list of syndromes', location='args')
+parser_create.add_argument('type', type=str, required=True, help='the type of event e.g death, infected', location='args')
 parser_create.add_argument('longitude', type=float, required=True, help='longitude of location', location='args')
 parser_create.add_argument('latitude', type=float, required=True, help='latitude of location', location='args')
 parser_create.add_argument('number-affected', type=int, required=True, help='number of people affected', location='args')
 parser_create.add_argument('comment', type=str, required=False, help='comment', location='args')
 parser_create.add_argument('date', type=str, required=True, help='date of the event (yyyy-mm-ddThh:mm:ss)', location='args')
+
+'''
+    Arguments for updating reports
+'''
+parser_update = parser.copy()
+parser_update.add_argument('url', type=str, help='URL of report', location='args', required=False)
+parser_update.add_argument('date_of_publication', type=str, help='Date of report publication', location='args', required=False)
+parser_update.add_argument('headline', required=False)
+parser_update.add_argument('main_text', required=False)
+parser_update.add_argument('disease', required=False)
+parser_update.add_argument('syndrome', required=False)
+parser_update.add_argument('type', required=False)
+parser_update.add_argument('longitude', required=False)
+parser_update.add_argument('latitude', required=False)
+parser_update.add_argument('number-affected', required=False)
+parser_update.add_argument('comment', required=False)
+parser_update.add_argument('date', required=False)
+
+'''
+    Arguments for deleting reports
+'''
+parser_delete = parser.copy()
+parser_delete.add_argument('id', type=int, help='ID of report to delete', required=True, location='args')
+
+
+
+# API ENDPOINT FUNCTIONS
 
 class ReportManager(object):
     def __init__(self, data):
@@ -160,23 +189,6 @@ class ReportList(Resource):
         return newReport, 200
 
 
-'''
-    parse the arguments for updating
-'''
-parser_update = parser_create.copy()
-parser_update.replace_argument('url', required=False)
-parser_update.replace_argument('date_of_publication',required=False)
-parser_update.replace_argument('headline', required=False)
-parser_update.replace_argument('main_text', required=False)
-parser_update.replace_argument('disease', required=False)
-parser_update.replace_argument('syndrome', required=False)
-parser_update.replace_argument('event-type', required=False)
-parser_update.replace_argument('longitude', required=False)
-parser_update.replace_argument('latitude', required=False)
-parser_update.replace_argument('number-affected', required=False)
-parser_update.replace_argument('comment', required=False)
-parser_update.replace_argument('date', required=False)
-
 @ns_rep.route('/<int:id>')
 class Report(Resource):
     '''
@@ -196,6 +208,7 @@ class Report(Resource):
 
     @api.response(200, 'Success')
     @api.response(400, 'Report not found')
+    @api.doc(parser=parser_delete)
     def delete(self, id):   
         '''
             Deletes a report
