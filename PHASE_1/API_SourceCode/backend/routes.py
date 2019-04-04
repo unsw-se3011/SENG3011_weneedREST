@@ -18,34 +18,6 @@ ns_rep = api.namespace('reports', description='Report operations')
 
 parser = reqparse.RequestParser()
 
-'''
-    parse the arguments for filtering reports
-'''
-parser_report = parser.copy()
-parser_report.add_argument('n', type=int, help='Max number of results', location='args')
-parser_report.add_argument('latitude', type=float, help='latitude of area affected', location='args')
-parser_report.add_argument('longitude', type=float, help='longitude of area affected', location='args')
-parser_report.add_argument('key_terms', type=str, help='list of key terms', location='args')
-parser_report.add_argument('start-date', type=str, help='start date of date range (yyyy-mm-ddThh:mm:ss)', location='args')
-parser_report.add_argument('end-date', type=str, help='end date of date range (yyyy-mm-ddThh:mm:ss)', location='args')
-
-'''
-    parse the arguments for creating a report
-'''
-parser_create = parser.copy()
-parser_create.add_argument('url', type=str, required=True, help='url of the event', location='args')
-parser_create.add_argument('date_of_publication', type=str, required=True, help='date of pulication (yyyy-mm-ddThh:mm:ss)', location='args')
-parser_create.add_argument('headline', type=str, required=True, help='headline for the report', location='args')
-parser_create.add_argument('main_text', type=str, required=True, help='main text of the event', location='args')
-parser_create.add_argument('disease', type=str, required=True, help='comma separated list of diseases', location='args')
-parser_create.add_argument('syndrome', type=str, required=False, help='comma separated list of syndroms', location='args')
-parser_create.add_argument('type', type=str, required=True, help='the type of event e.g death, infected', location='args')
-parser_create.add_argument('longitude', type=float, required=True, help='longitude of location', location='args')
-parser_create.add_argument('latitude', type=float, required=True, help='latitude of location', location='args')
-parser_create.add_argument('number-affected', type=int, required=True, help='number of people affected', location='args')
-parser_create.add_argument('comment', type=str, required=False, help='comment', location='args')
-parser_create.add_argument('date', type=str, required=True, help='date of the event (yyyy-mm-ddThh:mm:ss)', location='args')
-
 class ReportManager(object):
     def __init__(self, data):
         self.reports = data
@@ -98,6 +70,9 @@ class ReportManager(object):
 
         newReport = self.findReport( args['id'] )
 
+        if newReport == None:
+            return None
+
         if 'reports' in args.keys():
             args_reports = args.pop('reports')
             if 'reported_events' in args_reports.keys():
@@ -126,6 +101,34 @@ class ReportManager(object):
         return None
 
 reportDAO = ReportManager(readData())
+
+'''
+    parse the arguments for filtering reports
+'''
+parser_report = parser.copy()
+parser_report.add_argument('n', type=int, help='Max number of results', location='args')
+parser_report.add_argument('latitude', type=float, help='latitude of area affected', location='args')
+parser_report.add_argument('longitude', type=float, help='longitude of area affected', location='args')
+parser_report.add_argument('key_terms', type=str, help='list of key terms', location='args')
+parser_report.add_argument('start-date', type=str, help='start date of date range (yyyy-mm-ddThh:mm:ss)', location='args')
+parser_report.add_argument('end-date', type=str, help='end date of date range (yyyy-mm-ddThh:mm:ss)', location='args')
+
+'''
+    parse the arguments for creating a report
+'''
+parser_create = parser.copy()
+parser_create.add_argument('url', type=str, required=True, help='url of the event', location='args')
+parser_create.add_argument('date_of_publication', type=str, required=True, help='date of pulication (yyyy-mm-ddThh:mm:ss)', location='args')
+parser_create.add_argument('headline', type=str, required=True, help='headline for the report', location='args')
+parser_create.add_argument('main_text', type=str, required=True, help='main text of the event', location='args')
+parser_create.add_argument('disease', type=str, required=True, help='comma separated list of diseases', location='args')
+parser_create.add_argument('syndrome', type=str, required=False, help='comma separated list of syndroms', location='args')
+parser_create.add_argument('type', type=str, required=True, help='the type of event e.g death, infected', location='args')
+parser_create.add_argument('longitude', type=float, required=True, help='longitude of location', location='args')
+parser_create.add_argument('latitude', type=float, required=True, help='latitude of location', location='args')
+parser_create.add_argument('number-affected', type=int, required=True, help='number of people affected', location='args')
+parser_create.add_argument('comment', type=str, required=False, help='comment', location='args')
+parser_create.add_argument('date', type=str, required=True, help='date of the event (yyyy-mm-ddThh:mm:ss)', location='args')
 
 @ns_rep.route('/')
 class ReportList(Resource):
@@ -223,7 +226,8 @@ class Report(Resource):
         return "No report to be found", 400
 
     @api.response(200, 'Success')
-    @api.response(400, 'Invalid date param')
+    @api.response(400, 'Report not found')
+    @api.response(404, 'Invalid date param')
     @api.doc(parser=parser_update)
     def put(self, id):
         '''
@@ -232,7 +236,7 @@ class Report(Resource):
         args = parser_update.parse_args()
 
         if args['date'] is not None and re.search(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}', args['date']) is None:
-            return "Invalid date", 400
+            return "Invalid date", 404
 
         #set up the args
         args['id'] = id
@@ -240,5 +244,8 @@ class Report(Resource):
         args = marshal(args, models.nested_article_model, skip_none=True)
 
         newReport = reportDAO.update(args)
+
+        if newReport == None:
+            return "Report not found, invalid ID", 400
 
         return newReport, 200
