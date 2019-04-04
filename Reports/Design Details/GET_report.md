@@ -1,19 +1,14 @@
-# List all reports that match the query
+# Fetch a singular report
 
 Usage
 ```
-   GET /reports
+   GET /reports/{id}
 ```
 ## Description
-Returns a list of the reports that match the following filters. All dates must be in the format `^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})$`. If only one date is specified the API will assume that you want all reports after or before the given date. 
+Searches the data for a report with the corresponding ID. 
 
 ## Parameters
-- **n** - The number of results that are returned. This number is defaulted to 10 and can only return up to 100 results.
-- **location** - Geocode of the area affected
-- **key_terms** - This input contains a comma separated list of all the key terms you want to get news about.
-This input can be empty or omitted in the case where the user doesn’t want to restrict his search. This is not case sensitive.
-- **start-date** - Starting date of range
-- **end-date** - Ending date of range
+- **id** - ID of the report to be found *(path)*
 
 
 ## Errors
@@ -21,13 +16,13 @@ This input can be empty or omitted in the case where the user doesn’t want to 
 | Code | Description |
 | ---- | ---------- |
 | 200  | Successful |
-| 400  | Invalid Location or Key Term or Date |
+| 400  | Report Not found |
 
 ## Example
 
 ### Request
 ```
-   curl -X GET "http://104.248.30.17:5000/SearchReports" -H  "accept: application/json"
+   curl -X GET "http://104.248.30.17:5000/reports/5" -H  "accept: application/json"
 ```
 ### Response
 #### Snippet of the response ####
@@ -37,7 +32,7 @@ This input can be empty or omitted in the case where the user doesn’t want to 
    Content-Type: application/json
 
    {
-       "id": 1,
+       "id": 5,
        "url": "www.outbreaks.globalincidentmap.com/eventdetail.php?ID=31146",
        "date_of_publication": "2019-02-27T23:20:00 ",
        "headline": "TANZANIA - Anthrax kills two people in northern Tanzania",

@@ -2,13 +2,13 @@
 
 Usage
 ```
-   PUT /updateReports
+   PUT /reports/{id}
 ```
 ## Description
 Updates an existing report with the corresponding ID
 
 ## Parameters
-- **id (required)** - ID of the report to update
+- **id (required)** - ID of the report to update _(path)_
 - **headline** - headline for the report
 - **main_text** - main text of the event
 - **disease** - comma separated list of diseases
@@ -25,15 +25,14 @@ Updates an existing report with the corresponding ID
 | Code | Description |
 | ---- | ---------- |
 | 200  | Successful |
-| 400  | Invalid ID |
-| 404  | Report not found |
-| 405  | Invalid data |
+| 400  | Report not found |
+| 404  | Invalid data |
 
 ## Example
 
 ### Request
 ```
-   curl -X PUT "http://104.248.30.17:5000/updateReport?id=8&headline=headline&main_text=main_text&disease=disease&syndrome=syndrome&type=type&geonames-id=1234567&number-affected=55&comment=Bad%20spread&start-date=2019-08-12&end-date=2019-08-19" -H  "accept: application/json"
+   curl -X PUT "http://104.248.30.17:5000/reports/3?id=8&headline=headline&main_text=main_text&disease=disease&syndrome=syndrome&type=type&geonames-id=1234567&number-affected=55&comment=Bad%20spread&start-date=2019-08-12&end-date=2019-08-19" -H  "accept: application/json"
 ```
 ### Response
 #### Snippet of the response ####
