@@ -6,12 +6,12 @@ class View extends Component {
         super(props);
         
         this.state = {
-          n : '',
-          latitude : '',
-          longitude : '',
-          key_terms : '',
-          start_date : '',
-          end_date : ''
+          n : undefined,
+          latitude : undefined,
+          longitude : undefined,
+          key_terms : undefined,
+          start_date : undefined,
+          end_date : undefined
         }
         
         this.updateN = this.updateN.bind(this);
@@ -57,27 +57,27 @@ class View extends Component {
                 </center>
                 <form className="n">
                     <div class="number">
-                            <p for="inputPassword4" class="text-dark">Number of Reports</p>
+                            <p class="text-dark">Number of Reports</p>
                             <input id = "idn" name="title" onChange={this.updateN} type="text" class="form-control" placeholder="e.g. 7" />
                     </div>
                     <div class="lat">
-                            <p for="inputPassword4" class="text-dark">Latitude</p>
+                            <p class="text-dark">Latitude</p>
                             <input id = "idLat" name="title" onChange={this.updateLatitude} type="text" class="form-control" placeholder="e.g. 211442" />
                     </div>
                     <div class="lon">
-                            <p for="inputPassword4" class="text-dark">Longitude</p>
+                            <p class="text-dark">Longitude</p>
                             <input id = "idLon" name="title" onChange={this.updateLongitude} type="text" class="form-control" placeholder="e.g. 211442" />
                     </div>
                     <div class="terms">
-                            <p for="inputPassword4" class="text-dark">Key Terms</p>
+                            <p class="text-dark">Key Terms</p>
                             <input id = "idTerms" name="title" onChange={this.updateKeyTerms} type="text" class="form-control" placeholder="e.g. Malaria, Zika" />
                     </div>
                     <div class="start">
-                            <p for="inputPassword4" class="text-dark">From Date/Time:</p>
+                            <p class="text-dark">From Date/Time:</p>
                             <input id = "idStart" name="title" onChange={this.updateStartDate} type="text" class="form-control" placeholder="e.g. 2018-12-10T23:50:00" />
                     </div>
                     <div class="end">
-                            <p for="inputPassword4" class="text-dark">To Date/Time:</p>
+                            <p class="text-dark">To Date/Time:</p>
                             <input id = "idEnd" name="title" onChange={this.updateEndDate} type="text" class="form-control" placeholder="e.g. 2018-12-10T23:50:00" />
                     </div>
                 </form>
