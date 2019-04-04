@@ -1,77 +1,47 @@
-from server import app
 from flask import Flask
-from flask_restplus import Resource, Api, reqparse, fields
+from flask_restplus import Resource, Api, reqparse, fields, marshal
 import re
-from helper import compareDate, searchKeyTerms, findReport, dumpData
-import simplejson as json
 from datetime import datetime
+import models
+from helper import *
+from werkzeug.contrib.fixers import ProxyFix
 
 app = Flask(__name__)
-api = Api(app)
+app.wsgi_app = ProxyFix(app.wsgi_app)
+api = Api(app, version='1.0', title='Disease report API',
+    description='A simple Disease Report API',
+)
 
-# Json data being read in from clean file
-with open('clean.json',"r") as f:
-    jsonReports = eval(f.read())
-    f.close()
+article_model = api.model('Article', models.nested_article_model)
+
+ns_rep = api.namespace('reports', description='Report operations')
 
 parser = reqparse.RequestParser()
 
+class ReportManager(object):
+    def __init__(self, data):
+        self.reports = data
+        self.n = len(data)
+    
+    def create(self, args):
+        # set up the args 
+        args['id'] = self.n +1
 
-'''
-    Returns all reports
-'''
-parser_report = parser.copy()
-@api.route('/getAllReports')
-class getAllReports(Resource):
-    @api.response(200, 'Successful')
-    @api.response(400, 'Error occurred')
-    def get(self):
-        if jsonReports:
-            return jsonReports, 200
-        else:
-            return [], 400
+        # marshal/format the args
+        newReport = marshal(args, models.nested_article_model)
+        newReport = format_raw_article( newReport )
 
+        # update reportDAO
+        self.reports.append(newReport)
+        self.n = self.n + 1
 
-'''
-    Returns reports specifying selected criteria
-'''
-parser_report = parser.copy()
-parser_report.add_argument('n', type=int, help='Max number of results', location='args')
-parser_report.add_argument('latitude', type=float, help='latitude of area affected', location='args')
-parser_report.add_argument('longitude', type=float, help='longitude of area affected', location='args')
-parser_report.add_argument('key_terms', type=str, help='list of key terms', location='args')
-parser_report.add_argument('start-date', type=str, help='start date of date range (yyyy-mm-ddThh:mm:ss)', location='args')
-parser_report.add_argument('end-date', type=str, help='end date of date range (yyyy-mm-ddThh:mm:ss)', location='args')
+        # update clean.json
+        dumpData(self.reports)
 
-@api.route('/searchReports')
-@api.doc(params={
-    'n': 'Number of results returned', 
-    'longitude':'longitude of area affected', 
-    'latitude':'latitude of area affected', 
-    'key_terms':'Comma separated list of of all key items requested by user', 
-    'start-date':'Starting date of reports', 
-    'end-date':'Ending date or reports'
-    }
-)
-class filterReports(Resource):
-    @api.response(200, 'Success - Filtered results returned')
-    @api.response(400, 'Invalid location, key term or date')
-    @api.doc(parser=parser_report)
-    def get(self):
-        args = parser_report.parse_args()
+        return newReport
 
-        if args['start-date'] is not None and re.search(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}', args['start-date']) is None:
-            return "Invalid start-date", 400
-
-        if args['end-date'] is not None and re.search(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}', args['end-date']) is None:
-            return "Invalid end-date", 400
-
-        newResponse = jsonReports
-
-        n = len(jsonReports) if args['n'] is None or args['n'] > 10 else args['n'] 
-
-        if n < 0: 
-            return [], 200
+    def filter(self, args):
+        newResponse = self.reports
 
         if args['key_terms'] is not None:
             newResponse = list( filter(lambda x: searchKeyTerms(args['key_terms'], x), newResponse) )
@@ -90,36 +60,61 @@ class filterReports(Resource):
         if args['end-date'] is not None:
             newResponse = list( filter(lambda x: compareDate(args['end-date'], "less", x), newResponse))
 
-        newResponse = newResponse[:n]
-
-        return newResponse, 200
-
-'''
-    Deletes a report
-'''
-parser_delete = parser.copy()
-parser_delete.add_argument('id', type=int, required=True, help='ID of report to be deleted', location='args')
-
-@api.route('/delete/{id}')
-@api.doc(params={'id': 'ID of report to be deleted'})
-class deleteReport(Resource):
-    @api.response(200, 'Success')
-    @api.response(400, 'Invalid ID')
-    @api.response(404, 'Report not found')
-    @api.doc(parser=parser_delete)
-    def delete(self):
-        args = parser_delete.parse_args()
-        n = args['id']
+        return newResponse[:args['n']]
         
-        article = findReport(n, jsonReports)
-        if article:
-            jsonReports.remove( article )
-            return f'deleted report \n{article}\n', 200
-        
-        return "No report to be found", 400
+    def delete(self, article):
+        self.reports.remove( article )
+    
+    def update(self, args):
+        args_events = args_reports = None 
+
+        newReport = self.findReport( args['id'] )
+
+        if newReport == None:
+            return None
+
+        if 'reports' in args.keys():
+            args_reports = args.pop('reports')
+            if 'reported_events' in args_reports.keys():
+                args_events = args_reports.pop('reported_events')
+                if 'location' in args_events.keys():
+                    args_loc = args_events.pop('location')
+                    
+                    newReport['reports'][0]['reported_events'][0]['location'].update( args_loc )
+                newReport['reports'][0]['reported_events'][0].update( args_events )
+            newReport['reports'][0].update( args_reports )
+        newReport.update( args )
+
+        dumpData(self.reports)
+
+        return newReport
+    
+    def findReport(self, n):
+        '''
+            Finds and returns report\n
+                n: id of the report
+            returns report or None if not found
+        '''
+        for article in self.reports:
+            if article['id'] == n:
+                return article
+        return None
+
+reportDAO = ReportManager(readData())
 
 '''
-    Updates an existing report with form data
+    parse the arguments for filtering reports
+'''
+parser_report = parser.copy()
+parser_report.add_argument('n', type=int, help='Max number of results', location='args')
+parser_report.add_argument('latitude', type=float, help='latitude of area affected', location='args')
+parser_report.add_argument('longitude', type=float, help='longitude of area affected', location='args')
+parser_report.add_argument('key_terms', type=str, help='list of key terms', location='args')
+parser_report.add_argument('start-date', type=str, help='start date of date range (yyyy-mm-ddThh:mm:ss)', location='args')
+parser_report.add_argument('end-date', type=str, help='end date of date range (yyyy-mm-ddThh:mm:ss)', location='args')
+
+'''
+    parse the arguments for creating a report
 '''
 parser_create = parser.copy()
 parser_create.add_argument('url', type=str, required=True, help='url of the event', location='args')
@@ -128,106 +123,129 @@ parser_create.add_argument('headline', type=str, required=True, help='headline f
 parser_create.add_argument('main_text', type=str, required=True, help='main text of the event', location='args')
 parser_create.add_argument('disease', type=str, required=True, help='comma separated list of diseases', location='args')
 parser_create.add_argument('syndrome', type=str, required=False, help='comma separated list of syndroms', location='args')
-parser_create.add_argument('event-type', type=str, required=True, help='the type of event e.g death, infected', location='args')
+parser_create.add_argument('type', type=str, required=True, help='the type of event e.g death, infected', location='args')
 parser_create.add_argument('longitude', type=float, required=True, help='longitude of location', location='args')
 parser_create.add_argument('latitude', type=float, required=True, help='latitude of location', location='args')
 parser_create.add_argument('number-affected', type=int, required=True, help='number of people affected', location='args')
 parser_create.add_argument('comment', type=str, required=False, help='comment', location='args')
 parser_create.add_argument('date', type=str, required=True, help='date of the event (yyyy-mm-ddThh:mm:ss)', location='args')
 
-@api.route('/createReport')
-class createReport(Resource):
-    @api.response(200, 'Success')
-    @api.response(400, 'Invalid date param')
+@ns_rep.route('/')
+class ReportList(Resource):
+    '''
+        Shows a list of all reports and lets you POST to create a report and GET to search for reports
+    '''
+    @api.response(200, "Sucess")
+    @api.response(400, "Invalid search")
+    @api.response(404, "Invalid date param")
+    @api.doc(parser=parser_report)
+    def get(self):
+        '''
+            Filter all reports
+        '''
+        args = parser_report.parse_args()
+
+        if args['start-date'] is not None and re.search(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}', args['start-date']) is None:
+            return "Invalid start-date", 404
+
+        if args['end-date'] is not None and re.search(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}', args['end-date']) is None:
+            return "Invalid end-date", 404
+
+        args['n'] = 100 if args['n'] is None or args['n'] > 100 else args['n'] 
+
+        if args['n'] < 0: 
+            return [], 200
+
+        newResponse = reportDAO.filter(args)
+
+        return newResponse, 200
+
+    @api.response(200, "Sucess")
+    @api.response(404, "Invalid date param")
     @api.doc(parser=parser_create)
     def post(self):
+        '''
+            Create a report
+        '''
         args = parser_create.parse_args()
 
         if re.search(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}', args['date']) is None:
-            return "Invalid end-date", 400
+            return "Invalid end-date", 404
 
-        n = len(jsonReports)+1
-
-        newReport = jsonReports[0].copy()
-        newReport['id'] = n
-        newReport['url'] = args['url']
-        newReport['date_of_publication'] = args['date_of_publication']
-        newReport['headline'] = args['headline']
-        newReport['main_text'] = args['main_text']
-        newReport['reports'][0]['disease'] = list( map(lambda x : x.strip(), args['disease'].split(',')) )
-        newReport['reports'][0]['syndrome'] = list( map(lambda x : x.strip(), args['syndrome'].split(',')) ) if args['syndrome'] is not None else [] 
-        newReport['reports'][0]['reported_events'][0]['type'] = args['event-type']
-        newReport['reports'][0]['reported_events'][0]['date'] = args['date']
-        newReport['reports'][0]['reported_events'][0]['location']['longitude'] = args['longitude'] 
-        newReport['reports'][0]['reported_events'][0]['location']['latitude'] = args['latitude']
-        newReport['reports'][0]['reported_events'][0]['number-affected'] = args['number-affected']
-        newReport['reports'][0]['Comment'] = args['comment'] if args['comment'] else 'Null'
-
-
-        jsonReports.append(newReport)
-        dumpData(jsonReports)
+        newReport = reportDAO.create(args)
 
         return newReport, 200
 
+
 '''
-    Updates an existing report
+    parse the arguments for updating
 '''
 parser_update = parser_create.copy()
-parser_update.add_argument('id', type=int, required=True, help="ID of report to update", location='args')
-parser_update.replace_argument('url', type=str, required=False, help="Url of report", location='args')
-parser_update.replace_argument('date_of_publication', type=str, required=False, help="Date report was published", location='args')
-parser_update.replace_argument('headline', type=str, required=False, help="Headline of report", location='args')
-parser_update.replace_argument('main_text', type=str, required=False, help="Main description of report", location='args')
-parser_update.replace_argument('disease', type=str, required=False, help="Disease mentioned in report", location='args')
-parser_update.replace_argument('syndrome', type=str, required=False, help="Syndrome within report", location='args')
-parser_update.replace_argument('event-type', type=str, required=False, help="Type of event covered in report", location='args')
-parser_update.replace_argument('longitude', type=str, required=False, help="Longitude of location within report", location='args')
-parser_update.replace_argument('latitude', type=str, required=False, help="Latitude of location within report", location='args')
-parser_update.replace_argument('number-affected', type=int, required=False, help="Number affected in event", location='args')
-parser_update.replace_argument('comment', type=str, required=False, help="Comment on report", location='args')
-parser_update.replace_argument('date', type=str, required=False, help="Date of report", location='args')
+parser_update.replace_argument('url', required=False)
+parser_update.replace_argument('date_of_publication',required=False)
+parser_update.replace_argument('headline', required=False)
+parser_update.replace_argument('main_text', required=False)
+parser_update.replace_argument('disease', required=False)
+parser_update.replace_argument('syndrome', required=False)
+parser_update.replace_argument('type', required=False)
+parser_update.replace_argument('longitude', required=False)
+parser_update.replace_argument('latitude', required=False)
+parser_update.replace_argument('number-affected', required=False)
+parser_update.replace_argument('comment', required=False)
+parser_update.replace_argument('date', required=False)
 
-@api.route('/updateReport')
-class updateReport(Resource):
-# PUT is for updating
-# Post is for creating
+@ns_rep.route('/<int:id>')
+class Report(Resource):
+    '''
+        Shows an individual report and lets you DELETE a report or PUT to update a reports
+    '''
     @api.response(200, 'Success')
-    @api.response(400, 'Invalid ID')
-    @api.response(404, 'Report not found')
-    @api.response(405, 'Invalid data')
+    @api.response(400, 'Report not found')
+    def get(self, id):
+        '''
+            Fetches a singular report
+        '''
+        report = reportDAO.findReport(id)
+        if report:
+            return report, 200
+        
+        return None, 400
+
+    @api.response(200, 'Success')
+    @api.response(400, 'Report not found')
+    def delete(self, id):   
+        '''
+            Deletes a report
+        '''
+        article = reportDAO.findReport(id)
+
+        if article:
+            reportDAO.delete( article )
+            return f'deleted report \n{article}\n', 200
+        
+        return "No report to be found", 400
+
+    @api.response(200, 'Success')
+    @api.response(400, 'Report not found')
+    @api.response(404, 'Invalid date param')
     @api.doc(parser=parser_update)
-    def put(self):
+    def put(self, id):
+        '''
+            Updates a given report
+        '''
         args = parser_update.parse_args()
 
         if args['date'] is not None and re.search(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}', args['date']) is None:
-            return "Invalid date", 400
+            return "Invalid date", 404
 
-        newReport = findReport(args['id'], jsonReports)
-        
-        # Updating all report details
-        if args['url'] is not None:
-            newReport['url'] = args['url']
-        if args['date_of_publication'] is not None:
-            newReport['date_of_publication'] = args['date_of_publication']
-        if args['headline'] is not None:
-            newReport['headline'] = args['headline']
-        if args['main_text'] is not None:
-            newReport['main_text'] = args['main_text']
-        if args['disease'] is not None:
-            newReport['reports'][0]['disease'] = list( map(lambda x : x.strip(), args['disease'].split(',')) )
-        if args['syndrome'] is not None:
-            newReport['reports'][0]['syndrome'] = list( map(lambda x : x.strip(), args['syndrome'].split(',')) ) if args['syndrome'] is not None else [] 
-        if args['event-type'] is not None:
-            newReport['reports'][0]['reported_events'][0]['event-type'] = args['event-type']
-        if args['longitude'] is not None:
-            newReport['reports'][0]['reported_events'][0]['location']['longitude'] = args['longitude'] 
-        if args['latitude'] is not None:
-            newReport['reports'][0]['reported_events'][0]['location']['latitude'] = args['latitude']
-        if args['number-affected'] is not None:
-            newReport['reports'][0]['reported_events'][0]['number-affected'] = args['number-affected']
-        if args['comment'] is not None:
-            newReport['reports'][0]['Comment'] = args['comment']
+        #set up the args
+        args['id'] = id
 
-        dumpData(jsonReports)
+        args = marshal(args, models.nested_article_model, skip_none=True)
+
+        newReport = reportDAO.update(args)
+
+        if newReport == None:
+            return "Report not found, invalid ID", 400
 
         return newReport, 200
