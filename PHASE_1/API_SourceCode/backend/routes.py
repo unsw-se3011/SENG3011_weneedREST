@@ -25,28 +25,28 @@ parser = reqparse.RequestParser()
 '''
 parser_report = parser.copy()
 parser_report.add_argument('n', type=int, help='Max number of results', location='args')
-parser_report.add_argument('latitude', type=float, help='latitude of area affected', location='args')
-parser_report.add_argument('longitude', type=float, help='longitude of area affected', location='args')
-parser_report.add_argument('key_terms', type=str, help='list of key terms', location='args')
-parser_report.add_argument('start-date', type=str, help='start date of date range (yyyy-mm-ddThh:mm:ss)', location='args')
-parser_report.add_argument('end-date', type=str, help='end date of date range (yyyy-mm-ddThh:mm:ss)', location='args')
+parser_report.add_argument('latitude', type=float, help='Latitude of area affected', location='args')
+parser_report.add_argument('longitude', type=float, help='Longitude of area affected', location='args')
+parser_report.add_argument('key_terms', type=str, help='List of key terms', location='args')
+parser_report.add_argument('start-date', type=str, help='Start date of date range (yyyy-mm-ddThh:mm:ss)', location='args')
+parser_report.add_argument('end-date', type=str, help='End date of date range (yyyy-mm-ddThh:mm:ss)', location='args')
 
 '''
     Arguments for creating reports
 '''
 parser_create = parser.copy()
-parser_create.add_argument('url', type=str, required=True, help='url of the event', location='args')
-parser_create.add_argument('date_of_publication', type=str, required=True, help='date of publication (yyyy-mm-ddThh:mm:ss)', location='args')
-parser_create.add_argument('headline', type=str, required=True, help='headline for the report', location='args')
-parser_create.add_argument('main_text', type=str, required=True, help='main text of the event', location='args')
-parser_create.add_argument('disease', type=str, required=True, help='comma separated list of diseases', location='args')
-parser_create.add_argument('syndrome', type=str, required=False, help='comma separated list of syndromes', location='args')
-parser_create.add_argument('type', type=str, required=True, help='the type of event e.g death, infected', location='args')
-parser_create.add_argument('longitude', type=float, required=True, help='longitude of location', location='args')
-parser_create.add_argument('latitude', type=float, required=True, help='latitude of location', location='args')
-parser_create.add_argument('number-affected', type=int, required=True, help='number of people affected', location='args')
-parser_create.add_argument('comment', type=str, required=False, help='comment', location='args')
-parser_create.add_argument('date', type=str, required=True, help='date of the event (yyyy-mm-ddThh:mm:ss)', location='args')
+parser_create.add_argument('url', type=str, required=True, help='Url of the event', location='args')
+parser_create.add_argument('date_of_publication', type=str, required=True, help='Date of publication (yyyy-mm-ddThh:mm:ss)', location='args')
+parser_create.add_argument('headline', type=str, required=True, help='Headline for the report', location='args')
+parser_create.add_argument('main_text', type=str, required=True, help='Main text of the event', location='args')
+parser_create.add_argument('disease', type=str, required=True, help='Comma separated list of diseases', location='args')
+parser_create.add_argument('syndrome', type=str, required=False, help='Comma separated list of syndromes', location='args')
+parser_create.add_argument('type', type=str, required=True, help='Type of event e.g death, infected', location='args')
+parser_create.add_argument('longitude', type=float, required=True, help='Longitude of location', location='args')
+parser_create.add_argument('latitude', type=float, required=True, help='Latitude of location', location='args')
+parser_create.add_argument('number-affected', type=int, required=True, help='Number of people affected', location='args')
+parser_create.add_argument('comment', type=str, required=False, help='Comment', location='args')
+parser_create.add_argument('date', type=str, required=True, help='Date of the event (yyyy-mm-ddThh:mm:ss)', location='args')
 
 '''
     Arguments for updating reports
@@ -55,21 +55,27 @@ parser_update = parser.copy()
 parser_update.add_argument('url', type=str, help='URL of report', location='args', required=False)
 parser_update.add_argument('date_of_publication', type=str, help='Date of report publication', location='args', required=False)
 parser_update.add_argument('headline', type=str, help='Headline of report', location='args', required=False)
-parser_update.add_argument('main_text', required=False)
-parser_update.add_argument('disease', required=False)
-parser_update.add_argument('syndrome', required=False)
-parser_update.add_argument('type', required=False)
-parser_update.add_argument('longitude', required=False)
-parser_update.add_argument('latitude', required=False)
-parser_update.add_argument('number-affected', required=False)
-parser_update.add_argument('comment', required=False)
-parser_update.add_argument('date', required=False)
+parser_update.add_argument('main_text', type=str, help='Main text of report', location='args', required=False)
+parser_update.add_argument('disease', type=str, help='Disease contained within report', location='args', required=False)
+parser_update.add_argument('syndrome', type=str, help='Syndrome within report', location='args', required=False)
+parser_update.add_argument('type', type=str, help='Type of report', location='args', required=False)
+parser_update.add_argument('longitude', type=str, help='Longitude of location in report', location='args', required=False)
+parser_update.add_argument('latitude', type=str, help='Latitude of location in report', location='args', required=False)
+parser_update.add_argument('number-affected', type=int, help='Number affected', location='args', required=False)
+parser_update.add_argument('comment', type=str, help='Comment', location='args', required=False)
+parser_update.add_argument('date', type=str, help='Date of report', location='args', required=False)
 
 '''
     Arguments for deleting reports
 '''
 parser_delete = parser.copy()
 parser_delete.add_argument('id', type=int, help='ID of report to delete', required=True, location='args')
+
+'''
+    Arguments for fetching singular record
+'''
+parser_fetchSingle = parser.copy()
+parser_fetchSingle.add_argument('id', type=int, help='ID of report to fetch', required=True, location='args')
 
 
 
@@ -213,6 +219,7 @@ class Report(Resource):
     '''
     @api.response(200, 'Success')
     @api.response(400, 'Report not found')
+    @api.doc(parser=parser_fetchSingle)
     def get(self, id):
         '''
             Fetches a singular report
