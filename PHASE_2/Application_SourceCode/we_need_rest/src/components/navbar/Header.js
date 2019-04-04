@@ -51,6 +51,11 @@ class Header extends Component {
                         Contact
                     </li>
                 </Link>
+                <Link to='/view'>
+                    <li className="nav-item" id="view" onClick={()=>this.handleClick(document.getElementById('view'))}>
+                        View
+                    </li>
+                </Link>
             </ul>
         </div>
       );
