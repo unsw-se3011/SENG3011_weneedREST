@@ -4,6 +4,7 @@ import Home from './home/Home';
 import About from './about/About';
 import Contact from './contact/Contact';
 import View from './view/View'
+import Create from './create/Create'
 
 class Main extends Component {
   render() {
@@ -13,6 +14,7 @@ class Main extends Component {
           <Route path='/about' component={About}/>
           <Route path='/contact' component={Contact}/>
           <Route path='/view' component={View}/>
+          <Route path='/create' component={Create}/>
       </Switch>
     );
   }

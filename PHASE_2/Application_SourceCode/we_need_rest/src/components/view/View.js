@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
-import axios from '../../../node_modules/axios';
+import axios from 'axios';
 
 class View extends Component {
     constructor(props){
