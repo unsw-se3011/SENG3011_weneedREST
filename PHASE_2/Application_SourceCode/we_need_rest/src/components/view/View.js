@@ -12,7 +12,8 @@ class View extends Component {
           longitude : undefined,
           key_terms : undefined,
           start_date : undefined,
-          end_date : undefined
+          end_date : undefined,
+          results : undefined
         }
         
         this.updateN = this.updateN.bind(this);
@@ -21,6 +22,7 @@ class View extends Component {
         this.updateKeyTerms = this.updateKeyTerms.bind(this);
         this.updateStartDate = this.updateStartDate.bind(this);
         this.updateEndDate = this.updateEndDate.bind(this);
+        this.updateResults = this.updateResults.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
     }
     updateN(event){
@@ -41,6 +43,9 @@ class View extends Component {
     updateEndDate(event){
         this.setState({ end_date : event.target.value})
     }
+    updateResults(event){
+        this.setState({ results : event.target.value})
+    }
     onSubmit(e) {
         console.log(this.state.n);
         console.log(this.state.latitude);
@@ -60,9 +65,10 @@ class View extends Component {
                 ...(this.state.start_date ? { 'start-date': this.state.start_date } : {}),
                 ...(this.state.end_date ? { 'end-date': this.state.end_date } : {})
             }
-            }).then(res => {
-            console.log(res);
-            console.log(res.data);
+            }).then(response => {
+            console.log(response.data);
+            //  var obj = JSON.parse(response.data);
+            document.getElementById("results").innerHTML = JSON.stringify(response.data);
           });
 
     }
@@ -99,6 +105,9 @@ class View extends Component {
                     </div>
                 </form>
                 <button type="button" onClick={this.onSubmit} className="button">Get</button>
+                <div id="results">
+            
+                </div>
             </div>
         )
     }
