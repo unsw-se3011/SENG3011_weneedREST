@@ -1,0 +1,1127 @@
+{
+	"info": {
+		"_postman_id": "945fcdd6-5582-4a20-8f3b-0e64f4a6bd09",
+		"name": "We Need Rest",
+		"description": "Tests for API.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Report (SUCCESS)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1c8df67b-e6e7-4f8e-9229-5db4b58f51c4",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Correct headline\", function () {",
+							"    pm.response.to.be.ok;",
+							"    pm.expect(pm.response.text()).to.include(\"TANZANIA - Anthrax kills two people in northern Tanzania\");",
+							"});",
+							"pm.test(\"Correct main_text\", function () {",
+							"    pm.response.to.be.ok;",
+							"    pm.expect(pm.response.text()).to.include(\"2 people died and 8 others were hospitalized following an anthrax outbreak...\");",
+							"});",
+							"pm.test(\"Correct disease\", function () {",
+							"    pm.response.to.be.ok;",
+							"    pm.expect(pm.response.text()).to.include(\"death\");",
+							"});",
+							"pm.test(\"Correct event-type\", function () {",
+							"    pm.response.to.be.ok;",
+							"   pm.expect(pm.response.text()).to.include('death');",
+							"});",
+							"pm.test(\"Correct longitude/latitude\", function () {",
+							"    pm.response.to.be.ok;",
+							"    pm.expect(pm.response.text()).to.include(1566083);",
+							"    pm.expect(pm.response.text()).to.include(1231412);",
+							"});",
+							"pm.test(\"Correct number-affected\", function () {",
+							"    pm.response.to.be.ok;",
+							"    pm.expect(pm.response.text()).to.include(2);",
+							"});",
+							"pm.test(\"Correct date\", function () {",
+							"    pm.response.to.be.ok;",
+							"    pm.expect(pm.response.text()).to.include(\"2018-12-01T23:20:00\");",
+							"});",
+							"pm.test(\"Correct url\", function () {",
+							"    pm.response.to.be.ok;",
+							"    pm.expect(pm.response.text()).to.include(\"funnny.com\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "headline",
+							"value": "TANZANIA - Anthrax kills two people in northern Tanzania",
+							"description": "Headline of the event",
+							"type": "text"
+						},
+						{
+							"key": "main_text",
+							"value": "2 people died and 8 others were hospitalized following an anthrax outbreak...",
+							"description": "Description about the event",
+							"type": "text"
+						},
+						{
+							"key": "disease",
+							"value": "death",
+							"description": "Comma separated list of diseases",
+							"type": "text"
+						},
+						{
+							"key": "syndrome",
+							"value": "",
+							"description": "Comma separated list of syndroms",
+							"type": "text"
+						},
+						{
+							"key": "type",
+							"value": "death",
+							"description": "The type of event e.g death, infected",
+							"type": "text"
+						},
+						{
+							"key": "location-ID",
+							"value": "1566083",
+							"description": "Geonames ID of location",
+							"type": "text"
+						},
+						{
+							"key": "number-affected",
+							"value": "2",
+							"description": "Number of people affected",
+							"type": "text"
+						},
+						{
+							"key": "comment",
+							"value": "",
+							"description": "Extra comment about the event",
+							"type": "text"
+						},
+						{
+							"key": "start-date",
+							"value": "2018-12-01T23:20:00",
+							"description": "start date of date range (yyyy-mm-ddThh:mm:ss)",
+							"type": "text"
+						},
+						{
+							"key": "end-date",
+							"value": "2018-12-10T23:50:00",
+							"description": "end date of date range (yyyy-mm-ddThh:mm:ss)",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/reports/?headline=TANZANIA - Anthrax kills two people in northern Tanzania&main_text=2 people died and 8 others were hospitalized following an anthrax outbreak...&disease=death&type=death&longitude=1566083&number-affected=2&date=2018-12-10T23:50:00&syndrome&comment&url=funnny.com&date_of_publication=2018-12-01T23:20:00&latitude=1231412",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"reports",
+						""
+					],
+					"query": [
+						{
+							"key": "headline",
+							"value": "TANZANIA - Anthrax kills two people in northern Tanzania"
+						},
+						{
+							"key": "main_text",
+							"value": "2 people died and 8 others were hospitalized following an anthrax outbreak..."
+						},
+						{
+							"key": "disease",
+							"value": "death"
+						},
+						{
+							"key": "type",
+							"value": "death"
+						},
+						{
+							"key": "longitude",
+							"value": "1566083"
+						},
+						{
+							"key": "number-affected",
+							"value": "2"
+						},
+						{
+							"key": "date",
+							"value": "2018-12-10T23:50:00"
+						},
+						{
+							"key": "syndrome",
+							"value": null
+						},
+						{
+							"key": "comment",
+							"value": null
+						},
+						{
+							"key": "url",
+							"value": "funnny.com"
+						},
+						{
+							"key": "date_of_publication",
+							"value": "2018-12-01T23:20:00"
+						},
+						{
+							"key": "latitude",
+							"value": "1231412"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Report (FAIL) Missing param",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1c8df67b-e6e7-4f8e-9229-5db4b58f51c4",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"comma separated list of diseases Missing required parameter in the query string\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "headline",
+							"value": "TANZANIA - Anthrax kills two people in northern Tanzania",
+							"description": "Headline of the event",
+							"type": "text"
+						},
+						{
+							"key": "main_text",
+							"value": "2 people died and 8 others were hospitalized following an anthrax outbreak...",
+							"description": "Description about the event",
+							"type": "text"
+						},
+						{
+							"key": "disease",
+							"value": "death",
+							"description": "Comma separated list of diseases",
+							"type": "text"
+						},
+						{
+							"key": "syndrome",
+							"value": "",
+							"description": "Comma separated list of syndroms",
+							"type": "text"
+						},
+						{
+							"key": "type",
+							"value": "death",
+							"description": "The type of event e.g death, infected",
+							"type": "text"
+						},
+						{
+							"key": "location-ID",
+							"value": "1566083",
+							"description": "Geonames ID of location",
+							"type": "text"
+						},
+						{
+							"key": "number-affected",
+							"value": "2",
+							"description": "Number of people affected",
+							"type": "text"
+						},
+						{
+							"key": "comment",
+							"value": "",
+							"description": "Extra comment about the event",
+							"type": "text"
+						},
+						{
+							"key": "start-date",
+							"value": "2018-12-01T23:20:00",
+							"description": "start date of date range (yyyy-mm-ddThh:mm:ss)",
+							"type": "text"
+						},
+						{
+							"key": "end-date",
+							"value": "2018-12-10T23:50:00",
+							"description": "end date of date range (yyyy-mm-ddThh:mm:ss)",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/reports/?headline=TANZANIA - Anthrax kills two people in northern Tanzania&main_text=2 people died and 8 others were hospitalized following an anthrax outbreak...&type=death&longitude=1566083&number-affected=2&date=2018-12-10T23:50:00&syndrome&comment&url=funnny.com&date_of_publication=2018-12-01T23:20:00&latitude=1231412",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"reports",
+						""
+					],
+					"query": [
+						{
+							"key": "headline",
+							"value": "TANZANIA - Anthrax kills two people in northern Tanzania"
+						},
+						{
+							"key": "main_text",
+							"value": "2 people died and 8 others were hospitalized following an anthrax outbreak..."
+						},
+						{
+							"key": "disease",
+							"value": "death",
+							"disabled": true
+						},
+						{
+							"key": "type",
+							"value": "death"
+						},
+						{
+							"key": "longitude",
+							"value": "1566083"
+						},
+						{
+							"key": "number-affected",
+							"value": "2"
+						},
+						{
+							"key": "date",
+							"value": "2018-12-10T23:50:00"
+						},
+						{
+							"key": "syndrome",
+							"value": null
+						},
+						{
+							"key": "comment",
+							"value": null
+						},
+						{
+							"key": "url",
+							"value": "funnny.com"
+						},
+						{
+							"key": "date_of_publication",
+							"value": "2018-12-01T23:20:00"
+						},
+						{
+							"key": "latitude",
+							"value": "1231412"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Report (FAIL) Invalid param",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1c8df67b-e6e7-4f8e-9229-5db4b58f51c4",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"number of people affected invalid literal for int() with base 10: 'Two'\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "headline",
+							"value": "TANZANIA - Anthrax kills two people in northern Tanzania",
+							"description": "Headline of the event",
+							"type": "text"
+						},
+						{
+							"key": "main_text",
+							"value": "2 people died and 8 others were hospitalized following an anthrax outbreak...",
+							"description": "Description about the event",
+							"type": "text"
+						},
+						{
+							"key": "disease",
+							"value": "death",
+							"description": "Comma separated list of diseases",
+							"type": "text"
+						},
+						{
+							"key": "syndrome",
+							"value": "",
+							"description": "Comma separated list of syndroms",
+							"type": "text"
+						},
+						{
+							"key": "type",
+							"value": "death",
+							"description": "The type of event e.g death, infected",
+							"type": "text"
+						},
+						{
+							"key": "location-ID",
+							"value": "1566083",
+							"description": "Geonames ID of location",
+							"type": "text"
+						},
+						{
+							"key": "number-affected",
+							"value": "2",
+							"description": "Number of people affected",
+							"type": "text"
+						},
+						{
+							"key": "comment",
+							"value": "",
+							"description": "Extra comment about the event",
+							"type": "text"
+						},
+						{
+							"key": "start-date",
+							"value": "2018-12-01T23:20:00",
+							"description": "start date of date range (yyyy-mm-ddThh:mm:ss)",
+							"type": "text"
+						},
+						{
+							"key": "end-date",
+							"value": "2018-12-10T23:50:00",
+							"description": "end date of date range (yyyy-mm-ddThh:mm:ss)",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/reports/?headline=TANZANIA - Anthrax kills two people in northern Tanzania&main_text=2 people died and 8 others were hospitalized following an anthrax outbreak...&disease=death&type=death&longitude=1566083&number-affected=Two&date=2018-12-10T23:50:00&syndrome&comment&url=funnny.com&date_of_publication=2018-12-01T23:20:00&latitude=1231412",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"reports",
+						""
+					],
+					"query": [
+						{
+							"key": "headline",
+							"value": "TANZANIA - Anthrax kills two people in northern Tanzania"
+						},
+						{
+							"key": "main_text",
+							"value": "2 people died and 8 others were hospitalized following an anthrax outbreak..."
+						},
+						{
+							"key": "disease",
+							"value": "death"
+						},
+						{
+							"key": "type",
+							"value": "death"
+						},
+						{
+							"key": "longitude",
+							"value": "1566083"
+						},
+						{
+							"key": "number-affected",
+							"value": "Two"
+						},
+						{
+							"key": "date",
+							"value": "2018-12-10T23:50:00"
+						},
+						{
+							"key": "syndrome",
+							"value": null
+						},
+						{
+							"key": "comment",
+							"value": null
+						},
+						{
+							"key": "url",
+							"value": "funnny.com"
+						},
+						{
+							"key": "date_of_publication",
+							"value": "2018-12-01T23:20:00"
+						},
+						{
+							"key": "latitude",
+							"value": "1231412"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete report (SUCCESS)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c14987b7-dd67-4762-a509-720149b0697d",
+						"exec": [
+							"//Ensure server is refreshed before running test",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Deleted report\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"deleted report \");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "00e16dee-f999-4333-9de4-c7fae0c9c166",
+						"exec": [
+							"//CHECK THAT REPORT IS ALREADY IN SYSTEM BEFORE DELETING",
+							"//Informally handled by ensuring \"deleting report \" appears in response",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{host}}/reports/33",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"reports",
+						"33"
+					]
+				},
+				"description": "delete report."
+			},
+			"response": [
+				{
+					"name": "Delete User",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/users/ashish/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users",
+								"ashish",
+								""
+							]
+						}
+					},
+					"status": "NO CONTENT",
+					"code": 204,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "48"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/0.14.1 Python/3.6.5"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 23 Nov 2018 19:50:27 GMT"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Delete report (FAIL) Report doesn't exist",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c14987b7-dd67-4762-a509-720149b0697d",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"//EDIT THIS LATER TO REFLECT APPROPRIATE ERROR",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"No report to be found\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "00e16dee-f999-4333-9de4-c7fae0c9c166",
+						"exec": [
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{host}}/reports/31114",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"reports",
+						"31114"
+					]
+				},
+				"description": "delete report."
+			},
+			"response": [
+				{
+					"name": "Delete User",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/users/ashish/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users",
+								"ashish",
+								""
+							]
+						}
+					},
+					"status": "NO CONTENT",
+					"code": 204,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "48"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/0.14.1 Python/3.6.5"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 23 Nov 2018 19:50:27 GMT"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Get reports (SUCCESS)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8776c332-48d6-45ec-ab33-afd74a196c5a",
+						"exec": [
+							"pm.test(\"Lookup for disease\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"disease\");",
+							"});",
+							"pm.test(\"Lookup for date\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"date\");",
+							"});",
+							"pm.test(\"Lookup for location\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"location\");",
+							"});",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{host}}/reports/?n=5&location=1566083&key_terms=death, hello&date=2018-12-07",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"reports",
+						""
+					],
+					"query": [
+						{
+							"key": "n",
+							"value": "5",
+							"description": "Number of results returned"
+						},
+						{
+							"key": "location",
+							"value": "1566083",
+							"description": "Geocode of area affected"
+						},
+						{
+							"key": "key_terms",
+							"value": "death, hello",
+							"description": "Comma separated list of of all key items requested by user"
+						},
+						{
+							"key": "date",
+							"value": "2018-12-07",
+							"description": "Date in either date_exact or date_range format"
+						}
+					]
+				},
+				"description": "fetch user's reports."
+			},
+			"response": []
+		},
+		{
+			"name": "Get Reports (FAIL) Invalid param",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8776c332-48d6-45ec-ab33-afd74a196c5a",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});",
+							"",
+							"var nReports = pm.environment.get(\"n\");",
+							"var validLocation = pm.environment.get(\"location\");",
+							"var validDate = pm.environment.get(\"date\");",
+							"var exact_date = /^(\\d{4})-(\\d{2})-(\\d{2})T(\\d{2}):(\\d{2}):(\\d{2})$/;",
+							"var date_range = /^(\\d{4})-(\\d{2})-(\\d{2})$/;",
+							"",
+							"pm.test(\"Invalid parameter check\", function () {",
+							"    if (nReports > 100) {",
+							"        //message will change depending on implemented error message",
+							"        pm.expect(pm.response.text()).to.include(\"n Out of Bounds\");",
+							"    } else if (Number.isInteger(validDate) === false|| (exact_date.test(validDate) === false && date_range.test(validDate) === false)) {",
+							"        pm.expect(pm.response.text()).to.include(\"Invalid start-date\");",
+							"    }",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{host}}/reports/?n=1&location=Greece&key_terms=death, hello&start-date=2018-12-07",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"reports",
+						""
+					],
+					"query": [
+						{
+							"key": "n",
+							"value": "1",
+							"description": "Number of results returned"
+						},
+						{
+							"key": "location",
+							"value": "Greece",
+							"description": "Geocode of area affected"
+						},
+						{
+							"key": "key_terms",
+							"value": "death, hello",
+							"description": "Comma separated list of of all key items requested by user"
+						},
+						{
+							"key": "start-date",
+							"value": "2018-12-07",
+							"description": "Date in either date_exact or date_range format"
+						}
+					]
+				},
+				"description": "FAIL get report"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Report (SUCCESS)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a927bec7-751b-4758-a252-b975fb15cd61",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response has id\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"\\\"id\\\": 5\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{host}}/reports/5",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"reports",
+						"5"
+					]
+				},
+				"description": "Update a report based on form data"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Report (FAIL) Missing/invalid id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "476ede71-d77b-4467-a4fe-9db44541af36",
+						"exec": [
+							"pm.test(\"Status code is 405\", function () {",
+							"    pm.response.to.have.status(405);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{host}}/reports/?",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"reports",
+						""
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "5",
+							"description": "ID of report to be posted",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Report (FAIL) Report not found",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "04ef1194-532f-4433-a2d9-4689a2c811f4",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"pm.test(\"Report not found\", ()=>{",
+							"    pm.expect(pm.response.text()).to.include(\"Report not found\");",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{host}}/reports/10000000000000000",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"reports",
+						"10000000000000000"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Report (FAIL) Invalid data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "12cd8832-a290-4f14-a56a-5221eb4f741c",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});",
+							"",
+							"var validLocation = pm.environment.get(\"geonames-id\");",
+							"var startDate = pm.environment.get(\"start-date\");",
+							"var exact_date = /^(\\d{4})-(\\d{2})-(\\d{2})T(\\d{2}):(\\d{2}):(\\d{2})$/;",
+							"var date_range = /^(\\d{4})-(\\d{2})-(\\d{2})$/;",
+							"",
+							"pm.test(\"Invalid parameter check\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Invalid date\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{host}}/reports/5?headline=change&main_text =2 people died and 8 others were hospitalized following an anthrax outbreak...&disease=Anthrax&type=infected&geonames-id=1566083&date=2018-12-07",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"reports",
+						"5"
+					],
+					"query": [
+						{
+							"key": "headline",
+							"value": "change"
+						},
+						{
+							"key": "main_text ",
+							"value": "2 people died and 8 others were hospitalized following an anthrax outbreak..."
+						},
+						{
+							"key": "disease",
+							"value": "Anthrax"
+						},
+						{
+							"key": "type",
+							"value": "infected"
+						},
+						{
+							"key": "geonames-id",
+							"value": "1566083"
+						},
+						{
+							"key": "date",
+							"value": "2018-12-07"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "799bf90e-0044-4e1e-94f0-238fef3e1ccf",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "6b61a896-7d35-4c2e-8b94-78732355baed",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "1bca0a86-88e8-46f4-a6da-cf7f11097d39",
+			"key": "host",
+			"value": "http://127.0.0.1:8080",
+			"type": "string"
+		},
+		{
+			"id": "0e7c7636-4fe1-40c5-a5ea-811e5044859e",
+			"key": "server",
+			"value": "http://46.101.226.130:5000",
+			"type": "string"
+		}
+	]
+}

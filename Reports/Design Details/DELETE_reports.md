@@ -2,7 +2,7 @@
 
 Usage
 ```
-   DELETE /delete
+   DELETE /report/{id}
 ```
 ## Description
 Deletes a report with the corresponding ID
@@ -15,8 +15,7 @@ Deletes a report with the corresponding ID
 | Code | Description |
 | ---- | ---------- |
 | 200  | Successful |
-| 400  | Invalid ID |
-| 404  | Report not found |
+| 400  | Report Not Found |
 
 ## Return Format
 Returns JSON data which contain the following keys:
@@ -26,7 +25,7 @@ Returns JSON data which contain the following keys:
 
 ### Request
 ```
-   curl -X DELETE "http://104.248.30.17:5000/delete?id=5" -H  "accept: application/json"
+   curl -X DELETE "http://104.248.30.17:5000/reports/5" -H  "accept: application/json"
 ```
 ### Response
 #### Snippet of the response ####

@@ -2,7 +2,7 @@
 
 Usage
 ```
-   POST /createReports
+   POST /reports/?{parms}
 ```
 ## Description
 Creates a new report with the corresponding ID
@@ -25,13 +25,13 @@ Creates a new report with the corresponding ID
 | Code | Description |
 | ---- | ---------- |
 | 200  | Successful |
-| 405  | Invalid data |
+| 404  | Invalid data |
 
 ## Example
 
 ### Request
 ```
-   curl -X POST "http://104.248.30.17:5000/createReport?headline=headline&main_text=main_text&disease=disease&type=type&geonames-id=1234567&number-affected=55&start-date=2019-08-12&end-date=2019-08-19" -H  "accept: application/json"
+   curl -X POST "http://104.248.30.17:5000/reports/?headline=headline&main_text=main_text&disease=disease&type=type&geonames-id=1234567&number-affected=55&start-date=2019-08-12&end-date=2019-08-19" -H  "accept: application/json"
 ```
 ### Response
 #### Snippet of the response ####

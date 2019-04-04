@@ -105,6 +105,7 @@ with open('rawData.txt',"r") as f:
         event['url'] = event.pop('URL')
         event['headline'] = event.pop('TipText')
         event['main_text'] = event.pop('Description')
+        event['comment'] = "None"
 
 
     with open('raw.json',"w") as f:
