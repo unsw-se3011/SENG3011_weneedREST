@@ -12,8 +12,7 @@ class View extends Component {
           longitude : undefined,
           key_terms : undefined,
           start_date : undefined,
-          end_date : undefined,
-          results : undefined
+          end_date : undefined
         }
         
         this.updateN = this.updateN.bind(this);
@@ -22,7 +21,6 @@ class View extends Component {
         this.updateKeyTerms = this.updateKeyTerms.bind(this);
         this.updateStartDate = this.updateStartDate.bind(this);
         this.updateEndDate = this.updateEndDate.bind(this);
-        this.updateResults = this.updateResults.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
     }
     updateN(event){
@@ -42,9 +40,6 @@ class View extends Component {
     }
     updateEndDate(event){
         this.setState({ end_date : event.target.value})
-    }
-    updateResults(event){
-        this.setState({ results : event.target.value})
     }
     onSubmit(e) {
         console.log(this.state.n);
