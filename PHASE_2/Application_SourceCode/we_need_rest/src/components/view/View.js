@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
+import axios from '../../../node_modules/axios';
 
 class View extends Component {
     constructor(props){
@@ -47,6 +48,22 @@ class View extends Component {
         console.log(this.state.key_terms);
         console.log(this.state.start_date);
         console.log(this.state.end_date);
+        axios({
+            method : 'get',
+            url: "http://46.101.226.130:5000/reports/",
+            responseType: 'json',
+            params: {
+                ...(this.state.n ? { n: this.state.n } : {}),
+                ...(this.state.latitude ? { latitude: this.state.latitude } : {}),
+                ...(this.state.longitude ? { longitude: this.state.longitude } : {}),
+                ...(this.state.key_terms ? { key_terms: this.state.key_terms } : {}),
+                ...(this.state.start_date ? { 'start-date': this.state.start_date } : {}),
+                ...(this.state.end_date ? { 'end-date': this.state.end_date } : {})
+            }
+            }).then(res => {
+            console.log(res);
+            console.log(res.data);
+          });
 
     }
     render() {
@@ -83,7 +100,6 @@ class View extends Component {
                 </form>
                 <button type="button" onClick={this.onSubmit} className="button">Get</button>
             </div>
-            //{/* {n, latitude, longitude, key terms, start date, end date} */}
         )
     }
 }
