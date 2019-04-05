@@ -3,10 +3,6 @@ import { Link } from 'react-router-dom'
 import './Header.css'
 
 class Header extends Component {
-    constructor(props) {
-        super(props);
-    }
-    
     componentDidMount() {
         let url = window.location.href;
         

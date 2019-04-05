@@ -60,7 +60,7 @@ class View extends Component {
                 ...(this.state.end_date ? { 'end-date': this.state.end_date } : {})
             }
             }).then(response => {
-            console.log(response.data);
+            console.log(response);
             //  var obj = JSON.parse(response.data);
             document.getElementById("results").innerHTML = JSON.stringify(response.data);
           });
@@ -73,29 +73,29 @@ class View extends Component {
                     <h1>View Reports</h1>
                 </center>
                 <form className="n">
-                    <div class="number">
-                            <p class="text-dark">Number of Reports</p>
-                            <input id = "idn" name="title" onChange={this.updateN} type="text" class="form-control" placeholder="e.g. 7" />
+                    <div className="number">
+                            <p className="text-dark">Number of Reports</p>
+                            <input id = "idn" name="title" onChange={this.updateN} type="text" className="form-control" placeholder="e.g. 7" />
                     </div>
-                    <div class="lat">
-                            <p class="text-dark">Latitude</p>
-                            <input id = "idLat" name="title" onChange={this.updateLatitude} type="text" class="form-control" placeholder="e.g. 211442" />
+                    <div className="lat">
+                            <p className="text-dark">Latitude</p>
+                            <input id = "idLat" name="title" onChange={this.updateLatitude} type="text" className="form-control" placeholder="e.g. 211442" />
                     </div>
-                    <div class="lon">
-                            <p class="text-dark">Longitude</p>
-                            <input id = "idLon" name="title" onChange={this.updateLongitude} type="text" class="form-control" placeholder="e.g. 211442" />
+                    <div className="lon">
+                            <p className="text-dark">Longitude</p>
+                            <input id = "idLon" name="title" onChange={this.updateLongitude} type="text" className="form-control" placeholder="e.g. 211442" />
                     </div>
-                    <div class="terms">
-                            <p class="text-dark">Key Terms</p>
-                            <input id = "idTerms" name="title" onChange={this.updateKeyTerms} type="text" class="form-control" placeholder="e.g. Malaria, Zika" />
+                    <div className="terms">
+                            <p className="text-dark">Key Terms</p>
+                            <input id = "idTerms" name="title" onChange={this.updateKeyTerms} type="text" className="form-control" placeholder="e.g. Malaria, Zika" />
                     </div>
-                    <div class="start">
-                            <p class="text-dark">From Date/Time:</p>
-                            <input id = "idStart" name="title" onChange={this.updateStartDate} type="text" class="form-control" placeholder="e.g. 2018-12-10T23:50:00" />
+                    <div className="start">
+                            <p className="text-dark">From Date/Time:</p>
+                            <input id = "idStart" name="title" onChange={this.updateStartDate} type="text" className="form-control" placeholder="e.g. 2018-12-10T23:50:00" />
                     </div>
-                    <div class="end">
-                            <p class="text-dark">To Date/Time:</p>
-                            <input id = "idEnd" name="title" onChange={this.updateEndDate} type="text" class="form-control" placeholder="e.g. 2018-12-10T23:50:00" />
+                    <div className="end">
+                            <p className="text-dark">To Date/Time:</p>
+                            <input id = "idEnd" name="title" onChange={this.updateEndDate} type="text" className="form-control" placeholder="e.g. 2018-12-10T23:50:00" />
                     </div>
                 </form>
                 <button type="button" onClick={this.onSubmit} className="button">Get</button>
