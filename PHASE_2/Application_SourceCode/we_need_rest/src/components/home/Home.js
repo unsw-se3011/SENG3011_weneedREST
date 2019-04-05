@@ -7,10 +7,7 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <BackgroundImage id="bg">
-          <h1 class="title">Welcome to our Website</h1>
-          <img id="img" src={computer} alt=""/>
-        </BackgroundImage>
+          <h1 class="title">Sleepy API</h1>
       </div>
     );
   }
