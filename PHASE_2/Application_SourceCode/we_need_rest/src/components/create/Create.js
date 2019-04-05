@@ -90,8 +90,8 @@ class Create extends Component {
             params: {
                 url: this.state.url,
                 date_of_publication: this.state.date_pub,
-                headline: this.state.headline.replace(/' '/g,"+"),
-                main_text: this.state.main_text.replace(/' '/g, '+'),
+                headline: this.state.headline,
+                main_text: this.state.main_text,
                 disease: this.state.disease,
                 ...(this.state.syndrome ? { syndrome: this.state.syndrome } : {}),
                 type: this.state.type,
