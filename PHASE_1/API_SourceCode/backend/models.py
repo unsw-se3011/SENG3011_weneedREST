@@ -1,4 +1,5 @@
 from flask_restplus import Resource, Api, reqparse, fields, marshal
+import re
 
 class ToNumber(fields.Raw):
     def format(self, value):
@@ -11,6 +12,10 @@ class ToList(fields.Raw):
             return value
 
         return list( map( lambda x : x.strip(), value.split(',') ) )
+
+class ReplacePlus(fields.Raw):
+    def format(self, value):
+        return re.sub(r'\+', ' ', value)
 
 location_model = {
     'latitude': fields.Float(), 
@@ -27,7 +32,7 @@ event_model = {
 report_model = {
     'disease': ToList(), 
     'syndrome': ToList(), 
-    'comment': fields.String, 
+    'comment': ReplacePlus, 
     'reported_events': event_model
 }
 
@@ -35,7 +40,7 @@ nested_article_model = {
     'id': fields.Integer,
     'url': fields.String(), 
     'date_of_publication': fields.String, 
-    'headline': fields.String(), 
-    'main_text': fields.String(), 
+    'headline': ReplacePlus, 
+    'main_text': ReplacePlus, 
     'reports': report_model
 }

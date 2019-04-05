@@ -15,19 +15,22 @@ We have also chosen to use **DigitalOcean** to host the API for the web service 
 
 #### API Endpoints
 *Return all reports currently in collection*
-- **[<code>GET</code> /getAllReports](https://github.com/unsw-se3011/SENG3011_weneedREST/blob/documentation/Reports/Design%20Details/GET_reports_query.md)** 
+- **[<code>GET</code> /reports/](https://github.com/unsw-se3011/SENG3011_weneedREST/blob/documentation/Reports/Design%20Details/GET_reports_all.md)** 
 
-*Find all reports matching the query values*
-- **[<code>GET</code> /searchReports](https://github.com/unsw-se3011/SENG3011_weneedREST/blob/documentation/Reports/Design%20Details/GET_reports_query.md)** 
+*Filter reports*
+- **[<code>GET</code> /reports/?{parms}...](https://github.com/unsw-se3011/SENG3011_weneedREST/blob/documentation/Reports/Design%20Details/GET_reports_filter.md)** 
+
+*Fetch a singular report*
+* **[<code>GET</code> /reports/{id}](https://github.com/unsw-se3011/SENG3011_weneedREST/blob/documentation/Reports/Design%20Details/GET_report.md)**
 
 *Deletes a report*
-- **[<code>DELETE</code> /delete](https://github.com/unsw-se3011/SENG3011_weneedREST/blob/documentation/Reports/Design%20Details/DELETE_reports.md)**
+- **[<code>DELETE</code> /reports/{id}](https://github.com/unsw-se3011/SENG3011_weneedREST/blob/documentation/Reports/Design%20Details/DELETE_reports.md)**
 
 *Updates an existing report with form data*
-- **[<code>POST</code> /createReport](https://github.com/unsw-se3011/SENG3011_weneedREST/blob/documentation/Reports/Design%20Details/POST_reports.md)**
+- **[<code>POST</code> /reports/?{params}](https://github.com/unsw-se3011/SENG3011_weneedREST/blob/documentation/Reports/Design%20Details/POST_reports.md)**
 
 *Updates an existing report*
-- **[<code>PUT</code> /updateReport](https://github.com/unsw-se3011/SENG3011_weneedREST/blob/documentation/Reports/Design%20Details/PUT_reports.md)**
+- **[<code>PUT</code> /reports/{id}](https://github.com/unsw-se3011/SENG3011_weneedREST/blob/documentation/Reports/Design%20Details/PUT_reports.md)**
 
 
 ### 3. Present and justify implementation language,	development	and	deployment environment (e.g. Linux,	Windows) and specific	libraries	that you plan to use.
