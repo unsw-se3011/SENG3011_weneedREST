@@ -65,19 +65,6 @@ parser_update.add_argument('number-affected', type=int, help='Number affected', 
 parser_update.add_argument('comment', type=str, help='Comment', location='args', required=False)
 parser_update.add_argument('date', type=str, help='Date of report', location='args', required=False)
 
-'''
-    Arguments for deleting reports
-'''
-parser_delete = parser.copy()
-parser_delete.add_argument('id', type=int, help='ID of report to delete', required=True, location='args')
-
-'''
-    Arguments for fetching singular record
-'''
-parser_fetchSingle = parser.copy()
-parser_fetchSingle.add_argument('id', type=int, help='ID of report to fetch', required=True, location='args')
-
-
 
 # API ENDPOINT FUNCTIONS
 
@@ -219,7 +206,6 @@ class Report(Resource):
     '''
     @api.response(200, 'Success')
     @api.response(400, 'Report not found')
-    @api.doc(parser=parser_fetchSingle)
     def get(self, id):
         '''
             Fetches a singular report
@@ -232,7 +218,6 @@ class Report(Resource):
 
     @api.response(200, 'Success')
     @api.response(400, 'Report not found')
-    @api.doc(parser=parser_delete)
     def delete(self, id):   
         '''
             Deletes a report
