@@ -15,7 +15,7 @@ class ToList(fields.Raw):
 
 class ReplacePlus(fields.Raw):
     def format(self, value):
-        return re.sub(r'\+', ' ', value)
+        return re.sub(r'%20', ' ', re.sub(r'[\+]', ' ', value) )
 
 location_model = {
     'latitude': fields.Float(), 
