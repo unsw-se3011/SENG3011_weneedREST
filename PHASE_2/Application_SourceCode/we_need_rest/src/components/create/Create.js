@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import styled from 'styled-components';
 import axios from '../../../node_modules/axios';
 
 class Create extends Component {
@@ -81,8 +80,6 @@ class Create extends Component {
         this.setState({ date : event.target.value})
     }
     onSubmit(e) {
-        //var array1 = this.state.headline.split(' ');
-        //var urlCustom = "http://46.101.226.130:5000/reports/?url=" + this.state.url +"&date_of_publication=" + this.state.date_pub + "&headline=" + this.state.headline + "&main_text=" + this.state.main_text + "&disease=" + this.state.disease + "&syndrome=" + this.state.syndrome +"&type=" + this.state.type +"&latitude=" + this.state.latitude +"&longitude=" + this.state.longitude +"&number-affected=" + this.state.n_affected +"&comment=" + this.state.comment +"&date=" + this.state.date;
         axios({
             method : 'post',
             url: "http://46.101.226.130:5000/reports/",
@@ -100,15 +97,9 @@ class Create extends Component {
                 'number-affected': this.state.n_affected,
                 ...(this.state.comment ? { comment: this.state.comment } : {}),
                 date: this.state.date
-            },
-            // paramsSerializer: function(params) {
-            //     var result = this.state.main_text;
-            //     // Build the query string 
-            //     return result;
-            // }
+            }
             }).then(response => {
             console.log(response.data);
-            //  var obj = JSON.parse(response.data);
             document.getElementById("results").innerHTML = JSON.stringify(response.data);
           });
     }
@@ -137,7 +128,7 @@ class Create extends Component {
                     </div>
                     <div class="disease">
                             <p class="text-dark">Disease</p>
-                            <input id = "idDisease" onChange={this.updateDiseasee} type="text" class="form-control" placeholder="e.g. Anthrax" />
+                            <input id = "idDisease" onChange={this.updateDisease} type="text" class="form-control" placeholder="e.g. Anthrax" />
                     </div>
                     <div class="syndrome">
                             <p class="text-dark">Syndrome</p>
