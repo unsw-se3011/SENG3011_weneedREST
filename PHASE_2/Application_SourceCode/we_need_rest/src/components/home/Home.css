@@ -14,12 +14,19 @@
 
 #modal {
     margin: 0 20%;
-    display: none;
 }
+
+.closed {
+    display: none;
+}  
 
 .form-inline {
     margin: 10px 0;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.results ul li {
+    list-style-type: none;
 }
