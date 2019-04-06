@@ -7,9 +7,9 @@ Since we will be using **GitHub** for our project, tasks relating to functionali
 
 Additionally, we communicate regularly via **Facebook Messenger** to discuss our next steps and update each other on our progress. We also have weekly in-person meetings separate to our mentoring sessions which occur immediately after our mentoring timeslot, specifically Wednesday 10:20 am-12:00 pm. In this time, we work together on any tasks from the week before that have yet to be completed, and try to get a headstart on the workload for the week ahead. The meetings function as an impromptu stand-up meeting, where we are able to make sure everyone is on the same page, perform a quick demo of our current progress and clarify any questions/concerns that any members might have.
 
-**Slack** is also used as a project management tool. Slack allows the team to have a collaborative messaging space for discussing ideas and issues in the project, but also allows us to have separate chats regarding front-end and back-end development. It means that ideas and potential fixes for bugs aren't lost in a large chat and are better directed at the members who will handle them.
-
 We also take the time to collectively look at the Kanban board we have on the Github Projects page in order to see if there is a big backlog that needs attention. Other small meetings can also be held during the week, usually on a Monday or Friday, if the team feels there is a need for some extra group collaboration or there is something the group needs to work out in person.
+
+**Slack** is also used as a project management tool. Slack allows the team to have a collaborative messaging space for discussing ideas and issues in the project, but also allows us to have separate chats regarding front-end and back-end development. It means that ideas and potential fixes for bugs aren't lost in a large chat and are better directed at the members who will handle them.
 
 ### Roles and Responsibilities
 #### Meet the team
