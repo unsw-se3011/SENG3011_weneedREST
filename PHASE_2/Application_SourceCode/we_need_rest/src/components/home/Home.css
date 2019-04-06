@@ -11,3 +11,15 @@
     justify-content: center;
     align-items: center;
 }
+
+#modal {
+    margin: 0 20%;
+    display: none;
+}
+
+.form-inline {
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
