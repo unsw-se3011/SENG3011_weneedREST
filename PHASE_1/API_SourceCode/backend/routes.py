@@ -5,9 +5,12 @@ from datetime import datetime
 import models
 from helper import *
 from werkzeug.contrib.fixers import ProxyFix
+from flask_cors import CORS
+
 
 app = Flask(__name__)
 app.wsgi_app = ProxyFix(app.wsgi_app)
+cors = CORS(app, resources={r"*": {"origins": "*"}})
 api = Api(app, version='1.0', title='Disease report API',
     description='A simple Disease Report API',
 )
