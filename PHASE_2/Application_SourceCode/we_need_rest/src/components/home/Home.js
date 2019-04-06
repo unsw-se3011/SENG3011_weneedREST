@@ -26,10 +26,10 @@ function Modal(props) {
 
   return (
     <div id="modal" className="closed">
-      <form className="form">
+      <form id="modal-form" className="form">
         { search_params.map(search_param => input(search_param)) }
+        <button type="submit" className="btn btn-primary">Search</button>
       </form>
-      <button type="submit" className="btn btn-primary">Search</button>
     </div>
   );
 }
@@ -80,17 +80,58 @@ class Home extends Component {
   }
 
   componentDidMount() {
+    // Add event listeners for the modal
     var modal = document.querySelector("#modal");
     var openButton = document.querySelector("#open-button");
+
+    openButton.addEventListener("click", function() {
+      modal.classList.toggle("closed");
+    });
+
+    //add event listers for the search params
+    let search_params = Object.keys(this.state).filter(x => x!=='response');
+    search_params.forEach( param => {
+      let elem = document.querySelector('#'+param);
+      let obj = {};
+      obj[param] = elem.value;
+      elem.addEventListener("input", ()=>{
+        obj[param] = elem.value;
+        this.setState(obj)
+        console.log(obj)
+      })
+    });
+
+    //add event listener to form
+    let form = document.querySelector('#modal-form')
+    form.addEventListener('submit', this.handleSubmit)
 
     axios.get('http://46.101.226.130:5000/reports/')
       .then(res => {
         this.setState({response: res})
       })
+  }
 
-    openButton.addEventListener("click", function() {
-      modal.classList.toggle("closed");
-    });
+  handleSubmit = event => {
+    event.preventDefault();
+
+    const params = {
+      n : this.state.n,
+      latitude : this.state.latitude,
+      longitude : this.state.longitude,
+      key_terms : this.state.key_terms,
+      start_date : this.state.start_date,
+      end_date : this.state.end_date
+    }
+
+    //Deletes null fields
+    Object.keys(params).forEach((key) => (params[key] === undefined) && delete params[key]);
+
+    console.log(params)
+
+    axios.get('http://46.101.226.130:5000/reports/', {params})
+      .then(res => {
+        this.setState({response: res})
+      })
   }
 
   render() {
@@ -112,40 +153,5 @@ class Home extends Component {
     );
   }
 }
-
-const ButtonSearchBar = styled.div`
-  border-radius: 100%;
-  width: 20px;
-  height: 20px;
-  background: blue;
-`
-
-const SearchbarWrapper = styled.div`
-  padding: 10px;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-items: center;
-  background: red;
-`
-
-const SearchInput = styled.input`
-  border:none;
-  margin-right: 30px;
-  background-image:none;
-  background-color: red;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-`
-  
-{/* // <form className="form-inline">
-//   <SearchbarWrapper className="form-control">
-//     <SearchInput id="searchBar" type="search" placeholder="Search" aria-label="Search"/>
-//     <ButtonSearchBar />
-//   </SearchbarWrapper>
-//   <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-// </form> */}
 
 export default Home;
