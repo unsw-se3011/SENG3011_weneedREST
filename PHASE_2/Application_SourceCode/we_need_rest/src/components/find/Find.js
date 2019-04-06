@@ -115,23 +115,26 @@ class Find extends Component {
 
     }
     onSubmitUpdate(e) {
+        console.log(this.state.repId);
+        console.log(this.state.headline);
         axios({
             method : 'put',
-            url: "http://46.101.226.130:5000/reports/",
+            url: "http://46.101.226.130:5000/reports/" + this.state.repId,
             responseType: 'json',
             params: {
-                url: this.state.url,
-                date_of_publication: this.state.date_pub,
-                headline: this.state.headline,
-                main_text: this.state.main_text,
-                disease: this.state.disease,
+                
+                ...(this.state.url ? { url: this.state.url } : {}),
+                ...(this.state.date_of_publication ? { date_of_publication: this.state.date_pub } : {}),
+                ...(this.state.headline ? { headline: this.state.headline } : {}),
+                ...(this.state.main_text ? { main_text: this.state.main_text } : {}),
+                ...(this.state.disease ? { disease: this.state.disease } : {}),
                 ...(this.state.syndrome ? { syndrome: this.state.syndrome } : {}),
-                type: this.state.type,
-                latitude: this.state.latitude,
-                longitude: this.state.longitude,
-                'number-affected': this.state.n_affected,
+                ...(this.state.type ? { type: this.state.type } : {}),
+                ...(this.state.latitude ? { latitude: this.state.latitude } : {}),
+                ...(this.state.longitude ? { longitude: this.state.longitude } : {}),
+                ...(this.state.syndrome ? { 'number-affected': this.state.n_affected } : {}),
                 ...(this.state.comment ? { comment: this.state.comment } : {}),
-                date: this.state.date
+                ...(this.state.syndrome ? { date: this.state.date } : {})
             }
             }).then(response => {
             console.log(response.data);
