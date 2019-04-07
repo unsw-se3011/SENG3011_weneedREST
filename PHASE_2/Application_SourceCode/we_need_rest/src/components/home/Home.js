@@ -74,6 +74,8 @@ class Home extends Component {
       start_date : undefined,
       end_date : undefined
     }
+    
+    this.selectedArticles = new Set()
   }
 
   componentDidMount() {
@@ -144,7 +146,7 @@ class Home extends Component {
         <hr/>
         <div id="results">
           <ul>
-            { data.map(article => <li key={article.id}>{articles(article)}</li>) }
+            { data.map(article => <li onClick={() => {this.selectedArticles.add(article.id); console.log(this.selectedArticles)}} key={article.id}>{articles(article)}</li>) }
           </ul>
         </div>
       </div>
