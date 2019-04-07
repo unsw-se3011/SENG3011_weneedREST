@@ -47,13 +47,20 @@ function SearchGroup() {
 }
 
 const articles = article => {
-
+  const handleDelete = (id) => {
+    axios.delete('http://46.101.226.130:5000/reports/'+id); 
+    const elem = document.querySelector("#item"+id);
+    elem.className = 'editing';
+  }
   return (
     <div className="card text-white bg-dark mb-3">
-      <div className="card-header">{article.url}</div>
+      <div className="card-header">
+        {article.headline}
+        <button onClick={ () => {handleDelete(article.id)} } className="destroy"></button>
+      </div>
       <div className="card-body">
         <h5 className="card-title">{article.id}</h5>
-        <p className="card-text">{article.headline}</p>
+        <p className="card-text">{article.main_text}</p>
         <p className="card-text">{new Date(article.date_of_publication).toDateString()}</p>
       </div>
     </div>
@@ -103,6 +110,8 @@ class Home extends Component {
     let form = document.querySelector('#modal-form')
     form.addEventListener('submit', this.handleSubmit)
 
+    //add event listeners for the delete buttons
+
     axios.get('http://46.101.226.130:5000/reports/')
       .then(res => {
         res.data.forEach( obj => delete obj['reports']);       
@@ -136,7 +145,7 @@ class Home extends Component {
     const search_params = ['n', 'longitude', 'latitude', 'start_date', 'end_date', 'key_terms'];
     let data = this.state.response ? this.state.response.data : [];
 
-    data.sort( (a, b)=> new Date(b.date_of_publication) - new Date(a.date_of_publication) )
+    data.sort( (a, b) => new Date(b.date_of_publication) - new Date(a.date_of_publication) )
 
     return (
       <div>
@@ -146,7 +155,7 @@ class Home extends Component {
         <hr/>
         <div id="results">
           <ul>
-            { data.map(article => <li onClick={() => {this.selectedArticles.add(article.id); console.log(this.selectedArticles)}} key={article.id}>{articles(article)}</li>) }
+            { data.map(article => <li id={"item"+article.id} onClick={() => {this.selectedArticles.add(article.id); console.log(this.selectedArticles)}} key={article.id}>{articles(article)}</li>) }
           </ul>
         </div>
       </div>
