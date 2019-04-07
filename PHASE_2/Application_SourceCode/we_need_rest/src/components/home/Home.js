@@ -144,7 +144,7 @@ class Home extends Component {
         <hr/>
         <div id="results">
           <ul>
-            { data.map(article => <li key={article.id}>{articles(article)}</li>) }
+            { data.map(article => <li onClick={() => {console.log(article.id)}} key={article.id}>{articles(article)}</li>) }
           </ul>
         </div>
       </div>
