@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Home.css';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import { Switch, Route } from 'react-router-dom';
 
 const input = search_param => {
@@ -144,6 +145,8 @@ class Home extends Component {
         <h1 className="title">Sleepy API</h1>
         <SearchGroup/>
         <Modal value={ search_params }/>
+        
+          <button><Link to={"/summary"}>Testing</Link></button>
         <hr/>
         <div id="results">
           <ul>

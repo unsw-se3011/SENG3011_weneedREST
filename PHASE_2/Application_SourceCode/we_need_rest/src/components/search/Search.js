@@ -9,8 +9,7 @@ class Search extends Component {
     return (
       <Switch>
         <Route exact path='/' component={Home}/>
-        <Route path='/:summary' component={Summary}/>
-        <Route path='/:id' component={Find}/>
+        <Route path='/summary/' component={Summary}/>
       </Switch>
     );
   }
