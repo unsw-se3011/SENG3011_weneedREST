@@ -40,10 +40,7 @@ function SearchGroup() {
       <div className="row">
         <div className="input-group">
           <input type="text" className="form-control"/>
-          <div className="input-group-btn">
-            <button id="open-button" type="button" className="btn btn-default dropdown-toggle"><span className="caret"></span></button>
-            <button type="button" className="btn btn-default"><span className="glyphicon glyphicon-search"></span></button>
-          </div>
+          <button id="open-button" type="button" className="btn btn-default dropdown-toggle"><span className="caret"></span></button>
         </div>
       </div>
     </div>
@@ -53,11 +50,12 @@ function SearchGroup() {
 const articles = article => {
 
   return (
-    <div className="card text-white bg-dark mb-3" style={{maxwidth: 18 + 'em'}}>
+    <div className="card text-white bg-dark mb-3">
       <div className="card-header">{article.url}</div>
       <div className="card-body">
         <h5 className="card-title">{article.id}</h5>
         <p className="card-text">{article.headline}</p>
+        <p className="card-text">{new Date(article.date_of_publication).toDateString()}</p>
       </div>
     </div>
   )
@@ -108,6 +106,7 @@ class Home extends Component {
 
     axios.get('http://46.101.226.130:5000/reports/')
       .then(res => {
+        res.data.forEach( obj => delete obj['reports']);       
         this.setState({response: res})
       })
   }
@@ -127,17 +126,18 @@ class Home extends Component {
     //Deletes null fields
     Object.keys(params).forEach((key) => (params[key] === undefined) && delete params[key]);
 
-    console.log(params)
-
     axios.get('http://46.101.226.130:5000/reports/', {params})
       .then(res => {
+        res.data.forEach( obj => delete obj['reports']);
         this.setState({response: res})
       })
   }
 
   render() {
-    const search_params = Object.keys(this.state).filter(x => x!=='response');
-    const data = this.state.response ? this.state.response.data : [];
+    const search_params = ['n', 'longitude', 'latitude', 'start_date', 'end_date', 'key_terms'];
+    let data = this.state.response ? this.state.response.data : [];
+
+    data.sort( (a, b)=> new Date(b.date_of_publication) - new Date(a.date_of_publication) )
 
     return (
       <div>
