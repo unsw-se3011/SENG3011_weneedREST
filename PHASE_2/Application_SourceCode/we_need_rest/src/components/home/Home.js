@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './Home.css';
-import styled from 'styled-components';
 import axios from 'axios';
 
 const input = search_param => {
@@ -97,7 +96,6 @@ class Home extends Component {
       elem.addEventListener("input", ()=>{
         obj[param] = elem.value;
         this.setState(obj)
-        console.log(obj)
       })
     });
 
