@@ -151,7 +151,9 @@ class Home extends Component {
         <SearchGroup/>
         <Modal value={ search_params } updateState={this.updateState} handleSubmitFilter={this.handleSubmitFilter}/>
         
-        <button><Link to={"/summary/"}>Testing</Link></button>
+        <Link to='/summary'>
+         <p>Hello</p>
+        </Link>
         <hr/>
         <div id="results">
           <ul>

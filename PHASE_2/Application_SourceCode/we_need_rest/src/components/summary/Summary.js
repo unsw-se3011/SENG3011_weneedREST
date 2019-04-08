@@ -6,7 +6,7 @@ class Summary extends Component {
     render() {
         return (
             <div>
-                Help me this isnt working
+                {{this.props.}}
             </div>
         );
     }
