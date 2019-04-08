@@ -16,7 +16,7 @@ class Main extends Component {
     return (
       <Switch>
           <Route exact path='/' component={Home}/>
-          <Route path='/summary/:reports' component={Summary}/>          
+          <Route path='/summary' component={Summary}/>          
           <Route path='/about' component={About}/>
           <Route exact path='/contact' component={Team}/>
           <Route path='/contact/:name' component={Member}/>

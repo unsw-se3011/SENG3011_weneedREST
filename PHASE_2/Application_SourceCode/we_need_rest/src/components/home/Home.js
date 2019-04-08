@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './Home.css';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 const input = (search_param, updateState) => {
   const doc = {
@@ -92,7 +93,7 @@ class Home extends Component {
       start_date : undefined,
       end_date : undefined
     }
-    
+    this.routeSummary = this.routeSummary.bind(this);
     this.selectedArticles = new Set();
     this.updateState = this.updateState.bind(this);
     this.handleSubmitFilter = this.handleSubmitFilter.bind(this);
@@ -103,6 +104,11 @@ class Home extends Component {
     let obj = {};
     obj[key] = elem.value;
     this.setState(obj);
+  }
+
+  routeSummary() {
+    let path = "/summary";
+    this.props.history.push({pathname:path, selectedArticles:this.selectedArticles});
   }
 
   componentDidMount() {
@@ -151,9 +157,7 @@ class Home extends Component {
         <SearchGroup/>
         <Modal value={ search_params } updateState={this.updateState} handleSubmitFilter={this.handleSubmitFilter}/>
         
-        <Link to='/summary'>
-         <p>Hello</p>
-        </Link>
+        <button onClick={this.routeSummary}>Hello there</button>
         <hr/>
         <div id="results">
           <ul>
