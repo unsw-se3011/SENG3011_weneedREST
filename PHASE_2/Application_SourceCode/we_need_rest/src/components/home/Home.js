@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import './Home.css';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import { Switch, Route } from 'react-router-dom';
 
-const input = search_param => {
+const input = (search_param, updateState) => {
   const doc = {
     n : ["e.g. 7", "Max number of results"],
     latitude : ["e.g. 211442.78", "Latitude of area affected"],
@@ -17,31 +16,41 @@ const input = search_param => {
   return (
   <div key={search_param} className="form-group">
     <p className="text-dark">{doc[search_param][1]}</p>
-    <input id={search_param} type="text" className="form-control" placeholder={doc[search_param][0]}/>
+    <input onChange={()=>{updateState(search_param)}} id={search_param} type="text" className="form-control" placeholder={doc[search_param][0]}/>
   </div>
   );
 };
 
 function Modal(props) {
-  const search_params = props.value
+  const search_params = props.value;
+
+  const toggleModal = ()=>{
+    const modal = document.querySelector("#modal");
+    modal.classList.toggle("closed");
+  }
 
   return (
     <div id="modal" className="closed">
       <form id="modal-form" className="form">
-        { search_params.map(search_param => input(search_param)) }
-        <button type="submit" className="btn btn-primary">Search</button>
+        { search_params.map(search_param => input(search_param, props.updateState)) }
+        <button onClick={()=>{props.handleSubmitFilter(); toggleModal()}} type="submit" className="btn btn-primary">Search</button>
       </form>
     </div>
   );
 }
 
 function SearchGroup() {
+  const toggleModal = ()=>{
+    const modal = document.querySelector("#modal");
+    modal.classList.toggle("closed");
+  }
+
   return (
     <div className="container">
       <div className="row">
         <div className="input-group">
           <input type="text" className="form-control"/>
-          <button id="open-button" type="button" className="btn btn-default dropdown-toggle"><span className="caret"></span></button>
+          <button onClick={()=>{toggleModal()}} id="open-button" type="button" className="btn btn-default dropdown-toggle"><span className="caret"></span></button>
         </div>
       </div>
     </div>
@@ -84,36 +93,19 @@ class Home extends Component {
       end_date : undefined
     }
     
-    this.selectedArticles = new Set()
+    this.selectedArticles = new Set();
+    this.updateState = this.updateState.bind(this);
+    this.handleSubmitFilter = this.handleSubmitFilter.bind(this);
+  }
+
+  updateState(key) {
+    const elem = document.getElementById(key);
+    let obj = {};
+    obj[key] = elem.value;
+    this.setState(obj);
   }
 
   componentDidMount() {
-    // Add event listeners for the modal
-    var modal = document.querySelector("#modal");
-    var openButton = document.querySelector("#open-button");
-
-    openButton.addEventListener("click", function() {
-      modal.classList.toggle("closed");
-    });
-
-    //add event listers for the search params
-    let search_params = Object.keys(this.state).filter(x => x!=='response');
-    search_params.forEach( param => {
-      let elem = document.querySelector('#'+param);
-      let obj = {};
-      obj[param] = elem.value;
-      elem.addEventListener("input", ()=>{
-        obj[param] = elem.value;
-        this.setState(obj)
-      })
-    });
-
-    //add event listener to form
-    let form = document.querySelector('#modal-form')
-    form.addEventListener('submit', this.handleSubmit)
-
-    //add event listeners for the delete buttons
-
     axios.get('http://46.101.226.130:5000/reports/')
       .then(res => {
         res.data.forEach( obj => delete obj['reports']);       
@@ -121,9 +113,7 @@ class Home extends Component {
       })
   }
 
-  handleSubmit = event => {
-    event.preventDefault();
-
+  handleSubmitFilter() {
     const params = {
       n : this.state.n,
       latitude : this.state.latitude,
@@ -135,6 +125,12 @@ class Home extends Component {
 
     //Deletes null fields
     Object.keys(params).forEach((key) => (params[key] === undefined) && delete params[key]);
+
+    console.log(params);
+
+    if (isNaN(params)) {
+      return
+    }
 
     axios.get('http://46.101.226.130:5000/reports/', {params})
       .then(res => {
@@ -153,9 +149,9 @@ class Home extends Component {
       <div>
         <h1 className="title">Sleepy API</h1>
         <SearchGroup/>
-        <Modal value={ search_params }/>
+        <Modal value={ search_params } updateState={this.updateState} handleSubmitFilter={this.handleSubmitFilter}/>
         
-          <button><Link to={"/summary"}>Testing</Link></button>
+        <button><Link to={"/summary/"}>Testing</Link></button>
         <hr/>
         <div id="results">
           <ul>

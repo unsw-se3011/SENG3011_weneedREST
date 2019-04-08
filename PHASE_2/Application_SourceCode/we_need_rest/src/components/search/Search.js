@@ -8,8 +8,9 @@ class Search extends Component {
   render() {
     return (
       <Switch>
-        <Route exact path='/' component={Home}/>
-        <Route path='/summary/' component={Summary}/>
+        <Route exact path='/' component={Home}>
+          <Route path='summary' component={Summary}/>
+        </Route>
       </Switch>
     );
   }
