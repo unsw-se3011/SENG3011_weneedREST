@@ -3,12 +3,17 @@ import axios from 'axios';
 import { encode } from 'querystring';
 
 class Summary extends Component {
-    state = {
-        selectedArticles: this.props.location.selectedArticles
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            selectedArticles: props.match.params.selectedArticles
+        }
+
+        console.log(props);
     }
     
     render() {
-        console.log("IM IN HERE")
         return (
             
             <div>
