@@ -16,16 +16,19 @@ class Article extends Component {
     this.removeArticle = props.removeArticle;
     this.toggle = this.toggle.bind(this);
     this.onEntering = this.onEntering.bind(this);
+    this.textRazor = this.textRazor.bind(this);
   }
 
   // Used for calling textRazor API to extract keywords, topics and entities
   textRazor() {
-    let url = "http://api.textrazor.com/"
-    let proxyUrl = "https://cors-anywhere.herokuapp.com/"
+    let url = "http://api.textrazor.com/";
+    let proxyUrl = "https://cors-anywhere.herokuapp.com/";
+
+    console.log(this.state.article.main_text);
 
     fetch(proxyUrl + url, { 
       method: "POST",
-      body: "extractors=entities,topics&text=Spain's stricken Bankia expects to sell", 
+      body: "extractors=entities,topics&text="+this.state.article.main_text, 
       headers: { 
         "Content-Type": "application/x-www-form-urlencoded", 
         "X-Textrazor-Key": "28a4e6569e176326519482635f0384827edf76f93085f9a61774f842" 
