@@ -161,7 +161,7 @@ class Home extends Component {
         <hr/>
         <div id="results">
           <ul>
-            { data.map(article => <li id={"item"+article.id} onClick={() => {this.selectedArticles.add(article.id); console.log(this.selectedArticles)}} key={article.id}>{articles(article)}</li>) }
+            { data.map(article => <li id={"item"+article.id} onClick={() => {this.selectedArticles.add(article); console.log(this.selectedArticles)}} key={article.id}>{articles(article)}</li>) }
           </ul>
         </div>
       </div>
