@@ -212,7 +212,7 @@ class Home extends Component {
         <div id="results">
           <ul>
             { data.map(article => <li id={"item"+article.id} onClick={() => { if(this.state.selectedArticles.includes(article.id)) {
-            this.deselect(article.id);
+              this.deselect(article.id);
              }
              else this.select(article.id)}} key={article.id}>{articles(article)}</li>) }
           </ul>
