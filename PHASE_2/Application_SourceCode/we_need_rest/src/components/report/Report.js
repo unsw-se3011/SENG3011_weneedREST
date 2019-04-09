@@ -62,13 +62,18 @@ class Report extends Component {
                     <h5>Published: {this.state.date_pub}</h5>
                     <hr></hr>
 
+                    <p><b>Date:</b> {this.state.date}</p>
+                    <h5>Description</h5>
+                    <p>{this.state.main_text}</p>
+                    
+                    <hr></hr>
                     <p><b>Disease:</b> {this.state.disease}</p>
                     <p><b>Syndrome:</b> {this.state.syndrome}</p>
                     <p><b>Event Type:</b> {this.state.type}</p>
                     <p><b>Location(longitude, latitude):</b> {this.state.longitude}, {this.state.latitude}</p>
-                    <p><b>Date:</b> {this.state.date}</p>
-                    <p>{this.state.main_text}</p>
                     <p><b>Number of people affected:</b> {this.state.n_affected}</p>
+                    
+                    
                     <p><b>Source:</b> {this.state.url}</p>
                     <p><b>Comment:</b> {this.state.comment}</p>
                 </div>
