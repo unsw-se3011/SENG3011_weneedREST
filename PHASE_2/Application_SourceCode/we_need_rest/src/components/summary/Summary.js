@@ -23,26 +23,21 @@ class Article extends Component {
     let url = "http://api.textrazor.com/"
     let proxyUrl = "https://cors-anywhere.herokuapp.com/"
 
-    console.log(this.state.article);
-
-    const options = { 
+    fetch(proxyUrl + url, { 
       method: "POST",
-      body: "extractors=entities,topics&text=This is an example", 
+      body: "extractors=entities,topics&text=Spain's stricken Bankia expects to sell", 
       headers: { 
         "Content-Type": "application/x-www-form-urlencoded", 
         "X-Textrazor-Key": "28a4e6569e176326519482635f0384827edf76f93085f9a61774f842" 
       }
-    }
-
-    fetch(proxyUrl + url, options)
-      .then(res => res.json() )
-      .then(response => this.setState({analysis: response}) )
+    })
+      .then(res =>res.json())
+      .then(response => console.log("Success:", JSON.stringify(response), response))
       .catch(error => console.error(error))
   }
 
   onEntering() {
     this.textRazor();
-    console.log(this.state.analysis)
   }
 
   toggle() {
@@ -56,7 +51,7 @@ class Article extends Component {
       this.removeArticle(id);
     }
 
-    const entities = this.state.analysis === undefined ? [] : this.state.analysis.response.entities;
+    const entities = this.state.analysis === undefined ? [] : this.state.analysis;
 
     const article = this.state.article;
 
