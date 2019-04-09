@@ -54,7 +54,7 @@ function SearchGroup() {
       <div className="row">
         <div className="input-group">
           <input type="text" className="form-control"/>
-          <button onClick={()=>{toggleModal()}} id="open-button" type="button" className="btn btn-default dropdown-toggle">Filter</button>
+          <button onClick={()=>{toggleModal()}} id="open-button" type="button" className="btn btn-default dropdown-toggle"><span className="caret"></span></button>
         </div>
       </div>
     </div>
