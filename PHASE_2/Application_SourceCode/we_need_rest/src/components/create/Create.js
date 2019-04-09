@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
-import axios from '../../../node_modules/axios';
+import axios from 'axios';
 import { encode } from '../../../node_modules/querystring';
+import 'bootstrap/dist/css/bootstrap.css';
+import './create.css';
 
 class Create extends Component {
     constructor(props){
@@ -112,58 +114,60 @@ class Create extends Component {
                 </center>
                 <form>
                     <div className="url">
-                            <p className="text-dark">Source URL</p>
-                            <input id = "idURL" onChange={this.updateURL} type="text" className="form-control" placeholder="e.g. http://www.globalincidentmap.com" />
+                        <label className="text-dark">Source URL</label>
+                        <input id = "idURL" onChange={this.updateURL} type="text" className="form-control" placeholder="e.g. http://www.globalincidentmap.com" />
                     </div>
                     <div className="date_pub">
-                            <p className="text-dark">Date of Publication</p>
-                            <input id = "idDatePub" onChange={this.updateDatePub} type="text" className="form-control" placeholder="e.g. 2018-12-10T23:50:00" />
+                        <label className="text-dark">Date of Publication</label>
+                        <input id = "idDatePub" onChange={this.updateDatePub} type="text" className="form-control" placeholder="e.g. 2018-12-10T23:50:00" />
                     </div>
                     <div className="headline">
-                            <p className="text-dark">Report Headline</p>
-                            <input id = "idHeadline" onChange={this.updateHeadline} type="text" className="form-control" placeholder="e.g. TANZANIA - Anthrax kills two people in northern Tanzania" />
+                        <label className="text-dark">Report Headline</label>
+                        <input id = "idHeadline" onChange={this.updateHeadline} type="text" className="form-control" placeholder="e.g. TANZANIA - Anthrax kills two people in northern Tanzania" />
                     </div>
                     <div className="main_text">
-                            <p className="text-dark">Main Text</p>
-                            <input id = "idmainText" onChange={this.updateMainText} type="text" className="form-control" placeholder="e.g. 2 people died and 8 others were hospitalized following an anthrax outbreak..." />
+                        <label className="text-dark">Main Text</label>
+                        <input id = "idmainText" onChange={this.updateMainText} type="text" className="form-control" placeholder="e.g. 2 people died and 8 others were hospitalized following an anthrax outbreak..." />
                     </div>
                     <div className="disease">
-                            <p className="text-dark">Disease</p>
-                            <input id = "idDisease" onChange={this.updateDisease} type="text" className="form-control" placeholder="e.g. Anthrax" />
+                        <label className="text-dark">Disease</label>
+                        <input id = "idDisease" onChange={this.updateDisease} type="text" className="form-control" placeholder="e.g. Anthrax" />
                     </div>
                     <div className="syndrome">
-                            <p className="text-dark">Syndrome</p>
-                            <input id = "idSyn" onChange={this.updateSyndrome} type="text" className="form-control" placeholder="e.g. Sick syndrome" />
+                        <label className="text-dark">Syndrome</label>
+                        <input id = "idSyn" onChange={this.updateSyndrome} type="text" className="form-control" placeholder="e.g. Sick syndrome" />
                     </div>
                     <div className="type">
-                            <p className="text-dark">Type</p>
-                            <input id = "idType" onChange={this.updateType} type="text" className="form-control" placeholder="e.g. Infection" />
+                        <label className="text-dark">Type</label>
+                        <input id = "idType" onChange={this.updateType} type="text" className="form-control" placeholder="e.g. Infection" />
                     </div>
                     <div className="longitude">
-                            <p className="text-dark">Longitude</p>
-                            <input id = "idLong" onChange={this.updateLongitude} type="text" className="form-control" placeholder="e.g. 211442" />
+                        <label className="text-dark">Longitude</label>
+                        <input id = "idLong" onChange={this.updateLongitude} type="text" className="form-control" placeholder="e.g. 211442" />
                     </div>
                     <div className="latitude">
-                            <p className="text-dark">Latitude</p>
-                            <input id = "idLat" onChange={this.updateLatitude} type="text" className="form-control" placeholder="e.g. 123143" />
+                        <label className="text-dark">Latitude</label>
+                        <input id = "idLat" onChange={this.updateLatitude} type="text" className="form-control" placeholder="e.g. 123143" />
                     </div>
                     <div className="n_affected">
-                            <p className="text-dark">Number Affected</p>
-                            <input id = "idNAffected" onChange={this.updateNAffected} type="text" className="form-control" placeholder="e.g. 10" />
+                        <label className="text-dark">Number Affected</label>
+                        <input id = "idNAffected" onChange={this.updateNAffected} type="text" className="form-control" placeholder="e.g. 10" />
                     </div>
                     <div className="comment">
-                            <p className="text-dark">Comment</p>
-                            <input id = "idComm" onChange={this.updateComment} type="text" className="form-control" placeholder="e.g. Any thoughts or notes you'd like to add." />
+                        <label className="text-dark">Comment</label>
+                        <input id = "idComm" onChange={this.updateComment} type="text" className="form-control" placeholder="e.g. Any thoughts or notes you'd like to add." />
                     </div>
                     <div className="date">
-                            <p className="text-dark">Date</p>
-                            <input id = "idDate" onChange={this.updateDate} type="text" className="form-control" placeholder="e.g. 2018-12-10T23:50:00" />
+                        <label className="text-dark">Date</label>
+                        <input id = "idDate" onChange={this.updateDate} type="text" className="form-control" placeholder="e.g. 2018-12-10T23:50:00" />
                     </div>
+                    <br></br>
+                    <button type="submit" class="btn btn-primary">Sign in</button>
                 </form>
-            <button type="button" onClick={this.onSubmit} className="button">Submit</button>
-            <div id="results">
             
-            </div>
+                <div id="results">
+                
+                </div> 
         </div>
         );
     }
