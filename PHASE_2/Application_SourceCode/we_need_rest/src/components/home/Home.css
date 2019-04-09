@@ -6,7 +6,7 @@
 }
 
 .container {
-    width: 500px
+    width: 500px;
 }
 
 .container .row {
@@ -99,4 +99,9 @@ hr {
 
 .editing {
     display: none;
+}
+
+.btn-group {
+    margin-left: 40%;
+    margin-right: 40%;
 }
