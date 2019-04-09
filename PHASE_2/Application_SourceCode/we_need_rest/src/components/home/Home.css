@@ -100,13 +100,3 @@ hr {
 .editing {
     display: none;
 }
-
-#selectBtn {
-    float: right;
-}
-
-#summaryBtn {
-    width: 10%;
-    margin-left: 45%;
-    margin-right: 45%;
-}

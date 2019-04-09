@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import { runInThisContext } from 'vm';
+import 'bootstrap/dist/css/bootstrap.css';
 
 const articles = article => {
     const handleDelete = (id) => {
@@ -207,7 +208,7 @@ class Find extends Component {
                 this.setState({comment: response.data.comment});
                 this.setState({date: response.data.date});
                 this.setState({state: this.state});
-            
+                document.getElementById("update").style.visibility="hidden";
           });
     }
     onClickUpdate(e) {
@@ -226,14 +227,13 @@ class Find extends Component {
                             <input id = "id" name="title" onChange={this.updateRepId} type="text" className="form-control" placeholder="e.g. 7213" />
                     </div>
                 </form>
-                <button type="button" onClick={this.onSubmitGet} className="button">Get</button>
+                <button type="button" class="btn btn-primary" onClick={this.onSubmitGet}>Get</button>
                 <center>
                 
                 <div id="card" style={{visibility: "hidden"}} >
                     <div className="card text-white bg-dark mb-3">
                         <div className="card-header">
                             {this.state.headline}
-                            <button onClick={ this.onSubmitDelete } className="destroy"></button>
                         </div>
                         <div className="card-body">
                             <h5 className="card-title">{this.state.repId}</h5>
@@ -249,8 +249,8 @@ class Find extends Component {
                 <div id="report">
                 
                 </div>
-                <button type="button" onClick={this.onSubmitDelete} className="button">Delete</button>
-                <button type="button" onClick={this.onClickUpdate} className="button">Update</button>
+                <button type="button" class="btn btn-danger" onClick={this.onSubmitDelete}>Delete</button>
+                <button type="button" class="btn btn-primary" onClick={this.onClickUpdate}>Update</button>
                 <div id="update" style={{visibility: "hidden"}}>
                 <form>
                     <div className="url">
@@ -302,7 +302,7 @@ class Find extends Component {
                             <input id = "idDate" onChange={this.updateDate} type="text" className="form-control" placeholder="e.g. 2018-12-10T23:50:00" />
                     </div>
                 </form>
-                <button type="button" onClick={this.onSubmitUpdate} className="button">Confirm</button>
+                <button type="button" onClick={this.onSubmitUpdate} class="btn btn-primary" >Confirm</button>
                 </div>
             </div>
             
