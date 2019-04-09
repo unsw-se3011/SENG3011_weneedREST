@@ -149,7 +149,7 @@ class Find extends Component {
         return (
             <div id="body">
                 <center>
-                    <h1>View Report</h1>
+                    <h1>Find Report</h1>
                 </center>
                 <form className="id">
                     <div className="ID">
