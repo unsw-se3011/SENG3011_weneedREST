@@ -27,25 +27,26 @@ class Summary extends Component {
         super(props);
 
         this.state = {
-            selectedArticles: props.match.params.selectedArticles
+            selectedArticles: props.match.params.selectedArticles.match
+            
         }
-
+        console.log("SELECTED" + this.state.selectedArticles)
         console.log(props);
     }
 
-    componentDidMount() {
-        this.state.selectedArticles.forEach(id => 
-            axios.get('http://46.101.226.130:5000/reports/' + id)
-                .then(res => {
-                res.data.forEach( obj => delete obj['reports']);       
-                this.setState({response: res})
-                })    
-        );
+    // componentDidMount() {
+    //     this.state.selectedArticles.forEach(id => 
+    //         axios.get('http://46.101.226.130:5000/reports/' + id)
+    //             .then(res => {
+    //             res.data.forEach( obj => delete obj['reports']);       
+    //             this.setState({response: res})
+    //             })    
+    //     );
 
 
         
 
-      }
+    //   }
     
     
     render() {
