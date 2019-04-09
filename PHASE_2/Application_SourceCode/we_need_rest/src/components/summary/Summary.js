@@ -61,6 +61,7 @@ class Summary extends Component {
     // Used for calling textRazor API to extract keywords, topics and entities
     textRazor(text) {
         let url = "https://api.textrazor.com"
+        let proxyUrl = 'https://cors-anywhere.herokuapp.com/'
         let options = {
             method: 'POST', 
             body: JSON.stringify(text), 
@@ -72,9 +73,10 @@ class Summary extends Component {
             })
         }
     
-        return fetch('https://api.textrazor.com', options)
+        return fetch('https://cors-anywhere.herokuapp.com/' + 'https://api.textrazor.com', options)
         .then(res => res.json())
         .then(response => console.log('Success:', JSON.stringify(response)))
+        .catch(error => console.error(error))
     }
 
   
