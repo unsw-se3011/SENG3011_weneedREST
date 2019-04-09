@@ -64,7 +64,7 @@ class Summary extends Component {
         let proxyUrl = "https://cors-anywhere.herokuapp.com/"
     
         return fetch(proxyUrl + url, { 
-            body: "extractors=entities,topics,words&text=Spain's stricken Bankia expects to sell", 
+            body: "extractors=entities,topics,words&text="+text, 
             headers: { "Content-Type": "application/x-www-form-urlencoded", "X-Textrazor-Key": "28a4e6569e176326519482635f0384827edf76f93085f9a61774f842" }, 
             method: "POST" })
         .then(res => res.json())
