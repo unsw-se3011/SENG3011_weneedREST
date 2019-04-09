@@ -86,7 +86,7 @@ class Home extends Component {
 
     this.state = {
       response: undefined,
-      selectedArticles: new Set(),
+      selectedArticles: [],
       n : undefined,
       latitude : undefined,
       longitude : undefined,
@@ -122,7 +122,7 @@ class Home extends Component {
 
   select(report) {
     let temp = this.state.selectedArticles;
-    temp.add(report);
+    temp.push(report);
     this.setState({selectedArticles: temp});
     console.log(this.state.selectedArticles);
   }
