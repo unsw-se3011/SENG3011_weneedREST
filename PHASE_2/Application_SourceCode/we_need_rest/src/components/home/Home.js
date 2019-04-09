@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './Home.css';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.css';
 
 const input = (search_param, updateState) => {
   const doc = {
@@ -69,7 +68,7 @@ const articles = article => {
     elem.className = 'editing';
   }
   return (
-    <div className="card text-white bg-dark mb-3">
+    <div id={'card'+article.id} className="card text-white bg-dark mb-3">
       <div className="card-header">
         {article.headline}
         <button onClick={ () => {handleDelete(article.id)} } className="destroy"></button>
@@ -130,8 +129,8 @@ class Home extends Component {
     console.log(this.state.selectedArticles);
 
     //add styling
-    let elem = document.getElementById('item'+report);
-    elem.className = 'highlight';
+    let elem = document.getElementById('card'+report);
+    elem.className = 'card bg-light mb-3';
   }
 
   handleSubmitFilter() {
