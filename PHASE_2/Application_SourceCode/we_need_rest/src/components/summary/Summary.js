@@ -1,7 +1,19 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import '../home/Home.css';
-import { Collapse, Button, CardBody, Card } from 'reactstrap';
+import { Collapse, Button, CardBody, Card, CardTitle, CardText  } from 'reactstrap';
+
+const entity = (props) => {
+  return (
+    <div>
+      <Card body>
+        <CardTitle>{props.id}. {props.entityId}</CardTitle>
+        <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
+        <Button>Go somewhere</Button>
+      </Card>
+    </div>
+  );
+};
 
 class Article extends Component {
   constructor(props) {
@@ -20,27 +32,27 @@ class Article extends Component {
   }
 
   // Used for calling textRazor API to extract keywords, topics and entities
-  textRazor() {
-    let url = "http://api.textrazor.com/";
-    let proxyUrl = "https://cors-anywhere.herokuapp.com/";
+  // textRazor() {
+  //   let url = "http://api.textrazor.com/";
+  //   let proxyUrl = "https://cors-anywhere.herokuapp.com/";
 
-    console.log(this.state.article.main_text);
+  //   console.log(this.state.article.main_text);
 
-    fetch(proxyUrl + url, { 
-      method: "POST",
-      body: "extractors=entities,topics&text="+this.state.article.main_text, 
-      headers: { 
-        "Content-Type": "application/x-www-form-urlencoded", 
-        "X-Textrazor-Key": "1c89b6ad192f7b32536cd1b7d252c45ea2121272f258df695015a18d" 
-      }
-    })
-      .then(res =>res.json())
-      .then(response => { 
-        console.log("Success:", JSON.stringify(response), response); 
-        this.setState({analysis: response}); 
-        console.log(this.state.analysis)
-      })
-  }
+  //   fetch(proxyUrl + url, { 
+  //     method: "POST",
+  //     body: "extractors=entities,topics&text="+this.state.article.main_text, 
+  //     headers: { 
+  //       "Content-Type": "application/x-www-form-urlencoded", 
+  //       "X-Textrazor-Key": "1c89b6ad192f7b32536cd1b7d252c45ea2121272f258df695015a18d" 
+  //     }
+  //   })
+  //     .then(res =>res.json())
+  //     .then(response => { 
+  //       console.log("Success:", JSON.stringify(response), response); 
+  //       this.setState({analysis: response}); 
+  //       console.log(this.state.analysis)
+  //     })
+  // }
 
   onEntering() {
     this.textRazor();
