@@ -27,7 +27,7 @@ class Article extends Component {
 
     const options = { 
       method: "POST",
-      body: "extractors=entities,topics,words&text="+this.state.article.main_text, 
+      body: "extractors=entities,topics&text=This is an example", 
       headers: { 
         "Content-Type": "application/x-www-form-urlencoded", 
         "X-Textrazor-Key": "28a4e6569e176326519482635f0384827edf76f93085f9a61774f842" 
@@ -35,13 +35,14 @@ class Article extends Component {
     }
 
     fetch(proxyUrl + url, options)
-      .then(res => { this.setState( {analysis: res}); console.log(res) } )
-      .then(response => console.log("Success:", JSON.stringify(response), response))
+      .then(res => res.json() )
+      .then(response => this.setState({analysis: response}) )
       .catch(error => console.error(error))
   }
 
   onEntering() {
     this.textRazor();
+    console.log(this.state.analysis)
   }
 
   toggle() {
@@ -55,7 +56,7 @@ class Article extends Component {
       this.removeArticle(id);
     }
 
-    const entities = this.state.analysis === undefined ? [] : this.state.analysis;
+    const entities = this.state.analysis === undefined ? [] : this.state.analysis.response.entities;
 
     const article = this.state.article;
 
