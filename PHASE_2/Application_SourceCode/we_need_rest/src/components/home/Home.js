@@ -72,7 +72,11 @@ const articles = article => {
       <div className="card-header">
         {article.headline}
         <button onClick={ () => {handleDelete(article.id)} } className="destroy"></button>
-        <p style={{align:"right"}}><button>View Report</button></p>
+        <div class="text-right">
+          <Link to={`/Report/${article.id}`}>
+            <button class="btn btn-primary">View Report</button>
+          </Link>
+        </div>
       </div>
       <div className="card-body" id="body-card">
         <h5 className="card-title">{article.id}</h5>
