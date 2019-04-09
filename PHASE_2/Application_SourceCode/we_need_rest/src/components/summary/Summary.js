@@ -1,28 +1,91 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import '../home/Home.css';
+import { Collapse, Button, CardBody, Card } from 'reactstrap';
 
-const articles = article => {
-  const handleDelete = (id) => {
-    axios.delete('http://46.101.226.130:5000/reports/'+id); 
-    const elem = document.querySelector("#item"+id);
-    elem.className = 'editing';
+class Article extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      article: props.article,
+      analysis: undefined,
+      collapse: false
+    }
+
+    this.removeArticle = props.removeArticle;
+    this.toggle = this.toggle.bind(this);
+    this.onEntering = this.onEntering.bind(this);
   }
-  return (
-    <div className="card text-white bg-dark mb-3">
-      <div className="card-header">
-        {article.headline}
-        <button onClick={ () => {handleDelete(article.id)} } className="destroy"></button>
-      </div>
-      <div className="card-body">
-        <h5 className="card-title">{article.id}</h5>
-        <p className="card-text">{article.main_text}</p>
-        <p className="card-text">{new Date(article.date_of_publication).toDateString()}</p>
-      </div>
-    </div>
-  )
-}
 
+  // Used for calling textRazor API to extract keywords, topics and entities
+  textRazor() {
+    let url = "http://api.textrazor.com/"
+    let proxyUrl = "https://cors-anywhere.herokuapp.com/"
+
+    console.log(this.state.article);
+
+    const options = { 
+      method: "POST",
+      body: "extractors=entities,topics,words&text="+this.state.article.main_text, 
+      headers: { 
+        "Content-Type": "application/x-www-form-urlencoded", 
+        "X-Textrazor-Key": "28a4e6569e176326519482635f0384827edf76f93085f9a61774f842" 
+      }
+    }
+
+    fetch(proxyUrl + url, options)
+      .then(res => { this.setState( {analysis: res}); console.log(res) } )
+      .then(response => console.log("Success:", JSON.stringify(response), response))
+      .catch(error => console.error(error))
+  }
+
+  onEntering() {
+    this.textRazor();
+  }
+
+  toggle() {
+    this.setState(state => ({ collapse: !state.collapse }));
+  }
+
+  render() {
+    const handleDelete = (id) => {
+      const elem = document.querySelector("#item"+id);
+      elem.className = 'editing';
+      this.removeArticle(id);
+    }
+
+    const entities = this.state.analysis === undefined ? [] : this.state.analysis;
+
+    const article = this.state.article;
+
+    return (
+      <div className="card text-white bg-dark mb-3">
+        <div className="card-header">
+          {article.headline}
+          <button onClick={ () => {handleDelete(article.id)} } className="destroy"></button>
+        </div>
+        <div className="card-body">
+          <h5 className="card-title">{article.id}</h5>
+          <p className="card-text">{article.main_text}</p>
+          <p className="card-text">{new Date(article.date_of_publication).toDateString()}</p>
+        </div>
+        <div>
+        <Button color="danger" onClick={this.toggle} style={{ margin: '1rem' }}>Analysis</Button>
+        <Collapse isOpen={this.state.collapse} onEntering={this.onEntering}>
+          <Card style={{ backgroundColor: '#333', borderColor: '#333' }}>
+            <CardBody>
+              <ul>
+                {/* { entities.map( entry => <li>{entry}</li> )} */}
+              </ul>
+            </CardBody>
+          </Card>
+        </Collapse>
+      </div>
+      </div>
+    )
+  }
+}
 
 class Summary extends Component {
   constructor(props) {
@@ -34,7 +97,11 @@ class Summary extends Component {
         relatedWords: []
     }
 
-    // console.log(this.state.selectedArticles);
+    this.removeArticle = this.removeArticle.bind(this);
+  }
+
+  removeArticle(id) {
+    this.setState( state => ({selectedArticles: state.selectedArticles.remove(id) }) )
   }
 
   componentWillMount() {
@@ -44,55 +111,20 @@ class Summary extends Component {
               let response = this.state.response;
               response.push(res.data);
               this.setState({response: response})
-              console.log(response)
-              console.log(this.state)
             })    
       );
     }
 
-    componentDidMount() {
-    }
-  
-    getLocations()
-    {
-
-    }
-
-    // Used for calling textRazor API to extract keywords, topics and entities
-    textRazor(text) {
-        let url = "http://api.textrazor.com/"
-        let proxyUrl = "https://cors-anywhere.herokuapp.com/"
-    
-        return fetch(proxyUrl + url, { 
-            body: "extractors=entities,topics,words&text="+text, 
-            headers: { 
-              "Content-Type": "application/x-www-form-urlencoded", 
-              "X-Textrazor-Key": "28a4e6569e176326519482635f0384827edf76f93085f9a61774f842" }, 
-              method: "POST" 
-            })
-        .then(res => res.json())
-        .then(response => console.log("Success:", JSON.stringify(response), response))
-        .catch(error => console.error(error))
-    }
-
-  
   render() {
-      return (
-        <div id="container">
-            
-            <div id="results">
-                <ul>
-                { this.state.response.map(article => <li id={"item"+article.id} key={article.id}>{articles(article)}</li>) }
-                </ul>
-            </div>
-            
-            <div id="nlp">
-                <button onClick={() => this.textRazor("This is a test disease swine flu")}>textRazor</button>
-            </div>
-
+    return (
+      <div id="container">
+        <div id="results">
+          <ul>
+          { this.state.response.map(article => <li id={"item"+article.id} key={article.id}>{<Article article={article} remove={this.removeArticle}/>}</li>) }
+          </ul>
         </div>
-        
-      );
+      </div>
+    );
   }
 }
 
