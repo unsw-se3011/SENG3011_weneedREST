@@ -31,7 +31,7 @@ class Article extends Component {
       body: "extractors=entities,topics&text="+this.state.article.main_text, 
       headers: { 
         "Content-Type": "application/x-www-form-urlencoded", 
-        "X-Textrazor-Key": "28a4e6569e176326519482635f0384827edf76f93085f9a61774f842" 
+        "X-Textrazor-Key": "1c89b6ad192f7b32536cd1b7d252c45ea2121272f258df695015a18d" 
       }
     })
       .then(res =>res.json())
@@ -61,7 +61,12 @@ class Article extends Component {
 
     let response = []
     if ( this.state.analysis !== undefined) {
-      response = this.state.analysis.response.entities;
+      try {
+        response = this.state.analysis.response.entities;
+      } catch (error) {
+        console.log(error)
+        response = []
+      }
     }
 
     const article = this.state.article;
