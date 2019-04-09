@@ -17,19 +17,11 @@ In the first deliverable, all the management documentation and implementation pl
 The decisions our team has made in regards to meeting schedules and roles are all outlined in our Management information markdown file. 
 
 ## Deliverable Two - A
-The following things were completed in deliverable two:
+The following things were completed in deliverable two(A):
 1. API deployed as a REST web service via Digital Ocean droplet.
 2. Able to make requests to the API using the Swagger interface. This can be accessed from the url: http://46.101.226.130:5000/
 3. Generates output file / response which can be viewed through Swagger
 
-
-1. 
-1. 1. Address Problems Side
-1. State Background
-1. Coming from this perspective to solve these problems
-1. Frontned data Graphs visualisation, analytics, heatmap
-1. Being able to analyse patterns from json data
-1. Edit History
-1. ML
-1. Live Data
-1. Output reports based on user-specified criteria (country, disease, dates)
+## Deliverable Two - A
+The following things were completed in deliverable two(B):
+1. API is now fully functioning, returning live data that has been scraped from the specified data source
