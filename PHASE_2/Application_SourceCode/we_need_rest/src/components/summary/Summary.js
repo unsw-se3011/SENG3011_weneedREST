@@ -32,8 +32,11 @@ class Article extends Component {
       }
     })
       .then(res =>res.json())
-      .then(response => console.log("Success:", JSON.stringify(response), response))
-      .catch(error => console.error(error))
+      .then(response => { 
+        console.log("Success:", JSON.stringify(response), response); 
+        this.setState({analysis: response}); 
+        console.log(this.state.analysis)
+      } )
   }
 
   onEntering() {
@@ -41,7 +44,7 @@ class Article extends Component {
   }
 
   toggle() {
-    this.setState(state => ({ collapse: !state.collapse }));
+    this.setState( state => ({ collapse: !state.collapse }) );
   }
 
   render() {
@@ -51,7 +54,7 @@ class Article extends Component {
       this.removeArticle(id);
     }
 
-    const entities = this.state.analysis === undefined ? [] : this.state.analysis;
+    console.log("render:"+this.state.response);
 
     const article = this.state.article;
 
@@ -72,7 +75,7 @@ class Article extends Component {
           <Card style={{ backgroundColor: '#333', borderColor: '#333' }}>
             <CardBody>
               <ul>
-                {/* { entities.map( entry => <li>{entry}</li> )} */}
+                {/* { entities.map( entry => <li key={entry.id}>{entry}</li> )} */}
               </ul>
             </CardBody>
           </Card>
