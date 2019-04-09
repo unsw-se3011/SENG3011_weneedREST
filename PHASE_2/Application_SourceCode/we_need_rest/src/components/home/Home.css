@@ -30,7 +30,6 @@
     border-radius: 5px;
 }
 
-
 .closed {
     display: none;
 }  
@@ -100,4 +99,18 @@ hr {
 
 .editing {
     display: none;
+}
+
+#selectBtn {
+    float: right;
+}
+
+#selectBtn:active {
+    color: DodgerBlue;
+}
+
+#summaryBtn {
+    width: 10%;
+    margin-left: 45%;
+    margin-right: 45%;
 }

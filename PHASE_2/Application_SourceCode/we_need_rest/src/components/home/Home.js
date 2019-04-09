@@ -74,7 +74,7 @@ const articles = article => {
       <div className="card-header">
         {article.headline}
         <button onClick={ () => {handleDelete(article.id)} } className="destroy"></button>
-        <button onClick={ () => {document.getElementById("body-card").style="background-color:yellow;"}}></button>
+        <button id="selectBtn" onClick={ () => {document.getElementById("body-card").style="background-color:DodgerBlue"}}></button>
       </div>
       <div className="card-body" id="body-card">
         <h5 className="card-title">{article.id}</h5>
@@ -168,7 +168,7 @@ class Home extends Component {
         <Modal value={ search_params } updateState={this.updateState} handleSubmitFilter={this.handleSubmitFilter}/>
         
         <Link to={`/summary/${this.state.selectedArticles}`}>
-          <button type="submit" class="btn btn-primary">Get Summary</button>
+          <button type="submit" class="btn btn-primary" id="summaryBtn">Get Summary</button>
         </Link>
         <hr/>
         <div id="results">
