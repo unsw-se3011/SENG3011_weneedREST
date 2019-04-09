@@ -6,9 +6,9 @@ class Report extends Component {
         super(props);
         
         this.state = {
-            id: props.match.params
+            id: props.match.params.selectedReport
         }
-        
+        console.log(this.state.id);
         this.onSubmit = this.onSubmit.bind(this);
     }
     onSubmit(e) {
@@ -18,16 +18,17 @@ class Report extends Component {
             url: "http://46.101.226.130:5000/reports/" + this.state.id,
             responseType: 'json'
             }).then(response => {
-            console.log(response);
-            //  var obj = JSON.parse(response.data);
-            document.getElementById("body").innerHTML = JSON.stringify(response.data);
+            console.log(response.data);
+            document.getElementById("core").innerHTML = JSON.stringify(response.data);
             });
     }
     render() {
         return (
-            <div id="body">
-
+            
+            <div id="core">
+                <button type="button" className="button" onClick={this.onSubmit}>Load</button>
             </div>
+            
         )
     }
 }
