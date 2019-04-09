@@ -5,7 +5,6 @@ import Summary from './summary/Summary';
 import About from './about/About';
 import Team from './contact/Team';
 import Member from './contact/Member';
-import View from './view/View';
 import Create from './create/Create';
 import Find from './find/Find';
 
@@ -18,7 +17,6 @@ class Main extends Component {
           <Route path='/about' component={About}/>
           <Route exact path='/contact' component={Team}/>
           <Route path='/contact/:name' component={Member}/>
-          <Route path='/view' component={View}/>
           <Route path='/create' component={Create}/>
           <Route path='/find' component={Find}/>
       </Switch>
