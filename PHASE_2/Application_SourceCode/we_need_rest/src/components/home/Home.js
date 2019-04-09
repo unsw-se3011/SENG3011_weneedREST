@@ -37,8 +37,8 @@ function Modal(props) {
       </div>
       <form id="modal-form" className="form">
         { search_params.map(search_param => input(search_param, props.updateState)) }
-        <button onClick={()=>{props.handleSubmitFilter(); toggleModal()}} type="submit" className="btn btn-primary">Search</button>
       </form>
+      <button onClick={()=>{props.handleSubmitFilter(); toggleModal()}} type="button" className="btn btn-primary">Search</button>
     </div>
   );
 }
@@ -54,7 +54,7 @@ function SearchGroup() {
       <div className="row">
         <div className="input-group">
           <input type="text" className="form-control" placeholder="What are you looking for?"/>
-          <button onClick={()=>{toggleModal()}} id="open-button" type="button" className="btn btn-default dropdown-toggle">Filter</button>
+          <button onClick={()=>{toggleModal();}} id="open-button" type="button" className="btn btn-default dropdown-toggle">Filter</button>
         </div>
       </div>
     </div>
@@ -113,6 +113,8 @@ class Home extends Component {
     let obj = {};
     obj[key] = elem.value;
     this.setState(obj);
+    console.log("State", this.state)
+    console.log(obj);
   }
 
   componentWillMount() {
@@ -129,7 +131,6 @@ class Home extends Component {
         console.log(this);
         for (var i = 0; i < res.data.length; i++) {
           this.state.selectedArticles.push(res.data[i].id);
-          
         }       
         this.setState({response: res})
       })
@@ -184,6 +185,8 @@ class Home extends Component {
       start_date : this.state.start_date,
       end_date : this.state.end_date
     }
+
+    console.log("State", this.state)
 
     //Deletes null fields
     Object.keys(params).forEach((key) => (params[key] === undefined) && delete params[key]);
