@@ -204,11 +204,12 @@ class Home extends Component {
         <h1 className="title">Sleepy API</h1>
         <SearchGroup/>
         <Modal value={ search_params } updateState={this.updateState} handleSubmitFilter={this.handleSubmitFilter}/>
-        
-        <Link to={`/summary/${this.state.selectedArticles}`}>
-          <button type="submit" className="btn btn-primary" id="summaryBtn">Get Summary</button>
-        </Link>
-        <button type="button" className="btn btn-secondary" onClick={this.selectAll} id="selectAllBtn">Select All</button>
+        <div class="btn-group">
+          <button type="button" className="btn btn-secondary" onClick={this.selectAll} id="selectAllBtn">Select All</button>
+          <Link to={`/summary/${this.state.selectedArticles}`}>
+            <button type="submit" className="btn btn-primary" id="summaryBtn">Get Summary</button>
+          </Link>
+        </div>
         <hr/>
         <div id="results">
           <ul>

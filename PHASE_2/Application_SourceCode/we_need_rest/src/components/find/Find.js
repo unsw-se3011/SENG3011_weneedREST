@@ -249,7 +249,7 @@ class Find extends Component {
                 <div id="report">
                 
                 </div>
-                <button type="button" class="btn btn-primary" onClick={this.onSubmitDelete}>Delete</button>
+                <button type="button" class="btn btn-danger" onClick={this.onSubmitDelete}>Delete</button>
                 <button type="button" class="btn btn-primary" onClick={this.onClickUpdate}>Update</button>
                 <div id="update" style={{visibility: "hidden"}}>
                 <form>

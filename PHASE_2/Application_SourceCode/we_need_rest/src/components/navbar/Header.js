@@ -10,8 +10,6 @@ class Header extends Component {
             this.activate(document.getElementById('about'));
         } else if (url.search("contact") !== -1) {
             this.activate(document.getElementById('contact'));
-        } else if (url.search("view") !== -1) {
-            this.activate(document.getElementById('view'));
         } else if (url.search("create") !== -1) {
             this.activate(document.getElementById('create'));
         } else if (url.search("find") !== -1){
@@ -51,11 +49,6 @@ class Header extends Component {
                 <Link to='/contact'>
                     <li className="nav-item" id="contact" onClick={()=>this.handleClick(document.getElementById('contact'))}>
                         Contact
-                    </li>
-                </Link>
-                <Link to='/view'>
-                    <li className="nav-item" id="view" onClick={()=>this.handleClick(document.getElementById('view'))}>
-                        View
                     </li>
                 </Link>
                 <Link to='/create'>
