@@ -124,7 +124,7 @@ class Home extends Component {
         console.log(this);
         for (var i = 0; i < res.data.length; i++) {
           this.state.selectedArticles.push(res.data[i].id);
-          console.log(this.state.selectedArticles);
+          
         }       
         this.setState({response: res})
       })
