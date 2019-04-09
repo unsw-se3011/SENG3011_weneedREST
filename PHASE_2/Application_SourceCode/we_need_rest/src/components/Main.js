@@ -8,6 +8,7 @@ import Member from './contact/Member';
 import View from './view/View';
 import Create from './create/Create';
 import Find from './find/Find';
+import Report from './report/Report';
 
 class Main extends Component {
   render() {
@@ -21,6 +22,7 @@ class Main extends Component {
           <Route path='/view' component={View}/>
           <Route path='/create' component={Create}/>
           <Route path='/find' component={Find}/>
+          <Route path='/report/:selectedReport' component={Report}/>
       </Switch>
     );
   }
