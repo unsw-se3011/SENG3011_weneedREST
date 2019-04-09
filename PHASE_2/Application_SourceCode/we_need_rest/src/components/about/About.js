@@ -27,9 +27,9 @@ class About extends Component {
             <ol>
                 <li>Develop an API that gathers data from online sources
                     <ul>
-                        <li>scraper to gather data</li>
-                        <li>provide diseasereports on demand</li>
-                        <li>website with API documentation</li>
+                        <li>Scraper to gather data</li>
+                        <li>Provide diseasereports on demand</li>
+                        <li>Website with API documentation</li>
                     </ul>
                 </li>
                 <li>Develop web scrapper with that API
@@ -72,7 +72,7 @@ class About extends Component {
         </Content>
       );
     }
-  }
+}
 
 const Content = styled.div`
     margin: 0 auto;
