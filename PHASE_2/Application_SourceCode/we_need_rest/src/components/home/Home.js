@@ -122,6 +122,7 @@ class Home extends Component {
     //Adds item to array
     let temp = this.state.selectedArticles;
     if (temp.filter(i => i==report).length !== 0) {
+      console.log("Already here")
       return null
     }
     temp.push(report);
@@ -131,6 +132,29 @@ class Home extends Component {
     //add styling
     let elem = document.getElementById('card'+report);
     elem.className = 'card bg-light mb-3';
+  }
+
+  deselect(report) {
+    //Adds item to array
+    let temp = this.state.selectedArticles;
+    if (!(temp.filter(i => i===report).length !== 0)) {
+      console.log("Not here");
+      return null
+    }
+
+    for( var i = 0; i < temp.length; i++){ 
+      if ( temp[i] === report) {
+        temp.splice(i, 1); 
+        i--;
+      }
+   }
+
+    this.setState({selectedArticles: temp});
+    console.log(this.state.selectedArticles);
+
+    //add styling
+    let elem = document.getElementById('card'+report);
+    elem.className = 'card text-white bg-dark mb-3';
   }
 
   handleSubmitFilter() {
@@ -173,7 +197,10 @@ class Home extends Component {
         <hr/>
         <div id="results">
           <ul>
-            { data.map(article => <li id={"item"+article.id} onClick={() => {this.select(article.id)}} key={article.id}>{articles(article)}</li>) }
+            { data.map(article => <li id={"item"+article.id} onClick={() => { if(this.state.selectedArticles.includes(article.id)) {
+            this.deselect(article.id);
+             }
+             else this.select(article.id)}} key={article.id}>{articles(article)}</li>) }
           </ul>
         </div>
       </div>
