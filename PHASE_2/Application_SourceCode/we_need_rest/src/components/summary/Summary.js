@@ -64,16 +64,16 @@ class Summary extends Component {
         let proxyUrl = 'https://cors-anywhere.herokuapp.com/'
         let options = {
             method: 'POST', 
-            body: JSON.stringify(text), 
-            extractors: 'entities,topics,words',
+            body: {'text': text, 'extractors': 'entities,topics,words'}, 
             headers: new Headers({
-                'Content-Type': 'application/json',
+                'Content-Type': 'application/json;charset=UTF-8',
                 'x-textrazor-key': '28a4e6569e176326519482635f0384827edf76f93085f9a61774f842',
-                'Access-Control-Allow-Origin': '*'
+                'Access-Control-Allow-Origin': '*',
+                'Accept-encoding' : 'gzip'
             })
         }
     
-        return fetch('https://cors-anywhere.herokuapp.com/' + 'https://api.textrazor.com', options)
+        return fetch(proxyUrl + url, options)
         .then(res => res.json())
         .then(response => console.log('Success:', JSON.stringify(response)))
         .catch(error => console.error(error))
