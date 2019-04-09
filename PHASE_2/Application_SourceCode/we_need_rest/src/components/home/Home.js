@@ -3,6 +3,7 @@ import './Home.css';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.css';
 
 const input = (search_param, updateState) => {
   const doc = {
@@ -32,6 +33,10 @@ function Modal(props) {
 
   return (
     <div id="modal" className="closed">
+      <div class="modal-header">
+        <h5 class="modal-title">Filter Reports</h5>
+        <button onClick={()=>{toggleModal()}} type="button" class="btn-outline-dark"> X </button>
+      </div>
       <form id="modal-form" className="form">
         { search_params.map(search_param => input(search_param, props.updateState)) }
         <button onClick={()=>{props.handleSubmitFilter(); toggleModal()}} type="submit" className="btn btn-primary">Search</button>
@@ -69,8 +74,9 @@ const articles = article => {
       <div className="card-header">
         {article.headline}
         <button onClick={ () => {handleDelete(article.id)} } className="destroy"></button>
+        <button id="selectBtn" onClick={ () => {document.getElementById("body-card").style="background-color:DodgerBlue"}}></button>
       </div>
-      <div className="card-body">
+      <div className="card-body" id="body-card">
         <h5 className="card-title">{article.id}</h5>
         <p className="card-text">{article.main_text}</p>
         <p className="card-text">{new Date(article.date_of_publication).toDateString()}</p>
@@ -86,7 +92,7 @@ class Home extends Component {
 
     this.state = {
       response: undefined,
-      selectedArticles: new Set,
+      selectedArticles: [],
       n : undefined,
       latitude : undefined,
       longitude : undefined,
@@ -120,9 +126,10 @@ class Home extends Component {
       })
   }
 
+  // Need to change - Duplicates currently allowed (Breaking when I change it to a set)
   select(report) {
     let temp = this.state.selectedArticles;
-    temp.add(report);
+    temp.push(report);
     this.setState({selectedArticles: temp});
     console.log(this.state.selectedArticles);
   }
@@ -162,7 +169,7 @@ class Home extends Component {
         <Modal value={ search_params } updateState={this.updateState} handleSubmitFilter={this.handleSubmitFilter}/>
         
         <Link to={`/summary/${this.state.selectedArticles}`}>
-          <button>Hello there</button>
+          <button type="submit" class="btn btn-primary" id="summaryBtn">Get Summary</button>
         </Link>
         <hr/>
         <div id="results">

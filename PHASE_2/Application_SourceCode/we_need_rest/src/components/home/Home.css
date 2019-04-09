@@ -22,7 +22,7 @@
     position: absolute;
     width: 500px;
     max-width: 100%;
-    height: 650px;
+    height: 700px;
     max-height: 100%;
     z-index: 1000;
     background: #fff;
@@ -99,4 +99,18 @@ hr {
 
 .editing {
     display: none;
+}
+
+#selectBtn {
+    float: right;
+}
+
+#selectBtn:active {
+    color: DodgerBlue;
+}
+
+#summaryBtn {
+    width: 10%;
+    margin-left: 45%;
+    margin-right: 45%;
 }
