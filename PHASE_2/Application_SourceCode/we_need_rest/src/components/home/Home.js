@@ -101,7 +101,6 @@ class Home extends Component {
       end_date : undefined
     }
 
-    this.routeSummary = this.routeSummary.bind(this);
     this.updateState = this.updateState.bind(this);
     this.handleSubmitFilter = this.handleSubmitFilter.bind(this);
   }
@@ -111,11 +110,6 @@ class Home extends Component {
     let obj = {};
     obj[key] = elem.value;
     this.setState(obj);
-  }
-
-  routeSummary() {
-    let path = "/summary";
-    this.props.history.push({pathname:path, selectedArticles:this.selectedArticles});
   }
 
   componentWillMount() {
@@ -129,6 +123,9 @@ class Home extends Component {
   // Need to change - Duplicates currently allowed (Breaking when I change it to a set)
   select(report) {
     let temp = this.state.selectedArticles;
+    if (temp.filter(i => i==report).length !== 0) {
+      return null
+    }
     temp.push(report);
     this.setState({selectedArticles: temp});
     console.log(this.state.selectedArticles);
