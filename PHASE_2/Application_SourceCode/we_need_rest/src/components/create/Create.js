@@ -162,7 +162,7 @@ class Create extends Component {
                         <input id = "idDate" onChange={this.updateDate} type="text" className="form-control" placeholder="e.g. 2018-12-10T23:50:00" />
                     </div>
                     <br></br>
-                    <button type="submit" class="btn btn-primary">Sign in</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             
                 <div id="results">

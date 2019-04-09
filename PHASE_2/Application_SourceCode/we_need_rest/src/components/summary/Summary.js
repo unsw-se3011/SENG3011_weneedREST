@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import { encode } from 'querystring';
+import '../home/Home.css';
 
 const articles = article => {
   const handleDelete = (id) => {
@@ -60,22 +60,18 @@ class Summary extends Component {
 
     // Used for calling textRazor API to extract keywords, topics and entities
     textRazor(text) {
-        let url = "https://api.textrazor.com"
-        let proxyUrl = 'https://cors-anywhere.herokuapp.com/'
-        let options = {
-            method: 'POST', 
-            body: JSON.stringify(text), 
-            extractors: 'entities,topics,words',
-            headers: new Headers({
-                'Content-Type': 'application/json',
-                'x-textrazor-key': '28a4e6569e176326519482635f0384827edf76f93085f9a61774f842',
-                'Access-Control-Allow-Origin': '*'
-            })
-        }
+        let url = "http://api.textrazor.com/"
+        let proxyUrl = "https://cors-anywhere.herokuapp.com/"
     
-        return fetch('https://cors-anywhere.herokuapp.com/' + 'https://api.textrazor.com', options)
+        return fetch(proxyUrl + url, { 
+            body: "extractors=entities,topics,words&text="+text, 
+            headers: { 
+              "Content-Type": "application/x-www-form-urlencoded", 
+              "X-Textrazor-Key": "28a4e6569e176326519482635f0384827edf76f93085f9a61774f842" }, 
+              method: "POST" 
+            })
         .then(res => res.json())
-        .then(response => console.log('Success:', JSON.stringify(response)))
+        .then(response => console.log("Success:", JSON.stringify(response), response))
         .catch(error => console.error(error))
     }
 
@@ -84,7 +80,7 @@ class Summary extends Component {
       return (
         <div id="container">
             
-            <div id="selected-articles">
+            <div id="results">
                 <ul>
                 { this.state.response.map(article => <li id={"item"+article.id} key={article.id}>{articles(article)}</li>) }
                 </ul>

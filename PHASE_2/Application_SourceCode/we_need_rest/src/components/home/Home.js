@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './Home.css';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.css';
 
 const input = (search_param, updateState) => {
   const doc = {
@@ -69,7 +68,7 @@ const articles = article => {
     elem.className = 'editing';
   }
   return (
-    <div className="card text-white bg-dark mb-3">
+    <div id={'card'+article.id} className="card text-white bg-dark mb-3">
       <div className="card-header">
         {article.headline}
         <button onClick={ () => {handleDelete(article.id)} } className="destroy"></button>
@@ -101,6 +100,7 @@ class Home extends Component {
 
     this.updateState = this.updateState.bind(this);
     this.handleSubmitFilter = this.handleSubmitFilter.bind(this);
+    this.selectAll = this.selectAll.bind(this);
   }
 
   updateState(key) {
@@ -118,11 +118,24 @@ class Home extends Component {
       })
   }
 
+  selectAll() {
+    axios.get('http://46.101.226.130:5000/reports/')
+      .then(res => {
+        console.log(this);
+        for (var i = 0; i < res.data.length; i++) {
+          this.state.selectedArticles.push(res.data[i].id);
+          console.log(this.state.selectedArticles);
+        }       
+        this.setState({response: res})
+      })
+  }
+
   // Need to change - Duplicates currently allowed (Breaking when I change it to a set)
   select(report) {
     //Adds item to array
     let temp = this.state.selectedArticles;
     if (temp.filter(i => i==report).length !== 0) {
+      console.log("Already here")
       return null
     }
     temp.push(report);
@@ -130,8 +143,31 @@ class Home extends Component {
     console.log(this.state.selectedArticles);
 
     //add styling
-    let elem = document.getElementById('item'+report);
-    elem.className = 'highlight';
+    let elem = document.getElementById('card'+report);
+    elem.className = 'card bg-light mb-3';
+  }
+
+  deselect(report) {
+    //Adds item to array
+    let temp = this.state.selectedArticles;
+    if (!(temp.filter(i => i===report).length !== 0)) {
+      console.log("Not here");
+      return null
+    }
+
+    for( var i = 0; i < temp.length; i++){ 
+      if ( temp[i] === report) {
+        temp.splice(i, 1); 
+        i--;
+      }
+   }
+
+    this.setState({selectedArticles: temp});
+    console.log(this.state.selectedArticles);
+
+    //add styling
+    let elem = document.getElementById('card'+report);
+    elem.className = 'card text-white bg-dark mb-3';
   }
 
   handleSubmitFilter() {
@@ -171,10 +207,14 @@ class Home extends Component {
         <Link to={`/summary/${this.state.selectedArticles}`}>
           <button type="submit" className="btn btn-primary" id="summaryBtn">Get Summary</button>
         </Link>
+        <button type="button" className="btn btn-secondary" onClick={this.selectAll} id="selectAllBtn">Select All</button>
         <hr/>
         <div id="results">
           <ul>
-            { data.map(article => <li id={"item"+article.id} onClick={() => {this.select(article.id)}} key={article.id}>{articles(article)}</li>) }
+            { data.map(article => <li id={"item"+article.id} onClick={() => { if(this.state.selectedArticles.includes(article.id)) {
+              this.deselect(article.id);
+             }
+             else this.select(article.id)}} key={article.id}>{articles(article)}</li>) }
           </ul>
         </div>
       </div>
