@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import { Switch, Route, IndexRoute } from 'react-router-dom';
-import Search from './search/Search';
+import { Switch, Route } from 'react-router-dom';
 import Home from './home/Home';
 import Summary from './summary/Summary';
 import About from './about/About';
-import Contact from './contact/Contact';
 import Team from './contact/Team';
 import Member from './contact/Member';
 import View from './view/View';

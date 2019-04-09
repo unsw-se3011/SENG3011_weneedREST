@@ -110,3 +110,7 @@ hr {
     margin-left: 45%;
     margin-right: 45%;
 }
+
+.highlight #body-card {
+    background: "DodgerBlue";
+}
