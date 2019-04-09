@@ -21,9 +21,8 @@ class Report extends Component {
             date : undefined,
         }
         console.log(this.state.id);
-        this.onSubmit = this.onSubmit.bind(this);
     }
-    onSubmit(e) {
+    componentWillMount() {
         console.log(this.state.id);
         axios({
             method : 'get',
@@ -53,8 +52,6 @@ class Report extends Component {
     render() {
         return ( 
             <div id="body" class="text-centre">
-
-                <button type="button" className="button" class="btn btn-primary" onClick={this.onSubmit}>See Report</button>
                 <div id="text-stuff" style={{visibility:"hidden"}}>
                     <h1 className="title">Report {this.state.id}</h1>
                     <br></br>

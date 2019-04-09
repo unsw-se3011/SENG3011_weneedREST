@@ -1,17 +1,40 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import '../home/Home.css';
-import { Collapse, Button, CardBody, Card, CardTitle, CardText  } from 'reactstrap';
+import { Collapse, Button, Badge, Card, CardTitle, CardText, Row, Col, CardHeader  } from 'reactstrap';
+
+const renderEntities = (a, b) => {
+  return (
+    <Row>
+      {entity(a)}
+      {b !== null ? entity(b) : null }
+    </Row>
+  );
+}
 
 const entity = (props) => {
+  let badges = [];
+
+  if (props.type === undefined) {
+    badges = []
+  } else if (props.type instanceof Array) {
+    badges = props.type
+  } else {
+    badges.push(props.type)
+  }
+
   return (
-    <div>
+    <Col sm="6">
       <Card body>
+        <CardHeader>{badges.map(type => <Badge>{type}</Badge>)}</CardHeader>
         <CardTitle>{props.id}. {props.entityId}</CardTitle>
-        <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
-        <Button>Go somewhere</Button>
+        <CardText>
+          Confidence Score: {props.confidenceScore}<br/>
+          Text: {props.matchedText}
+        </CardText>
+        <a href={props.wikiLink} target="_blank">Wikipedia Article</a>
       </Card>
-    </div>
+    </Col>
   );
 };
 
@@ -30,15 +53,13 @@ class Article extends Component {
     this.removeArticle = props.removeArticle;
     this.toggle = this.toggle.bind(this);
     this.onEntering = this.onEntering.bind(this);
-    this.textRazor = this.textRazor.bind(this);
+    //this.textRazor = this.textRazor.bind(this);
   }
 
   // Used for calling textRazor API to extract keywords, topics and entities
   textRazor() {
     let url = "http://api.textrazor.com/";
     let proxyUrl = "https://cors-anywhere.herokuapp.com/";
-
-    console.log(this.state.article.main_text);
 
     fetch(proxyUrl + url, { 
       method: "POST",
@@ -57,11 +78,15 @@ class Article extends Component {
   }
 
   onEntering() {
-    this.textRazor();
+    if (this.state.analysis === undefined ) {
+      this.textRazor();
+    }
   }
 
   toggle() {
     this.setState( state => ({ collapse: !state.collapse }) );
+    const elem = document.getElementById("art"+this.state.article.id);
+    elem.innerHTML = this.state.collapse ? 'Analyse' : 'Hide';
   }
 
   render() {
@@ -69,14 +94,71 @@ class Article extends Component {
       const elem = document.querySelector("#item"+id);
       elem.className = 'editing';
       this.removeArticle(id);
-    }
-
-    console.log("render:"+this.state.analysis);
-
+    }    
     let response = []
+  //   let response = [{
+  //       "id": 0,
+  //       "type": ["Disease"],
+  //       "matchingTokens": [6],
+  //       "entityId": "Influenza",
+  //       "freebaseTypes": ["/fictional_universe/medical_condition_in_fiction", "/medicine/infectious_disease", "/medicine/icd_9_cm_classification", "/film/film_subject", "/people/cause_of_death", "/medicine/disease", "/medicine/risk_factor"],
+  //       "confidenceScore": 3.481,
+  //       "wikiLink": "http://en.wikipedia.org/wiki/Influenza",
+  //       "matchedText": "flu",
+  //       "freebaseId": "/m/0cycc",
+  //       "relevanceScore": 0.2125,
+  //       "entityEnglishId": "Influenza",
+  //       "startingPos": 29,
+  //       "endingPos": 32,
+  //       "wikidataId": "Q2840"
+  //   }, {
+  //       "id": 1,
+  //       "type": ["Species", "Eukaryote", "Animal", "Mammal"],
+  //       "matchingTokens": [5],
+  //       "entityId": "Domestic pig",
+  //       "freebaseTypes": ["/biology/organism_classification", "/biology/domesticated_animal", "/biology/animal"],
+  //       "confidenceScore": 1.213,
+  //       "wikiLink": "http://en.wikipedia.org/wiki/Domestic_pig",
+  //       "matchedText": "swine",
+  //       "freebaseId": "/m/078qb0",
+  //       "relevanceScore": 0.0322,
+  //       "entityEnglishId": "Domestic pig",
+  //       "startingPos": 23,
+  //       "endingPos": 28,
+  //       "wikidataId": "Q787"
+  //   }, {
+  //     "id": 1,
+  //     "type": ["Species", "Eukaryote", "Animal", "Mammal"],
+  //     "matchingTokens": [5],
+  //     "entityId": "Domestic pig",
+  //     "freebaseTypes": ["/biology/organism_classification", "/biology/domesticated_animal", "/biology/animal"],
+  //     "confidenceScore": 1.213,
+  //     "wikiLink": "http://en.wikipedia.org/wiki/Domestic_pig",
+  //     "matchedText": "swine",
+  //     "freebaseId": "/m/078qb0",
+  //     "relevanceScore": 0.0322,
+  //     "entityEnglishId": "Domestic pig",
+  //     "startingPos": 23,
+  //     "endingPos": 28,
+  //     "wikidataId": "Q787"
+  // }]
+    let entities = [];
     if ( this.state.analysis !== undefined) {
       try {
         response = this.state.analysis.response.entities;
+        let prev = 0;
+        let i = 0;
+        for (i in response) {
+          if (i%2===0) {
+            prev = i;
+            continue
+          }
+
+          entities.push(renderEntities(response[prev], response[i]))
+        }
+        if (prev == i && i!==0) {
+          entities.push(renderEntities(response[prev], null))
+        }
       } catch (error) {
         console.log(error)
         response = []
@@ -97,15 +179,12 @@ class Article extends Component {
           <p className="card-text">{new Date(article.date_of_publication).toDateString()}</p>
         </div>
         <div>
-        <Button color="danger" onClick={this.toggle} style={{ margin: '1rem' }}>Analysis</Button>
-        <Collapse isOpen={this.state.collapse} onEntering={this.onEntering}>
-          <Card style={{ backgroundColor: '#333', borderColor: '#333' }}>
-            <CardBody>
-              <ul>
-                { response.map(entry => <li key={entry.id}>{entry.entityId}</li>) }
-              </ul>
-            </CardBody>
-          </Card>
+        <Button id={"art"+article.id} color="danger" onClick={this.toggle} style={{ margin: '1rem' }}>Analysis</Button>
+        <hr/>
+        <Collapse className="remove-outline" isOpen={this.state.collapse} onEntering={this.onEntering}>
+          <div className='text-dark' style={{marginRight: '20px'}}>
+            {entities.map(entry => entry)}
+          </div>
         </Collapse>
       </div>
       </div>

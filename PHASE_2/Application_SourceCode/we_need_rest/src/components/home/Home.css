@@ -105,3 +105,10 @@ hr {
     margin-left: 40%;
     margin-right: 40%;
 }
+s
+.remove-outline {
+    outline: none;
+    background: transparent !important;
+    border: transparent !important;
+    box-shadow: none !important;
+}
