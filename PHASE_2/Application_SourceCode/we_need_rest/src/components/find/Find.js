@@ -131,14 +131,15 @@ class Find extends Component {
                 this.setState({date_pub: response.data.date_of_publication});
                 this.setState({headline: response.data.headline});
                 this.setState({main_text: response.data.main_text});
-                this.setState({disease: response.data.disease});
-                this.setState({syndrome: response.data.syndrome});
-                this.setState({type: response.data.type});
-                this.setState({longitude: response.data.longitude});
-                this.setState({latitude: response.data.latitude});
-                this.setState({n_affected: response.data.n_affected});
-                this.setState({comment: response.data.comment});
-                this.setState({date: response.data.date});
+                this.setState({disease: response.data.reports[0].disease});
+                this.setState({syndrome: response.data.reports[0].syndrome});
+                this.setState({type: response.data.reports[0].reported_events[0].type});
+                this.setState({longitude: response.data.reports[0].reported_events[0].location.longitude});
+                this.setState({latitude: response.data.reports[0].reported_events[0].location.latitude});
+                this.setState({n_affected: response.data.reports[0].reported_events[0].n_affected});
+                this.setState({comment: response.data.reports[0].comment});
+                this.setState({date: response.data.reports[0].reported_events[0].date});
+                this.setState({state: this.state});
                 this.setState({state: this.state});
                 document.getElementById("card").style.visibility="visible";
                 document.getElementById("deleted").style.visibility="hidden"
