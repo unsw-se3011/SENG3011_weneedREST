@@ -36,7 +36,7 @@ class Article extends Component {
         console.log("Success:", JSON.stringify(response), response); 
         this.setState({analysis: response}); 
         console.log(this.state.analysis)
-      } )
+      })
   }
 
   onEntering() {
@@ -54,7 +54,12 @@ class Article extends Component {
       this.removeArticle(id);
     }
 
-    console.log("render:"+this.state.response);
+    console.log("render:"+this.state.analysis);
+
+    let response = []
+    if ( this.state.analysis !== undefined) {
+      response = this.state.analysis.response.entities;
+    }
 
     const article = this.state.article;
 
@@ -75,7 +80,7 @@ class Article extends Component {
           <Card style={{ backgroundColor: '#333', borderColor: '#333' }}>
             <CardBody>
               <ul>
-                {/* { entities.map( entry => <li key={entry.id}>{entry}</li> )} */}
+                { response.map(entry => <li key={entry.id}>{entry.entityId}</li>) }
               </ul>
             </CardBody>
           </Card>
