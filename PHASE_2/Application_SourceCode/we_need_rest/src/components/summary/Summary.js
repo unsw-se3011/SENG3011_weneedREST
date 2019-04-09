@@ -60,22 +60,15 @@ class Summary extends Component {
 
     // Used for calling textRazor API to extract keywords, topics and entities
     textRazor(text) {
-        let url = "https://api.textrazor.com"
-        let proxyUrl = 'https://cors-anywhere.herokuapp.com/'
-        let options = {
-            method: 'POST', 
-            body: {'text': text, 'extractors': 'entities,topics,words'}, 
-            headers: new Headers({
-                'Content-Type': 'application/json;charset=UTF-8',
-                'x-textrazor-key': '28a4e6569e176326519482635f0384827edf76f93085f9a61774f842',
-                'Access-Control-Allow-Origin': '*',
-                'Accept-encoding' : 'gzip'
-            })
-        }
+        let url = "http://api.textrazor.com/"
+        let proxyUrl = "https://cors-anywhere.herokuapp.com/"
     
-        return fetch(proxyUrl + url, options)
+        return fetch(proxyUrl + url, { 
+            body: "extractors=entities,topics,words&text=Spain's stricken Bankia expects to sell", 
+            headers: { "Content-Type": "application/x-www-form-urlencoded", "X-Textrazor-Key": "28a4e6569e176326519482635f0384827edf76f93085f9a61774f842" }, 
+            method: "POST" })
         .then(res => res.json())
-        .then(response => console.log('Success:', JSON.stringify(response)))
+        .then(response => console.log("Success:", JSON.stringify(response), response))
         .catch(error => console.error(error))
     }
 
