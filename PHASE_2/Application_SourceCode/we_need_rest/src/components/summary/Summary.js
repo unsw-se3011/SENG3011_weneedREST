@@ -53,22 +53,29 @@ class Summary extends Component {
     componentDidMount() {
     }
   
-    // textRazor(text) {
-    //     let url = "https://api.textrazor.com"
-    //     let data = {'text': text, 'extractors': 'entities,topics,words'}
+    getLocations()
+    {
+
+    }
+
+    // Used for calling textRazor API to extract keywords, topics and entities
+    textRazor(text) {
+        let url = "https://api.textrazor.com"
+        let options = {
+            method: 'POST', 
+            body: JSON.stringify(text), 
+            extractors: 'entities,topics,words',
+            headers: new Headers({
+                'Content-Type': 'application/json',
+                'x-textrazor-key': '28a4e6569e176326519482635f0384827edf76f93085f9a61774f842',
+                'Access-Control-Allow-Origin': '*'
+            })
+        }
     
-    //     fetch(url, {
-    //         method: 'POST',
-    //         body: JSON.stringify(data), // data can be `string` or {object}!
-    //         headers:{
-    //           'x-textrazor-key': '28a4e6569e176326519482635f0384827edf76f93085f9a61774f842',
-    //           'Content-Type': 'application/json',
-    //           'credentials': 'same-origin',
-    //           'Access-Control-Allow-Origin': '*'
-    //         }
-    //       }).then(res => res.json())
-    //       .then(response => console.log('Success:', JSON.stringify(response)))
-    // }
+        return fetch('https://api.textrazor.com', options)
+        .then(res => res.json())
+        .then(response => console.log('Success:', JSON.stringify(response)))
+    }
 
   
   render() {
@@ -81,9 +88,9 @@ class Summary extends Component {
                 </ul>
             </div>
             
-            {/* <div id="nlp">
+            <div id="nlp">
                 <button onClick={() => this.textRazor("This is a test disease swine flu")}>textRazor</button>
-            </div> */}
+            </div>
 
         </div>
         

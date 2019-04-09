@@ -1,5 +1,27 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import { runInThisContext } from 'vm';
+
+const articles = article => {
+    const handleDelete = (id) => {
+      axios.delete('http://46.101.226.130:5000/reports/'+id); 
+      const elem = document.querySelector("#item"+id);
+      elem.className = 'editing';
+    }
+    return (
+      <div className="card text-white bg-dark mb-3">
+        <div className="card-header">
+          {article.headline}
+          <button onClick={ () => {handleDelete(article.id)} } className="destroy"></button>
+        </div>
+        <div className="card-body">
+          <h5 className="card-title">{article.id}</h5>
+          <p className="card-text">{article.main_text}</p>
+          <p className="card-text">{new Date(article.date_of_publication).toDateString()}</p>
+        </div>
+      </div>
+    )
+  }
 
 class Find extends Component {
     constructor(props){
@@ -18,7 +40,8 @@ class Find extends Component {
           latitude : undefined,
           n_affected : undefined,
           comment : undefined,
-          date : undefined
+          date : undefined,
+          resp : undefined
         }
         
         this.updateRepId = this.updateRepId.bind(this);
@@ -92,13 +115,32 @@ class Find extends Component {
 
     onSubmitGet(e) {
         console.log(this.state.repId);
+        
         axios({
             method : 'get',
             url: "http://46.101.226.130:5000/reports/" + this.state.repId,
             responseType: 'json'
-            }).then(response => {
-            console.log(response.data);
-            document.getElementById("report").innerHTML = JSON.stringify(response.data);
+            })
+            .then(response => {
+                if (response.status === 400) {
+                    document.getElementById("report").innerHTML="Error: Report not found";
+                }
+                console.log(response.data.url);
+                this.setState({url: response.data.url});
+                this.setState({date_pub: response.data.date_of_publication});
+                this.setState({headline: response.data.headline});
+                this.setState({main_text: response.data.main_text});
+                this.setState({disease: response.data.disease});
+                this.setState({syndrome: response.data.syndrome});
+                this.setState({type: response.data.type});
+                this.setState({longitude: response.data.longitude});
+                this.setState({latitude: response.data.latitude});
+                this.setState({n_affected: response.data.n_affected});
+                this.setState({comment: response.data.comment});
+                this.setState({date: response.data.date});
+                this.setState({state: this.state});
+                document.getElementById("card").style.visibility="visible";
+                document.getElementById("deleted").style.visibility="hidden"
           });
 
     }
@@ -109,8 +151,23 @@ class Find extends Component {
             url: "http://46.101.226.130:5000/reports/" + this.state.repId,
             responseType: 'json'
             }).then(response => {
-            console.log(response.data);
-            document.getElementById("report").innerHTML = JSON.stringify(response.data);
+                console.log(response.data);
+                
+                this.setState({url: response.data.url});
+                this.setState({date_pub: response.data.date_of_publication});
+                this.setState({headline: response.data.headline});
+                this.setState({main_text: response.data.main_text});
+                this.setState({disease: response.data.disease});
+                this.setState({syndrome: response.data.syndrome});
+                this.setState({type: response.data.type});
+                this.setState({longitude: response.data.longitude});
+                this.setState({latitude: response.data.latitude});
+                this.setState({n_affected: response.data.n_affected});
+                this.setState({comment: response.data.comment});
+                this.setState({date: response.data.date});
+                this.setState({state: this.state});
+                document.getElementById("card").style.visibility="hidden";
+                document.getElementById("deleted").style.visibility="visible";
           });
 
     }
@@ -137,8 +194,20 @@ class Find extends Component {
                 ...(this.state.syndrome ? { date: this.state.date } : {})
             }
             }).then(response => {
-            console.log(response.data);
-            document.getElementById("report").innerHTML = JSON.stringify(response.data);
+                this.setState({url: response.data.url});
+                this.setState({date_pub: response.data.date_of_publication});
+                this.setState({headline: response.data.headline});
+                this.setState({main_text: response.data.main_text});
+                this.setState({disease: response.data.disease});
+                this.setState({syndrome: response.data.syndrome});
+                this.setState({type: response.data.type});
+                this.setState({longitude: response.data.longitude});
+                this.setState({latitude: response.data.latitude});
+                this.setState({n_affected: response.data.n_affected});
+                this.setState({comment: response.data.comment});
+                this.setState({date: response.data.date});
+                this.setState({state: this.state});
+            
           });
     }
     onClickUpdate(e) {
@@ -158,8 +227,27 @@ class Find extends Component {
                     </div>
                 </form>
                 <button type="button" onClick={this.onSubmitGet} className="button">Get</button>
+                <center>
+                
+                <div id="card" style={{visibility: "hidden"}} >
+                    <div className="card text-white bg-dark mb-3">
+                        <div className="card-header">
+                            {this.state.headline}
+                            <button onClick={ this.onSubmitDelete } className="destroy"></button>
+                        </div>
+                        <div className="card-body">
+                            <h5 className="card-title">{this.state.repId}</h5>
+                            <p className="card-text">{this.state.main_text}</p>
+                        </div>
+                    </div>
+                    
+                </div>  
+                </center>
+                <div id="deleted" style={{visibility: "hidden"}}>
+                <p>Deleted report { this.state.repId }</p>
+                </div>
                 <div id="report">
-            
+                
                 </div>
                 <button type="button" onClick={this.onSubmitDelete} className="button">Delete</button>
                 <button type="button" onClick={this.onClickUpdate} className="button">Update</button>
@@ -217,6 +305,7 @@ class Find extends Component {
                 <button type="button" onClick={this.onSubmitUpdate} className="button">Confirm</button>
                 </div>
             </div>
+            
         )
     }
 }
