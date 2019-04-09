@@ -126,6 +126,7 @@ class Home extends Component {
       })
   }
 
+  // Need to change - Duplicates currently allowed (Breaking when I change it to a set)
   select(report) {
     let temp = this.state.selectedArticles;
     temp.push(report);
