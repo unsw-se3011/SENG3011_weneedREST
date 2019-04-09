@@ -74,7 +74,7 @@ const articles = article => {
       <div className="card-header">
         {article.headline}
         <button onClick={ () => {handleDelete(article.id)} } className="destroy"></button>
-        <button id="selectBtn" onClick={ () => {document.getElementById("body-card").style="background-color:DodgerBlue"}}></button>
+        <button type="button" class="btn btn-light" id="selectBtn" data-toggle="button" aria-pressed="false" autocomplete="off" onClick={ () => {document.getElementById("body-card").style="background-color:DodgerBlue"}}></button>
       </div>
       <div className="card-body" id="body-card">
         <h5 className="card-title">{article.id}</h5>
@@ -101,7 +101,6 @@ class Home extends Component {
       end_date : undefined
     }
 
-    this.routeSummary = this.routeSummary.bind(this);
     this.updateState = this.updateState.bind(this);
     this.handleSubmitFilter = this.handleSubmitFilter.bind(this);
   }
@@ -111,11 +110,6 @@ class Home extends Component {
     let obj = {};
     obj[key] = elem.value;
     this.setState(obj);
-  }
-
-  routeSummary() {
-    let path = "/summary";
-    this.props.history.push({pathname:path, selectedArticles:this.selectedArticles});
   }
 
   componentWillMount() {
@@ -129,6 +123,9 @@ class Home extends Component {
   // Need to change - Duplicates currently allowed (Breaking when I change it to a set)
   select(report) {
     let temp = this.state.selectedArticles;
+    if (temp.filter(i => i==report).length !== 0) {
+      return null
+    }
     temp.push(report);
     this.setState({selectedArticles: temp});
     console.log(this.state.selectedArticles);
