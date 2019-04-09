@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './Home.css';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import { withRouter } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 
 const input = (search_param, updateState) => {
@@ -33,9 +32,9 @@ function Modal(props) {
 
   return (
     <div id="modal" className="closed">
-      <div class="modal-header">
-        <h5 class="modal-title">Filter Reports</h5>
-        <button onClick={()=>{toggleModal()}} type="button" class="btn-outline-dark"> X </button>
+      <div className="modal-header">
+        <h5 className="modal-title">Filter Reports</h5>
+        <button onClick={()=>{toggleModal()}} type="button" className="btn-outline-dark"> X </button>
       </div>
       <form id="modal-form" className="form">
         { search_params.map(search_param => input(search_param, props.updateState)) }
@@ -166,7 +165,7 @@ class Home extends Component {
         <Modal value={ search_params } updateState={this.updateState} handleSubmitFilter={this.handleSubmitFilter}/>
         
         <Link to={`/summary/${this.state.selectedArticles}`}>
-          <button type="submit" class="btn btn-primary" id="summaryBtn">Get Summary</button>
+          <button type="submit" className="btn btn-primary" id="summaryBtn">Get Summary</button>
         </Link>
         <hr/>
         <div id="results">
