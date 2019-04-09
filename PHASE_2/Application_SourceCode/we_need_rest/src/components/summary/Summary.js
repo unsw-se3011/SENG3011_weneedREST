@@ -1,7 +1,19 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import '../home/Home.css';
-import { Collapse, Button, CardBody, Card } from 'reactstrap';
+import { Collapse, Button, CardBody, Card, CardTitle, CardText  } from 'reactstrap';
+
+const entity = (props) => {
+  return (
+    <div>
+      <Card body>
+        <CardTitle>{props.id}. {props.entityId}</CardTitle>
+        <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
+        <Button>Go somewhere</Button>
+      </Card>
+    </div>
+  );
+};
 
 class Article extends Component {
   constructor(props) {
@@ -16,36 +28,38 @@ class Article extends Component {
     this.removeArticle = props.removeArticle;
     this.toggle = this.toggle.bind(this);
     this.onEntering = this.onEntering.bind(this);
+    this.textRazor = this.textRazor.bind(this);
   }
 
   // Used for calling textRazor API to extract keywords, topics and entities
-  textRazor() {
-    let url = "http://api.textrazor.com/"
-    let proxyUrl = "https://cors-anywhere.herokuapp.com/"
+  // textRazor() {
+  //   let url = "http://api.textrazor.com/";
+  //   let proxyUrl = "https://cors-anywhere.herokuapp.com/";
 
-    console.log(this.state.article);
+  //   console.log(this.state.article.main_text);
 
-    const options = { 
-      method: "POST",
-      body: "extractors=entities,topics,words&text="+this.state.article.main_text, 
-      headers: { 
-        "Content-Type": "application/x-www-form-urlencoded", 
-        "X-Textrazor-Key": "28a4e6569e176326519482635f0384827edf76f93085f9a61774f842" 
-      }
-    }
-
-    fetch(proxyUrl + url, options)
-      .then(res => { this.setState( {analysis: res}); console.log(res) } )
-      .then(response => console.log("Success:", JSON.stringify(response), response))
-      .catch(error => console.error(error))
-  }
+  //   fetch(proxyUrl + url, { 
+  //     method: "POST",
+  //     body: "extractors=entities,topics&text="+this.state.article.main_text, 
+  //     headers: { 
+  //       "Content-Type": "application/x-www-form-urlencoded", 
+  //       "X-Textrazor-Key": "1c89b6ad192f7b32536cd1b7d252c45ea2121272f258df695015a18d" 
+  //     }
+  //   })
+  //     .then(res =>res.json())
+  //     .then(response => { 
+  //       console.log("Success:", JSON.stringify(response), response); 
+  //       this.setState({analysis: response}); 
+  //       console.log(this.state.analysis)
+  //     })
+  // }
 
   onEntering() {
     this.textRazor();
   }
 
   toggle() {
-    this.setState(state => ({ collapse: !state.collapse }));
+    this.setState( state => ({ collapse: !state.collapse }) );
   }
 
   render() {
@@ -55,7 +69,17 @@ class Article extends Component {
       this.removeArticle(id);
     }
 
-    const entities = this.state.analysis === undefined ? [] : this.state.analysis;
+    console.log("render:"+this.state.analysis);
+
+    let response = []
+    if ( this.state.analysis !== undefined) {
+      try {
+        response = this.state.analysis.response.entities;
+      } catch (error) {
+        console.log(error)
+        response = []
+      }
+    }
 
     const article = this.state.article;
 
@@ -76,7 +100,7 @@ class Article extends Component {
           <Card style={{ backgroundColor: '#333', borderColor: '#333' }}>
             <CardBody>
               <ul>
-                {/* { entities.map( entry => <li>{entry}</li> )} */}
+                { response.map(entry => <li key={entry.id}>{entry.entityId}</li>) }
               </ul>
             </CardBody>
           </Card>
