@@ -73,7 +73,6 @@ const articles = article => {
       <div className="card-header">
         {article.headline}
         <button onClick={ () => {handleDelete(article.id)} } className="destroy"></button>
-        <button type="button" class="btn btn-light" id="selectBtn" data-toggle="button" aria-pressed="false" autocomplete="off" onClick={ () => {document.getElementById("body-card").style="background-color:DodgerBlue"}}></button>
       </div>
       <div className="card-body" id="body-card">
         <h5 className="card-title">{article.id}</h5>
@@ -121,6 +120,7 @@ class Home extends Component {
 
   // Need to change - Duplicates currently allowed (Breaking when I change it to a set)
   select(report) {
+    //Adds item to array
     let temp = this.state.selectedArticles;
     if (temp.filter(i => i==report).length !== 0) {
       return null
@@ -128,6 +128,10 @@ class Home extends Component {
     temp.push(report);
     this.setState({selectedArticles: temp});
     console.log(this.state.selectedArticles);
+
+    //add styling
+    let elem = document.getElementById('item'+report);
+    elem.className = 'highlight';
   }
 
   handleSubmitFilter() {
@@ -170,7 +174,7 @@ class Home extends Component {
         <hr/>
         <div id="results">
           <ul>
-            { data.map(article => <li id={article.id} onClick={() => {this.select(article.id)}} key={article.id}>{articles(article)}</li>) }
+            { data.map(article => <li id={"item"+article.id} onClick={() => {this.select(article.id)}} key={article.id}>{articles(article)}</li>) }
           </ul>
         </div>
       </div>
