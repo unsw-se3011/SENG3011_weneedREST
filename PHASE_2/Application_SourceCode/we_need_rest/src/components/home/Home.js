@@ -86,6 +86,7 @@ class Home extends Component {
 
     this.state = {
       response: undefined,
+      selectedArticles: new Set(),
       n : undefined,
       latitude : undefined,
       longitude : undefined,
@@ -93,8 +94,8 @@ class Home extends Component {
       start_date : undefined,
       end_date : undefined
     }
+
     this.routeSummary = this.routeSummary.bind(this);
-    this.selectedArticles = new Set();
     this.updateState = this.updateState.bind(this);
     this.handleSubmitFilter = this.handleSubmitFilter.bind(this);
   }
@@ -111,12 +112,19 @@ class Home extends Component {
     this.props.history.push({pathname:path, selectedArticles:this.selectedArticles});
   }
 
-  componentDidMount() {
+  componentWillMount() {
     axios.get('http://46.101.226.130:5000/reports/')
       .then(res => {
         res.data.forEach( obj => delete obj['reports']);       
         this.setState({response: res})
       })
+  }
+
+  select(report) {
+    let temp = this.state.selectedArticles;
+    temp.add(report);
+    this.setState({selectedArticles: temp});
+    console.log(this.state.selectedArticles);
   }
 
   handleSubmitFilter() {
@@ -133,10 +141,6 @@ class Home extends Component {
     Object.keys(params).forEach((key) => (params[key] === undefined) && delete params[key]);
 
     console.log(params);
-
-    if (isNaN(params)) {
-      return
-    }
 
     axios.get('http://46.101.226.130:5000/reports/', {params})
       .then(res => {
@@ -157,11 +161,13 @@ class Home extends Component {
         <SearchGroup/>
         <Modal value={ search_params } updateState={this.updateState} handleSubmitFilter={this.handleSubmitFilter}/>
         
-        <button onClick={this.routeSummary}>Hello there</button>
+        <Link to={`/summary/${this.state.selectedArticles}`}>
+          <button>Hello there</button>
+        </Link>
         <hr/>
         <div id="results">
           <ul>
-            { data.map(article => <li id={"item"+article.id} onClick={() => {this.selectedArticles.add(article); console.log(this.selectedArticles)}} key={article.id}>{articles(article)}</li>) }
+            { data.map(article => <li id={article.id} onClick={() => {this.select(article.id)}} key={article.id}>{articles(article)}</li>) }
           </ul>
         </div>
       </div>

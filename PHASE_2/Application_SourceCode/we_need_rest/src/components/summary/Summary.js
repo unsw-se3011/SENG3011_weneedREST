@@ -23,13 +23,14 @@ const articles = article => {
     )
   };
 class Summary extends Component {
-    constructor(props)
-    {
+    constructor(props) {
         super(props);
 
-        this.state= {
-            selectedArticles: this.props.location.selectedArticles
-        };
+        this.state = {
+            selectedArticles: props.match.params.selectedArticles
+        }
+
+        console.log(props);
     }
 
     componentDidMount() {
@@ -48,8 +49,6 @@ class Summary extends Component {
     
     
     render() {
-        console.log("IM IN HERE")
-
         return (
             <div id="results">
             <p>We out here</p>
