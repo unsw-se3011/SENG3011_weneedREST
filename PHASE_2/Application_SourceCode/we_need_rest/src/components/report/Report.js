@@ -54,8 +54,7 @@ class Report extends Component {
     render() {
         return ( 
             <div id="core">
-                <button type="button" className="button" onClick={this.onSubmit}>Load</button>
-                
+
             </div>
         )
     }
