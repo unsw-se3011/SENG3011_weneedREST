@@ -73,7 +73,7 @@ const articles = article => {
       <div className="card-header">
         {article.headline}
         <button onClick={ () => {handleDelete(article.id)} } className="destroy"></button>
-        <button id="selectBtn" onClick={ () => {document.getElementById("body-card").style="background-color:DodgerBlue"}}></button>
+        <button type="button" class="btn btn-light" id="selectBtn" data-toggle="button" aria-pressed="false" autocomplete="off" onClick={ () => {document.getElementById("body-card").style="background-color:DodgerBlue"}}></button>
       </div>
       <div className="card-body" id="body-card">
         <h5 className="card-title">{article.id}</h5>
