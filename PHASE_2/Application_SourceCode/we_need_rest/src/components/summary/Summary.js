@@ -30,7 +30,8 @@ class Summary extends Component {
 
     this.state = {
         response : [],
-        selectedArticles: props.match.params.selectedArticles.split(',')
+        selectedArticles: props.match.params.selectedArticles.split(','),
+        relatedWords: []
     }
 
     // console.log(this.state.selectedArticles);
@@ -50,19 +51,42 @@ class Summary extends Component {
     }
 
     componentDidMount() {
-    //   console.log(this.state.response)
     }
   
+    // textRazor(text) {
+    //     let url = "https://api.textrazor.com"
+    //     let data = {'text': text, 'extractors': 'entities,topics,words'}
+    
+    //     fetch(url, {
+    //         method: 'POST',
+    //         body: JSON.stringify(data), // data can be `string` or {object}!
+    //         headers:{
+    //           'x-textrazor-key': '28a4e6569e176326519482635f0384827edf76f93085f9a61774f842',
+    //           'Content-Type': 'application/json',
+    //           'credentials': 'same-origin',
+    //           'Access-Control-Allow-Origin': '*'
+    //         }
+    //       }).then(res => res.json())
+    //       .then(response => console.log('Success:', JSON.stringify(response)))
+    // }
+
   
   render() {
       return (
-          <div id="results">
-          <p>We out here</p>
-              <p>{this.state.selectedArticles}</p>
-          <ul>
-            { this.state.response.map(article => <li id={"item"+article.id} key={article.id}>{articles(article)}</li>) }
-          </ul>
+        <div id="container">
+            
+            <div id="selected-articles">
+                <ul>
+                { this.state.response.map(article => <li id={"item"+article.id} key={article.id}>{articles(article)}</li>) }
+                </ul>
+            </div>
+            
+            {/* <div id="nlp">
+                <button onClick={() => this.textRazor("This is a test disease swine flu")}>textRazor</button>
+            </div> */}
+
         </div>
+        
       );
   }
 }

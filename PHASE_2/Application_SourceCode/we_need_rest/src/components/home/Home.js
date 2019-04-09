@@ -162,7 +162,7 @@ class Home extends Component {
         <Modal value={ search_params } updateState={this.updateState} handleSubmitFilter={this.handleSubmitFilter}/>
         
         <Link to={`/summary/${this.state.selectedArticles}`}>
-          <button>Hello there</button>
+          <button>Summary</button>
         </Link>
         <hr/>
         <div id="results">
