@@ -100,6 +100,7 @@ class Home extends Component {
 
     this.updateState = this.updateState.bind(this);
     this.handleSubmitFilter = this.handleSubmitFilter.bind(this);
+    this.selectAll = this.selectAll.bind(this);
   }
 
   updateState(key) {
@@ -113,6 +114,18 @@ class Home extends Component {
     axios.get('http://46.101.226.130:5000/reports/')
       .then(res => {
         res.data.forEach( obj => delete obj['reports']);       
+        this.setState({response: res})
+      })
+  }
+
+  selectAll() {
+    axios.get('http://46.101.226.130:5000/reports/')
+      .then(res => {
+        console.log(this);
+        for (var i = 0; i < res.data.length; i++) {
+          this.state.selectedArticles.push(res.data[i].id);
+          console.log(this.state.selectedArticles);
+        }       
         this.setState({response: res})
       })
   }
@@ -194,6 +207,7 @@ class Home extends Component {
         <Link to={`/summary/${this.state.selectedArticles}`}>
           <button type="submit" className="btn btn-primary" id="summaryBtn">Get Summary</button>
         </Link>
+        <button type="button" className="btn btn-secondary" onClick={this.selectAll} id="selectAllBtn">Select All</button>
         <hr/>
         <div id="results">
           <ul>
