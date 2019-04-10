@@ -12,7 +12,9 @@
 
 TODO:
 API Testing
+
 • Describe the testing processes used in the development of API, referring to the data and scripts included in Phase_1 folder. This should describe your testing environment and/or tools used, and limitations (e.g. things that are not tested). Describe your testing process i.e. how your team conducts testing using the test data (e.g. in which order) and an overview of test cases, testing data and testing results.
+
 • Describe the output of testing and what actions you took to improve the test results.
 
 At D2 your Phase_1/TestScripts folder should contain:
@@ -22,5 +24,7 @@ At D2 your Phase_1/TestScripts folder should contain:
 4. Software or scripts used during testing (if any)
 
 Platform Testing
+
 • Describe the testing processes used in the development of the platform. You may include a sub-folder in Phase_2 folder to include any data, scripts you used to test the platform.
+
 • Describe the output of testing and what actions you took to improve the test results.
