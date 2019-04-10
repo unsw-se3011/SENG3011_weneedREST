@@ -47,13 +47,16 @@ function SearchGroup() {
   const toggleModal = ()=>{
     const modal = document.querySelector("#modal");
     modal.classList.toggle("closed");
+
+    const secondary_search_bar = document.getElementById("key_terms");
+    secondary_search_bar.value = document.getElementById("main_search_bar").value;
   }
 
   return (
     <div className="container">
       <div className="row">
         <div className="input-group">
-          <input type="text" className="form-control" placeholder="What are you looking for?"/>
+          <input id="main_search_bar" type="text" className="form-control" placeholder="What are you looking for?"/>
           <button onClick={()=>{toggleModal();}} id="open-button" type="button" className="btn btn-default dropdown-toggle">Filter</button>
         </div>
       </div>
@@ -61,12 +64,7 @@ function SearchGroup() {
   );
 }
 
-const articles = article => {
-  const handleDelete = (id) => {
-    axios.delete('http://46.101.226.130:5000/reports/'+id); 
-    const elem = document.querySelector("#item"+id);
-    elem.className = 'editing';
-  }
+const articles = (article, handleDelete) => {
   return (
     <div id={'card'+article.id} className="card text-white bg-dark mb-3">
       <div className="card-header">
@@ -106,15 +104,15 @@ class Home extends Component {
     this.updateState = this.updateState.bind(this);
     this.handleSubmitFilter = this.handleSubmitFilter.bind(this);
     this.selectAll = this.selectAll.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   updateState(key) {
     const elem = document.getElementById(key);
     let obj = {};
     obj[key] = elem.value;
-    this.setState(obj);
-    console.log("State", this.state)
     console.log(obj);
+    this.setState(obj);
   }
 
   componentWillMount() {
@@ -133,15 +131,13 @@ class Home extends Component {
   // Need to change - Duplicates currently allowed (Breaking when I change it to a set)
   select(report) {
     //Adds item to array
-    console.log(report);
     let temp = this.state.selectedArticles;
-    if (temp.filter(i => i==report).length !== 0) {
-      console.log("Already here")
+    if (temp.filter(i => i === report).length !== 0) {
+      this.deselect(report)
       return null
     }
     temp.push(report);
     this.setState({selectedArticles: temp});
-    console.log(this.state.selectedArticles);
 
     //add styling
     let elem = document.getElementById('card'+report);
@@ -151,8 +147,7 @@ class Home extends Component {
   deselect(report) {
     //Adds item to array
     let temp = this.state.selectedArticles;
-    if (!(temp.filter(i => i===report).length !== 0)) {
-      console.log("Not here");
+    if (temp.filter(i => i===report).length === 0) {
       return null
     }
 
@@ -161,8 +156,7 @@ class Home extends Component {
         temp.splice(i, 1); 
         i--;
       }
-   }
-
+    }
     this.setState({selectedArticles: temp});
 
     //add styling
@@ -170,7 +164,28 @@ class Home extends Component {
     elem.className = 'card text-white bg-dark mb-3';
   }
 
+  handleDelete = (report) => {
+    // Delete article from response data
+    let temp = this.state.response.data;
+
+    for( var i = 0; i < temp.length; i++){ 
+      if ( temp[i] === report) {
+        temp.splice(i, 1); 
+        i--;
+      }
+    }
+    // Delete report in backend
+    axios.delete('http://46.101.226.130:5000/reports/'+report); 
+    const elem = document.querySelector("#item"+report);
+    elem.className = 'editing';
+  }
+
   handleSubmitFilter() {
+    const search_params = ['n', 'longitude', 'latitude', 'start_date', 'end_date', 'key_terms'];
+    search_params.forEach(key=>this.updateState(key));
+
+    console.log(this.state.key_terms)
+
     const params = {
       n : this.state.n,
       latitude : this.state.latitude,
@@ -182,8 +197,6 @@ class Home extends Component {
 
     //Deletes null fields
     Object.keys(params).forEach((key) => (params[key] === undefined) && delete params[key]);
-
-    console.log(params);
 
     axios.get('http://46.101.226.130:5000/reports/', {params})
       .then(res => {
@@ -212,10 +225,7 @@ class Home extends Component {
         <hr/>
         <div id="results">
           <ul>
-            { data.map(article => <li id={"item"+article.id} onClick={() => { if(this.state.selectedArticles.includes(article.id)) {
-              this.deselect(article.id);
-             }
-             else this.select(article.id)}} key={article.id}>{articles(article)}</li>) }
+            { data.map(article => <li id={"item"+article.id} onClick={() => {this.select(article.id)}} key={article.id}>{articles(article, this.handleDelete)}</li>) }
           </ul>
         </div>
       </div>

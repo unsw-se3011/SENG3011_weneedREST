@@ -96,52 +96,7 @@ class Article extends Component {
       this.removeArticle(id);
     }    
     let response = []
-  //   let response = [{
-  //       "id": 0,
-  //       "type": ["Disease"],
-  //       "matchingTokens": [6],
-  //       "entityId": "Influenza",
-  //       "freebaseTypes": ["/fictional_universe/medical_condition_in_fiction", "/medicine/infectious_disease", "/medicine/icd_9_cm_classification", "/film/film_subject", "/people/cause_of_death", "/medicine/disease", "/medicine/risk_factor"],
-  //       "confidenceScore": 3.481,
-  //       "wikiLink": "http://en.wikipedia.org/wiki/Influenza",
-  //       "matchedText": "flu",
-  //       "freebaseId": "/m/0cycc",
-  //       "relevanceScore": 0.2125,
-  //       "entityEnglishId": "Influenza",
-  //       "startingPos": 29,
-  //       "endingPos": 32,
-  //       "wikidataId": "Q2840"
-  //   }, {
-  //       "id": 1,
-  //       "type": ["Species", "Eukaryote", "Animal", "Mammal"],
-  //       "matchingTokens": [5],
-  //       "entityId": "Domestic pig",
-  //       "freebaseTypes": ["/biology/organism_classification", "/biology/domesticated_animal", "/biology/animal"],
-  //       "confidenceScore": 1.213,
-  //       "wikiLink": "http://en.wikipedia.org/wiki/Domestic_pig",
-  //       "matchedText": "swine",
-  //       "freebaseId": "/m/078qb0",
-  //       "relevanceScore": 0.0322,
-  //       "entityEnglishId": "Domestic pig",
-  //       "startingPos": 23,
-  //       "endingPos": 28,
-  //       "wikidataId": "Q787"
-  //   }, {
-  //     "id": 1,
-  //     "type": ["Species", "Eukaryote", "Animal", "Mammal"],
-  //     "matchingTokens": [5],
-  //     "entityId": "Domestic pig",
-  //     "freebaseTypes": ["/biology/organism_classification", "/biology/domesticated_animal", "/biology/animal"],
-  //     "confidenceScore": 1.213,
-  //     "wikiLink": "http://en.wikipedia.org/wiki/Domestic_pig",
-  //     "matchedText": "swine",
-  //     "freebaseId": "/m/078qb0",
-  //     "relevanceScore": 0.0322,
-  //     "entityEnglishId": "Domestic pig",
-  //     "startingPos": 23,
-  //     "endingPos": 28,
-  //     "wikidataId": "Q787"
-  // }]
+
     let entities = [];
     if ( this.state.analysis !== undefined) {
       try {
