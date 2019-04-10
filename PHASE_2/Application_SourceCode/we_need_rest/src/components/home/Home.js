@@ -1,68 +1,8 @@
 import React, { Component } from 'react';
 import './Home.css';
 import axios from 'axios';
+import SearchBar from './SearchBar'
 import { Link } from 'react-router-dom';
-
-const input = (search_param, updateState) => {
-  const doc = {
-    n : ["e.g. 7", "Max number of results"],
-    latitude : ["e.g. 211442.78", "Latitude of area affected"],
-    longitude : ["e.g. 3032.12", "Longitude of area affected"],
-    key_terms : ["e.g. Malaria, Zika", "List of key terms"],
-    start_date : ["e.g. 2018-12-10T23:50:00", "Start date of date range"],
-    end_date : ["e.g. 2018-12-10T23:50:00", "End date of date range "]
-  };
-
-  return (
-  <div key={search_param} className="form-group">
-    <p className="text-dark">{doc[search_param][1]}</p>
-    <input onChange={()=>{updateState(search_param)}} id={search_param} type="text" className="form-control" placeholder={doc[search_param][0]}/>
-  </div>
-  );
-};
-
-function Modal(props) {
-  const search_params = props.value;
-
-  const toggleModal = ()=>{
-    const modal = document.querySelector("#modal");
-    modal.classList.toggle("closed");
-  }
-
-  return (
-    <div id="modal" className="closed">
-      <div className="modal-header">
-        <h5 className="modal-title">Filter Reports</h5>
-        <button onClick={()=>{toggleModal()}} type="button" className="btn-outline-dark"> X </button>
-      </div>
-      <form id="modal-form" className="form">
-        { search_params.map(search_param => input(search_param, props.updateState)) }
-      </form>
-      <button onClick={()=>{props.handleSubmitFilter(); toggleModal()}} type="button" className="btn btn-primary">Search</button>
-    </div>
-  );
-}
-
-function SearchGroup() {
-  const toggleModal = ()=>{
-    const modal = document.querySelector("#modal");
-    modal.classList.toggle("closed");
-
-    const secondary_search_bar = document.getElementById("key_terms");
-    secondary_search_bar.value = document.getElementById("main_search_bar").value;
-  }
-
-  return (
-    <div className="container">
-      <div className="row">
-        <div className="input-group">
-          <input id="main_search_bar" type="text" className="form-control" placeholder="What are you looking for?"/>
-          <button onClick={()=>{toggleModal();}} id="open-button" type="button" className="btn btn-default dropdown-toggle">Filter</button>
-        </div>
-      </div>
-    </div>
-  );
-}
 
 const articles = (article, handleDelete) => {
   return (
@@ -91,41 +31,26 @@ class Home extends Component {
     super(props)
 
     this.state = {
-      response: undefined,
+      response: [],
       selectedArticles: [],
-      n : undefined,
-      latitude : undefined,
-      longitude : undefined,
-      key_terms : undefined,
-      start_date : undefined,
-      end_date : undefined
     }
 
-    this.updateState = this.updateState.bind(this);
-    this.handleSubmitFilter = this.handleSubmitFilter.bind(this);
+    this.updateReports = this.updateReports.bind(this);
     this.selectAll = this.selectAll.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
-  }
-
-  updateState(key) {
-    const elem = document.getElementById(key);
-    let obj = {};
-    obj[key] = elem.value;
-    console.log(obj);
-    this.setState(obj);
   }
 
   componentWillMount() {
     axios.get('http://46.101.226.130:5000/reports/')
       .then(res => {
         res.data.forEach( obj => delete obj['reports']);       
-        this.setState({response: res})
+        this.setState({response: res.data})
       })
   }
 
   selectAll() {
-    let data = this.state.response.data;
-    data.forEach( i =>{this.select(i.id)})
+    let data = this.state.response;
+    data.forEach( i =>this.select(i.id))
   }
 
   // Need to change - Duplicates currently allowed (Breaking when I change it to a set)
@@ -146,17 +71,8 @@ class Home extends Component {
 
   deselect(report) {
     //Adds item to array
-    let temp = this.state.selectedArticles;
-    if (temp.filter(i => i===report).length === 0) {
-      return null
-    }
-
-    for( var i = 0; i < temp.length; i++){ 
-      if ( temp[i] === report) {
-        temp.splice(i, 1); 
-        i--;
-      }
-    }
+    let temp = this.state.selectedArticles.filter(i => i!==report)
+    
     this.setState({selectedArticles: temp});
 
     //add styling
@@ -166,56 +82,28 @@ class Home extends Component {
 
   handleDelete = (report) => {
     // Delete article from response data
-    let temp = this.state.response.data;
-
-    for( var i = 0; i < temp.length; i++){ 
-      if ( temp[i] === report) {
-        temp.splice(i, 1); 
-        i--;
-      }
-    }
+    let temp = this.state.response.filter(i => i!==report)
+    this.setState({response: temp})
+    
     // Delete report in backend
     axios.delete('http://46.101.226.130:5000/reports/'+report); 
     const elem = document.querySelector("#item"+report);
     elem.className = 'editing';
   }
 
-  handleSubmitFilter() {
-    const search_params = ['n', 'longitude', 'latitude', 'start_date', 'end_date', 'key_terms'];
-    search_params.forEach(key=>this.updateState(key));
-
-    console.log(this.state.key_terms)
-
-    const params = {
-      n : this.state.n,
-      latitude : this.state.latitude,
-      longitude : this.state.longitude,
-      key_terms : this.state.key_terms,
-      start_date : this.state.start_date,
-      end_date : this.state.end_date
-    }
-
-    //Deletes null fields
-    Object.keys(params).forEach((key) => (params[key] === undefined) && delete params[key]);
-
-    axios.get('http://46.101.226.130:5000/reports/', {params})
-      .then(res => {
-        res.data.forEach( obj => delete obj['reports']);
-        this.setState({response: res})
-      })
+  updateReports(res) {
+    this.setState({response: res.data})
   }
 
   render() {
-    const search_params = ['n', 'longitude', 'latitude', 'start_date', 'end_date', 'key_terms'];
-    let data = this.state.response ? this.state.response.data : [];
+    let data = this.state.response;
 
     data.sort( (a, b) => new Date(b.date_of_publication) - new Date(a.date_of_publication) )
 
     return (
       <div>
         <h1 className="title">Sleepy API</h1>
-        <SearchGroup/>
-        <Modal value={ search_params } updateState={this.updateState} handleSubmitFilter={this.handleSubmitFilter}/>
+        <SearchBar updateReports={this.updateReports}/>
         <div class="btn-group">
           <button type="button" className="btn btn-secondary" onClick={this.selectAll} id="selectAllBtn">Select All</button>
           <Link to={`/summary/${this.state.selectedArticles}`}>

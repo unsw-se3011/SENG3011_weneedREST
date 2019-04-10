@@ -15,7 +15,7 @@
 }
 
 #modal {
-    top: 47.30%;
+    top: 53.15%;
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 20px;
@@ -30,9 +30,13 @@
     border-radius: 5px;
 }
 
-.closed {
+.modal-false {
     display: none;
-}  
+}
+
+.modal-true {
+    display: block;
+}
 
 .form-inline {
     margin: 10px 0;
@@ -75,7 +79,7 @@ hr {
     height: 40px;
     margin: auto 0;
     font-size: 22px;
-    color: #fff;
+    color: #fff !important;
     -webkit-transition: all 0.2s;
     transition: all 0.2s;
 }
@@ -90,7 +94,7 @@ hr {
   
 #results li .destroy:after {
     content: '✖';
-    color: #fff;
+    color: #fff !important;
 }
 
 #results li:hover .destroy {
@@ -105,7 +109,7 @@ hr {
     margin-left: 40%;
     margin-right: 40%;
 }
-s
+
 .remove-outline {
     outline: none;
     background: transparent !important;
