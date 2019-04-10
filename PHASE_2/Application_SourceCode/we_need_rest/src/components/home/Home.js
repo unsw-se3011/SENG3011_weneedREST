@@ -126,19 +126,14 @@ class Home extends Component {
   }
 
   selectAll() {
-    axios.get('http://46.101.226.130:5000/reports/')
-      .then(res => {
-        console.log(this);
-        for (var i = 0; i < res.data.length; i++) {
-          this.state.selectedArticles.push(res.data[i].id);
-        }       
-        this.setState({response: res})
-      })
+    let data = this.state.response.data;
+    data.forEach( i =>{this.select(i.id)})
   }
 
   // Need to change - Duplicates currently allowed (Breaking when I change it to a set)
   select(report) {
     //Adds item to array
+    console.log(report);
     let temp = this.state.selectedArticles;
     if (temp.filter(i => i==report).length !== 0) {
       console.log("Already here")
@@ -169,7 +164,6 @@ class Home extends Component {
    }
 
     this.setState({selectedArticles: temp});
-    console.log(this.state.selectedArticles);
 
     //add styling
     let elem = document.getElementById('card'+report);
@@ -185,8 +179,6 @@ class Home extends Component {
       start_date : this.state.start_date,
       end_date : this.state.end_date
     }
-
-    console.log("State", this.state)
 
     //Deletes null fields
     Object.keys(params).forEach((key) => (params[key] === undefined) && delete params[key]);
