@@ -63,3 +63,18 @@ Postman was preferred over **Insomnia** since it provides a documentation servic
 * Initially, up until the second deliverable, our team was using the Python **Scrapy** library to extract the raw HTML from the Global Incidents Map page. However, as we started developing the web scraper and API, we realised that the library was a bit excessive for what we were using it for. Since our data source has all the data on a single page, we have no need to crawl through many pages, and as such a simple **Pycurl** request would essentially serve the same task for our project. In terms of ease of use, Pycurl has been even easier to use than Scrapy, as there is much less complexity involved and it is a much simpler process. This is evidenced by the fact that we are able to get the same job done in a few lines of code that scrapy required many separate files for. As a result, we have been able to remove al the required folders and files that Scrapy required for use, which has made our program much simpler and efficient. It has also reduced the time it has taken us to get a working prototype.
 * In addition to the newly added Pycurl, our group is planning on uring **Beautifulsoup** in order to process the raw html data that we extract using Pycurl. Beautifulsoup will allow us to easily parse this data and extract the information ready for easy insertion into our JSON format.
 
+
+TODO:
+API design and testing details
+• Describe final architecture of your API, justify the choice of implementation, challenges addressed and shortcomings.
+• Provide the URL of your API specification.
+
+Platform Design
+• The use cases / requirements of the API and the analytics platform
+• Software architecture
+• How it integrates with your API at a high level, such as how you communicate
+with the API, data conversion practice at client web application and any
+mapping you do between data retrieved and visualized.
+• Add any other relevant information to your design i.e. all additional APIs
+used in your project, algorithms you’ve employed, etc
+
