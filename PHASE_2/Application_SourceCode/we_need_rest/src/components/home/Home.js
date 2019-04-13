@@ -25,7 +25,6 @@ const articles = (article, handleDelete) => {
   )
 };
 
-
 class Home extends Component {
   constructor(props) {
     super(props)
@@ -51,40 +50,38 @@ class Home extends Component {
   selectAll() {
     let data = this.state.response;
     data.forEach( i =>this.select(i.id))
+    console.log("AFTER", this.state.selectedArticles)
   }
 
-  // Need to change - Duplicates currently allowed (Breaking when I change it to a set)
   select(report) {
     //Adds item to array
     let temp = this.state.selectedArticles;
+
     if (temp.filter(i => i === report).length !== 0) {
-      this.deselect(report)
-      return null
-    }
-    temp.push(report);
-    this.setState({selectedArticles: temp});
-
-    //add styling
-    let elem = document.getElementById('card'+report);
-    elem.className = 'card bg-light mb-3';
-  }
-
-  deselect(report) {
-    //Adds item to array
-    let temp = this.state.selectedArticles.filter(i => i!==report)
+      let temp = this.state.selectedArticles.filter(i => i!==report)
     
-    this.setState({selectedArticles: temp});
+      this.setState({selectedArticles: temp});
 
-    //add styling
-    let elem = document.getElementById('card'+report);
-    elem.className = 'card text-white bg-dark mb-3';
+      //add styling
+      let elem = document.getElementById('card'+report);
+      elem.className = 'card text-white bg-dark mb-3';
+      console.log("Deselet", report);
+    } else {
+      temp.push(report);
+      this.setState({selectedArticles: temp});
+  
+      //add styling
+      let elem = document.getElementById('card'+report);
+      elem.className = 'card bg-light mb-3';
+      console.log("select", report);
+    }
   }
 
-  handleDelete = (report) => {
+  handleDelete(report) {
     // Delete article from response data
     let temp = this.state.response.filter(i => i!==report)
-    this.setState({response: temp})
-    
+    this.setState({selectedArticles: temp})
+
     // Delete report in backend
     axios.delete('http://46.101.226.130:5000/reports/'+report); 
     const elem = document.querySelector("#item"+report);
