@@ -6,6 +6,6 @@ api.secret_key = 'we_need_REST'
 
 if __name__ == '__main__':
     import logging
-    logging.basicConfig(filename='error.log', level=logging.DEBUG)
+    logging.basicConfig(filename='activity.log', level=logging.DEBUG)
 
     app.run(debug=True, port=8080)
