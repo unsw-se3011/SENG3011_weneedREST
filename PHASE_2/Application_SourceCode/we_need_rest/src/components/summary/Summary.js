@@ -56,6 +56,15 @@ class Article extends Component {
     //this.textRazor = this.textRazor.bind(this);
   }
 
+  googleTrends()
+  {
+    return googleTrends.interestOverTime({keyword: "Code",})
+    .then(res =>res.json())
+      .then(response => { 
+        console.log("Success:", JSON.stringify(response), response); 
+      })
+  }
+
   // Used for calling textRazor API to extract keywords, topics and entities
   textRazor() {
     let url = "http://api.textrazor.com/";
@@ -179,6 +188,7 @@ class Article extends Component {
           <p className="card-text">{new Date(article.date_of_publication).toDateString()}</p>
         </div>
         <div>
+          <Button onClick={this.googleTrends}>GOOGLE TRENDS</Button>
         <Button id={"art"+article.id} color="danger" onClick={this.toggle} style={{ margin: '1rem' }}>Analysis</Button>
         <hr/>
         <Collapse className="remove-outline" isOpen={this.state.collapse} onEntering={this.onEntering}>
