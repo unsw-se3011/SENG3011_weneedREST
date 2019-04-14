@@ -20,18 +20,16 @@ class Report extends Component {
             comment : undefined,
             date : undefined,
         }
-        console.log(this.state.id);
     }
     componentWillMount() {
-        console.log(this.state.id);
         axios({
             method : 'get',
             url: "http://46.101.226.130:5000/reports/" + this.state.id,
             responseType: 'json'
             }).then(response => {
-            console.log(response.data);
+            let data = response.data;
             this.setState({url: response.data.url});
-            this.setState({date_pub: response.data.date_of_publication});
+            this.setState({date_pub: data.date_of_publication});
             this.setState({headline: response.data.headline});
             this.setState({main_text: response.data.main_text});
             this.setState({disease: response.data.reports[0].disease});
@@ -43,23 +41,23 @@ class Report extends Component {
             this.setState({comment: response.data.reports[0].comment});
             this.setState({date: response.data.reports[0].reported_events[0].date});
             this.setState({state: this.state});
-            console.log(this.state.type);
-            console.log(this.state.latitude);
-            console.log(this.state.date);
             document.getElementById("text-stuff").style.visibility="visible";
             });
     }
     render() {
+        const publish_date = new Date(this.state.date_pub);
+        const event_date = new Date(this.state.date);
+
         return ( 
             <div id="body" class="text-centre">
                 <div id="text-stuff" style={{visibility:"hidden"}}>
                     <h1 className="title">Report {this.state.id}</h1>
                     <br></br>
-                    <h3>{this.state.headline}</h3>
-                    <h5>Published: {this.state.date_pub}</h5>
+                    <h3><a href={this.state.url} target="_blank">{this.state.headline}</a></h3>
+                    <h5>Published: {publish_date.toDateString()}</h5>
                     <hr></hr>
 
-                    <p><b>Date:</b> {this.state.date}</p>
+                    <p><b>Date:</b> {event_date.toDateString()}</p>
                     <h5>Description</h5>
                     <p>{this.state.main_text}</p>
                     
@@ -70,8 +68,6 @@ class Report extends Component {
                     <p><b>Location(longitude, latitude):</b> {this.state.longitude}, {this.state.latitude}</p>
                     <p><b>Number of people affected:</b> {this.state.n_affected}</p>
                     
-                    
-                    <p><b>Source:</b> {this.state.url}</p>
                     <p><b>Comment:</b> {this.state.comment}</p>
                 </div>
             </div>
