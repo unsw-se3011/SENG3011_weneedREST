@@ -268,3 +268,25 @@ INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 14:25:50] "GET /swaggerui/swagger-ui-bu
 INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 14:25:50] "GET /swaggerui/swagger-ui.css HTTP/1.1" 304 -
 INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 14:25:50] "GET /swaggerui/swagger-ui-standalone-preset.js HTTP/1.1" 304 -
 INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 14:25:51] "GET /swagger.json HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:8080/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 253-930-176
+INFO:werkzeug: * Running on http://127.0.0.1:8080/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 253-930-176
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 22:19:01] "[37mGET / HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 22:19:01] "[37mGET /swaggerui/droid-sans.css HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 22:19:01] "[37mGET /swaggerui/swagger-ui.css HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 22:19:01] "[37mGET /swaggerui/swagger-ui-bundle.js HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 22:19:01] "[37mGET /swaggerui/swagger-ui-standalone-preset.js HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 22:19:01] "[37mGET /swagger.json HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 22:19:01] "[37mGET /swaggerui/favicon-32x32.png HTTP/1.1[0m" 200 -
+INFO:werkzeug: * Detected change in '/Users/nabilshaikh/Documents/GitHub/SENG3011_weneedREST/PHASE_1/API_SourceCode/backend/routes.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 253-930-176
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 22:19:53] "[37mGET / HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 22:19:53] "[37mGET /swagger.json HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 22:19:53] "[37mGET /swaggerui/favicon-32x32.png HTTP/1.1[0m" 200 -

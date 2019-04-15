@@ -287,7 +287,7 @@ class apiLog(Resource):
     @api.response(404, 'Log file not found')
     @api.response(499, 'Invalid password provided')
     @api.doc(parser=parser_log)
-    def apiLog(self):
+    def post(self):
         '''
             Allows user to read log produced by Flask
         '''
