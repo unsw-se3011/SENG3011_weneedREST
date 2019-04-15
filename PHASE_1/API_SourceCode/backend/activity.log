@@ -241,3 +241,30 @@ INFO:werkzeug: * Detected change in '/Users/baileyivancic/Documents/GitHub/SENG3
 INFO:werkzeug: * Restarting with stat
 WARNING:werkzeug: * Debugger is active!
 INFO:werkzeug: * Debugger PIN: 547-091-017
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 14:17:40] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 14:17:40] "GET /swaggerui/droid-sans.css HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 14:17:40] "GET /swaggerui/swagger-ui-bundle.js HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 14:17:40] "GET /swaggerui/swagger-ui.css HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 14:17:40] "GET /swaggerui/swagger-ui-standalone-preset.js HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 14:17:40] "GET /swagger.json HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:8080/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 547-091-017
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 14:17:58] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 14:17:59] "GET /swaggerui/swagger-ui.css HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 14:17:59] "GET /swaggerui/droid-sans.css HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 14:17:59] "GET /swaggerui/swagger-ui-bundle.js HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 14:17:59] "GET /swaggerui/swagger-ui-standalone-preset.js HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 14:17:59] "GET /swagger.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 14:18:07] "GET /reports/ HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/Users/baileyivancic/Documents/GitHub/SENG3011_weneedREST/PHASE_1/API_SourceCode/backend/routes.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 547-091-017
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 14:25:50] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 14:25:50] "GET /swaggerui/droid-sans.css HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 14:25:50] "GET /swaggerui/swagger-ui-bundle.js HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 14:25:50] "GET /swaggerui/swagger-ui.css HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 14:25:50] "GET /swaggerui/swagger-ui-standalone-preset.js HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 14:25:51] "GET /swagger.json HTTP/1.1" 200 -

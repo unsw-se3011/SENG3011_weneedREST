@@ -281,6 +281,8 @@ class Report(Resource):
 
         return newReport, 200
 
+@ns_rep.route('/apiLog')
+class apiLog(Resource):
     @api.response(200, 'Success')
     @api.response(404, 'Log file not found')
     @api.response(499, 'Invalid password provided')
