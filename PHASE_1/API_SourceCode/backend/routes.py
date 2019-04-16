@@ -233,7 +233,7 @@ class Report(Resource):
 
     @api.response(200, 'Success')
     @api.response(400, 'Report not found')
-    @api.response(500, 'Invalid password provided')
+    @api.response(499, 'Invalid password provided')
     @api.doc(params={'id':'ID of report to delete'})
     @api.doc(parser=parser_delete)
     def delete(self, id):   
@@ -244,7 +244,7 @@ class Report(Resource):
         article = reportDAO.findReport(id)
 
         if args['password'] != 'sl33py':
-            return "Invalid password", 500
+            return "Invalid password", 499
 
         if article:
             reportDAO.delete( article )
