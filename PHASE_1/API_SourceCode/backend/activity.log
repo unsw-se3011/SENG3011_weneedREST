@@ -317,3 +317,5 @@ INFO:werkzeug:127.0.0.1 - - [17/Apr/2019 09:07:20] "GET /swagger.json HTTP/1.1" 
 INFO:werkzeug:127.0.0.1 - - [17/Apr/2019 09:07:39] "DELETE /reports/5?password=sleepy HTTP/1.1" 499 -
 INFO:werkzeug:127.0.0.1 - - [17/Apr/2019 09:07:50] "DELETE /reports/5?password=sl33py HTTP/1.1" 200 -
 INFO:werkzeug:127.0.0.1 - - [17/Apr/2019 09:09:38] "GET /favicon.ico HTTP/1.1" 404 -
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 547-091-017
