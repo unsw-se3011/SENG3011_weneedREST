@@ -10,12 +10,12 @@ class Header extends Component {
             this.activate(document.getElementById('about'));
         } else if (url.search("contact") !== -1) {
             this.activate(document.getElementById('contact'));
-        } else if (url.search("view") !== -1) {
-            this.activate(document.getElementById('view'));
         } else if (url.search("create") !== -1) {
             this.activate(document.getElementById('create'));
         } else if (url.search("find") !== -1){
             this.activate(document.getElementById('find'));
+        } else if (url.search("predict") !== -1){
+            this.activate(document.getElementById('predict'));
         } else {
             this.activate(document.getElementById('home'));
         }
@@ -53,11 +53,6 @@ class Header extends Component {
                         Contact
                     </li>
                 </Link>
-                <Link to='/view'>
-                    <li className="nav-item" id="view" onClick={()=>this.handleClick(document.getElementById('view'))}>
-                        View
-                    </li>
-                </Link>
                 <Link to='/create'>
                     <li className="nav-item" id="create" onClick={()=>this.handleClick(document.getElementById('create'))}>
                         Create
@@ -66,6 +61,11 @@ class Header extends Component {
                 <Link to='/find'>
                     <li className="nav-item" id="find" onClick={()=>this.handleClick(document.getElementById('find'))}>
                         Find
+                    </li>
+                </Link>
+                <Link to='/predict'>
+                    <li className="nav-item" id="predict" onClick={()=>this.handleClick(document.getElementById('predict'))}>
+                        Predict
                     </li>
                 </Link>
             </ul>

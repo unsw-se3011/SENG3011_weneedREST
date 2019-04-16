@@ -68,6 +68,18 @@ parser_update.add_argument('number-affected', type=int, help='Number affected', 
 parser_update.add_argument('comment', type=str, help='Comment', location='args', required=False)
 parser_update.add_argument('date', type=str, help='Date of report', location='args', required=False)
 
+'''
+    Arguments for log function
+'''
+parser_log = parser.copy()
+parser_log.add_argument('password', type=str, help='Password to obtain log file for API', required=True, location='args')
+
+'''
+    Arguments for delete function
+'''
+parser_delete = parser.copy()
+parser_delete.add_argument('password', type=str, help='Password to delete report', required=True, location='args')
+
 
 # API ENDPOINT FUNCTIONS
 
@@ -221,11 +233,18 @@ class Report(Resource):
 
     @api.response(200, 'Success')
     @api.response(400, 'Report not found')
+    @api.response(499, 'Invalid password provided')
+    @api.doc(params={'id':'ID of report to delete'})
+    @api.doc(parser=parser_delete)
     def delete(self, id):   
         '''
             Deletes a report
         '''
+        args = parser_delete.parse_args()
         article = reportDAO.findReport(id)
+
+        if args['password'] != 'sl33py':
+            return "Invalid password", 499
 
         if article:
             reportDAO.delete( article )
@@ -236,12 +255,16 @@ class Report(Resource):
     @api.response(200, 'Success')
     @api.response(400, 'Report not found')
     @api.response(404, 'Invalid date param')
+    @api.response(499, 'Invalid password provided')
     @api.doc(parser=parser_update)
-    def put(self, id):
+    def put(self):
         '''
             Updates a given report
         '''
         args = parser_update.parse_args()
+
+        if args['password'] != 'sl33py':
+            return "Invalid password", 499
 
         if args['date'] is not None and re.search(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}', args['date']) is None:
             return "Invalid date", 404
@@ -257,3 +280,21 @@ class Report(Resource):
             return "Report not found, invalid ID", 400
 
         return newReport, 200
+
+@ns_rep.route('/apiLog')
+class apiLog(Resource):
+    @api.response(200, 'Success')
+    @api.response(404, 'Log file not found')
+    @api.response(499, 'Invalid password provided')
+    @api.doc(parser=parser_log)
+    def post(self):
+        '''
+            Allows user to read log produced by Flask
+        '''
+        args = parser_log.parse_args()
+
+        if args['password'] != 'sl33py':
+            return "Invalid password", 499
+
+        with open('activity.log') as log:
+            return log.read()

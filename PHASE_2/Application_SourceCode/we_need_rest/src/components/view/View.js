@@ -41,12 +41,6 @@ class View extends Component {
         this.setState({ end_date : event.target.value})
     }
     onSubmit(e) {
-        console.log(this.state.n);
-        console.log(this.state.latitude);
-        console.log(this.state.longitude);
-        console.log(this.state.key_terms);
-        console.log(this.state.start_date);
-        console.log(this.state.end_date);
         axios({
             method : 'get',
             url: "http://46.101.226.130:5000/reports/",
@@ -63,8 +57,7 @@ class View extends Component {
             console.log(response);
             //  var obj = JSON.parse(response.data);
             document.getElementById("results").innerHTML = JSON.stringify(response.data);
-          });
-
+            });
     }
     render() {
         return (

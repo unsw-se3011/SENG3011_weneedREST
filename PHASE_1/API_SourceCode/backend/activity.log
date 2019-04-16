@@ -1,0 +1,321 @@
+INFO:werkzeug: * Running on http://127.0.0.1:8080/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 547-091-017
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2019 19:22:52] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2019 19:22:52] "GET /swaggerui/swagger-ui.css HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2019 19:22:52] "GET /swaggerui/droid-sans.css HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2019 19:22:52] "GET /swaggerui/swagger-ui-standalone-preset.js HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2019 19:22:52] "GET /swaggerui/swagger-ui-bundle.js HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2019 19:22:53] "GET /swagger.json HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/Users/baileyivancic/Documents/GitHub/SENG3011_weneedREST/PHASE_1/API_SourceCode/backend/routes.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 547-091-017
+INFO:werkzeug: * Running on http://127.0.0.1:8080/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 547-091-017
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2019 19:37:12] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2019 19:37:12] "GET /swaggerui/droid-sans.css HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2019 19:37:12] "GET /swaggerui/swagger-ui.css HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2019 19:37:12] "GET /swaggerui/swagger-ui-bundle.js HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2019 19:37:12] "GET /swaggerui/swagger-ui-standalone-preset.js HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2019 19:37:13] "GET /swagger.json HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/Users/baileyivancic/Documents/GitHub/SENG3011_weneedREST/PHASE_1/API_SourceCode/backend/routes.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug: * Running on http://127.0.0.1:8080/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 547-091-017
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2019 19:38:48] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2019 19:38:48] "GET /swaggerui/droid-sans.css HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2019 19:38:48] "GET /swaggerui/swagger-ui.css HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2019 19:38:48] "GET /swaggerui/swagger-ui-bundle.js HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2019 19:38:48] "GET /swaggerui/swagger-ui-standalone-preset.js HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2019 19:38:48] "GET /swagger.json HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/Users/baileyivancic/Documents/GitHub/SENG3011_weneedREST/PHASE_1/API_SourceCode/backend/routes.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 547-091-017
+INFO:werkzeug: * Detected change in '/Users/baileyivancic/Documents/GitHub/SENG3011_weneedREST/PHASE_1/API_SourceCode/backend/routes.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 547-091-017
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2019 19:39:45] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2019 19:39:45] "GET /swaggerui/droid-sans.css HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2019 19:39:45] "GET /swaggerui/swagger-ui-standalone-preset.js HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2019 19:39:45] "GET /swaggerui/swagger-ui.css HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2019 19:39:45] "GET /swaggerui/swagger-ui-bundle.js HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2019 19:39:45] "GET /swagger.json HTTP/1.1" 200 -
+ERROR:flask.app:Exception on /reports/5 [DELETE]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python3.7/site-packages/flask_restplus/api.py", line 325, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/flask/views.py", line 88, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/flask_restplus/resource.py", line 44, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/Users/baileyivancic/Documents/GitHub/SENG3011_weneedREST/PHASE_1/API_SourceCode/backend/routes.py", line 243, in delete
+    if args['password'] != 'sl33py':
+UnboundLocalError: local variable 'args' referenced before assignment
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2019 19:39:56] "DELETE /reports/5?Password=sl33py HTTP/1.1" 500 -
+INFO:werkzeug: * Detected change in '/Users/baileyivancic/Documents/GitHub/SENG3011_weneedREST/PHASE_1/API_SourceCode/backend/routes.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 547-091-017
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2019 19:40:31] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2019 19:40:31] "GET /swaggerui/droid-sans.css HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2019 19:40:31] "GET /swaggerui/swagger-ui-bundle.js HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2019 19:40:31] "GET /swaggerui/swagger-ui.css HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2019 19:40:31] "GET /swaggerui/swagger-ui-standalone-preset.js HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2019 19:40:31] "GET /swagger.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2019 19:42:08] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2019 19:42:08] "GET /swaggerui/droid-sans.css HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2019 19:42:08] "GET /swaggerui/swagger-ui.css HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2019 19:42:08] "GET /swaggerui/swagger-ui-bundle.js HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2019 19:42:08] "GET /swaggerui/swagger-ui-standalone-preset.js HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2019 19:42:09] "GET /swagger.json HTTP/1.1" 200 -
+ERROR:flask.app:Exception on /reports/5 [DELETE]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python3.7/site-packages/flask_restplus/api.py", line 325, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/flask/views.py", line 88, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/flask_restplus/resource.py", line 44, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/Users/baileyivancic/Documents/GitHub/SENG3011_weneedREST/PHASE_1/API_SourceCode/backend/routes.py", line 243, in delete
+    if args['password'] != 'sl33py':
+UnboundLocalError: local variable 'args' referenced before assignment
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2019 19:42:18] "DELETE /reports/5?Password=sl33py HTTP/1.1" 500 -
+INFO:werkzeug: * Detected change in '/Users/baileyivancic/Documents/GitHub/SENG3011_weneedREST/PHASE_1/API_SourceCode/backend/routes.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 547-091-017
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2019 20:11:30] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2019 20:11:30] "GET /swaggerui/swagger-ui.css HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2019 20:11:30] "GET /swaggerui/swagger-ui-bundle.js HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2019 20:11:30] "GET /swaggerui/swagger-ui-standalone-preset.js HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2019 20:11:30] "GET /swaggerui/droid-sans.css HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2019 20:11:30] "GET /swaggerui/favicon-16x16.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2019 20:11:30] "GET /swagger.json HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:8080/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 547-091-017
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 08:29:28] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 08:29:28] "GET /swaggerui/droid-sans.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 08:29:28] "GET /swaggerui/swagger-ui-bundle.js HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 08:29:28] "GET /swaggerui/swagger-ui.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 08:29:28] "GET /swaggerui/swagger-ui-standalone-preset.js HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 08:29:28] "GET /swaggerui/favicon-32x32.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 08:29:28] "GET /swagger.json HTTP/1.1" 200 -
+ERROR:flask.app:Exception on /reports/5 [DELETE]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python3.7/site-packages/flask_restplus/api.py", line 325, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/flask/views.py", line 88, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/flask_restplus/resource.py", line 44, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/Users/baileyivancic/Documents/GitHub/SENG3011_weneedREST/PHASE_1/API_SourceCode/backend/routes.py", line 243, in delete
+    if args['password'] != 'sl33py':
+UnboundLocalError: local variable 'args' referenced before assignment
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 08:30:28] "DELETE /reports/5?Password=sl33py HTTP/1.1" 500 -
+INFO:werkzeug: * Detected change in '/Users/baileyivancic/Documents/GitHub/SENG3011_weneedREST/PHASE_1/API_SourceCode/backend/routes.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 547-091-017
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 08:33:07] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 08:33:07] "GET /swaggerui/swagger-ui.css HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 08:33:07] "GET /swaggerui/droid-sans.css HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 08:33:07] "GET /swaggerui/swagger-ui-bundle.js HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 08:33:07] "GET /swaggerui/swagger-ui-standalone-preset.js HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 08:33:07] "GET /swagger.json HTTP/1.1" 200 -
+ERROR:flask.app:Exception on /reports/5 [DELETE]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python3.7/site-packages/flask_restplus/api.py", line 325, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/flask/views.py", line 88, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/flask_restplus/resource.py", line 44, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/Users/baileyivancic/Documents/GitHub/SENG3011_weneedREST/PHASE_1/API_SourceCode/backend/routes.py", line 243, in delete
+    if args['password'] != 'sl33py':
+UnboundLocalError: local variable 'args' referenced before assignment
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 08:33:18] "DELETE /reports/5?password=sl33py HTTP/1.1" 500 -
+ERROR:flask.app:Exception on /reports/11 [DELETE]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python3.7/site-packages/flask_restplus/api.py", line 325, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/flask/views.py", line 88, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/flask_restplus/resource.py", line 44, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/Users/baileyivancic/Documents/GitHub/SENG3011_weneedREST/PHASE_1/API_SourceCode/backend/routes.py", line 243, in delete
+    if args['password'] != 'sl33py':
+UnboundLocalError: local variable 'args' referenced before assignment
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 08:33:30] "DELETE /reports/11?password=sl33py HTTP/1.1" 500 -
+INFO:werkzeug: * Running on http://127.0.0.1:8080/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 547-091-017
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 08:33:54] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 08:33:54] "GET /swaggerui/droid-sans.css HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 08:33:54] "GET /swaggerui/swagger-ui-standalone-preset.js HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 08:33:54] "GET /swaggerui/swagger-ui.css HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 08:33:54] "GET /swaggerui/swagger-ui-bundle.js HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 08:33:55] "GET /swagger.json HTTP/1.1" 200 -
+ERROR:flask.app:Exception on /reports/11 [DELETE]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python3.7/site-packages/flask_restplus/api.py", line 325, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/flask/views.py", line 88, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/flask_restplus/resource.py", line 44, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/Users/baileyivancic/Documents/GitHub/SENG3011_weneedREST/PHASE_1/API_SourceCode/backend/routes.py", line 243, in delete
+    if args['password'] != 'sl33py':
+UnboundLocalError: local variable 'args' referenced before assignment
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 08:34:04] "DELETE /reports/11?password=sl33py HTTP/1.1" 500 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 08:34:20] "GET /reports/ HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/Users/baileyivancic/Documents/GitHub/SENG3011_weneedREST/PHASE_1/API_SourceCode/backend/routes.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 547-091-017
+INFO:werkzeug: * Running on http://127.0.0.1:8080/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 547-091-017
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 08:35:11] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 08:35:11] "GET /swaggerui/droid-sans.css HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 08:35:11] "GET /swaggerui/swagger-ui.css HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 08:35:11] "GET /swaggerui/swagger-ui-bundle.js HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 08:35:11] "GET /swaggerui/swagger-ui-standalone-preset.js HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 08:35:11] "GET /swagger.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 08:35:21] "DELETE /reports/11?password=sl33py HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 08:35:28] "DELETE /reports/11?password=sl33pyhdg HTTP/1.1" 500 -
+INFO:werkzeug: * Detected change in '/Users/baileyivancic/Documents/GitHub/SENG3011_weneedREST/PHASE_1/API_SourceCode/backend/routes.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 547-091-017
+INFO:werkzeug: * Running on http://127.0.0.1:8080/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 547-091-017
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 08:40:09] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 08:40:09] "GET /swaggerui/droid-sans.css HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 08:40:09] "GET /swaggerui/swagger-ui.css HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 08:40:09] "GET /swaggerui/swagger-ui-standalone-preset.js HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 08:40:09] "GET /swaggerui/swagger-ui-bundle.js HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 08:40:09] "GET /swagger.json HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/Users/baileyivancic/Documents/GitHub/SENG3011_weneedREST/PHASE_1/API_SourceCode/backend/routes.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 547-091-017
+INFO:werkzeug: * Detected change in '/Users/baileyivancic/Documents/GitHub/SENG3011_weneedREST/PHASE_1/API_SourceCode/backend/routes.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 547-091-017
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 14:17:40] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 14:17:40] "GET /swaggerui/droid-sans.css HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 14:17:40] "GET /swaggerui/swagger-ui-bundle.js HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 14:17:40] "GET /swaggerui/swagger-ui.css HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 14:17:40] "GET /swaggerui/swagger-ui-standalone-preset.js HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 14:17:40] "GET /swagger.json HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:8080/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 547-091-017
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 14:17:58] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 14:17:59] "GET /swaggerui/swagger-ui.css HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 14:17:59] "GET /swaggerui/droid-sans.css HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 14:17:59] "GET /swaggerui/swagger-ui-bundle.js HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 14:17:59] "GET /swaggerui/swagger-ui-standalone-preset.js HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 14:17:59] "GET /swagger.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 14:18:07] "GET /reports/ HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/Users/baileyivancic/Documents/GitHub/SENG3011_weneedREST/PHASE_1/API_SourceCode/backend/routes.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 547-091-017
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 14:25:50] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 14:25:50] "GET /swaggerui/droid-sans.css HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 14:25:50] "GET /swaggerui/swagger-ui-bundle.js HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 14:25:50] "GET /swaggerui/swagger-ui.css HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 14:25:50] "GET /swaggerui/swagger-ui-standalone-preset.js HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 14:25:51] "GET /swagger.json HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:8080/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 253-930-176
+INFO:werkzeug: * Running on http://127.0.0.1:8080/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 253-930-176
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 22:19:01] "[37mGET / HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 22:19:01] "[37mGET /swaggerui/droid-sans.css HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 22:19:01] "[37mGET /swaggerui/swagger-ui.css HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 22:19:01] "[37mGET /swaggerui/swagger-ui-bundle.js HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 22:19:01] "[37mGET /swaggerui/swagger-ui-standalone-preset.js HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 22:19:01] "[37mGET /swagger.json HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 22:19:01] "[37mGET /swaggerui/favicon-32x32.png HTTP/1.1[0m" 200 -
+INFO:werkzeug: * Detected change in '/Users/nabilshaikh/Documents/GitHub/SENG3011_weneedREST/PHASE_1/API_SourceCode/backend/routes.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 253-930-176
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 22:19:53] "[37mGET / HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 22:19:53] "[37mGET /swagger.json HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [15/Apr/2019 22:19:53] "[37mGET /swaggerui/favicon-32x32.png HTTP/1.1[0m" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:8080/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 547-091-017
+INFO:werkzeug:127.0.0.1 - - [17/Apr/2019 09:06:24] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [17/Apr/2019 09:06:24] "GET /swaggerui/droid-sans.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [17/Apr/2019 09:06:24] "GET /swaggerui/swagger-ui.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [17/Apr/2019 09:06:24] "GET /swaggerui/swagger-ui-bundle.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [17/Apr/2019 09:06:24] "GET /swaggerui/swagger-ui-standalone-preset.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [17/Apr/2019 09:06:24] "GET /swaggerui/favicon-16x16.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [17/Apr/2019 09:06:24] "GET /swagger.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [17/Apr/2019 09:06:36] "POST /reports/apiLog?password=sl33py HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [17/Apr/2019 09:06:58] "DELETE /reports/5?password=sleepy HTTP/1.1" 500 -
+INFO:werkzeug: * Detected change in '/Users/baileyivancic/Documents/GitHub/SENG3011_weneedREST/PHASE_1/API_SourceCode/backend/routes.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 547-091-017
+INFO:werkzeug:127.0.0.1 - - [17/Apr/2019 09:07:20] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [17/Apr/2019 09:07:20] "GET /swaggerui/swagger-ui.css HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [17/Apr/2019 09:07:20] "GET /swaggerui/swagger-ui-standalone-preset.js HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [17/Apr/2019 09:07:20] "GET /swaggerui/droid-sans.css HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [17/Apr/2019 09:07:20] "GET /swaggerui/swagger-ui-bundle.js HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [17/Apr/2019 09:07:20] "GET /swaggerui/favicon-32x32.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [17/Apr/2019 09:07:20] "GET /swagger.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [17/Apr/2019 09:07:39] "DELETE /reports/5?password=sleepy HTTP/1.1" 499 -
+INFO:werkzeug:127.0.0.1 - - [17/Apr/2019 09:07:50] "DELETE /reports/5?password=sl33py HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [17/Apr/2019 09:09:38] "GET /favicon.ico HTTP/1.1" 404 -
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 547-091-017

@@ -1,0 +1,22 @@
+.card {
+    border-radius: 5px;
+    border: 2px solid grey;
+    box-shadow: 0 10px 6px -6px #777;
+    width: 200px;
+    margin: 10px;
+}
+
+.deck {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.card-text {
+    text-align: center;
+}
+
+.card-img-top {
+    width: 200px;
+}
