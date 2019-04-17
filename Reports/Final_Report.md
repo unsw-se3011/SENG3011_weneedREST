@@ -6,13 +6,15 @@ design/implementation
 
 ## Project Summary 
  * How did the project go in your opinion ?
+ * **TODO:** discuss limitations (this is probably more about backend than front end)
+ * any other points of appraisal pls feel free to add
  
 Overall, we are happy with our final product.
 
 Functionality-wise, we are proud to have been able to integrate Machine Learning and Natural Language Processing. We believe these 2 key features separated us from other groups, and the sheer time and effort we invested into them were worth it. We also believe that having the ability to summarise reports and generate graphs and other analytics based on this information was advantageous - it was tied closely to our business goals of automating outbreak report gathering, leaving the user to deal with the more important analysis since our application did all of the information scraping for them.
 
 In saying that, our frontend design can still be improved upon. We believe we were mostly hindered by our lack of React knowledge. Although we were able to visualise our content in a simple and easy to digest manner, we were only able to do so on a very basic level with the aid of Bootstrap. In other words, we were not able to exploit the vast number of React libraries and fully realise its capablilites for our project. We believe this came down to a matter of time and priorities, as at the end of the day learning more advanced techniques to implement in our code would have taken longer than we could afford.
-    
+
       
 ### Key Benefits and Achievements 
 * Major achievements in project
