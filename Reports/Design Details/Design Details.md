@@ -64,17 +64,37 @@ Postman was preferred over **Insomnia** since it provides a documentation servic
 * In addition to the newly added Pycurl, our group is planning on uring **Beautifulsoup** in order to process the raw html data that we extract using Pycurl. Beautifulsoup will allow us to easily parse this data and extract the information ready for easy insertion into our JSON format.
 
 
+## Final Design
 TODO:
 API design and testing details
-• Describe final architecture of your API, justify the choice of implementation, challenges addressed and shortcomings.
-• Provide the URL of your API specification.
+* Describe final architecture of your API, justify the choice of implementation, challenges addressed and shortcomings.
+* Provide the URL of your API specification.
 
-Platform Design
-• The use cases / requirements of the API and the analytics platform
-• Software architecture
-• How it integrates with your API at a high level, such as how you communicate
-with the API, data conversion practice at client web application and any
-mapping you do between data retrieved and visualized.
-• Add any other relevant information to your design i.e. all additional APIs
-used in your project, algorithms you’ve employed, etc
+### Platform Design
+* The use cases / requirements of the API and the analytics platform
+* Software architecture
+* How it integrates with your API at a high level, such as how you communicate
+with the API, data conversion practice at client web application and any mapping you do between data retrieved and visualized.
+* Add any other relevant information to your design i.e. all additional APIs used in your project, algorithms you’ve employed, etc
 
+#### Use Cases and Requirements
+//TODO
+
+#### Software Architecture
+
+Our **Primary data source** comes from the Global Incident Map (http://www.globalincidentmap.com/).
+* Scraper built using pyCurl and Python RestPlus.
+* Python re and BeautifulSoup libraries for HTML parsing and text processing.
+* JSON for storage of reports.
+
+**API**
+* Hosted on DigitalOcean droplet
+U Using Python Flask RestPlus with included Swagger documentation
+
+**Web Application**
+* Built using React.js
+* Bootstrap and reactstrap library for front-end visuals
+* Natural Language Processing is provided via the use of the TextRazor REST API
+* Twitter posts integration provided through use of Twitter API
+* Google Trends data provided through use of Google Trends API
+* Google Maps Heatmap provided through use of Google Maps API
