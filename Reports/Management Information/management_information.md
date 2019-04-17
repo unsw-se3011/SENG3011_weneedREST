@@ -17,11 +17,11 @@ Our team preferred to work with semi-rigid roles in place, meaning that if the o
 
 |Name|Role|
 |----|----------------|
-|Bailey Ivancic|<br><ul><li>Team leader</li></ul><ul><li>Backend developer (Python, Flask, API)</li></ul><ul><li>Web crawler and API interface</li></ul><ul><li>Design Information Report</li></ul>|
-|Nabil Shaikh|<br><ul><li>Backend developer (Python, Flask)</li></ul><ul><li>Frontend developer (React)</ul></li>
-|Harry Tang|<br><ul><li>Backend developer (Python, Flask)</li></ul><ul><li>Web crawler and API interface</ul></li><ul><li>Design Information Report</li></ul>
-|Jacob Wahib|<br><ul><li>Frontend developer (React)</li></ul><ul><li>Debugger</li></ul><ul><li>Management Information Report</li></ul>|
-|Estella Arabi|<br><ul><li>Frontend developer (React)</li></ul><ul><li>Debugger</li></ul><ul><li>Management Information Report</li></ul>|
+|Bailey Ivancic|<br><ul><li>Team leader</li></ul><ul><li>Backend developer (Python, Flask, API)</li></ul><ul><li>Web crawler and API interface</li></ul><ul><li>Natural Language Processing</li></ul><ul><li>Google Trends and Twitter API integration</li></ul><ul><li>Design Information Report</li></ul>|
+|Nabil Shaikh|<br><ul><li>Backend developer (Python, Flask)</li></ul><ul><li>Frontend developer (React)</ul></li><ul><li>Natural Language Processing</li></ul><ul><li>Google Trends and Twitter API integration</li></ul>|
+|Harry Tang|<br><ul><li>Backend developer (Python, Flask)</li></ul><ul><li>Web crawler and API interface</ul></li><ul><li>Machine Learning</li></ul><ul><li>Design Information Report</li></ul>|
+|Jacob Wahib|<br><ul><li>Frontend developer (React)</li></ul><ul><li>Debugger/Tester</li></ul><ul><li>Management Information Report</li></ul><ul><li>Final Report</li></ul>|
+|Estella Arabi|<br><ul><li>Frontend developer (React)</li></ul><ul><li>Debugger/Tester</li></ul><ul><li>Management Information Report</li></ul><ul><li>Final Report</li></ul>|
 
 #### Why These Roles?
 
