@@ -40,5 +40,5 @@ Estella’s development preferences lie within the visual design of the project 
 
 #### Project Timeline
 
- ![alt text](https://i.gyazo.com/2bc5fb7ba71ade13dd329fb9bb2de8c1.jpg "Gantt Chart")
-
+Projection of work from Deliverable 2 until the end of the project:
+ ![alt text](https://i.gyazo.com/485c94911ffcd9a7c0b5064b2150663f.jpg "Gantt Chart")
