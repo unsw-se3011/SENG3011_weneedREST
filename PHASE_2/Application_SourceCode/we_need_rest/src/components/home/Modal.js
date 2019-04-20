@@ -2,23 +2,42 @@ import React, { Component } from 'react';
 import './Home.css';
 import axios from 'axios';
 
-const input = (search_param, updateState, value) => {
-  const doc = {
-    n : ["e.g. 7", "Max number of results"],
-    latitude : ["e.g. 211442.78", "Latitude of area affected"],
-    longitude : ["e.g. 3032.12", "Longitude of area affected"],
-    key_terms : ["e.g. Malaria, Zika", "Comma separated list of key terms"],
-    start_date : ["e.g. 2018-12-10T23:50:00", "Start date of date range"],
-    end_date : ["e.g. 2018-12-10T23:50:00", "End date of date range "]
-  };
+class ModalInput extends Component {
+  constructor(props) {
+    super(props)
 
-  return (
-  <div key={search_param} className="form-group">
-    <p className="text-dark">{doc[search_param][1]}</p>
-    <input value={value} onChange={()=>{updateState(search_param)}} id={search_param} type="text" className="form-control" placeholder={doc[search_param][0]}/>
-  </div>
-  );
-};
+    this.state = {
+      value: this.props.value,
+    };
+
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({value: event.target.value});
+    this.props.updateState(this.props.search_param);
+  }
+
+  render() {
+    const doc = {
+      n : ["e.g. 7", "Max number of results", "number"],
+      latitude : ["e.g. 211442.78", "Latitude of area affected", "number"],
+      longitude : ["e.g. 3032.12", "Longitude of area affected", "number"],
+      key_terms : ["e.g. Malaria, Zika", "Comma separated list of key terms", "text"],
+      start_date : ["e.g. 2018-12-10T23:50:00", "Start date of date range", "text"],
+      end_date : ["e.g. 2018-12-10T23:50:00", "End date of date range", "text"]
+    };
+
+    const search_param = this.props.search_param;
+
+    return (
+    <div key={search_param} className="form-group">
+      <p className="text-dark">{doc[search_param][1]}</p>
+      <input value={this.state.value} onChange={this.handleChange} id={search_param} type={doc[search_param][2]} className="form-control" placeholder={doc[search_param][0]}/>
+    </div>
+    );
+  }
+}
 
 class Modal extends Component {
   constructor(props) {
@@ -28,10 +47,9 @@ class Modal extends Component {
       n : undefined,
       latitude : undefined,
       longitude : undefined,
-      key_terms : undefined,
+      key_terms : this.props.key_terms,
       start_date : undefined,
-      end_date : undefined,
-      isOpen: false
+      end_date : undefined
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -47,6 +65,7 @@ class Modal extends Component {
       start_date : this.state.start_date,
       end_date : this.state.end_date
     }
+    // TODO: can prolly get rid of params variable
 
     //Deletes null fields
     Object.keys(params).forEach((key) => (params[key] === undefined) && delete params[key]);
@@ -54,7 +73,7 @@ class Modal extends Component {
     axios.get('http://46.101.226.130:5000/reports/', {params})
       .then(res => {
         res.data.forEach( obj => delete obj['reports']);
-        this.props.updateReports(res)
+        this.props.updateReports(res);
       })
   }
 
@@ -65,22 +84,16 @@ class Modal extends Component {
     this.setState(obj);
   }
 
-  componentWillReceiveProps(nextProps) {
-    this.setState({isOpen: nextProps.isOpen})
-    this.setState({key_terms: nextProps.key_terms})
-  }
-
   render () {
-    const search_params = ['n', 'longitude', 'latitude', 'start_date', 'end_date'];
+    const search_params = ['n', "key_terms", 'longitude', 'latitude', 'start_date', 'end_date'];
 
     return (
-      <div id="modal" className={"modal-"+this.state.isOpen}>
+      <div id="modal" className={"modal-"+this.props.isOpen}>
         <div className="modal-header">
           <h5 className="modal-title">Filter Reports</h5>
         </div>
         <form id="modal-form" className="form">
-          { input("key_terms", this.updateState, this.state.key_terms) }
-          { search_params.map(search_param => input(search_param, this.updateState, "")) }
+          { search_params.map(search_param => <ModalInput key={search_param} search_param={search_param} updateState={this.updateState} value={search_param==="key_terms"?this.props.key_terms:''}/>) }
         </form>
         <button onClick={this.handleSubmit} type="button" className="btn btn-primary">Search</button>
       </div>

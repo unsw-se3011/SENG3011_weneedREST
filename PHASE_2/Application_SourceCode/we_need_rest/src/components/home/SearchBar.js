@@ -32,7 +32,7 @@ class SearchBar extends Component {
             <button onClick={this.toggle} id="open-button" type="button" className="btn btn-default dropdown-toggle"></button>
           </div>
         </div>
-        <Modal updateReports={this.props.updateReports} isOpen={this.state.isOpen} key_terms={this.state.key_terms}/>
+        <Modal key={this.state.isOpen+this.state.key_terms} updateReports={this.props.updateReports} isOpen={this.state.isOpen} key_terms={this.state.key_terms}/>
       </div>
     );
   }
