@@ -1,49 +1,51 @@
 # Final Report #
 
-* A summary of the key benefits/achievements of your project relating back to your
-design/implementation
+* A summary of the key benefits/achievements of your project relating back to your design/implementation
 
+## Project Summary ##
 
-## Project Summary 
- * How did the project go in your opinion ?
- * **TODO:** discuss limitations (this is probably more about backend than front end)
- * any other points of appraisal pls feel free to add
- 
+* How did the project go in your opinion ?
+* **TODO:** discuss limitations (this is probably more about backend than front end)
+* any other points of appraisal pls feel free to add
+
 Overall, we are happy with our final product.
 
 Functionality-wise, we are proud to have been able to integrate Machine Learning and Natural Language Processing. We believe these 2 key features separated us from other groups, and the sheer time and effort we invested into them were worth it. We also believe that having the ability to summarise reports and generate graphs and other analytics based on this information was advantageous - it was tied closely to our business goals of automating outbreak report gathering, leaving the user to deal with the more important analysis since our application did all of the information scraping for them.
 
-In saying that, our frontend design can still be improved upon. We believe we were mostly hindered by our lack of React knowledge. Although we were able to visualise our content in a simple and easy to digest manner, we were only able to do so on a very basic level with the aid of Bootstrap. In other words, we were not able to exploit the vast number of React libraries and fully realise its capablilites for our project. We believe this came down to a matter of time and priorities, as at the end of the day learning more advanced techniques to implement in our code would have taken longer than we could afford.
+In saying that, our frontend design can still be improved upon. We believe we were mostly hindered by our lack of React knowledge, and time. Although we were able to visualise our content and features in a simple and easy to digest manner, we were only able to do so on a very basic level with the aid of Bootstrap. In other words, we were not able to exploit the vast number of React libraries and fully realise its capablilites for our project. We believe this came down to a matter of time and priorities, as at the end of the day learning more advanced techniques to utilise in our project would have taken longer than we could afford.
 
-      
-### Key Benefits and Achievements 
+### Key Benefits and Achievements ###
+
 * Major achievements in project
 
 As mentioned previously, we believe our 2 key achievements was the implementation of Machine Learning and Natural Language Processing.
-
 **back end boys pls elaborate**
 
+### Issues ###
 
-### Issues
-* Issues/problems encountered
+* We encountered issues with time, being unable to dedicate the time we would have liked to refine our website due to other academic commitments.
+* The learning hurdles also presented an issue as we had to learn new languages, techniques and experiment with unfamiliar structures while trying to create our front end and back end, which magnified our time issues since often we would dedicate a lot of time and practically not have achieved very much relative to the task at hand.
 
-#### Backend
+#### Backend ####
+
 **back end boys pls write ur problems here**
 
+#### Frontend ####
 
-#### Frontend
-There were a litany of problems with the frontend, mainly boiling down to our lack of proficiency with React. More specifically, they revolved around our want to make the website look a certain way or perform a certain action without being able to realise it with our language of choice. These issues may not have been necessarily drastic in the grand scheme of our project, but were simple details that would have enhanced the user's experience. For example, our website allows for reports to be selected and later be used to generate an aggregate report. To indicate that a report had been selected, we wanted to highlight said report. However, no matter what we tried, we could not find a way to do this, only being able to highlight the first selected report (even though the other selected reports were being correctly added to the set). Eventually, through a lot of trial and error and assistance from a member of the backend sub-team, we were able to achieve what we initially wanted, but at the cost of almost 2 days worth of time. Frontend design, then, became three times more time consuming than we orginally thought.
+There were a litany of problems with the frontend, mainly boiling down to our lack of proficiency with React. More specifically, they revolved around our desire to make the website look a certain way or perform a certain action without being able to realise it with our language of choice. These issues may not have been necessarily drastic in the grand scheme of our project, but were simple details that would have enhanced the user's experience. For example, our website allows for reports to be selected and later be used to generate an aggregate report. To indicate that a report had been selected, we wanted to highlight said report. However, no matter what we tried, we could not find a way to do this, only being able to highlight the first selected report (even though the other selected reports were being correctly added to the set). Eventually, through a lot of trial and error and assistance from a member of the backend sub-team, we were able to achieve what we initially wanted, but at the cost of almost 2 days worth of time. Frontend design, then, became three times more time consuming than we orginally thought.
 
 Another main issue was finding a way to convert the responses we recieved from our API and converting them into a format that we could parse through, extracting the data we needed, or simply changing how the responses were given from the backend in the first place. For example, we chose to use **Axios** to integrate our frontend and backend and part of how Axios works is to add query parameters exactly as they are into the url. This meant that for multi-word queries that involed spaces were added as is. However, having spaces in a url goes against convention and Axios would return an error. By default, Axios would replace spaces with '+', and thus we got around this error by simply changing all the spaces in our parameters through a function in the backend to '+' as well (and vice versa).
 
+Some of our most vexing issues were present in the integration of an additional API into our website to assist in the analysis of data from our report summaries. We experimented with several and continued running into errors that would often seem insurmountable.
 
-### What We Would Do Differently
+### What We Would Do Differently ###
+
 * What kind of skills you wish you had before the workshop (this way we can try include them in other courses)
-    * Would you do it any differently now ?
-      * I.e. tools, different technology, time management, etc
-      
+  * Would you do it any differently now ?
+    * I.e. tools, different technology, time management, etc
 
-## Team Organisation
+
+## Team Organisation ##
 
 * Team organisation and conclusion/appraisal of your work
   * Responsibilities/organization of the team
