@@ -39,6 +39,7 @@ const entity = (props) => {
 };
 
 const googleTrends = require('google-trends-api');
+const HttpsProxyAgent = require('https-proxy-agent');
 
 class Article extends Component {
   constructor(props) {
@@ -56,9 +57,18 @@ class Article extends Component {
     //this.textRazor = this.textRazor.bind(this);
   }
 
+  
+
   googleTrends()
   {
-    return googleTrends.interestOverTime({keyword: "Code",})
+    let proxyAgent =  new HttpsProxyAgent('https://cors-anywhere.herokuapp.com/');
+
+    let query = {
+      keyword: 'Code',
+      agent: proxyAgent
+    };
+
+    googleTrends.interestOverTime(query)
     .then(res =>res.json())
       .then(response => { 
         console.log("Success:", JSON.stringify(response), response); 
@@ -72,7 +82,7 @@ class Article extends Component {
 
     fetch(proxyUrl + url, { 
       method: "POST",
-      body: "extractors=entities,topics&text="+this.state.article.main_text, 
+      body: "extractors=entities,topics,words,relations&text="+this.state.article.main_text, 
       headers: { 
         "Content-Type": "application/x-www-form-urlencoded", 
         "X-Textrazor-Key": "1c89b6ad192f7b32536cd1b7d252c45ea2121272f258df695015a18d" 
@@ -82,7 +92,7 @@ class Article extends Component {
       .then(response => { 
         console.log("Success:", JSON.stringify(response), response); 
         this.setState({analysis: response}); 
-        console.log(this.state.analysis)
+        console.log(this.state.analysis);
       })
   }
 
@@ -164,7 +174,9 @@ class Summary extends Component {
     this.state = {
         response : [],
         selectedArticles: props.match.params.selectedArticles.split(','),
-        relatedWords: []
+        relatedWords: [],
+        relatedEntities: new Set(),
+        relatedTopics: new Set()
     }
 
     this.removeArticle = this.removeArticle.bind(this);

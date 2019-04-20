@@ -7,12 +7,14 @@
     "bootstrap": "^4.3.1",
     "bootstrap4": "^0.0.1-security",
     "google-trends-api": "^4.9.0",
+    "https-proxy-agent": "^2.2.1",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.5",
     "reactstrap": "^8.0.0",
-    "styled-components": "^4.2.0"
+    "styled-components": "^4.2.0",
+    "widget-google-trends": "^0.0.1"
   },
   "scripts": {
     "start": "react-scripts start",

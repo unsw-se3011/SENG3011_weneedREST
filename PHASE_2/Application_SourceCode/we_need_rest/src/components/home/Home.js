@@ -65,7 +65,7 @@ class Home extends Component {
       //add styling
       let elem = document.getElementById('card'+report);
       elem.className = 'card text-white bg-dark mb-3';
-      console.log("Deselet", report);
+      console.log("Deselect", report);
     } else {
       temp.push(report);
       this.setState({selectedArticles: temp});
