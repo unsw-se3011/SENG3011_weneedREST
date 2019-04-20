@@ -1,6 +1,7 @@
 # Management Information
 
 ### Communication and Agile Development Workflow
+
 Our team has been working together for two years now and as such have a firm grasp on our strengths and weaknesses. In that time we have developed strategies for effective communication, delegation of responsibilities and overall workflow. We see this as a huge benefit, as knowing how the rest of the group operates aided our efficiency and workflow. This was one of the primary reason we decided to stay together as a group for this workshop.
 
 Since we used **GitHub** for our project, we also made use of a Kanban board under the *GitHub Projects* tab to keep track of agile sprint tasks as well as project and sprint backlogs. Other tasks relating to the reports were written in the report document itself as a checklist. Task delegation was handled according to our respective roles within the team, and overflow in that section was thus delegated accordingly. Each deliverable was classified as a 'sprint', and at the beginning of a sprint all the requirements and tasks needed for that deliverable were created as issues in the project Kanban.
@@ -12,7 +13,9 @@ We also took the time to collectively look at the Kanban board in order to see i
 **Slack** was also used as a project management tool. Slack allowed the team to have a collaborative messaging space for discussing ideas and issues in the project, and also allowed us to have separate chats regarding front-end and back-end development. It meant that ideas and potential fixes for bugs weren't lost in a large chat and were better directed at the members who will handle them.
 
 ### Roles and Responsibilities
+
 #### Meet the team
+
 Our team preferred to work with semi-rigid roles in place, meaning that if the overflow for a particular section of the project became too large, team members would be pulled from other sections to balance out the overflow workload. During normal workflows, these were the roles assigned to each team member:
 
 |Name|Role|
@@ -20,8 +23,8 @@ Our team preferred to work with semi-rigid roles in place, meaning that if the o
 |Bailey Ivancic|<br><ul><li>Team leader</li></ul><ul><li>Backend developer (Python, Flask, API)</li></ul><ul><li>Web crawler and API interface</li></ul><ul><li>Natural Language Processing</li></ul><ul><li>Google Trends and Twitter API integration</li></ul><ul><li>Design Information Report</li></ul>|
 |Nabil Shaikh|<br><ul><li>Backend developer (Python, Flask)</li></ul><ul><li>Frontend developer (React)</ul></li><ul><li>Natural Language Processing</li></ul><ul><li>Google Trends and Twitter API integration</li></ul>|
 |Harry Tang|<br><ul><li>Backend developer (Python, Flask)</li></ul><ul><li>Web crawler and API interface</ul></li><ul><li>Machine Learning</li></ul><ul><li>Design Information Report</li></ul>|
-|Jacob Wahib|<br><ul><li>Frontend developer (React)</li></ul><ul><li>Debugger/Tester</li></ul><ul><li>Management Information Report</li></ul><ul><li>Final Report</li></ul>|
-|Estella Arabi|<br><ul><li>Frontend developer (React)</li></ul><ul><li>Debugger/Tester</li></ul><ul><li>Management Information Report</li></ul><ul><li>Final Report</li></ul>|
+|Jacob Wahib|<br><ul><li>Frontend developer (React)</li></ul><ul><li>Debugger/Tester</li></ul><ul><li>Management Information Report</li></ul><ul><li>Final Report</li></ul><ul><li>Testing Documentation</li></ul>|
+|Estella Arabi|<br><ul><li>Frontend developer (React)</li></ul><ul><li>Debugger/Tester</li></ul><ul><li>Management Information Report</li></ul><ul><li>Final Report</li></ul><ul><li>Testing Documentation</li></ul>|
 
 #### Why These Roles?
 
@@ -35,6 +38,7 @@ Jacob has been known to switch between frontend and backend subteams depending o
 
 Estella’s development preferences lie within the visual design of the project and is adept at cleaning up basic templates started by the backend team into a user friendly interface. For this reason she was assigned the role of frontend developer and report writer. Since she spent a lot of time using the website, it was inevitable that she would encounter bugs regarding its performance, and consequently reported them to the backend subteam if she could not fix them herself. Like Jacob, this therefore lead her to also be a part of the testing team, as well as the other half of the final report writing duo.
 
- #### Project Timeline
+#### Project Timeline
+
  ![alt text](https://i.gyazo.com/2bc5fb7ba71ade13dd329fb9bb2de8c1.jpg "Gantt Chart")
 
