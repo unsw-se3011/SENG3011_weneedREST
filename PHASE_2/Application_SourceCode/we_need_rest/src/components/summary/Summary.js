@@ -180,6 +180,9 @@ class Summary extends Component {
   changeSummaryName()
   {
     let name = prompt("Please enter in a name for summary:");
+    if (name == undefined || name == "") {
+      name = "Click to edit title"
+    }
     document.getElementById("summaryTitle").innerHTML=name;
   }
 
@@ -202,7 +205,7 @@ class Summary extends Component {
     return (
       
       <div id="container">
-      <h1 id="summaryTitle" onClick={this.changeSummaryName}>Hello this is a test</h1>
+      <h1 id="summaryTitle" onClick={this.changeSummaryName}>Click to edit title</h1>
         <div id="results">
           <ul>
           { this.state.response.map(article => <li id={"item"+article.id} key={article.id}>{<Article article={article} remove={this.removeArticle}/>}</li>) }
