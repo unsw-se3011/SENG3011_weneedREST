@@ -83,7 +83,17 @@ class Home extends Component {
     this.setState({selectedArticles: temp})
 
     // Delete report in backend
-    axios.delete('http://46.101.226.130:5000/reports/'+report); 
+    console.log('http://46.101.226.130:5000/reports/'+report);
+    axios({
+            method : 'delete',
+            url: "http://46.101.226.130:5000/reports/" + report,
+            responseType: 'json',
+            params: {
+              password: "sl33py"
+            }
+            }).then(response => {
+                console.log(response.data);
+          }); 
     const elem = document.querySelector("#item"+report);
     elem.className = 'editing';
   }
