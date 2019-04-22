@@ -57,22 +57,16 @@ class Article extends Component {
     //this.textRazor = this.textRazor.bind(this);
   }
 
-  
-
   googleTrends()
   {
-    let proxyAgent =  new HttpsProxyAgent('https://cors-anywhere.herokuapp.com/');
-
-    let query = {
-      keyword: 'Code',
-      agent: proxyAgent
-    };
-
-    googleTrends.interestOverTime(query)
-    .then(res =>res.json())
-      .then(response => { 
-        console.log("Success:", JSON.stringify(response), response); 
-      })
+    let temp = JSON.stringify({keyword: 'Valentines Day'});
+    googleTrends.interestOverTime(temp)
+    .then(function(results){
+      console.log(results);
+    })
+    .catch(function(err){
+      console.error(err);
+    });
   }
 
   // Used for calling textRazor API to extract keywords, topics and entities
@@ -180,6 +174,13 @@ class Summary extends Component {
     }
 
     this.removeArticle = this.removeArticle.bind(this);
+    this.changeSummaryName = this.changeSummaryName.bind(this);
+  }
+
+  changeSummaryName()
+  {
+    let name = prompt("Please enter in a name for summary:");
+    document.getElementById("summaryTitle").innerHTML=name;
   }
 
   removeArticle(id) {
@@ -199,7 +200,9 @@ class Summary extends Component {
 
   render() {
     return (
+      
       <div id="container">
+      <h1 id="summaryTitle" onClick={this.changeSummaryName}>Hello this is a test</h1>
         <div id="results">
           <ul>
           { this.state.response.map(article => <li id={"item"+article.id} key={article.id}>{<Article article={article} remove={this.removeArticle}/>}</li>) }
