@@ -7,6 +7,7 @@ import Map from './Map';
 import { Container, Row, Col, Card, CardTitle, CardHeader, CardText, Badge  } from 'reactstrap';
 import { ContextMenu, MenuItem, ContextMenuTrigger } from "react-contextmenu";
 import ReactTooltip from 'react-tooltip';
+import html2canvas from 'html2canvas';
 
 const MENU_TYPE = "entity-menu";
 
@@ -66,13 +67,14 @@ const entity = (props, expandSearch) => {
     <Col sm="6">
       <ContextMenuTrigger id={MENU_TYPE+props.id} holdToDisplay={1000}>
         <Card body>
-          <CardHeader>{badges.map(type => <Badge color="primary">{type}</Badge>)}</CardHeader>
-          <CardTitle>{props.id}. {props.entityId}</CardTitle>
-          <CardText>
+          <CardHeader data-tip="Textually relevant categories"><ReactTooltip />{badges.map(type => <Badge color="primary">{type}</Badge>)}</CardHeader>
+          <CardTitle data-tip="Entity"> <ReactTooltip />{props.id}. {props.entityId}</CardTitle>
+          <CardText data-tip="A measure of the nlp engine's confidence an entity is valid within the given document.">
+          <ReactTooltip />
             Confidence Score: {props.confidenceScore}<br/>
             Text: {props.matchedText}
           </CardText>
-          <a href={props.wikiLink} target="_blank">Wikipedia Article</a>
+          <a data-tip="Wikipedia page for the selected entity" href={props.wikiLink} target="_blank">Wikipedia Article</a>
         </Card>
       </ContextMenuTrigger>
 
@@ -102,6 +104,7 @@ const entity = (props, expandSearch) => {
 //     </div>
 //   );
 // }
+
 
 class Summary extends Component {
   constructor(props) {
@@ -197,6 +200,7 @@ class Summary extends Component {
     this.setState( state => ({selectedArticles: state.selectedArticles.remove(id) }) )
   }
 
+
   componentWillMount() {
     this.state.selectedArticles.forEach(id => 
       axios.get('http://46.101.226.130:5000/reports/' + id)
@@ -240,7 +244,7 @@ class Summary extends Component {
     }
 
     return (
-      <Container>
+      <Container id="canvas">
         <Row>
           <Col sm="12" md={{ size: 6, offset: 4 }}>
             <h1 id="summaryTitle" onClick={this.changeSummaryName}>Click to edit title</h1>
@@ -248,6 +252,7 @@ class Summary extends Component {
         </Row>
         <Row>
           <Col sm="12" md={{ size: 11, offset: 1 }}>
+          <h3>Report heatmap</h3>
             <Map
               key={loc.length}
               id="map"
@@ -265,6 +270,7 @@ class Summary extends Component {
         </Row>
         <Row>
           <Col xs="6">
+          <h3>Selected reports</h3>
             <div id="reports">
               <ul>
                 { this.state.response.map(article => 
