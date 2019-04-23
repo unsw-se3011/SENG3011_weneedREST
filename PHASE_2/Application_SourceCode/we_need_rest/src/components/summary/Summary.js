@@ -36,9 +36,15 @@ class Summary extends Component {
     })
       .then(res =>res.json())
       .then(response => { 
-        console.log("Success:", JSON.stringify(response), response); 
+        //console.log("Success:", JSON.stringify(response), response); 
         this.setState({analysis: response}); 
         console.log(this.state.analysis);
+
+        for (var i = 0; i < response.response.entities.length; i++) { this.state.relatedEntities.add(response.response.entities[i].entityId); }
+        for (var i = 0; i < response.response.coarseTopics.length; i++) { this.state.relatedTopics.add(response.response.coarseTopics[i].label); }
+
+        console.log(this.state.relatedEntities);
+        console.log(this.state.relatedTopics);
       })
   }
 
@@ -61,7 +67,11 @@ class Summary extends Component {
               let response = this.state.response;
               response.push(res.data);
               this.setState({response: response})
-            })    
+
+              // Run textRazor api
+              let text = ''.concat(res.data.headline, res.data.main_text);
+              this.textRazor(text);
+            })
       );
     }
 
@@ -87,7 +97,7 @@ class Summary extends Component {
             </div>
           </Col>
           <Col xs="6">
-            RHS page elements here
+            {this.response}
           </Col>
         </Row>
       </Container>
