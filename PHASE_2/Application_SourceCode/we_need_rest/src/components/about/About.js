@@ -46,7 +46,7 @@ class About extends Component {
                     <p>We automate the process of obtaining and contextualising data related to diseases and outbreaks for you.</p>
                     <p>Our primary source of data comes from the the Global Incident Map. Along with Google Trends and Twitter, 
                         we collate outbreak information from all over the world onto one platform. Generate report summaries 
-                        with graphs, heat maps and other analytics using <b>machine learning</b> and <b>natural langauge processing</b> 
+                        with graphs, heat maps and other analytics using <b>machine learning</b> and <b>natural langauge processing </b> 
                         with the click of a button.</p>
                 </div>
             </div>
@@ -64,7 +64,6 @@ class About extends Component {
                                 <li>Backend developer</li>
                                 <li>Web crawler and API interface</li>
                                 <li>Natural Language Processing</li>
-                                <li>Google Trends and Twitter API integration</li>
                             </ul>
                             </div>
                             <div class="col-md-4">
@@ -74,8 +73,7 @@ class About extends Component {
                                 <ul>
                                     <li>Backend developer</li>
                                     <li>Frontend developer</li>
-                                    <li>Natural Language Processing</li>
-                                    <li>Google Trends and Twitter API integration</li>
+                                    <li>Natural Language Processing</li> 
                                 </ul>
                             </div>
                             <div class="col-md-4">
