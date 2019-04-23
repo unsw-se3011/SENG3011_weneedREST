@@ -23,6 +23,21 @@ class Report extends Component {
 
         this.onSubmitUpdate = this.onSubmitUpdate.bind(this);
         this.onClickUpdate = this.onClickUpdate.bind(this);
+        this.onSubmitDelete = this.onSubmitDelete.bind(this);
+    }
+    onSubmitDelete(e) {
+        console.log(this.state.id);
+        axios({
+            method : 'delete',
+            url: "http://46.101.226.130:5000/reports/" + this.state.id,
+            responseType: 'json',
+            params: {
+              password: "sl33py"
+            }
+            }).then(response => {
+                console.log(response.data);
+          });
+
     }
     onClickUpdate(e) {
         document.getElementById("update").style.visibility="visible";
@@ -115,7 +130,8 @@ class Report extends Component {
                     
                     <p><b>Comment:</b> {this.state.comment}</p>
                 </div>
-                <button type="button" class="btn btn-primary" onClick={this.onClickUpdate}>Update</button>
+                <button type="button" class="btn btn-primary" onClick={this.onClickUpdate}>Edit Report</button>
+                <button type="button" class="btn btn-danger" onClick={this.onSubmitDelete}>Delete Report</button>
                 <div id="update" style={{visibility: "hidden"}}>
                 <form>
                     <div className="url">
