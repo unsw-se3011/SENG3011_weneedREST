@@ -1,9 +1,30 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import './summary.css';
+import './react-context-menu.css';
 import Article from './Article';
 import { Container, Row, Col,  } from 'reactstrap';
+import { ContextMenu, MenuItem, ContextMenuTrigger } from "react-contextmenu";
 import ReactTooltip from 'react-tooltip';
+
+const MENU_TYPE = "simple"
+
+function MyApp() {
+  return (
+    <div>
+      <ContextMenuTrigger id={MENU_TYPE} holdToDisplay={1000}>
+        <div className='well'>right click to see the menu</div>
+      </ContextMenuTrigger>
+
+      <ContextMenu id={MENU_TYPE}>
+        <MenuItem  data={{ item: 'item 1' }}>Menu Item 1</MenuItem>
+        <MenuItem  data={{ item: 'item 2' }}>Menu Item 2</MenuItem>
+        <MenuItem divider />
+        <MenuItem  data={{ item: 'item 3' }}>Menu Item 3</MenuItem>
+      </ContextMenu>
+    </div>
+  );
+}
 
 class Summary extends Component {
   constructor(props) {
@@ -60,7 +81,7 @@ class Summary extends Component {
             .then(res => {   
               let response = this.state.response;
               response.push(res.data);
-              this.setState({response: response})
+              this.setState({response: response});
             })    
       );
     }
@@ -74,12 +95,18 @@ class Summary extends Component {
           </Col>
         </Row>
         <Row>
-          <Col xs="6" style={{"width": "1000px"}}>
+          <Col>
+            <MyApp/>
+          </Col>
+        </Row>
+        <Row>
+          <Col xs="6">
             <div id="reports">
               <ul>
                 { this.state.response.map(article => 
                     <li id={"item"+article.id} 
-                        key={article.id}>{<Article article={article} 
+                        key={article.id}>
+                        {<Article article={article} 
                         remove={this.removeArticle}/>}
                     </li>) 
                 }
