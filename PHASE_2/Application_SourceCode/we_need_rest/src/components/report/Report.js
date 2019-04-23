@@ -36,7 +36,8 @@ class Report extends Component {
             }
             }).then(response => {
                 console.log(response.data);
-                document.getElementById("text-stuff").innerHTML="Report" + this.state.id + " Deleted!"
+                document.getElementById("text-stuff").innerHTML="Report " + this.state.id + " Deleted!";
+                document.getElementById("buttons").style.visibility="hidden";
           });
 
     }
