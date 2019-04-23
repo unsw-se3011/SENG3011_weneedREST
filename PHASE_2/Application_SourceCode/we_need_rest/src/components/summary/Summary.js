@@ -91,28 +91,38 @@ class Summary extends Component {
               this.setState({response: response})
 
               // Run textRazor api
-              let text = ''.concat(res.data.headline, res.data.main_text);
-              this.textRazor(text);
+              // let text = ''.concat(res.data.headline, res.data.main_text);
+              // this.textRazor(text);
 
               // Save location information for each one
               let newLocation = [];
               //console.log(res);
               newLocation.push(res.data.reports[0].reported_events[0].location.latitude)
               newLocation.push(res.data.reports[0].reported_events[0].location.longitude)
-              this.state.reportLocations.push(newLocation);
+              this.setState({ reportLocations: this.state.reportLocations.concat([newLocation]) });
 
-              console.log(this.state.reportLocations);
-              
-              this.state.relatedEntities.forEach((item) => {
-                let p = document.createElement('p');
-                p.innerText = item;
-                document.getElementById('#entities').appendChild(p); 
-            });
+              console.log("locations",this.state.reportLocations);
             })
       );
     }
 
   render() {
+    const loc = this.state.reportLocations;
+    let lat = 37.775;
+    let lng = -122.434;
+
+    if (loc.length>1) {
+      console.log("locations-loadd",this.state.reportLocations);
+      const lat_arr = loc.map(i=>i[0]);
+      const lng_arr = loc.map(i=>i[1]);
+      lat = lat_arr.reduce( (a,b)=>a+b )/lat_arr.length;
+      lng = lng_arr.reduce( (a,b)=>a+b )/lng_arr.length;
+
+      console.log("loaded", lat, lng);
+    } else if (loc.length===1) {
+      lat = loc[0][0];
+      lng = loc[0][1];
+    }
 
     return (
       <Container>
@@ -122,21 +132,19 @@ class Summary extends Component {
           </Col>
         </Row>
         <Row>
-          <Col>
-            <MyApp/>
+          <Col sm="12" md={{ size: 11, offset: 1 }}>
             <Map
-              id="myMap"
+              key={loc.length}
+              id="map"
               options={{
-                center: {lat: 37.775, lng: -122.434},
-                zoom: 13, 
+                center: {
+                  lat: lat,
+                  lng: lng
+                },
+                zoom: 2, 
               }}
-              onMapLoad={map => {
-                var marker = new window.google.maps.Marker({
-                  position: { lat: 41.0082, lng: 28.9784 },
-                  map: map,
-                  title: 'Hello Istanbul!'
-                });
-              }}
+              onMapLoad={()=>{}}
+              points={loc}
             />
           </Col>
         </Row>

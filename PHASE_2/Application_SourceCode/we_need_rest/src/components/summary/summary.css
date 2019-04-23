@@ -50,3 +50,7 @@
     border: transparent !important;
     box-shadow: none !important;
 }
+
+#map {
+    margin: 5%;
+}
