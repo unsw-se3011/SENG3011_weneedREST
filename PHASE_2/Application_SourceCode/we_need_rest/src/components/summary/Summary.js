@@ -3,6 +3,7 @@ import axios from 'axios';
 import './summary.css';
 import './react-context-menu.css';
 import Article from './Article';
+import Map from './Map';
 import { Container, Row, Col,  } from 'reactstrap';
 import { ContextMenu, MenuItem, ContextMenuTrigger } from "react-contextmenu";
 import ReactTooltip from 'react-tooltip';
@@ -82,18 +83,18 @@ class Summary extends Component {
   }
 
   componentWillMount() {
-      this.state.selectedArticles.forEach(id => 
-        axios.get('http://46.101.226.130:5000/reports/' + id)
-            .then(res => {   
-              let response = this.state.response;
-              response.push(res.data);
-              this.setState({response: response})
+    this.state.selectedArticles.forEach(id => 
+      axios.get('http://46.101.226.130:5000/reports/' + id)
+          .then(res => {   
+            let response = this.state.response;
+            response.push(res.data);
+            this.setState({response: response})
 
-              // Run textRazor api
-              let text = ''.concat(res.data.headline, res.data.main_text);
-              this.textRazor(text);
-            })
-      );
+            // Run textRazor api
+            let text = ''.concat(res.data.headline, res.data.main_text);
+            this.textRazor(text);
+          })
+    );
     }
 
   render() {
@@ -107,6 +108,20 @@ class Summary extends Component {
         <Row>
           <Col>
             <MyApp/>
+            <Map
+              id="myMap"
+              options={{
+                center: {lat: 37.775, lng: -122.434},
+                zoom: 13, 
+              }}
+              onMapLoad={map => {
+                var marker = new window.google.maps.Marker({
+                  position: { lat: 41.0082, lng: 28.9784 },
+                  map: map,
+                  title: 'Hello Istanbul!'
+                });
+              }}
+            />
           </Col>
         </Row>
         <Row>
