@@ -9,6 +9,7 @@
     "google-trends-api": "^4.9.0",
     "https-proxy-agent": "^2.2.1",
     "react": "^16.8.3",
+    "react-contextmenu": "^2.11.0",
     "react-dom": "^16.8.3",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.5",
