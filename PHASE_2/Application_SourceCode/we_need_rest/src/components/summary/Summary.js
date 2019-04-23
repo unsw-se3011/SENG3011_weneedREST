@@ -3,6 +3,7 @@ import axios from 'axios';
 import './summary.css';
 import Article from './Article';
 import { Container, Row, Col,  } from 'reactstrap';
+import ReactTooltip from 'react-tooltip';
 
 class Summary extends Component {
   constructor(props) {

@@ -12,6 +12,7 @@
     "react-dom": "^16.8.3",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.5",
+    "react-tooltip": "^3.10.0",
     "reactstrap": "^8.0.0",
     "styled-components": "^4.2.0",
     "widget-google-trends": "^0.0.1"
