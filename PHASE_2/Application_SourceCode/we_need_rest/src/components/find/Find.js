@@ -123,6 +123,7 @@ class Find extends Component {
             responseType: 'json'
             })
             .then(response => {
+                console.log(response.status);
                 if (response.status === 400) {
                     document.getElementById("report").innerHTML="Error: Report not found";
                 }
@@ -143,7 +144,15 @@ class Find extends Component {
                 
                 document.getElementById("card").style.visibility="visible";
                 document.getElementById("deleted").style.visibility="hidden"
-          });
+            })
+            .catch(error => {
+                if (error.response.status === 400) {
+                    document.getElementById("report").innerHTML="Report not found";
+                }
+                if (error.response.status === 404) {
+                    document.getElementById("report").innerHTML="Please enter Report ID";
+                }
+            });
 
     }
     onSubmitDelete(e) {

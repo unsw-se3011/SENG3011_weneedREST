@@ -36,6 +36,7 @@ class Report extends Component {
             }
             }).then(response => {
                 console.log(response.data);
+                document.getElementById("text-stuff").innerHTML="Report" + this.state.id + " Deleted!"
           });
 
     }
@@ -86,7 +87,8 @@ class Report extends Component {
             method : 'get',
             url: "http://46.101.226.130:5000/reports/" + this.state.id,
             responseType: 'json'
-            }).then(response => {
+            })
+            .then(response => {
             let data = response.data;
             this.setState({url: response.data.url});
             this.setState({date_pub: data.date_of_publication});
@@ -102,7 +104,12 @@ class Report extends Component {
             this.setState({date: response.data.reports[0].reported_events[0].date});
             this.setState({state: this.state});
             document.getElementById("text-stuff").style.visibility="visible";
-            });
+            })
+            .catch(error => {
+                console.log(error.response);
+                alert("Report " + this.state.id + " does not exist or has been deleted");
+                
+            });;
     }
     render() {
         const publish_date = new Date(this.state.date_pub);
