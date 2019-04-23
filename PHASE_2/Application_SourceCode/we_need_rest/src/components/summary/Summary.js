@@ -8,9 +8,9 @@ import { Container, Row, Col, Card, CardTitle, CardHeader, CardText, Badge  } fr
 import { ContextMenu, MenuItem, ContextMenuTrigger } from "react-contextmenu";
 import ReactTooltip from 'react-tooltip';
 
-const MENU_TYPE = "simple"
+const MENU_TYPE = "entity-menu";
 
-const renderEntities = (analysis)=>{
+const renderEntities = (analysis, expandSearch)=>{
   let response = []
 
   let entities = [];
@@ -25,10 +25,10 @@ const renderEntities = (analysis)=>{
           continue
         }
 
-        entities.push(createRow(response[prev], response[i]))
+        entities.push(createRow(response[prev], response[i], expandSearch))
       }
       if (prev == i && i!==0) {
-        entities.push(createRow(response[prev], null))
+        entities.push(createRow(response[prev], null, expandSearch))
       }
     } catch (error) {
       response = []
@@ -38,16 +38,16 @@ const renderEntities = (analysis)=>{
   return entities;
 }
 
-const createRow = (a, b) => {
+const createRow = (a, b, expandSearch) => {
   return (
     <Row>
-      {entity(a)}
-      {b !== null ? entity(b) : null }
+      {entity(a, expandSearch)}
+      {b !== null ? entity(b, expandSearch) : null }
     </Row>
   );
 }
 
-const entity = (props) => {
+const entity = (props, expandSearch) => {
   let badges = [];
 
   if (props.type === undefined) {
@@ -56,6 +56,10 @@ const entity = (props) => {
     badges = props.type
   } else {
     badges.push(props.type)
+  }
+
+  function handleClick(e, data) {
+    expandSearch(data.text);
   }
 
   return (
@@ -73,52 +77,83 @@ const entity = (props) => {
       </ContextMenuTrigger>
 
       <ContextMenu id={MENU_TYPE+props.id}>
-        <MenuItem  data={{ item: 'item 1' }}>Menu Item 1</MenuItem>
-        <MenuItem  data={{ item: 'item 2' }}>Menu Item 2</MenuItem>
+        <MenuItem  data={{ text: props.matchedText }} onClick={handleClick}>Expand Search</MenuItem>
+        {/* <MenuItem  data={{ item: 'item 2' }}>Menu Item 2</MenuItem>
         <MenuItem divider />
-        <MenuItem  data={{ item: 'item 3' }}>Menu Item 3</MenuItem>
+        <MenuItem  data={{ item: 'item 3' }}>Menu Item 3</MenuItem> */}
       </ContextMenu>
     </Col>
   );
 }
 
-function MyApp() {
-  return (
-    <div>
-      <ContextMenuTrigger id={MENU_TYPE} holdToDisplay={1000}>
-        <div className='well'>right click to see the menu</div>
-      </ContextMenuTrigger>
+// function MyApp() {
+//   return (
+//     <div>
+//       <ContextMenuTrigger id={MENU_TYPE} holdToDisplay={1000}>
+//         <div className='well'>right click to see the menu</div>
+//       </ContextMenuTrigger>
 
-      <ContextMenu id={MENU_TYPE}>
-        <MenuItem  data={{ item: 'item 1' }}>Menu Item 1</MenuItem>
-        <MenuItem  data={{ item: 'item 2' }}>Menu Item 2</MenuItem>
-        <MenuItem divider />
-        <MenuItem  data={{ item: 'item 3' }}>Menu Item 3</MenuItem>
-      </ContextMenu>
-    </div>
-  );
-}
+//       <ContextMenu id={MENU_TYPE}>
+//         <MenuItem  data={{ item: 'entity' }}>Expand search</MenuItem>
+//         {/* <MenuItem  data={{ item: 'item 2' }}>Menu Item 2</MenuItem>
+//         <MenuItem divider />
+//         <MenuItem  data={{ item: 'item 3' }}>Menu Item 3</MenuItem> */}
+//       </ContextMenu>
+//     </div>
+//   );
+// }
 
 class Summary extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-        analysis: undefined,
-        response : [],
-        selectedArticles: props.match.params.selectedArticles.split(','),
-        relatedWords: [],
-        relatedEntities: new Set(),
-        relatedTopics: new Set(),
-        reportLocations: []
+      analysis: undefined,
+      response : [],
+      selectedArticles: props.match.params.selectedArticles.split(','),
+      relatedWords: [],
+      relatedEntities: {},
+      relatedTopics: new Set(),
+      reportLocations: []
     }
 
     this.removeArticle = this.removeArticle.bind(this);
     this.changeSummaryName = this.changeSummaryName.bind(this);
+    this.expandSearchFromEntity = this.expandSearchFromEntity.bind(this);
+    this.expandSearchFromReport = this.expandSearchFromReport.bind(this);
+  }
+
+  expandSearchFromReport(search, id) {
+    let text = '';
+
+    if (search==="disease") {
+      text = this.state.relatedEntities[id].filter(i=>i.search('disease')!==-1).toString();
+    } else if (search==="entity") {
+      text = this.state.relatedEntities[id].toString();
+    } else {
+      return;
+    }
+    
+    axios.get('http://46.101.226.130:5000/reports/', {key_terms: text})
+      .then(res => {
+        let difference = res.data
+                 .filter(x => !this.state.response.includes(x))
+                 .concat(this.state.response.filter(x => !res.data.includes(x)));
+        res.data.forEach( obj => delete obj['reports']);
+        this.setState({ response: difference}, console.log('after expand', this.state.response) );
+      });
+  }
+
+  expandSearchFromEntity(text) {
+    axios.get('http://46.101.226.130:5000/reports/', {key_terms: text})
+      .then(res => {
+        res.data.forEach( obj => delete obj['reports']);
+        this.setState({response: this.state.response.concat(res.data)}, console.log(this.state.response));
+      });
   }
 
   // Used for calling textRazor API to extract keywords, topics and entities
-  textRazor(text) {
+  textRazor(text, id) {
     let url = "http://api.textrazor.com/";
     let proxyUrl = "https://cors-anywhere.herokuapp.com/";
 
@@ -135,11 +170,19 @@ class Summary extends Component {
         //console.log("Success:", JSON.stringify(response), response); 
         this.setState({analysis: response}); 
         // console.log(this.state.analysis);
+        let entities = this.state.relatedEntities;
 
-        for (var i = 0; i < response.response.entities.length; i++) { this.state.relatedEntities.add(response.response.entities[i].entityId); }
-        for (var i = 0; i < response.response.coarseTopics.length; i++) { this.state.relatedTopics.add(response.response.coarseTopics[i].label); }
+        for (var i = 0; i < response.response.entities.length; i++) { 
+          entities[id] = [];
+          entities[id] = entities[id].concat(response.response.entities[i].entityId);
+          this.setState({ relatedEntities: entities }); 
+        }
+        for (var i = 0; i < response.response.coarseTopics.length; i++) { 
+          this.state.relatedTopics.add(response.response.coarseTopics[i].label); 
+        }
 
-      })
+        console.log(this.state.relatedEntities);
+      });
   }
 
   changeSummaryName(){
@@ -155,28 +198,28 @@ class Summary extends Component {
   }
 
   componentWillMount() {
-      this.state.selectedArticles.forEach(id => 
-        axios.get('http://46.101.226.130:5000/reports/' + id)
-            .then(res => {   
-              let response = this.state.response;
-              response.push(res.data);
-              this.setState({response: response})
+    this.state.selectedArticles.forEach(id => 
+      axios.get('http://46.101.226.130:5000/reports/' + id)
+        .then(res => {   
+          let response = this.state.response;
+          response.push(res.data);
+          this.setState({response: response})
 
-              // Run textRazor api
-              let text = ''.concat(res.data.headline, res.data.main_text);
-              this.textRazor(text);
+          // Run textRazor api
+          let text = ''.concat(res.data.headline, res.data.main_text);
+          this.textRazor(text, id);
 
-              // Save location information for each one
-              let newLocation = [];
-              //console.log(res);
-              newLocation.push(res.data.reports[0].reported_events[0].location.latitude)
-              newLocation.push(res.data.reports[0].reported_events[0].location.longitude)
-              this.setState({ reportLocations: this.state.reportLocations.concat([newLocation]) });
+          // Save location information for each one
+          let newLocation = [];
+          //console.log(res);
+          newLocation.push(res.data.reports[0].reported_events[0].location.latitude)
+          newLocation.push(res.data.reports[0].reported_events[0].location.longitude)
+          this.setState({ reportLocations: this.state.reportLocations.concat([newLocation]) });
 
-              console.log("locations",this.state.reportLocations);
-            })
-      );
-    }
+          console.log("locations",this.state.reportLocations);
+        })
+    );
+  }
 
   render() {
     const loc = this.state.reportLocations;
@@ -184,13 +227,13 @@ class Summary extends Component {
     let lng = -122.434;
 
     if (loc.length>1) {
-      console.log("locations-loadd",this.state.reportLocations);
+      // console.log("locations-loadd",this.state.reportLocations);
       const lat_arr = loc.map(i=>i[0]);
       const lng_arr = loc.map(i=>i[1]);
       lat = lat_arr.reduce( (a,b)=>a+b )/lat_arr.length;
       lng = lng_arr.reduce( (a,b)=>a+b )/lng_arr.length;
 
-      console.log("loaded", lat, lng);
+      // console.log("loaded", lat, lng);
     } else if (loc.length===1) {
       lat = loc[0][0];
       lng = loc[0][1];
@@ -228,14 +271,14 @@ class Summary extends Component {
                     <li id={"item"+article.id} 
                         key={article.id}>
                         {<Article article={article} 
-                        remove={this.removeArticle}/>}
+                        remove={this.removeArticle} expandSearch={this.expandSearchFromReport}/>}
                     </li>) 
                 }
               </ul>
             </div>
           </Col>
           <Col xs="6">
-            {renderEntities(this.state.analysis)}
+            {renderEntities(this.state.analysis, this.expandSearchFromEntity)}
           </Col>
         </Row>
       </Container>
