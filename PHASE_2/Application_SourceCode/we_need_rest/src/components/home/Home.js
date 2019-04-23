@@ -65,11 +65,9 @@ class Home extends Component {
     //Adds item to array
     let articles = this.state.selectedArticles;
 
-    console.log("Before:", this.state.selectedArticles);
-
     if ( articles.includes(report) ) {
       articles = articles.filter(i => i!==report);
-      this.setState({selectedArticles: articles}, ()=>{console.log("delete", report, "State", this.state.selectedArticles)});
+      this.setState({selectedArticles: articles});
     } else {
       articles.push(report);
       this.setState({selectedArticles: articles});
