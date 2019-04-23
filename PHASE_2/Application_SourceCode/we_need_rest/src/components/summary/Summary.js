@@ -123,7 +123,6 @@ class Article extends Component {
 
     return (
       <div>
-      <Col sm="6">
         <div className="card text-white bg-dark mb-3">
           <div className="card-header">
             {article.headline}
@@ -144,11 +143,7 @@ class Article extends Component {
             </Collapse>
           </CardFooter> */}
         </div>
-        </Col>
-        {/* <Col sm="6">
-          RHS page elements here
-        </Col> */}
-        </div>
+      </div>
     )
   }
 }
@@ -195,19 +190,30 @@ class Summary extends Component {
 
   render() {
     return (
-      <div id="container">
-      <h1 id="summaryTitle" onClick={this.changeSummaryName}>Click to edit title</h1>
-        <div id="reports">
-          <ul>
-            { this.state.response.map(article => 
-                <li id={"item"+article.id} 
-                    key={article.id}>{<Article article={article} 
-                    remove={this.removeArticle}/>}
-                </li>) 
-            }
-          </ul>
-        </div>
-      </div>
+      <Container>
+        <Row>
+          <Col>
+            <h1 id="summaryTitle" onClick={this.changeSummaryName}>Click to edit title</h1>
+          </Col>
+        </Row>
+        <Row style={{margin: '0 !important'}}>
+          <Col xs="6" style={{"width": "1000px"}}>
+            <div id="reports">
+              <ul>
+                { this.state.response.map(article => 
+                    <li id={"item"+article.id} 
+                        key={article.id}>{<Article article={article} 
+                        remove={this.removeArticle}/>}
+                    </li>) 
+                }
+              </ul>
+            </div>
+          </Col>
+          <Col xs="6">
+            RHS page elements here
+          </Col>
+        </Row>
+      </Container>
     );
   }
 }

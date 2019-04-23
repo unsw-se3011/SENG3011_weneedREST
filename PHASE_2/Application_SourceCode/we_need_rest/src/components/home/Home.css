@@ -5,14 +5,14 @@
     align-items: center;
 }
 
-.container {
+/* .container {
     width: 500px;
 }
 
 .container .row {
     margin: 0 auto;
     width: 500px;
-}
+} */
 
 #modal {
     top: 53.15%;
