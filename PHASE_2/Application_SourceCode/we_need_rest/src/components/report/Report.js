@@ -107,8 +107,9 @@ class Report extends Component {
             })
             .catch(error => {
                 console.log(error.response);
-                alert("Report " + this.state.id + " does not exist or has been deleted");
-                
+                document.getElementById("text-stuff").innerHTML="Report " + this.state.id + " does not exist or has been deleted";
+                document.getElementById("text-stuff").style.visibility="visible";
+                document.getElementById("buttons").style.visibility="hidden";
             });;
     }
     render() {
@@ -137,8 +138,10 @@ class Report extends Component {
                     
                     <p><b>Comment:</b> {this.state.comment}</p>
                 </div>
-                <button type="button" class="btn btn-primary" onClick={this.onClickUpdate}>Edit Report</button>
-                <button type="button" class="btn btn-danger" onClick={this.onSubmitDelete}>Delete Report</button>
+                <div id="buttons">
+                    <button type="button" class="btn btn-primary" onClick={this.onClickUpdate}>Edit Report</button>
+                    <button type="button" class="btn btn-danger" onClick={this.onSubmitDelete}>Delete Report</button>
+                </div>
                 <div id="update" style={{visibility: "hidden"}}>
                 <form>
                     <div className="url">
