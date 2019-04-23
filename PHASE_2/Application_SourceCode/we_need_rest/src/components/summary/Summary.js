@@ -62,13 +62,14 @@ const entity = (props) => {
     <Col sm="6">
       <ContextMenuTrigger id={MENU_TYPE+props.id} holdToDisplay={1000}>
         <Card body>
-          <CardHeader>{badges.map(type => <Badge color="primary">{type}</Badge>)}</CardHeader>
-          <CardTitle>{props.id}. {props.entityId}</CardTitle>
-          <CardText>
+          <CardHeader data-tip="Textually relevant categories"><ReactTooltip />{badges.map(type => <Badge color="primary">{type}</Badge>)}</CardHeader>
+          <CardTitle data-tip="Entity"> <ReactTooltip />{props.id}. {props.entityId}</CardTitle>
+          <CardText data-tip="A measure of the nlp engine's confidence an entity is valid within the given document.">
+          <ReactTooltip />
             Confidence Score: {props.confidenceScore}<br/>
             Text: {props.matchedText}
           </CardText>
-          <a href={props.wikiLink} target="_blank">Wikipedia Article</a>
+          <a data-tip="Wikipedia page for the selected entity" href={props.wikiLink} target="_blank">Wikipedia Article</a>
         </Card>
       </ContextMenuTrigger>
 
@@ -205,6 +206,7 @@ class Summary extends Component {
         </Row>
         <Row>
           <Col sm="12" md={{ size: 11, offset: 1 }}>
+          <h3>Report heatmap</h3>
             <Map
               key={loc.length}
               id="map"
@@ -221,6 +223,7 @@ class Summary extends Component {
           </Col>
         </Row>
         <Row>
+          <h3>Selected reports</h3>
           <Col xs="6">
             <div id="reports">
               <ul>
@@ -234,6 +237,7 @@ class Summary extends Component {
               </ul>
             </div>
           </Col>
+          <h3>Related entities</h3>
           <Col xs="6">
             {renderEntities(this.state.analysis)}
           </Col>
