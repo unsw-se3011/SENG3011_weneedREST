@@ -91,6 +91,7 @@ class Modal extends Component {
       <div id="modal" className={"modal-"+this.props.isOpen}>
         <div className="modal-header">
           <h5 className="modal-title">Filter Reports</h5>
+          <button onClick={()=>{toggleModal()}} type="button" class="btn-outline-dark"> X </button>
         </div>
         <form id="modal-form" className="form">
           { search_params.map(search_param => <ModalInput key={search_param} search_param={search_param} updateState={this.updateState} value={search_param==="key_terms"?this.props.key_terms:''}/>) }

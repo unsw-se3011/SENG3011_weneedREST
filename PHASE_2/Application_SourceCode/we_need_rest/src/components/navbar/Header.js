@@ -12,8 +12,6 @@ class Header extends Component {
             this.activate(document.getElementById('contact'));
         } else if (url.search("create") !== -1) {
             this.activate(document.getElementById('create'));
-        } else if (url.search("find") !== -1){
-            this.activate(document.getElementById('find'));
         } else if (url.search("predict") !== -1){
             this.activate(document.getElementById('predict'));
         } else {
@@ -56,11 +54,6 @@ class Header extends Component {
                 <Link to='/create'>
                     <li className="nav-item" id="create" onClick={()=>this.handleClick(document.getElementById('create'))}>
                         Create
-                    </li>
-                </Link>
-                <Link to='/find'>
-                    <li className="nav-item" id="find" onClick={()=>this.handleClick(document.getElementById('find'))}>
-                        Find
                     </li>
                 </Link>
                 <Link to='/predict'>
