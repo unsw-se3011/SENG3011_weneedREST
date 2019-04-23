@@ -36,7 +36,8 @@ class Summary extends Component {
         selectedArticles: props.match.params.selectedArticles.split(','),
         relatedWords: [],
         relatedEntities: new Set(),
-        relatedTopics: new Set()
+        relatedTopics: new Set(),
+        reportLocations: []
     }
 
     this.removeArticle = this.removeArticle.bind(this);
@@ -60,13 +61,13 @@ class Summary extends Component {
       .then(response => { 
         //console.log("Success:", JSON.stringify(response), response); 
         this.setState({analysis: response}); 
-        console.log(this.state.analysis);
+        // console.log(this.state.analysis);
 
         for (var i = 0; i < response.response.entities.length; i++) { this.state.relatedEntities.add(response.response.entities[i].entityId); }
         for (var i = 0; i < response.response.coarseTopics.length; i++) { this.state.relatedTopics.add(response.response.coarseTopics[i].label); }
 
-        console.log(this.state.relatedEntities);
-        console.log(this.state.relatedTopics);
+        // console.log(this.state.relatedEntities);
+        // console.log(this.state.relatedTopics);
       })
   }
 
@@ -83,18 +84,27 @@ class Summary extends Component {
   }
 
   componentWillMount() {
-    this.state.selectedArticles.forEach(id => 
-      axios.get('http://46.101.226.130:5000/reports/' + id)
-          .then(res => {   
-            let response = this.state.response;
-            response.push(res.data);
-            this.setState({response: response})
+      this.state.selectedArticles.forEach(id => 
+        axios.get('http://46.101.226.130:5000/reports/' + id)
+            .then(res => {   
+              let response = this.state.response;
+              response.push(res.data);
+              this.setState({response: response})
 
-            // Run textRazor api
-            let text = ''.concat(res.data.headline, res.data.main_text);
-            this.textRazor(text);
-          })
-    );
+              // Run textRazor api
+              let text = ''.concat(res.data.headline, res.data.main_text);
+              this.textRazor(text);
+
+              // Save location information for each one
+              let newLocation = [];
+              //console.log(res);
+              newLocation.push(res.data.reports[0].reported_events[0].location.latitude)
+              newLocation.push(res.data.reports[0].reported_events[0].location.longitude)
+              this.state.reportLocations.push(newLocation);
+
+              console.log(this.state.reportLocations);
+            })
+      );
     }
 
   render() {
