@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import '../home/Home.css';
+import './summary.css';
 import { Collapse, Button, Badge, Card, CardTitle, CardText, Row, Col, CardHeader, CardFooter  } from 'reactstrap';
 
 const renderEntities = (a, b) => {
@@ -38,9 +38,6 @@ const entity = (props) => {
   );
 };
 
-const googleTrends = require('google-trends-api');
-const HttpsProxyAgent = require('https-proxy-agent');
-
 class Article extends Component {
   constructor(props) {
     super(props)
@@ -55,18 +52,6 @@ class Article extends Component {
     this.toggle = this.toggle.bind(this);
     this.onEntering = this.onEntering.bind(this);
     //this.textRazor = this.textRazor.bind(this);
-  }
-
-  googleTrends()
-  {
-    let temp = JSON.stringify({keyword: 'Valentines Day'});
-    googleTrends.interestOverTime(temp)
-    .then(function(results){
-      console.log(results);
-    })
-    .catch(function(err){
-      console.error(err);
-    });
   }
 
   // Used for calling textRazor API to extract keywords, topics and entities
@@ -148,16 +133,15 @@ class Article extends Component {
             <p className="card-text">{article.main_text}</p>
             <p className="card-text">{new Date(article.date_of_publication).toDateString()}</p>
           </div>
-          <CardFooter className="text-muted">
-            <Button onClick={this.googleTrends}>GOOGLE TRENDS</Button>
-          <Button id={"art"+article.id} color="danger" onClick={this.toggle} style={{ margin: '1rem' }}>Analysis</Button>
-          <hr/>
-          <Collapse className="remove-outline" isOpen={this.state.collapse} onEntering={this.onEntering}>
-            <div className='text-dark'>
-              {entities.map(entry => entry)}
-            </div>
-          </Collapse>
-          </CardFooter>
+          {/* <CardFooter className="text-muted">
+            <Button id={"art"+article.id} color="danger" onClick={this.toggle} style={{ margin: '1rem' }}>Analysis</Button>
+            <hr/>
+            <Collapse className="remove-outline" isOpen={this.state.collapse} onEntering={this.onEntering}>
+              <div className='text-dark'>
+                {entities.map(entry => entry)}
+              </div>
+            </Collapse>
+          </CardFooter> */}
         </div>
         </Col>
         {/* <Col sm="6">
@@ -210,12 +194,16 @@ class Summary extends Component {
 
   render() {
     return (
-      
       <div id="container">
       <h1 id="summaryTitle" onClick={this.changeSummaryName}>Click to edit title</h1>
-        <div id="results">
+        <div id="reports">
           <ul>
-          { this.state.response.map(article => <li id={"item"+article.id} key={article.id}>{<Article article={article} remove={this.removeArticle}/>}</li>) }
+            { this.state.response.map(article => 
+                <li id={"item"+article.id} 
+                    key={article.id}>{<Article article={article} 
+                    remove={this.removeArticle}/>}
+                </li>) 
+            }
           </ul>
         </div>
       </div>
