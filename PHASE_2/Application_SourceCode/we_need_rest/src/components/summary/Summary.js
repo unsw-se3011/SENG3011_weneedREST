@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import '../home/Home.css';
-import { Collapse, Button, Badge, Card, CardTitle, CardText, Row, Col, CardHeader  } from 'reactstrap';
+import { Collapse, Button, Badge, Card, CardTitle, CardText, Row, Col, CardHeader, CardFooter  } from 'reactstrap';
 
 const renderEntities = (a, b) => {
   return (
@@ -136,27 +136,34 @@ class Article extends Component {
     const article = this.state.article;
 
     return (
-      <div className="card text-white bg-dark mb-3">
-        <div className="card-header">
-          {article.headline}
-          <button onClick={ () => {handleDelete(article.id)} } className="destroy"></button>
-        </div>
-        <div className="card-body">
-          <h5 className="card-title">{article.id}</h5>
-          <p className="card-text">{article.main_text}</p>
-          <p className="card-text">{new Date(article.date_of_publication).toDateString()}</p>
-        </div>
-        <div>
-          <Button onClick={this.googleTrends}>GOOGLE TRENDS</Button>
+      <div>
+      <Col sm="6">
+        <div className="card text-white bg-dark mb-3">
+          <div className="card-header">
+            {article.headline}
+            <button onClick={ () => {handleDelete(article.id)} } className="destroy"></button>
+          </div>
+          <div className="card-body">
+            <h5 className="card-title">{article.id}</h5>
+            <p className="card-text">{article.main_text}</p>
+            <p className="card-text">{new Date(article.date_of_publication).toDateString()}</p>
+          </div>
+          <CardFooter className="text-muted">
+            <Button onClick={this.googleTrends}>GOOGLE TRENDS</Button>
           <Button id={"art"+article.id} color="danger" onClick={this.toggle} style={{ margin: '1rem' }}>Analysis</Button>
           <hr/>
           <Collapse className="remove-outline" isOpen={this.state.collapse} onEntering={this.onEntering}>
-            <div className='text-dark' style={{marginRight: '20px'}}>
+            <div className='text-dark'>
               {entities.map(entry => entry)}
             </div>
           </Collapse>
+          </CardFooter>
         </div>
-      </div>
+        </Col>
+        {/* <Col sm="6">
+          RHS page elements here
+        </Col> */}
+        </div>
     )
   }
 }

@@ -1,6 +1,6 @@
 img {
-    height: 60%;
-    width: 60%;
+    height: 40%;
+    width: 40%;
 }
 
 #image {
@@ -8,6 +8,36 @@ img {
     margin-right: 5%;
 }
 
-#container {
+#handshake {
+    width:80%;
+    margin-bottom: 10%;
+}
+
+#lightbulb {
+    width: 80%;
+    margin-bottom: 10%;
+}
+
+#earth {
+    width: 60%;
+    height: 30%;
+    margin-top: 10%;
+}
+
+#text {
+    margin-top: 2%;
+    margin-right: 5%;
+}
+
+#team {
+    margin-top: 10%;
+}
+
+#card3{ 
+    width: 100%;
+}
+
+#card2 {
+    height: 65%;
     width: 100%;
 }
