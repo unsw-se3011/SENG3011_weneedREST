@@ -73,28 +73,29 @@ const entity = (props) => {
   );
 }
 
-function MyApp() {
-  return (
-    <div>
-      <ContextMenuTrigger id={MENU_TYPE} holdToDisplay={1000}>
-        <div className='well'>right click to see the menu</div>
-      </ContextMenuTrigger>
+// function MyApp() {
+//   return (
+//     <div>
+//       <ContextMenuTrigger id={MENU_TYPE} holdToDisplay={1000}>
+//         <div className='well'>right click to see the menu</div>
+//       </ContextMenuTrigger>
 
-      <ContextMenu id={MENU_TYPE}>
-        <MenuItem  data={{ item: 'item 1' }}>Menu Item 1</MenuItem>
-        <MenuItem  data={{ item: 'item 2' }}>Menu Item 2</MenuItem>
-        <MenuItem divider />
-        <MenuItem  data={{ item: 'item 3' }}>Menu Item 3</MenuItem>
-      </ContextMenu>
-    </div>
-  );
-}
+//       <ContextMenu id={MENU_TYPE}>
+//         <MenuItem  data={{ item: 'item 1' }}>Menu Item 1</MenuItem>
+//         <MenuItem  data={{ item: 'item 2' }}>Menu Item 2</MenuItem>
+//         <MenuItem divider />
+//         <MenuItem  data={{ item: 'item 3' }}>Menu Item 3</MenuItem>
+//       </ContextMenu>
+//     </div>
+//   );
+// }
 
 class Summary extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
+        analysis: undefined,
         response : [],
         selectedArticles: props.match.params.selectedArticles.split(','),
         relatedWords: [],
