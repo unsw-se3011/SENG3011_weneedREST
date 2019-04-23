@@ -112,7 +112,6 @@ class Home extends Component {
         <h1 className="title">Sleepy API</h1>
         <SearchBar updateReports={this.updateReports}/>
         <div class="btn-group">
-          
           <button type="button" className="btn btn-secondary" onClick={this.selectAll} id="selectAllBtn">Select All</button>
           <Link to={`/summary/${this.state.selectedArticles}`}>
             <button type="submit" className="btn btn-primary" id="summaryBtn">Get Summary</button>

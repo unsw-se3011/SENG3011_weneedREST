@@ -1,9 +1,16 @@
 .nav {
-    height: 40px;
+    height: 55px;
     background: #434343;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: right;
+}
+
+#brand {
+    position: absolute;
+    margin-top: 5px;
+    margin-left: 5%;
+    color: #fff;
 }
 
 .active {

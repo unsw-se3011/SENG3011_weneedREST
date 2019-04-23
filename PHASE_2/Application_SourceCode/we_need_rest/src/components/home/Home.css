@@ -106,13 +106,13 @@ hr {
 }
 
 .btn-group {
-    margin-left: 40%;
-    margin-right: 40%;
+    margin-left: 45%;
+    margin-right: 35%;
 }
 
-.filter {
-    margin-left: 40%;
-    margin-right: 40%;
+#filter {
+    position: absolute;
+    margin-left: 5%;
 }
 
 .remove-outline {

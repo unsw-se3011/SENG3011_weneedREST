@@ -27,14 +27,10 @@ class SearchBar extends Component {
     return (
       <div className="container">
         <div className="row">
-          <div class="filter" className="input-group">
-            <button onClick={this.toggle} id="open-button" type="button" className="btn btn-primary">Filter Reports</button>
-            <br />
-            <br />
+          <div id="filter" className="input-group">
+            <button onClick={this.toggle} id="open-button" type="button" className="btn btn-outline-primary">Filter Reports</button>
           </div>
         </div>
-        <br />
-        <br />
         <Modal key={this.state.isOpen+this.state.key_terms} updateReports={this.props.updateReports} isOpen={this.state.isOpen} key_terms={this.state.key_terms}/>
       </div>
     );
