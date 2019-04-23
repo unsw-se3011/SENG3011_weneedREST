@@ -63,7 +63,7 @@ const entity = (props) => {
       <Card body>
         <CardHeader>{badges.map(type => <Badge>{type}</Badge>)}</CardHeader>
         <CardTitle>{props.id}. {props.entityId}</CardTitle>
-        <CardText>
+        <CardText data-tip="hello world">
           Confidence Score: {props.confidenceScore}<br/>
           Text: {props.matchedText}
         </CardText>
