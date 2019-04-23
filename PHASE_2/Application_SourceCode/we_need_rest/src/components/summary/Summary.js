@@ -148,14 +148,14 @@ class Article extends Component {
         </div>
         <div>
           <Button onClick={this.googleTrends}>GOOGLE TRENDS</Button>
-        <Button id={"art"+article.id} color="danger" onClick={this.toggle} style={{ margin: '1rem' }}>Analysis</Button>
-        <hr/>
-        <Collapse className="remove-outline" isOpen={this.state.collapse} onEntering={this.onEntering}>
-          <div className='text-dark' style={{marginRight: '20px'}}>
-            {entities.map(entry => entry)}
-          </div>
-        </Collapse>
-      </div>
+          <Button id={"art"+article.id} color="danger" onClick={this.toggle} style={{ margin: '1rem' }}>Analysis</Button>
+          <hr/>
+          <Collapse className="remove-outline" isOpen={this.state.collapse} onEntering={this.onEntering}>
+            <div className='text-dark' style={{marginRight: '20px'}}>
+              {entities.map(entry => entry)}
+            </div>
+          </Collapse>
+        </div>
       </div>
     )
   }
