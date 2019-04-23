@@ -110,6 +110,11 @@ hr {
     margin-right: 40%;
 }
 
+.filter {
+    margin-left: 40%;
+    margin-right: 40%;
+}
+
 .remove-outline {
     outline: none;
     background: transparent !important;

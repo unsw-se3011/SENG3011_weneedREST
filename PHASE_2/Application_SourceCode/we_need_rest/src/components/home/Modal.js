@@ -95,7 +95,7 @@ class Modal extends Component {
         <form id="modal-form" className="form">
           { search_params.map(search_param => <ModalInput key={search_param} search_param={search_param} updateState={this.updateState} value={search_param==="key_terms"?this.props.key_terms:''}/>) }
         </form>
-        <button onClick={this.handleSubmit} type="button" className="btn btn-primary">Search</button>
+        <button onClick={this.handleSubmit} type="button" className="btn btn-primary">Filter</button>
       </div>
     );
   }
