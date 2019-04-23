@@ -24,6 +24,7 @@ class SearchBar extends Component {
   }
 
   render() {
+    //console.log(this.state.isOpen);
     return (
       <div className="container">
         <div className="row">

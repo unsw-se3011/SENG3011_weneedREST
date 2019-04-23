@@ -54,6 +54,7 @@ class Modal extends Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updateState = this.updateState.bind(this)
+    this.closeModal = this.closeModal.bind(this);
   }
 
   handleSubmit() {
@@ -84,13 +85,21 @@ class Modal extends Component {
     this.setState(obj);
   }
 
+  closeModal() {
+    var toggle = this.props.isOpen;
+    toggle = false;
+    document.getElementById("modal").className = "modal-false";
+  }
+
   render () {
     const search_params = ['n', "key_terms", 'longitude', 'latitude', 'start_date', 'end_date'];
-
+    console.log(this.props.isOpen);
+    var toggle = this.props.isOpen;
     return (
-      <div id="modal" className={"modal-"+this.props.isOpen}>
+      <div id="modal" className={"modal-"+toggle}>
         <div className="modal-header">
           <h5 className="modal-title">Filter Reports</h5>
+          <button onClick={this.closeModal} type="button" class="btn-outline-dark"> X </button>
         </div>
         <form id="modal-form" className="form">
           { search_params.map(search_param => <ModalInput key={search_param} search_param={search_param} updateState={this.updateState} value={search_param==="key_terms"?this.props.key_terms:''}/>) }
