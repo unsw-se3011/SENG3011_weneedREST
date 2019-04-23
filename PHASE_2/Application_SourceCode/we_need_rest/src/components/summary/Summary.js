@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import './summary.css';
 import { Collapse, Button, Badge, Card, CardTitle, CardText, Row, Col, CardHeader, CardFooter  } from 'reactstrap';
+import ReactTooltip from 'react-tooltip';
 
 const renderEntities = (a, b) => {
   return (
