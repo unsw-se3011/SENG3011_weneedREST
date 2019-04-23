@@ -1,6 +1,6 @@
 .nav {
     height: 55px;
-    background: #434343;
+    background: #292b2c;
     display: flex;
     align-items: center;
     justify-content: right;
@@ -14,12 +14,12 @@
 }
 
 .active {
-    background: #F0F2F0;
-    color: #434343 !important;
+    background: #fff;
+    color: #292b2c !important;
 }
 
 .nav-item a:hover {
-    color: #F0F2F0;
+    color: #fff;
     text-decoration: underline;
 }
 
@@ -34,6 +34,6 @@
 }
 
 .nav a {
-    color: #F0F2F0;
+    color: #fff;
     text-decoration: none;
 }

@@ -5,6 +5,20 @@
     align-items: center;
 }
 
+#banner {
+    background-image: url(lights.jpg);
+    height: 100%;
+}
+
+#big-name {
+    text-align: center;
+    color: #fff;
+}
+
+#open-button {
+    color: #fff;
+}
+
 /* .container {
     width: 500px;
 }

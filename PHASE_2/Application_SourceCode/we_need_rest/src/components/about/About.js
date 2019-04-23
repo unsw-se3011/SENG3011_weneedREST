@@ -57,7 +57,7 @@ class About extends Component {
                         <div class="row">
                             <div class="col-md-4">
                             <img id="card3" src="https://i.pinimg.com/736x/42/cd/84/42cd84625ba3ed7f52c5bb81a612486d--tarot-card-art-tarot-cards.jpg"/>
-                            <br/>
+                            <br/><br/>
                             <b>Bailey Ivancic</b>
                             <ul>
                                 <li>Team Leader</li>
@@ -69,7 +69,7 @@ class About extends Component {
                             </div>
                             <div class="col-md-4">
                                 <img id="card3" src="http://66.media.tumblr.com/38a61fb237faee238aeb4d5ad66b0886/tumblr_ms08kjH3cv1qblxj7o3_1280.jpg"/>
-                                <br/>
+                                <br/><br/>
                                 <b>Nabil Shaikh</b>
                                 <ul>
                                     <li>Backend developer</li>
@@ -80,7 +80,7 @@ class About extends Component {
                             </div>
                             <div class="col-md-4">
                                 <img id="card3" src="https://i.pinimg.com/originals/41/d5/53/41d5538ed2d66ebc13424ec8e95c56d8.jpg"/>
-                                <br/>
+                                <br/><br/>
                                 <b>Harry Tang</b>
                                 <ul>
                                     <li>Backend developer</li>
@@ -93,7 +93,7 @@ class About extends Component {
                         <div class="row justify-content-around">
                             <div class="col-4">
                                 <img id="card2" src="http://geekologie.com/2013/08/23/lotr-tarot-cards-5.jpg"/>
-                                <br/>
+                                <br/><br/>
                                 <b>Jacob Wahib</b>
                                 <ul>
                                     <li>Frontend developer</li>
@@ -103,7 +103,7 @@ class About extends Component {
                             </div>
                             <div class="col-4">
                                 <img id="card2" src="https://i.pinimg.com/736x/a4/28/c2/a428c29a8c484778140d8dea23203500--tarot-card-art-tarot-cards-art-illustration.jpg"/>
-                                <br/>
+                                <br/><br/>
                                 <b>Estella Arabi</b>
                                 <ul>
                                     <li>Frontend developer</li>

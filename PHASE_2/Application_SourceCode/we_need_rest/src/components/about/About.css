@@ -34,10 +34,11 @@ img {
 }
 
 #card3{ 
-    width: 100%;
+    width: 60%;
+    height: 60%;
 }
 
 #card2 {
     height: 65%;
-    width: 100%;
+    width: 65%;
 }

@@ -106,15 +106,21 @@ class Home extends Component {
 
     return (
       <div>
-        <h1 className="title">Sleepy API</h1>
-        <SearchBar updateReports={this.updateReports}/>
-        <div class="btn-group">
-          <button type="button" className="btn btn-secondary" onClick={this.selectAll} id="selectAllBtn">Select All</button>
-          <Link to={`/summary/${this.state.selectedArticles}`}>
-            <button type="submit" className="btn btn-primary" id="summaryBtn">Get Summary</button>
-          </Link>
+        <div id="banner" class="jumbotron jumbotron-fluid">
+          <div class="container">
+            <h1 id="big-name" class="display-3">Sleepy API</h1>
+            {/* <hr class="my-3"></hr> */}
+            <SearchBar updateReports={this.updateReports}/>
+            <div class="btn-group">
+              <button type="button" className="btn btn-secondary" onClick={this.selectAll} id="selectAllBtn">Select All</button>
+              <Link to={`/summary/${this.state.selectedArticles}`}>
+                <button type="submit" className="btn btn-primary" id="summaryBtn">Get Summary</button>
+              </Link>
+            </div>
+          </div>
         </div>
-        <hr/>
+        
+        {/* <hr/> */}
         <div id="results">
           <ul>
             { data.map(article => 
