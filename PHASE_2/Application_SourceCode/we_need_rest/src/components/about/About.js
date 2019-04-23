@@ -64,7 +64,6 @@ class About extends Component {
                                 <li>Backend developer</li>
                                 <li>Web crawler and API interface</li>
                                 <li>Natural Language Processing</li>
-                                <li>Google Trends and Twitter API integration</li>
                             </ul>
                             </div>
                             <div class="col-md-4">
@@ -74,8 +73,7 @@ class About extends Component {
                                 <ul>
                                     <li>Backend developer</li>
                                     <li>Frontend developer</li>
-                                    <li>Natural Language Processing</li>
-                                    <li>Google Trends and Twitter API integration</li>
+                                    <li>Natural Language Processing</li> 
                                 </ul>
                             </div>
                             <div class="col-md-4">
