@@ -7,6 +7,7 @@ import Map from './Map';
 import { Container, Row, Col, Card, CardTitle, CardHeader, CardText, Badge  } from 'reactstrap';
 import { ContextMenu, MenuItem, ContextMenuTrigger } from "react-contextmenu";
 import ReactTooltip from 'react-tooltip';
+import html2canvas from 'html2canvas';
 
 const MENU_TYPE = "simple"
 
@@ -100,6 +101,7 @@ function MyApp() {
   );
 }
 
+
 class Summary extends Component {
   constructor(props) {
     super(props);
@@ -155,6 +157,7 @@ class Summary extends Component {
     this.setState( state => ({selectedArticles: state.selectedArticles.remove(id) }) )
   }
 
+
   componentWillMount() {
       this.state.selectedArticles.forEach(id => 
         axios.get('http://46.101.226.130:5000/reports/' + id)
@@ -198,7 +201,7 @@ class Summary extends Component {
     }
 
     return (
-      <Container>
+      <Container id="canvas">
         <Row>
           <Col sm="12" md={{ size: 6, offset: 4 }}>
             <h1 id="summaryTitle" onClick={this.changeSummaryName}>Click to edit title</h1>

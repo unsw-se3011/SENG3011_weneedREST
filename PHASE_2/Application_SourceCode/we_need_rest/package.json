@@ -7,6 +7,7 @@
     "bootstrap": "^4.3.1",
     "bootstrap4": "^0.0.1-security",
     "google-trends-api": "^4.9.0",
+    "html2canvas": "^1.0.0-rc.1",
     "https-proxy-agent": "^2.2.1",
     "react": "^16.8.3",
     "react-contextmenu": "^2.11.0",
