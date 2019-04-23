@@ -223,8 +223,8 @@ class Summary extends Component {
           </Col>
         </Row>
         <Row>
-          <h3>Selected reports</h3>
           <Col xs="6">
+          <h3>Selected reports</h3>
             <div id="reports">
               <ul>
                 { this.state.response.map(article => 
@@ -237,8 +237,8 @@ class Summary extends Component {
               </ul>
             </div>
           </Col>
-          <h3>Related entities</h3>
           <Col xs="6">
+          <h3>Related entities</h3>
             {renderEntities(this.state.analysis)}
           </Col>
         </Row>
