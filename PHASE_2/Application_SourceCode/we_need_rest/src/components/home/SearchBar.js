@@ -40,20 +40,28 @@ class SearchBar extends Component {
 
   toggle() {
     this.setState( state => ({ isOpen: !state.isOpen }) );
+    if(this.state.isOpen == true) {
+      document.getElementById("btn up-down").className="btn-group";
+    }
+    else {
+      document.getElementById("btn up-down").className="btn-group dropup";
+    }
   }
 
   render() {
-    //console.log(this.state.isOpen);
+    console.log(this.state.isOpen);
     return (
       <div className="container">
         <div className="row">
-        <div className="input-group">
-            <input onChange={this.handleChange} onKeyDown={this.handleSubmit} type="text" className="form-control" placeholder="What are you looking for?"/>
+          <div id="btn up-down" class="btn-group">
             <button onClick={this.toggle} id="open-button" type="button" className="btn btn-default dropdown-toggle">Filter</button>
           </div>
+          <div className="input-group">
+            <input onChange={this.handleChange} onKeyDown={this.handleSubmit} type="text" className="form-control"placeholder="What are you looking for?"/>
+          </div>
         </div>
-        <Modal key={this.state.isOpen+this.state.key_terms} updateReports={this.props.updateReports} isOpen={this.state.isOpen} key_terms={this.state.key_terms}/>
-      </div>
+      <Modal key={this.state.isOpen+this.state.key_terms} updateReports={this.props.updateReports} isOpen={this.state.isOpen} key_terms={this.state.key_terms}/>
+    </div>
     );
   }
 }
