@@ -2,41 +2,6 @@ import React, {Component} from 'react';
 import './summary.css';
 import { Container, Badge, Card, CardTitle, CardText, Row, Col, CardHeader  } from 'reactstrap';
 
-const renderEntities = (a, b) => {
-  return (
-    <Row>
-      {entity(a)}
-      {b !== null ? entity(b) : null }
-    </Row>
-  );
-}
-
-const entity = (props) => {
-  let badges = [];
-
-  if (props.type === undefined) {
-    badges = []
-  } else if (props.type instanceof Array) {
-    badges = props.type
-  } else {
-    badges.push(props.type)
-  }
-
-  return (
-    <Col sm="6">
-      <Card body>
-        <CardHeader>{badges.map(type => <Badge>{type}</Badge>)}</CardHeader>
-        <CardTitle>{props.id}. {props.entityId}</CardTitle>
-        <CardText>
-          Confidence Score: {props.confidenceScore}<br/>
-          Text: {props.matchedText}
-        </CardText>
-        <a href={props.wikiLink} target="_blank">Wikipedia Article</a>
-      </Card>
-    </Col>
-  );
-};
-
 class Article extends Component {
   constructor(props) {
     super(props)
@@ -71,30 +36,6 @@ class Article extends Component {
       elem.className = 'editing';
       this.removeArticle(id);
     }    
-    let response = []
-
-    let entities = [];
-    if ( this.state.analysis !== undefined) {
-      try {
-        response = this.state.analysis.response.entities;
-        let prev = 0;
-        let i = 0;
-        for (i in response) {
-          if (i%2===0) {
-            prev = i;
-            continue
-          }
-
-          entities.push(renderEntities(response[prev], response[i]))
-        }
-        if (prev == i && i!==0) {
-          entities.push(renderEntities(response[prev], null))
-        }
-      } catch (error) {
-        console.log(error)
-        response = []
-      }
-    }
 
     const article = this.state.article;
 

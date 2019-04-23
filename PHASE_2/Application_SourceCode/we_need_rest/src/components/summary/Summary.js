@@ -4,11 +4,74 @@ import './summary.css';
 import './react-context-menu.css';
 import Article from './Article';
 import Map from './Map';
-import { Container, Row, Col,  } from 'reactstrap';
+import { Container, Row, Col, Card, CardTitle, CardHeader, CardText, Badge  } from 'reactstrap';
 import { ContextMenu, MenuItem, ContextMenuTrigger } from "react-contextmenu";
 import ReactTooltip from 'react-tooltip';
 
 const MENU_TYPE = "simple"
+
+const renderEntities = (analysis)=>{
+  let response = []
+
+  let entities = [];
+  if ( analysis !== undefined) {
+    try {
+      response = analysis.response.entities;
+      let prev = 0;
+      let i = 0;
+      for (i in response) {
+        if (i%2===0) {
+          prev = i;
+          continue
+        }
+
+        entities.push(createRow(response[prev], response[i]))
+      }
+      if (prev == i && i!==0) {
+        entities.push(createRow(response[prev], null))
+      }
+    } catch (error) {
+      response = []
+    }
+  }
+
+  return entities;
+}
+
+const createRow = (a, b) => {
+  return (
+    <Row>
+      {entity(a)}
+      {b !== null ? entity(b) : null }
+    </Row>
+  );
+}
+
+const entity = (props) => {
+  let badges = [];
+
+  if (props.type === undefined) {
+    badges = []
+  } else if (props.type instanceof Array) {
+    badges = props.type
+  } else {
+    badges.push(props.type)
+  }
+
+  return (
+    <Col sm="6">
+      <Card body>
+        <CardHeader>{badges.map(type => <Badge>{type}</Badge>)}</CardHeader>
+        <CardTitle>{props.id}. {props.entityId}</CardTitle>
+        <CardText>
+          Confidence Score: {props.confidenceScore}<br/>
+          Text: {props.matchedText}
+        </CardText>
+        <a href={props.wikiLink} target="_blank">Wikipedia Article</a>
+      </Card>
+    </Col>
+  );
+}
 
 function MyApp() {
   return (
@@ -92,8 +155,8 @@ class Summary extends Component {
               this.setState({response: response})
 
               // Run textRazor api
-              // let text = ''.concat(res.data.headline, res.data.main_text);
-              // this.textRazor(text);
+              let text = ''.concat(res.data.headline, res.data.main_text);
+              this.textRazor(text);
 
               // Save location information for each one
               let newLocation = [];
@@ -164,7 +227,7 @@ class Summary extends Component {
             </div>
           </Col>
           <Col xs="6">
-            {this.response}
+            {renderEntities(this.state.analysis)}
           </Col>
         </Row>
       </Container>
