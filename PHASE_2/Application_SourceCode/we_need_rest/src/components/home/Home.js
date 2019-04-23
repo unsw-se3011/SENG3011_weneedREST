@@ -4,9 +4,11 @@ import axios from 'axios';
 import SearchBar from './SearchBar'
 import { Link } from 'react-router-dom';
 
-const articles = (article, handleDelete) => {
+const articles = (article, handleDelete, selected, select) => {
+  const classText = selected ? "card bg-light mb-3":"card text-white bg-dark mb-3";
+
   return (
-    <div id={'card'+article.id} className="card text-white bg-dark mb-3">
+    <div onClick={()=>select(article.id)} id={'card'+article.id} className={classText}>
       <div className="card-header">
         {article.headline}
         <button onClick={ () => {handleDelete(article.id)} } className="destroy"></button>
@@ -36,6 +38,7 @@ class Home extends Component {
 
     this.updateReports = this.updateReports.bind(this);
     this.selectAll = this.selectAll.bind(this);
+    this.select = this.select.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
   }
 
@@ -49,31 +52,27 @@ class Home extends Component {
 
   selectAll() {
     let data = this.state.response;
-    data.forEach( i =>this.select(i.id))
-    console.log("AFTER", this.state.selectedArticles)
+    data = data.map(i=>i.id);
+
+    if (this.state.selectedArticles.length > 0) {
+      this.setState({selectedArticles: []});
+    } else {
+      this.setState({selectedArticles: data});
+    }
   }
 
   select(report) {
     //Adds item to array
-    let temp = this.state.selectedArticles;
+    let articles = this.state.selectedArticles;
 
-    if (temp.filter(i => i === report).length !== 0) {
-      let temp = this.state.selectedArticles.filter(i => i!==report)
-    
-      this.setState({selectedArticles: temp});
+    console.log("Before:", this.state.selectedArticles);
 
-      //add styling
-      let elem = document.getElementById('card'+report);
-      elem.className = 'card text-white bg-dark mb-3';
-      console.log("Deselect", report);
+    if ( articles.includes(report) ) {
+      articles = articles.filter(i => i!==report);
+      this.setState({selectedArticles: articles}, ()=>{console.log("delete", report, "State", this.state.selectedArticles)});
     } else {
-      temp.push(report);
-      this.setState({selectedArticles: temp});
-  
-      //add styling
-      let elem = document.getElementById('card'+report);
-      elem.className = 'card bg-light mb-3';
-      console.log("select", report);
+      articles.push(report);
+      this.setState({selectedArticles: articles});
     }
   }
 
@@ -120,7 +119,15 @@ class Home extends Component {
         <hr/>
         <div id="results">
           <ul>
-            { data.map(article => <li id={"item"+article.id} onClick={() => {this.select(article.id)}} key={article.id}>{articles(article, this.handleDelete)}</li>) }
+            { data.map(article => 
+              <li id={"item"+article.id}  
+                  key={article.id}>
+                    {articles(article, 
+                      this.handleDelete, 
+                      this.state.selectedArticles.includes(article.id), 
+                      this.select)}
+              </li>) 
+            }
           </ul>
         </div>
       </div>
