@@ -8,8 +8,6 @@ class Header extends Component {
         
         if (url.search("about") !== -1) {
             this.activate(document.getElementById('about'));
-        } else if (url.search("contact") !== -1) {
-            this.activate(document.getElementById('contact'));
         } else if (url.search("create") !== -1) {
             this.activate(document.getElementById('create'));
         } else if (url.search("predict") !== -1){
@@ -50,11 +48,6 @@ class Header extends Component {
                     <Link to='/about'>
                         <li className="nav-item" id="about" onClick={()=>this.handleClick(document.getElementById('about'))}>
                             About
-                        </li>
-                    </Link>
-                    <Link to='/contact'>
-                        <li className="nav-item" id="contact" onClick={()=>this.handleClick(document.getElementById('contact'))}>
-                            Contact
                         </li>
                     </Link>
                     <Link to='/create'>
