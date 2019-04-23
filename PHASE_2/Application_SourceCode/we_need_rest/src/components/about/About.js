@@ -14,7 +14,7 @@ class About extends Component {
                 <img id="image" src={map} alt="Map"/>
                 <div id="text">
                     <h2>Our Mission </h2><h4>To spend less time <i>searching</i> and more time <i>doing.</i></h4>
-                    <br/>
+                    <br/><br/>
                     <h2>Our Values </h2>
                     <div class="container">
                         <div class="row">
@@ -47,12 +47,12 @@ class About extends Component {
                     <p>Our primary source of data comes from the the Global Incident Map. Along with Google Trends and Twitter, 
                         we collate outbreak information from all over the world onto one platform. Generate report summaries 
                         with graphs, heat maps and other analytics using <b>machine learning</b> and <b>natural langauge processing</b> 
-                        with the click of a button</p>
+                        with the click of a button.</p>
                 </div>
             </div>
                 <div id="team">
                     <h2>Meet the Team</h2>
-
+                    <br/>
                     <div class="container">
                         <div class="row">
                             <div class="col-md-4">
