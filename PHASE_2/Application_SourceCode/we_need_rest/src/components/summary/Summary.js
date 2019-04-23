@@ -58,7 +58,7 @@ class Summary extends Component {
     })
       .then(res =>res.json())
       .then(response => { 
-        console.log("Success:", JSON.stringify(response), response); 
+        //console.log("Success:", JSON.stringify(response), response); 
         this.setState({analysis: response}); 
         // console.log(this.state.analysis);
 
@@ -96,10 +96,12 @@ class Summary extends Component {
 
               // Save location information for each one
               let newLocation = [];
-              console.log(response);
-              newLocation.push(res.reports[0].reported_events[0].location.latitude)
-              newLocation.push(res.reports[0].reported_events[0].location.longitude)
-              this.reportLocations.push(newLocation);
+              //console.log(res);
+              newLocation.push(res.data.reports[0].reported_events[0].location.latitude)
+              newLocation.push(res.data.reports[0].reported_events[0].location.longitude)
+              this.state.reportLocations.push(newLocation);
+
+              console.log(this.state.reportLocations);
             })
       );
     }
