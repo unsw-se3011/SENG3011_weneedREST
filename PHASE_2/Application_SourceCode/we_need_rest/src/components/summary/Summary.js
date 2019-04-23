@@ -7,7 +7,6 @@ import Map from './Map';
 import { Container, Row, Col, Card, CardTitle, CardHeader, CardText, Badge  } from 'reactstrap';
 import { ContextMenu, MenuItem, ContextMenuTrigger } from "react-contextmenu";
 import ReactTooltip from 'react-tooltip';
-import { Badge, Card, CardTitle, CardText,  CardHeader  } from 'reactstrap';
 
 const MENU_TYPE = "simple"
 
