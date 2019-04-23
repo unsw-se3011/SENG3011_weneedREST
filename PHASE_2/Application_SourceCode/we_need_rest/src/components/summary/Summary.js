@@ -7,6 +7,7 @@ import Map from './Map';
 import { Container, Row, Col,  } from 'reactstrap';
 import { ContextMenu, MenuItem, ContextMenuTrigger } from "react-contextmenu";
 import ReactTooltip from 'react-tooltip';
+import { Badge, Card, CardTitle, CardText,  CardHeader  } from 'reactstrap';
 
 const MENU_TYPE = "simple"
 
@@ -66,8 +67,6 @@ class Summary extends Component {
         for (var i = 0; i < response.response.entities.length; i++) { this.state.relatedEntities.add(response.response.entities[i].entityId); }
         for (var i = 0; i < response.response.coarseTopics.length; i++) { this.state.relatedTopics.add(response.response.coarseTopics[i].label); }
 
-        // console.log(this.state.relatedEntities);
-        // console.log(this.state.relatedTopics);
       })
   }
 
@@ -103,11 +102,18 @@ class Summary extends Component {
               this.state.reportLocations.push(newLocation);
 
               console.log(this.state.reportLocations);
+              
+              this.state.relatedEntities.forEach((item) => {
+                let p = document.createElement('p');
+                p.innerText = item;
+                document.getElementById('#entities').appendChild(p); 
+            });
             })
       );
     }
 
   render() {
+
     return (
       <Container>
         <Row>
@@ -149,7 +155,7 @@ class Summary extends Component {
             </div>
           </Col>
           <Col xs="6">
-            {this.response}
+                <div id="entities"></div>
           </Col>
         </Row>
       </Container>
