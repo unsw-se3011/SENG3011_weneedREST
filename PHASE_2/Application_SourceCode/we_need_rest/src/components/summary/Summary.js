@@ -133,7 +133,7 @@ class Summary extends Component {
           </Col>
         </Row>
         <Row>
-          <Col sm="12" md={{ size: 6, offset: 2 }}>
+          <Col sm="12" md={{ size: 11, offset: 1 }}>
             <Map
               key={loc.length}
               id="map"
