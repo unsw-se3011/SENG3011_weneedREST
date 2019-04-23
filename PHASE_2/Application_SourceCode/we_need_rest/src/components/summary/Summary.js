@@ -14,7 +14,8 @@ class Summary extends Component {
         selectedArticles: props.match.params.selectedArticles.split(','),
         relatedWords: [],
         relatedEntities: new Set(),
-        relatedTopics: new Set()
+        relatedTopics: new Set(),
+        reportLocations: []
     }
 
     this.removeArticle = this.removeArticle.bind(this);
@@ -36,15 +37,15 @@ class Summary extends Component {
     })
       .then(res =>res.json())
       .then(response => { 
-        //console.log("Success:", JSON.stringify(response), response); 
+        console.log("Success:", JSON.stringify(response), response); 
         this.setState({analysis: response}); 
-        console.log(this.state.analysis);
+        // console.log(this.state.analysis);
 
         for (var i = 0; i < response.response.entities.length; i++) { this.state.relatedEntities.add(response.response.entities[i].entityId); }
         for (var i = 0; i < response.response.coarseTopics.length; i++) { this.state.relatedTopics.add(response.response.coarseTopics[i].label); }
 
-        console.log(this.state.relatedEntities);
-        console.log(this.state.relatedTopics);
+        // console.log(this.state.relatedEntities);
+        // console.log(this.state.relatedTopics);
       })
   }
 
@@ -71,6 +72,13 @@ class Summary extends Component {
               // Run textRazor api
               let text = ''.concat(res.data.headline, res.data.main_text);
               this.textRazor(text);
+
+              // Save location information for each one
+              let newLocation = [];
+              console.log(response);
+              newLocation.push(res.reports[0].reported_events[0].location.latitude)
+              newLocation.push(res.reports[0].reported_events[0].location.longitude)
+              this.reportLocations.push(newLocation);
             })
       );
     }
