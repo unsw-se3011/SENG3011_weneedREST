@@ -1,4 +1,28 @@
-# Final Report #
+*Team we-need-REST*
+
+# Final Report - EpiWatch Epidemic Tracker #
+
+## Use cases / Requirements ##
+
+Upon beginning the project, we were given the following functions that the end user should be able to perform using our application:
+
+* Ability to integrate data from different sources and present them in a user-friendly way (1)
+* Ability to browse news related to a disease outbreak over a period of time/geographically and identify news about outbreak of interest (2)
+* Ability to examine social media related posts on disease outbreaks over a period of time and identify particular trends (3)
+* Ability to provide advanced analysis facilities such as analysing the impact of an outbreak on residents of the region over a period of time or predicting potential outbreaks based on historical patterns (4)
+
+Within our software solution, we have chosen to address these requirements in the following ways:
+
+Feature | Application implementation
+--- | ---
+(1) | Using our web scraper, we are able to obtain data from our specified source (Global Incident Map) without any difficult user input. This information is collected into a JSON file by the web scraper, eliminating the need to manually find and input data. The specified source (Global Incident Map) contains the latest reports from a wide variety of websites from different origins and publications, making it an ideal source of information for us to collect from.
+(2) | All the data obtained from the primary source (GIM) is provided through our application, which enables the user to filter reports based on time, date, location and keyword (or a combination of these). This allows the user to perform a narrow search for precisely the outbreak they are looking for, or get results matching to their exact query.
+(3) | Original plans for the application included integration with the Twitter API in order to examine tweets as part of the dataset we were working with. Unfortunately, this feature was not included in the final application due to time constraints not allowing for us to pursue this idea fully.
+(4) | To satisfy this feature, we included both a small-scale and large-scale data analysis feature. In terms of small-scale data analysis, the 'summary' page provides the user with the ability to analyse a number of reports selected using the search feature from the main page, and collate a report which visualises all the reports onto a heat-map together. Additionally, the reports that are part of this summary are analysed using Natural Language Processing. Thia allows us to extract entities and relevance categories out of each report, giving a better idea of the contextual meaning of each report. For the large-scale data processing, our Machine Learning algorithm is able to analyse environmental and location data, as well as specialised data specific to the area or disease, to make predictions about the possibility of future outbreaks in a certain location. This allows researchers to better analyse large amounts of data by using the alrogithm to process it, instead of having to do lots of manual work to accurately make predictions.
+
+### System design and implementation
+
+
 
 * A summary of the key benefits/achievements of your project relating back to your design/implementation
 
@@ -65,4 +89,4 @@ As detailed in the Management Information report, the team was split into 2 main
 |Jacob Wahib|<br><ul><li>Frontend developer (React)</li></ul><ul><li>Debugger/Tester</li></ul><ul><li>Management Information Report</li></ul><ul><li>Final Report</li></ul>|
 |Estella Arabi|<br><ul><li>Frontend developer (React)</li></ul><ul><li>Debugger/Tester</li></ul><ul><li>Management Information Report</li></ul><ul><li>Final Report</li></ul>|
 
-We are happy with the work that each member contributed to the project and would consider it to be an equal distribution of effort from everyone involed.
+We are happy with the work that each member contributed to the project and would consider it to be an equal distribution of effort from everyone involv;ed.

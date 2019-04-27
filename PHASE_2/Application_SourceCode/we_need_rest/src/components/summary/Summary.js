@@ -69,7 +69,7 @@ const entity = (props, expandSearch) => {
         <Card body>
           <CardHeader data-tip="Textually relevant categories"><ReactTooltip />{badges.map(type => <Badge color="primary">{type}</Badge>)}</CardHeader>
           <CardTitle data-tip="Entity"> <ReactTooltip />{props.id}. {props.entityId}</CardTitle>
-          <CardText data-tip="A measure of the nlp engine's confidence an entity is valid within the given document.">
+          <CardText data-tip="A measure of the language processing engine's confidence an entity is valid within the given document.">
           <ReactTooltip />
             Confidence Score: {props.confidenceScore}<br/>
             Text: {props.matchedText}
@@ -284,6 +284,7 @@ class Summary extends Component {
             </div>
           </Col>
           <Col xs="6">
+          <h3>Relevant Entities</h3>
             {renderEntities(this.state.analysis, this.expandSearchFromEntity)}
           </Col>
         </Row>
