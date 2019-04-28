@@ -18,11 +18,31 @@ Feature | Application implementation
 (1) | Using our web scraper, we are able to obtain data from our specified source (Global Incident Map) without any difficult user input. This information is collected into a JSON file by the web scraper, eliminating the need to manually find and input data. The specified source (Global Incident Map) contains the latest reports from a wide variety of websites from different origins and publications, making it an ideal source of information for us to collect from.
 (2) | All the data obtained from the primary source (GIM) is provided through our application, which enables the user to filter reports based on time, date, location and keyword (or a combination of these). This allows the user to perform a narrow search for precisely the outbreak they are looking for, or get results matching to their exact query.
 (3) | Original plans for the application included integration with the Twitter API in order to examine tweets as part of the dataset we were working with. Unfortunately, this feature was not included in the final application due to time constraints not allowing for us to pursue this idea fully.
-(4) | To satisfy this feature, we included both a small-scale and large-scale data analysis feature. In terms of small-scale data analysis, the 'summary' page provides the user with the ability to analyse a number of reports selected using the search feature from the main page, and collate a report which visualises all the reports onto a heat-map together. Additionally, the reports that are part of this summary are analysed using Natural Language Processing. Thia allows us to extract entities and relevance categories out of each report, giving a better idea of the contextual meaning of each report. For the large-scale data processing, our Machine Learning algorithm is able to analyse environmental and location data, as well as specialised data specific to the area or disease, to make predictions about the possibility of future outbreaks in a certain location. This allows researchers to better analyse large amounts of data by using the alrogithm to process it, instead of having to do lots of manual work to accurately make predictions.
+(4) | To satisfy this feature, we included both a small-scale and large-scale data analysis feature. In terms of small-scale data analysis, the 'summary' page provides the user with the ability to analyse a number of reports selected using the search feature from the main page, and collate a report which visualises all the reports onto a heat-map together. Additionally, the reports that are part of this summary are analysed using Natural Language Processing. This allows us to extract entities and relevance categories out of each report, giving a better idea of the contextual meaning of each report. For the large-scale data processing, our Machine Learning algorithm is able to analyse environmental and location data, as well as specialised data specific to the area or disease, to make predictions about the possibility of future outbreaks in a certain location. This allows researchers to better analyse large amounts of data by using the alrogithm to process it, instead of having to do lots of manual work to accurately make predictions.
 
-### System design and implementation
+In assessing the functions that needed to be completed, our team decided to nbreak these down into the following requirements, which were completed across the various sprints within the agile process:
+
+* Obtain complete set of reports from Global Incident Map using web scraper
+* Save all reports from web scraper into given JSON format for storage
+* Data is accessed through a web-hosted API
+
+## System design and implementation ##
+
+### Software Architecture ###
+
+#### Back-End ####
+
+* The web scraper was built using Python, as well as the Re and BeautifulSoup Python libraries.
+* The web API was built using the Python Flask REST-plus framework.
+
+#### Front-end ####
+
+* The web application was built using the React Javascript framework, as well as ReactStrap + Bootstrap for the visual element of the website
+* Heatmap visualisation provided through the use of the Google Maps API
+* Natural Language Processing provided through the TextRazor API
 
 
+## Team organisation and conclusion/appraisal ##
 
 * A summary of the key benefits/achievements of your project relating back to your design/implementation
 
