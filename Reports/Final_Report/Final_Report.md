@@ -30,17 +30,36 @@ In assessing the functions that needed to be completed, our team decided to nbre
 
 ### Software Architecture ###
 
-#### Back-End ####
-
-* The web scraper was built using Python, as well as the Re and BeautifulSoup Python libraries.
-* The web API was built using the Python Flask REST-plus framework.
-
 #### Front-end ####
 
 * The web application was built using the React Javascript framework, as well as ReactStrap + Bootstrap for the visual element of the website
 * Heatmap visualisation provided through the use of the Google Maps API
 * Natural Language Processing provided through the TextRazor API
 
+#### Back-End ####
+
+* The web scraper was built using Python, as well as the Re and BeautifulSoup Python libraries.
+* The web API was built using the Python Flask REST-plus framework.
+* The machine learning model was built and trained using sklearn, Pillow, numpy, pandas, seaborn libraries.
+
+#### API Endpoints ####
+*Return all reports currently in collection*
+- **[<code>GET</code> /reports/](https://github.com/unsw-se3011/SENG3011_weneedREST/blob/documentation/Reports/Design%20Details/GET_reports_all.md)** 
+
+*Filter reports*
+- **[<code>GET</code> /reports?{params}](https://github.com/unsw-se3011/SENG3011_weneedREST/blob/documentation/Reports/Design%20Details/GET_reports_filter.md)** 
+
+*Fetch a singular report*
+* **[<code>GET</code> /reports/{id}](https://github.com/unsw-se3011/SENG3011_weneedREST/blob/documentation/Reports/Design%20Details/GET_report.md)**
+
+*Deletes a report*
+- **[<code>DELETE</code> /reports/{id}](https://github.com/unsw-se3011/SENG3011_weneedREST/blob/documentation/Reports/Design%20Details/DELETE_reports.md)**
+
+*Updates an existing report with form data*
+- **[<code>POST</code> /reports?{params}](https://github.com/unsw-se3011/SENG3011_weneedREST/blob/documentation/Reports/Design%20Details/POST_reports.md)**
+
+*Updates an existing report*
+- **[<code>PUT</code> /reports/{id}](https://github.com/unsw-se3011/SENG3011_weneedREST/blob/documentation/Reports/Design%20Details/PUT_reports.md)**
 
 ## Team organisation and conclusion/appraisal ##
 
@@ -63,6 +82,11 @@ In saying that, our frontend design can still be improved upon. We believe we we
 * Major achievements in project
 
 As mentioned previously, we believe our 2 key achievements was the implementation of Machine Learning and Natural Language Processing.
+
+- Machine Learning
+
+One achievement is that any medical professional or field scientist can choose their own image data to feed into the AI with no technical expertise to predict future outbreaks and find new relationships with geographical data and disease outbreaks spreading. Another amazing achievement was applying Spatial Data Analysis to predict outbreak clusters around Singapore on Dengue with 75% accuracy using ArcGIS image data and other non-image features with a Random Forest Classifer model.
+
 **back end boys pls elaborate**
 
 ### Issues ###
@@ -73,6 +97,12 @@ As mentioned previously, we believe our 2 key achievements was the implementatio
 #### Backend ####
 
 **back end boys pls write ur problems here**
+
+For web scraping, the description of the report had encoding issues where it would display characters that did not match the UTF-16 character set. For example, characters in the report would display text such as`/X00` in the description.
+
+For machine learning, it was a very difficult task to use the data from the specification to predict future outbreaks. One issue was data quality. There were no features that had a high correlation to disease outbreaks spreading, instead, showing features that measure the impact of the outbreak. Thus, the model had a 10% accuracy *with high variance* and had a *lower accuracy rate* on the training data than the test data. This could be due to the low sample size in the test data. Being able to accurately convert disease cluster locations on an Image to geojson data for the Google Maps API to read was also a difficult task. Another issue was time which was largely spent training the model and debugging. 
+
+
 
 #### Frontend ####
 
@@ -109,4 +139,4 @@ As detailed in the Management Information report, the team was split into 2 main
 |Jacob Wahib|<br><ul><li>Frontend developer (React)</li></ul><ul><li>Debugger/Tester</li></ul><ul><li>Management Information Report</li></ul><ul><li>Final Report</li></ul>|
 |Estella Arabi|<br><ul><li>Frontend developer (React)</li></ul><ul><li>Debugger/Tester</li></ul><ul><li>Management Information Report</li></ul><ul><li>Final Report</li></ul>|
 
-We are happy with the work that each member contributed to the project and would consider it to be an equal distribution of effort from everyone involv;ed.
+We are happy with the work that each member contributed to the project and would consider it to be an equal distribution of effort from everyone involved.
