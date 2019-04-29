@@ -482,8 +482,7 @@ One achievement is that any medical professional or field scientist can choose t
 
 ### Issues ###
 
-* We encountered issues with time, being unable to dedicate the time we would have liked to refine our website due to other academic commitments.
-* The learning hurdles also presented an issue as we had to learn new languages, techniques and experiment with unfamiliar structures while trying to create our front end and back end, which magnified our time issues since often we would dedicate a lot of time and practically not have achieved very much relative to the task at hand.
+The main issue we encountered was a lack of time, being unable to dedicate the time we would have liked to refine our website due to other academic commitments.The learning hurdles also presented an issue as we had to learn new languages, techniques and experiment with unfamiliar structures while trying to create our front end and back end. This once again magnified our time issues since often we would dedicate a lot of time understanding rather than setting out to complete to the task at hand.
 
 #### Backend ####
 
