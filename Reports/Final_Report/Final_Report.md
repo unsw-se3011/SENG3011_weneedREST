@@ -404,6 +404,8 @@ In assessing the functions that needed to be completed, our team decided to brea
     </div>
 </div>
 
+---
+
 ## System design and implementation ##
 
 ### Software Architecture ###
@@ -439,12 +441,9 @@ In assessing the functions that needed to be completed, our team decided to brea
 *Updates an existing report*
 - **[<code>PUT</code> /reports/{id}](https://github.com/unsw-se3011/SENG3011_weneedREST/blob/documentation/Reports/Design%20Details/PUT_reports.md)**
 
+---
 
 ## Team Organisation ##
-
-* Team organisation and conclusion/appraisal of your work
-  * Responsibilities/organization of the team
-    * Ultimate breakdown of team composition and responsibilities
 
 Thoughout the development of the project, our team continued to work well together - we frequently communicated via Facebook Messanger, referred to the Kanban board for sprint deliverables and other tasks, and utilised Slack to efficiently separate discussions regarding frontend and backend issues.
 
@@ -462,12 +461,9 @@ As detailed in the Management Information report, the team was split into 2 main
 
 We are happy with the work that each member contributed to the project and would consider it to be an equal distribution of effort from everyone involved.
 
+---
 
 ## Project Summary ##
-
-* How did the project go in your opinion ?
-* **TODO:** discuss limitations (this is probably more about backend than front end)
-* any other points of appraisal pls feel free to add
 
 Overall, we are happy with our final product.
 
@@ -475,22 +471,25 @@ Functionality-wise, we are proud to have been able to integrate Machine Learning
 
 In saying that, our frontend design can still be improved upon. We believe we were mostly hindered by our lack of React knowledge, and time. Although we were able to visualise our content and features in a simple and easy to digest manner, we were only able to do so on a very basic level with the aid of Bootstrap. In other words, we were not able to exploit the vast number of React libraries and fully realise its capablilites for our project. We believe this came down to a matter of time and priorities, as at the end of the day learning more advanced techniques to utilise in our project would have taken longer than we could afford.
 
+---
+
 ### Key Benefits and Achievements ###
 
-* Major achievements in project
+As mentioned previously, we believe our 3 key achievements was the implementation of Machine Learning, Natural Language Processing and integration of the heatmap API.
 
-As mentioned previously, we believe our 2 key achievements was the implementation of Machine Learning and Natural Language Processing.
-
-~Machine Learning~
+#### Machine Learning 
 
 One achievement is that any medical professional or field scientist can choose their own image data to feed into the AI with no technical expertise to predict future outbreaks and find new relationships with geographical data and disease outbreaks spreading. Another amazing achievement was applying Spatial Data Analysis to predict outbreak clusters around Singapore on Dengue with 75% accuracy using ArcGIS image data and other non-image features with a Random Forest Classifer model.
 
-**back end boys pls elaborate**
+#### Natural Language Processing ####
 
-### Issues ###
+#### Heat Map Google API
 
-* We encountered issues with time, being unable to dedicate the time we would have liked to refine our website due to other academic commitments.
-* The learning hurdles also presented an issue as we had to learn new languages, techniques and experiment with unfamiliar structures while trying to create our front end and back end, which magnified our time issues since often we would dedicate a lot of time and practically not have achieved very much relative to the task at hand.
+---
+
+### Issues 
+
+The main issue we encountered was a lack of time, being unable to dedicate the time we would have liked to refine our website due to other academic commitments.The learning hurdles also presented an issue as we had to learn new languages, techniques and experiment with unfamiliar structures while trying to create our front end and back end. This once again magnified our time issues since often we would dedicate a lot of time understanding rather than setting out to complete to the task at hand.
 
 #### Backend ####
 
@@ -511,6 +510,8 @@ Some of our most vexing issues were present in the integration of an additional 
 
 ### What We Would Do Differently ###
 
-* What kind of skills you wish you had before the workshop (this way we can try include them in other courses)
-  * Would you do it any differently now ?
-    * I.e. tools, different technology, time management, etc
+One major point of difference we would commit to would be to impose stricter deadlines for ourselves in terms of API development. As the first few weeks simply revolved around initial documentation and bare-minimum proof of API concept (in other words, starting a simple web scraper), we underestimated the time needed to polish our final product. This is compounded with the new trimester system and work load we have yet to accustom to, which lead to periods of intense "crunch" right before the demonstrations.
+
+Futhermore, we would have changed the responsiblities we assigned to each team member at the beginning. It became more and more apparent through the development timeline that although the frontend members were struggling with React to craft a website aesthetic to their liking, it was by far much less time consuming than the tasks required of the backend members. This is not to say that members from both frontend and backend did not assist each other in any way that they could, however it was almost considered a last resort - the time spent explaining the inner workings of the backend to the members who were not all that directly involved was time that could have been spent more productively elsewhere.
+
+In terms of the project itself, we would have liked to have added more features for report analysis. Specifically, we wished to have been able to integrate an API that generated graphs based on different data sets, eg Zika outbreaks mapped by time and location. This would have added a different visual aspect to our summary functionality that is easier to digest at a glance. One of the main reasons we chose React was due to the availability of many APIs or libraries/functions that would have helped us implement such a feature, yet we did not exploit this enough. If time was permitted, we also would have liked to better hone our Machine Learning capabilities with larger datasets.
