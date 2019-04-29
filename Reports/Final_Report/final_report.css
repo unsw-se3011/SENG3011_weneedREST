@@ -6,9 +6,9 @@
     flex-direction: column;
     min-width: 0;
     word-wrap: break-word;
-    background-color: rgba(151, 151, 151, 0.26);
+    background-color: #fff;
     background-clip: border-box;
-    border: 1px solid rgba(122, 122, 122, 0.452);
+    border: 1px solid rgba(0, 0, 0, .125);
     border-radius: .25rem
 }
 
@@ -58,7 +58,7 @@
     padding: .75rem 1.25rem;
     margin-bottom: 0;
     background-color: rgba(0, 0, 0, .03);
-    border-bottom: 1px solid rgba(122, 122, 122, 0.452);
+    border-bottom: 1px solid rgba(0, 0, 0, .125)
 }
 
 .card-header:first-child {
@@ -72,7 +72,7 @@
 .card-footer {
     padding: .75rem 1.25rem;
     background-color: rgba(0, 0, 0, .03);
-    border-top: 1px solid rgba(122, 122, 122, 0.452);
+    border-top: 1px solid rgba(0, 0, 0, .125)
 }
 
 .card-footer:last-child {
@@ -125,7 +125,7 @@
 }
 
 .card-deck .card {
-    margin-bottom: 15px
+    margin-bottom: 15px;
 }
 
 @media (min-width:576px) {
@@ -160,7 +160,7 @@
     margin-bottom: 15px
 }
 
-@media (min-width:576px) {
+/* @media (min-width:576px) {
     .card-group {
         -ms-flex-flow: row wrap;
         flex-flow: row wrap
@@ -206,7 +206,7 @@
     .card-group>.card:not(:first-child) .card-img-bottom {
         border-bottom-left-radius: 0
     }
-}
+} */
 
 .card-columns .card {
     margin-bottom: .75rem
@@ -256,4 +256,291 @@
 
 .accordion>.card .card-header {
     margin-bottom: -1px
+}
+
+.bg-primary {
+    background-color: #007bff !important
+}
+
+a.bg-primary:focus,
+a.bg-primary:hover,
+button.bg-primary:focus,
+button.bg-primary:hover {
+    background-color: #0062cc !important
+}
+
+.bg-secondary {
+    background-color: #6c757d !important
+}
+
+a.bg-secondary:focus,
+a.bg-secondary:hover,
+button.bg-secondary:focus,
+button.bg-secondary:hover {
+    background-color: #545b62 !important
+}
+
+.bg-success {
+    background-color: #28a745 !important
+}
+
+a.bg-success:focus,
+a.bg-success:hover,
+button.bg-success:focus,
+button.bg-success:hover {
+    background-color: #1e7e34 !important
+}
+
+.bg-info {
+    background-color: #17a2b8 !important
+}
+
+a.bg-info:focus,
+a.bg-info:hover,
+button.bg-info:focus,
+button.bg-info:hover {
+    background-color: #117a8b !important
+}
+
+.bg-warning {
+    background-color: #ffc107 !important
+}
+
+a.bg-warning:focus,
+a.bg-warning:hover,
+button.bg-warning:focus,
+button.bg-warning:hover {
+    background-color: #d39e00 !important
+}
+
+.bg-danger {
+    background-color: #dc3545 !important
+}
+
+a.bg-danger:focus,
+a.bg-danger:hover,
+button.bg-danger:focus,
+button.bg-danger:hover {
+    background-color: #bd2130 !important
+}
+
+.bg-light {
+    background-color: #f8f9fa !important
+}
+
+a.bg-light:focus,
+a.bg-light:hover,
+button.bg-light:focus,
+button.bg-light:hover {
+    background-color: #dae0e5 !important
+}
+
+.bg-dark {
+    background-color: #343a40 !important
+}
+
+a.bg-dark:focus,
+a.bg-dark:hover,
+button.bg-dark:focus,
+button.bg-dark:hover {
+    background-color: #1d2124 !important
+}
+
+.bg-white {
+    background-color: #fff !important
+}
+
+.bg-transparent {
+    background-color: transparent !important
+}
+
+.badge {
+    display: inline-block;
+    padding: .25em .4em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out
+}
+
+@media (prefers-reduced-motion:reduce) {
+    .badge {
+        transition: none
+    }
+}
+
+a.badge:focus,
+a.badge:hover {
+    text-decoration: none
+}
+
+.badge:empty {
+    display: none
+}
+
+.btn .badge {
+    position: relative;
+    top: -1px
+}
+
+.badge-pill {
+    padding-right: .6em;
+    padding-left: .6em;
+    border-radius: 10rem
+}
+
+.badge-primary {
+    color: #fff;
+    background-color: #007bff
+}
+
+a.badge-primary:focus,
+a.badge-primary:hover {
+    color: #fff;
+    background-color: #0062cc
+}
+
+a.badge-primary.focus,
+a.badge-primary:focus {
+    outline: 0;
+    box-shadow: 0 0 0 .2rem rgba(0, 123, 255, .5)
+}
+
+.badge-secondary {
+    color: #fff;
+    background-color: #6c757d
+}
+
+a.badge-secondary:focus,
+a.badge-secondary:hover {
+    color: #fff;
+    background-color: #545b62
+}
+
+a.badge-secondary.focus,
+a.badge-secondary:focus {
+    outline: 0;
+    box-shadow: 0 0 0 .2rem rgba(108, 117, 125, .5)
+}
+
+.badge-success {
+    color: #fff;
+    background-color: #28a745
+}
+
+a.badge-success:focus,
+a.badge-success:hover {
+    color: #fff;
+    background-color: #1e7e34
+}
+
+a.badge-success.focus,
+a.badge-success:focus {
+    outline: 0;
+    box-shadow: 0 0 0 .2rem rgba(40, 167, 69, .5)
+}
+
+.badge-info {
+    color: #fff;
+    background-color: #17a2b8
+}
+
+a.badge-info:focus,
+a.badge-info:hover {
+    color: #fff;
+    background-color: #117a8b
+}
+
+a.badge-info.focus,
+a.badge-info:focus {
+    outline: 0;
+    box-shadow: 0 0 0 .2rem rgba(23, 162, 184, .5)
+}
+
+.badge-warning {
+    color: #212529;
+    background-color: #ffc107
+}
+
+a.badge-warning:focus,
+a.badge-warning:hover {
+    color: #212529;
+    background-color: #d39e00
+}
+
+a.badge-warning.focus,
+a.badge-warning:focus {
+    outline: 0;
+    box-shadow: 0 0 0 .2rem rgba(255, 193, 7, .5)
+}
+
+.badge-danger {
+    color: #fff;
+    background-color: #dc3545
+}
+
+a.badge-danger:focus,
+a.badge-danger:hover {
+    color: #fff;
+    background-color: #bd2130
+}
+
+a.badge-danger.focus,
+a.badge-danger:focus {
+    outline: 0;
+    box-shadow: 0 0 0 .2rem rgba(220, 53, 69, .5)
+}
+
+.badge-light {
+    color: #212529;
+    background-color: #f8f9fa
+}
+
+a.badge-light:focus,
+a.badge-light:hover {
+    color: #212529;
+    background-color: #dae0e5
+}
+
+a.badge-light.focus,
+a.badge-light:focus {
+    outline: 0;
+    box-shadow: 0 0 0 .2rem rgba(248, 249, 250, .5)
+}
+
+.badge-dark {
+    color: #fff;
+    background-color: #343a40
+}
+
+a.badge-dark:focus,
+a.badge-dark:hover {
+    color: #fff;
+    background-color: #1d2124
+}
+
+a.badge-dark.focus,
+a.badge-dark:focus {
+    outline: 0;
+    box-shadow: 0 0 0 .2rem rgba(52, 58, 64, .5)
+}
+
+.requirements {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.card-header {
+    height: 20px;
+    margin: 0px !important;
+    position: relative;
+}
+
+.text-white{
+    color:#fff!important
 }

@@ -28,18 +28,380 @@ In assessing the functions that needed to be completed, our team decided to brea
 * Save all reports from web scraper into given JSON format for storage
 * Data is accessed through a web-hosted API
 
-<div class="card">
-  <h5 class="card-header">Use Case name</h5>
-  <div class="card-body">
-    <h5 class="card-title">Preconditions: </h5>
-    <p class="card-text">Descriptions: starts when .... <br/>
-    .....ends when.....</p>
-    <h5 class="card-title">Actors invovled</h5>
-    <ul>
-        <li>actors</li>
-    </ul>
-    <h5 class="card-title">Postconditions: (optional)</h5>
-  </div>
+<div class="card-group">
+    <div class="card bg-dark text-white">
+        <h4 class="card-header">
+            1. View all reports
+            <div class="requirements">
+                <span class="badge badge-pill badge-light">R1</span>
+                <span class="badge badge-pill badge-light">R2</span>
+            </div>
+        </h4>
+        <div class="card-body">
+        <p class="card-text">
+            As a <i>User</i> I would like to be greeted with a list of the latest reports in order of recency <br/>
+            <b>starts when</b> I click on the homepage<br/>
+            <b>ends when</b> the page loads
+        </p>
+        <hr/>
+        <h5 class="card-title">Interactions:</h5>
+        <ul>
+            <li>User accesses the website</li>
+            <li>System directs them to hompage</li>
+            <li>On load the page fetches data from API and presents list of latest reports in order of recency</li>
+        </ul>
+        <hr/>
+        <h5 class="card-title">Actors:</h5>
+        <ul>
+            <li>User</li>
+        </ul>
+        <hr/>
+        <h5 class="card-title" style="display:inline;">Preconditions: </h5><p class="card-text" style="display:inline;">User is on the Home page</p>
+        <br/>
+        <h5 class="card-title" style="display:inline;">Postconditions: </h5><p class="card-text" style="display:inline;">A list of reports appears on the screen</p>
+        </div>
+    </div>
+    <div class="card bg-dark text-white">
+        <h4 class="card-header">
+            2. Filter reports
+            <div class="requirements">
+                <span class="badge badge-pill badge-light">R1</span>
+                <span class="badge badge-pill badge-light">R2</span>
+            </div>
+        </h4>
+        <div class="card-body">
+        <p class="card-text">
+            As a <i>User</i> I would like to Filter reports based on certain criteria<br/>
+            <b>starts when </b> I click on the homepage <br/>
+            <b>ends when</b> The search results are filtered appropriately
+        </p>
+        <hr/>
+        <h5 class="card-title">Interactions:</h5>
+        <ul>
+            <li>User accesses the website</li>
+            <li>System directs them to hompage</li>
+            <li>User opens dropdown “search” modal and enters their chosen criteria</li>
+            <li>System filters out and displays reports that satisfy these criteria</li>
+        </ul>
+        <hr/>
+        <h5 class="card-title">Actors:</h5>
+        <ul>
+            <li>User</li>
+        </ul>
+        <hr/>
+        <h5 class="card-title" style="display:inline;">Preconditions: </h5><p class="card-text" style="display:inline;">User is on the Home page</p>
+        <br/>
+        <h5 class="card-title" style="display:inline;">Postconditions: </h5><p class="card-text" style="display:inline;">A list of filtered reports appears on the home page</p>
+        </div>
+    </div>
+    <div class="card bg-dark text-white">
+        <h4 class="card-header">
+            3. Summary of multiple reports
+            <div class="requirements">
+                <span class="badge badge-pill badge-light">R1</span>
+                <span class="badge badge-pill badge-light">R2</span>
+                <span class="badge badge-pill badge-light">R4</span>
+            </div>
+        </h4>
+        <div class="card-body">
+        <p class="card-text">
+            As a <i>User</i> I would like to view analytics on a collection of multiple reports, including geographical information and language analysis<br/>
+            <b>starts when </b> I click on the homepage <br/>
+            <b>ends when</b> The “Get Summary” page loads
+        </p>
+        <hr/>
+        <h5 class="card-title">Interactions:</h5>
+        <ul>
+            <li>User accesses the website</li>
+            <li>System directs them to hompage</li>
+            <li>[Optional] User searches by criteria as in UC2</li>
+            <li>User clicks on the reports they would like to analyse (or alternatively click the “Select All” button if they wish to see a more complete analysis)</li>
+            <li>System adds selected reports to a list in preparation of summarising them</li>
+            <li>User clicks “Get Summary”</li>
+            <li>System redirects to a “Summary” page containing a list of all reports selected, allowing for further anaylysis on the page</li>
+        </ul>
+        <hr/>
+        <h5 class="card-title">Actors:</h5>
+        <ul>
+            <li>User</li>
+        </ul>
+        <hr/>
+        <h5 class="card-title" style="display:inline;">Preconditions: </h5><p class="card-text" style="display:inline;">User is on the Home page</p>
+        <br/>
+        <h5 class="card-title" style="display:inline;">Postconditions: </h5><p class="card-text" style="display:inline;">A detailed summary of selected reports appears on-screen</p>
+        </div>
+    </div>
+    <div class="card bg-dark text-white">
+        <h4 class="card-header">
+            3.1. Geographical Summary of Multiple Reports
+            <div class="requirements">
+                <span class="badge badge-pill badge-light">R1</span>
+                <span class="badge badge-pill badge-light">R2</span>
+                <span class="badge badge-pill badge-light">R4</span>
+            </div>
+        </h4>
+        <div class="card-body">
+        <p class="card-text">
+            As a <i>User</i> I would like to view geographical information on a collection of multiple reports, in a clear visual format<br/>
+            <b>starts when </b> I click on the homepage <br/>
+            <b>ends when</b> The heat map appears
+        </p>
+        <hr/>
+        <h5 class="card-title">Interactions:</h5>
+        <ul>
+            <li>User accesses the website</li>
+            <li>System directs them to hompage</li>
+            <li>[Optional] User searches by criteria as in UC2</li>
+            <li>User clicks on the reports they would like to analyse (or alternatively click the “Select All” button if they wish to see a more complete analysis)</li>
+            <li>System adds selected reports to a list in preparation of summarising them</li>
+            <li>User clicks “Get Summary”</li>
+            <li>System redirects to a “Summary” page containing a world map highlighting locations mentioned in the reports</li>
+        </ul>
+        <hr/>
+        <h5 class="card-title">Actors:</h5>
+        <ul>
+            <li>User</li>
+        </ul>
+        <hr/>
+        <h5 class="card-title" style="display:inline;">Preconditions: </h5><p class="card-text" style="display:inline;">User is on the Home page</p>
+        <br/>
+        <h5 class="card-title" style="display:inline;">Postconditions: </h5><p class="card-text" style="display:inline;">A detailed heat map appears on the screen, highlighting all locations mentioned in the reports.</p>
+        </div>
+    </div>
+    <div class="card bg-dark text-white">
+        <h4 class="card-header">
+            3.2. Natural Language Processing Summary of Multiple Reports
+            <div class="requirements">
+                <span class="badge badge-pill badge-light">R1</span>
+                <span class="badge badge-pill badge-light">R2</span>
+                <span class="badge badge-pill badge-light">R4</span>
+            </div>
+        </h4>
+        <div class="card-body">
+        <p class="card-text">
+            As a <i>User</i> I would like to view a language-processing analysis on a collection of multiple reports.<br/>
+            <b>starts when </b> I click on the homepage <br/>
+            <b>ends when</b> The language-processing data appears
+        </p>
+        <hr/>
+        <h5 class="card-title">Interactions:</h5>
+        <ul>
+            <li>User accesses the website</li>
+            <li>System directs them to hompage</li>
+            <li>[Optional] User searches by criteria as in UC2</li>
+            <li>User clicks on the reports they would like to analyse (or alternatively click the “Select All” button if they wish to see a more complete analysis)</li>
+            <li>System adds selected reports to a list in preparation of summarising them</li>
+            <li>User clicks “Get Summary”</li>
+            <li>System redirects to a “Summary” page containing a summary of the Natural Language Processing information extracted from each report</li>
+        </ul>
+        <hr/>
+        <h5 class="card-title">Actors:</h5>
+        <ul>
+            <li>User</li>
+        </ul>
+        <hr/>
+        <h5 class="card-title" style="display:inline;">Preconditions: </h5><p class="card-text" style="display:inline;">User is on the Home page</p>
+        <br/>
+        <h5 class="card-title" style="display:inline;">Postconditions: </h5><p class="card-text" style="display:inline;">A list of NLP entities appear on the screen</p>
+        </div>
+    </div>
+    <div class="card bg-dark text-white">
+        <h4 class="card-header">
+            4. Editing Report
+            <!-- <div class="requirements">
+                <span class="badge badge-pill badge-light">R1</span>
+                <span class="badge badge-pill badge-light">R2</span>
+            </div> -->
+        </h4>
+        <div class="card-body">
+        <p class="card-text">
+            As a <i>User</i> I would like to edit the details of a report.<br/>
+            <b>starts when </b> I click on “Edit Report”<br/>
+            <b>ends when</b> I click “Submit” 
+        </p>
+        <hr/>
+        <h5 class="card-title">Interactions:</h5>
+        <ul>
+            <li>User clicks “Edit Report”</li>
+            <li>System reveals a number of input boxes representing the different categories they may like to update</li>
+            <li>User fills in the input boxes with the information they choose</li>
+            <li>System overwrites the categories of the selected report with user’s inputs</li>
+        </ul>
+        <hr/>
+        <h5 class="card-title">Actors:</h5>
+        <ul>
+            <li>User</li>
+        </ul>
+        <hr/>
+        <h5 class="card-title" style="display:inline;">Preconditions: </h5><p class="card-text" style="display:inline;">User is Viewing Report (See UC2)</p>
+        <br/>
+        <h5 class="card-title" style="display:inline;">Postconditions: </h5><p class="card-text" style="display:inline;">Some details of a report have been edited as required</p>
+        </div>
+    </div>
+    <div class="card bg-dark text-white">
+        <h4 class="card-header">
+            5. Deleting Report
+            <!-- <div class="requirements">
+                <span class="badge badge-pill badge-light">R1</span>
+                <span class="badge badge-pill badge-light">R2</span>
+                <span class="badge badge-pill badge-light">R3</span>
+            </div> -->
+        </h4>
+        <div class="card-body">
+        <p class="card-text">
+            As a <i>User</i> I would like to delete a selected report<br/>
+            <b>starts when </b> I select my report and am on the page where I can “View Report”<br/>
+            <b>ends when</b> I click “Delete” 
+        </p>
+        <hr/>
+        <h5 class="card-title">Interactions:</h5>
+        <ul>
+            <li>User clicks “Delete Report”</li>
+            <li>System removes report so that it cannot be found</li>
+            <li>System alerts the user that the report has been successfully deleted</li>
+        </ul>
+        <hr/>
+        <h5 class="card-title">Actors:</h5>
+        <ul>
+            <li>User</li>
+        </ul>
+        <hr/>
+        <h5 class="card-title" style="display:inline;">Preconditions: </h5><p class="card-text" style="display:inline;">User is Viewing Report (See UC2)</p>
+        <br/>
+        <h5 class="card-title" style="display:inline;">Postconditions: </h5><p class="card-text" style="display:inline;">Report no longer exists in the database and cannot be found via the website</p>
+        </div>
+    </div>
+    <div class="card bg-dark text-white">
+        <h4 class="card-header">
+            6. Creating Report
+            <!-- <div class="requirements">
+                <span class="badge badge-pill badge-light">R1</span>
+                <span class="badge badge-pill badge-light">R2</span>
+                <span class="badge badge-pill badge-light">R3</span>
+            </div> -->
+        </h4>
+        <div class="card-body">
+        <p class="card-text">
+            As a <i>User</i> I would like to create a new report<br/>
+            <b>starts when </b> I click on the "Create" page<br/>
+            <b>ends when</b> I click “Submit” 
+        </p>
+        <hr/>
+        <h5 class="card-title">Interactions:</h5>
+        <ul>
+            <li>User fills out the list of input boxes for each category of their report</li>
+            <li>System creates the report and assigns it a unique ID so it can now be found and analysed like all the others</li>
+        </ul>
+        <hr/>
+        <h5 class="card-title">Actors:</h5>
+        <ul>
+            <li>User</li>
+        </ul>
+        <hr/>
+        <h5 class="card-title" style="display:inline;">Preconditions: </h5><p class="card-text" style="display:inline;">User is on the “Create” page</p>
+        <br/>
+        <h5 class="card-title" style="display:inline;">Postconditions: </h5><p class="card-text" style="display:inline;">New report with the information specified by user exists in the database</p>
+        </div>
+    </div>
+    <div class="card bg-dark text-white">
+        <h4 class="card-header">
+            7. Predicting Outbreaks
+            <div class="requirements">
+                <span class="badge badge-pill badge-light">R4</span>
+            </div>
+        </h4>
+        <div class="card-body">
+        <p class="card-text">
+            As a <i>User</i> I would like to predict where new outbreaks would appear<br/>
+            <b>starts when </b> I click on the “Predict” page<br/>
+            <b>ends when</b> Page and map have loaded
+        </p>
+        <hr/>
+        <h5 class="card-title">Interactions:</h5>
+        <ul>
+            <li>User selects the “Predict Tab”</li>
+            <li>System runs Machine Learning Algorithm and an interactive map appears highlighting zones in red that are danger zones for certain diseases based on certain data</li>
+        </ul>
+        <hr/>
+        <h5 class="card-title">Actors:</h5>
+        <ul>
+            <li>User</li>
+        </ul>
+        <hr/>
+        <h5 class="card-title" style="display:inline;">Preconditions: </h5><p class="card-text" style="display:inline;">User is on the “Create” page</p>
+        <br/>
+        <h5 class="card-title" style="display:inline;">Postconditions: </h5><p class="card-text" style="display:inline;">User is shown map identifying potential future outbreaks based on trends</p>
+        </div>
+    </div>
+    <div class="card bg-dark text-white">
+        <h4 class="card-header">
+            9. View Report
+            <div class="requirements">
+                <span class="badge badge-pill badge-light">R1</span>
+            </div>
+        </h4>
+        <div class="card-body">
+        <p class="card-text">
+            As a <i>User</i> I would like to view a single report<br/>
+            <b>starts when </b> I click on the “View Report” button<br/>
+            <b>ends when</b> Page has loaded
+        </p>
+        <hr/>
+        <h5 class="card-title">Interactions:</h5>
+        <ul>
+            <li>User selects a report and clicks the “View Report” button</li>
+            <li>System redirects to a page containing additional information about that report, which includes a link to the source of the report</li>
+        </ul>
+        <hr/>
+        <h5 class="card-title">Actors:</h5>
+        <ul>
+            <li>User</li>
+        </ul>
+        <hr/>
+        <h5 class="card-title" style="display:inline;">Preconditions: </h5><p class="card-text" style="display:inline;">None</p>
+        <br/>
+        <h5 class="card-title" style="display:inline;">Postconditions: </h5><p class="card-text" style="display:inline;">User is viewing information of selected Report</p>
+        </div>
+    </div>
+    <div class="card bg-dark text-white">
+        <h4 class="card-header">
+            9. Extend Search
+            <div class="requirements">
+                <span class="badge badge-pill badge-light">R1</span>
+                <span class="badge badge-pill badge-light">R2</span>
+                <span class="badge badge-pill badge-light">R4</span>
+            </div>
+        </h4>
+        <div class="card-body">
+        <p class="card-text">
+            As a <i>User</i>, after the events of UC3.*, I would like to collect relevant reports based on the current reports and NLP entities displayed on the summary page.<br/>
+            <b>starts when </b> I right click on NLP entites or reports<br/>
+            <b>ends when</b> Click one of multiple options to extend search
+        </p>
+        <hr/>
+        <h5 class="card-title">Interactions:</h5>
+        <ul>
+            <li>User accesses the website</li>
+            <li>System directs them to hompage</li>
+            <li>[Optional] User searches by criteria as in UC2</li>
+            <li>User clicks on the reports they would like to analyse (or alternatively click the “Select All” button if they wish to see a more complete analysis)</li>
+            <li>System adds selected reports to a list in preparation of summarising them</li>
+            <li>User clicks “Get Summary”</li>
+            <li>System redirects to a “Summary” page containing a list of all reports selected, allowing for further anaylysis on the page</li>
+            <li>I right click on NLP entites or reports</li>
+            <li>I click one of the "Search by ..." option of the context-menu</li>
+        </ul>
+        <hr/>
+        <h5 class="card-title">Actors:</h5>
+        <ul>
+            <li>User</li>
+        </ul>
+        <hr/>
+        <h5 class="card-title" style="display:inline;">Preconditions: </h5><p class="card-text" style="display:inline;">Summary page loaded successfully</p>
+        <br/>
+        <h5 class="card-title" style="display:inline;">Postconditions: </h5><p class="card-text" style="display:inline;">All relevant reports (according to the search criteria) is added to the list of reports in the summary page</p>
+        </div>
+    </div>
 </div>
 
 ## System design and implementation ##
