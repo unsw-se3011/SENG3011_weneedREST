@@ -475,7 +475,7 @@ In saying that, our frontend design can still be improved upon. We believe we we
 
 ---
 
-### Key Benefits and Achievements ###
+## Key Benefits and Achievements
 
 As mentioned previously, we believe our 3 key achievements was the implementation of Machine Learning, Natural Language Processing and integration of the heatmap API.
 
@@ -484,8 +484,11 @@ As mentioned previously, we believe our 3 key achievements was the implementatio
 One achievement is that any medical professional or field scientist can choose their own image data to feed into the AI with no technical expertise to predict future outbreaks and find new relationships with geographical data and disease outbreaks spreading. Another amazing achievement was applying Spatial Data Analysis to predict outbreak clusters around Singapore on Dengue with 75% accuracy using ArcGIS image data and other non-image features with a Random Forest Classifer model.
 
 #### Natural Language Processing ####
+Integration of the NLP API called Textrazor meant meaningful, automatic interpretation of report data. Upon loading of the summary page, the component would send all description text of every article selected on the previous page to the API to be processed. What was received was a JSON file of entity names and a list of categories each entity within the text belonged to. Using this data we were able to filter through relevant report based on entities or better defined category names to collect a pool of quality reports/data to further analyse.
 
 #### Heat Map Google API
+
+Integrating our solution with the Google Map API meant proper and meaningful visualisation of location based data. Every report selected on the summary page would now be a heat zone within the central map. This would be done automatically upon page load. The authorisation of API keys would tedious but simple enough to do. However, after running into problems with compatability we realised that we would need to shape the use of the Google map to our surrounding architure (React). This proved difficult but there were plenty resourced online to help.
 
 ---
 
@@ -510,10 +513,15 @@ Another main issue was finding a way to convert the responses we recieved from o
 
 Some of our most vexing issues were present in the integration of an additional APIs into our website to assist in the analysis of data from our report summaries. We experimented with several and continued running into errors that would often seem insurmountable.
 
-### What We Would Do Differently ###
+---
+
+## What We Would Do Differently 
 
 One major point of difference we would commit to would be to impose stricter deadlines for ourselves in terms of API development. As the first few weeks simply revolved around initial documentation and bare-minimum proof of API concept (in other words, starting a simple web scraper), we underestimated the time needed to polish our final product. This is compounded with the new trimester system and work load we have yet to accustom to, which lead to periods of intense "crunch" right before the demonstrations.
 
 Futhermore, we would have changed the responsiblities we assigned to each team member at the beginning. It became more and more apparent through the development timeline that although the frontend members were struggling with React to craft a website aesthetic to their liking, it was by far much less time consuming than the tasks required of the backend members. This is not to say that members from both frontend and backend did not assist each other in any way that they could, however it was almost considered a last resort - the time spent explaining the inner workings of the backend to the members who were not all that directly involved was time that could have been spent more productively elsewhere.
 
-In terms of the project itself, we would have liked to have added more features for report analysis. Specifically, we wished to have been able to integrate an API that generated graphs based on different data sets, eg Zika outbreaks mapped by time and location. This would have added a different visual aspect to our summary functionality that is easier to digest at a glance. One of the main reasons we chose React was due to the availability of many APIs or libraries/functions that would have helped us implement such a feature, yet we did not exploit this enough. If time was permitted, we also would have liked to better hone our Machine Learning capabilities with larger datasets.
+In terms of the project itself, we would have liked to have added more features for report analysis. Specifically, we wished to have been able to integrate an API that generated graphs based on different data sets, eg Zika outbreaks mapped by time and location. This would have added a different visual aspect to our summary functionality that is easier to digest at a glance. One of the main reasons we chose React was due to the availability of many APIs or libraries/functions that would have helped us implement such a feature, yet we did not exploit this enough. If time was permitted, we also would have liked to better hone our Machine Learning capabilities with larger datasets. With deep regrets we were not able to implement the Twitter API or the Google Trends API (more so due to discontinuation of Trends and it's compatability with Node.js). It would also of been noted that with more time and features we could of collected summary data and display in the form of a infographic, with more time and APIs (the glory) we could of crafted a quality piece of data visualisation. 
+
+In terms of the technology stack, it would have been nice to integrate more libraries like Redux and Node as the backend. Not using these two libraries certainly put a strain on the readability of our code and hindered our functionality. Not using Node.js was almost certainly the problem when trying to integrate more and more API's, since Node.js handles cross-origin communication faults. 
+
