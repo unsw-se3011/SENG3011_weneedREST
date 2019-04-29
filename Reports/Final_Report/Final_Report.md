@@ -24,22 +24,23 @@ Feature | Application implementation
 
 In assessing the functions that needed to be completed, our team decided to break these down into the following requirements, which were completed across the various sprints within the agile process:
 
-* Obtain complete set of reports from Global Incident Map using web scraper
-* Save all reports from web scraper into given JSON format for storage
-* Data is accessed through a web-hosted API
-* Extend backend API functionality into a Graphical User Intereface
-    * Fetch a singular report 
-    * Fetch all reports
-    * Filter by criteria 
-    * Delete a report
-    * Create a report
-    * Update/Edit a report
-* Summarise selected data in 3 ways:
-    * Display of collected reports
-    * Visualisation of location based data
-    * Natural Language Processing on main text within reports
-* Predict future outbreaks using ML
-* Collect relevant reports using criteria
+1. Backend API to scrape the Global Incident Map and return reports
+    1. Obtain complete set of reports from Global Incident Map using web scraper
+    2. Save all reports from web scraper into given JSON format for storage
+    3. Data is accessed through a web-hosted API
+2. Extend backend API functionality into a Graphical User Intereface
+    1. Fetch a singular report 
+    2. Fetch all reports
+    3. Filter by criteria 
+    4. Delete a report
+    5. Create a report
+    6. Update/Edit a report
+3. Summarise selected data in 3 ways:
+    1. Display list of collected reports
+    2. Visualisation of location based data
+    3. Natural Language Processing on main text within reports
+4. Predict future outbreaks using ML
+5. Collect relevant reports using criteria
 
 ## Use Cases ##
 
@@ -49,7 +50,7 @@ In assessing the functions that needed to be completed, our team decided to brea
             1. View all reports
             <div class="requirements">
                 <span class="badge badge-pill badge-light">R1</span>
-                <span class="badge badge-pill badge-light">R2</span>
+                <span class="badge badge-pill badge-light">R2.2</span>
             </div>
         </h4>
         <div class="card-body">
@@ -80,8 +81,7 @@ In assessing the functions that needed to be completed, our team decided to brea
         <h4 class="card-header">
             2. Filter reports
             <div class="requirements">
-                <span class="badge badge-pill badge-light">R1</span>
-                <span class="badge badge-pill badge-light">R2</span>
+                <span class="badge badge-pill badge-light">R2.3</span>
             </div>
         </h4>
         <div class="card-body">
@@ -114,8 +114,10 @@ In assessing the functions that needed to be completed, our team decided to brea
             3. Summary of multiple reports
             <div class="requirements">
                 <span class="badge badge-pill badge-light">R1</span>
-                <span class="badge badge-pill badge-light">R2</span>
-                <span class="badge badge-pill badge-light">R4</span>
+                <span class="badge badge-pill badge-light">R2.1</span>
+                <span class="badge badge-pill badge-light">R2.2</span>
+                <span class="badge badge-pill badge-light">R2.3</span>
+                <span class="badge badge-pill badge-light">R3</span>
             </div>
         </h4>
         <div class="card-body">
@@ -151,8 +153,10 @@ In assessing the functions that needed to be completed, our team decided to brea
             3.1. Geographical Summary of Multiple Reports
             <div class="requirements">
                 <span class="badge badge-pill badge-light">R1</span>
-                <span class="badge badge-pill badge-light">R2</span>
-                <span class="badge badge-pill badge-light">R4</span>
+                <span class="badge badge-pill badge-light">R2.1</span>
+                <span class="badge badge-pill badge-light">R2.2</span>
+                <span class="badge badge-pill badge-light">R2.3</span>
+                <span class="badge badge-pill badge-light">R3.2</span>
             </div>
         </h4>
         <div class="card-body">
@@ -188,8 +192,10 @@ In assessing the functions that needed to be completed, our team decided to brea
             3.2. Natural Language Processing Summary of Multiple Reports
             <div class="requirements">
                 <span class="badge badge-pill badge-light">R1</span>
-                <span class="badge badge-pill badge-light">R2</span>
-                <span class="badge badge-pill badge-light">R4</span>
+                <span class="badge badge-pill badge-light">R2.1</span>
+                <span class="badge badge-pill badge-light">R2.2</span>
+                <span class="badge badge-pill badge-light">R2.3</span>
+                <span class="badge badge-pill badge-light">R3.3</span>
             </div>
         </h4>
         <div class="card-body">
@@ -223,10 +229,9 @@ In assessing the functions that needed to be completed, our team decided to brea
     <div class="card bg-dark text-white">
         <h4 class="card-header">
             4. Editing Report
-            <!-- <div class="requirements">
-                <span class="badge badge-pill badge-light">R1</span>
-                <span class="badge badge-pill badge-light">R2</span>
-            </div> -->
+            <div class="requirements">
+                <span class="badge badge-pill badge-light">R2.6</span>
+            </div>
         </h4>
         <div class="card-body">
         <p class="card-text">
@@ -256,11 +261,9 @@ In assessing the functions that needed to be completed, our team decided to brea
     <div class="card bg-dark text-white">
         <h4 class="card-header">
             5. Deleting Report
-            <!-- <div class="requirements">
-                <span class="badge badge-pill badge-light">R1</span>
-                <span class="badge badge-pill badge-light">R2</span>
-                <span class="badge badge-pill badge-light">R3</span>
-            </div> -->
+            <div class="requirements">
+                <span class="badge badge-pill badge-light">R2.4</span>
+            </div>
         </h4>
         <div class="card-body">
         <p class="card-text">
@@ -289,11 +292,9 @@ In assessing the functions that needed to be completed, our team decided to brea
     <div class="card bg-dark text-white">
         <h4 class="card-header">
             6. Creating Report
-            <!-- <div class="requirements">
-                <span class="badge badge-pill badge-light">R1</span>
-                <span class="badge badge-pill badge-light">R2</span>
-                <span class="badge badge-pill badge-light">R3</span>
-            </div> -->
+            <div class="requirements">
+                <span class="badge badge-pill badge-light">R2.5</span>
+            </div>
         </h4>
         <div class="card-body">
         <p class="card-text">
@@ -352,7 +353,7 @@ In assessing the functions that needed to be completed, our team decided to brea
         <h4 class="card-header">
             9. View Report
             <div class="requirements">
-                <span class="badge badge-pill badge-light">R1</span>
+                <span class="badge badge-pill badge-light">R2.1</span>
             </div>
         </h4>
         <div class="card-body">
@@ -382,9 +383,7 @@ In assessing the functions that needed to be completed, our team decided to brea
         <h4 class="card-header">
             9. Extend Search
             <div class="requirements">
-                <span class="badge badge-pill badge-light">R1</span>
-                <span class="badge badge-pill badge-light">R2</span>
-                <span class="badge badge-pill badge-light">R4</span>
+                <span class="badge badge-pill badge-light">R5</span>
             </div>
         </h4>
         <div class="card-body">
