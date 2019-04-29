@@ -4,7 +4,7 @@
 
 # Final Report - EpiWatch Epidemic Tracker #
 
-## Use cases / Requirements ##
+## Requirements ##
 
 Upon beginning the project, we were given the following functions that the end user should be able to perform using our application:
 
@@ -27,6 +27,8 @@ In assessing the functions that needed to be completed, our team decided to brea
 * Obtain complete set of reports from Global Incident Map using web scraper
 * Save all reports from web scraper into given JSON format for storage
 * Data is accessed through a web-hosted API
+
+## Use Cases ##
 
 <div class="card-group">
     <div class="card bg-dark text-white">
