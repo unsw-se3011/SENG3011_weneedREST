@@ -4,6 +4,10 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './Predict.css'
 import getJson from './prediction.geojson';
 
+// Sources
+// https://developers.google.com/maps/documentation/javascript/datalayer
+// https://stackoverflow.com/questions/54289417/react-google-maps-how-do-i-create-a-clickable-kml-map-that-shows-me-meta-data-o
+
 var map = ''
 var dataLayer = ''
 
