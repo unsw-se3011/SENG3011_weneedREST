@@ -25,6 +25,7 @@ In assessing the functions that needed to be completed, our team decided to nbre
 * Obtain complete set of reports from Global Incident Map using web scraper
 * Save all reports from web scraper into given JSON format for storage
 * Data is accessed through a web-hosted API
+**TODO** Finish adding all requirements
 
 ## System design and implementation ##
 
@@ -32,19 +33,14 @@ In assessing the functions that needed to be completed, our team decided to nbre
 
 #### Back-End ####
 
-* The web scraper was built using Python, as well as the Re and BeautifulSoup Python libraries.
-* The web API was built using the Python Flask REST-plus framework.
+* The web scraper was built using **Python**, as well as the **Re** and **BeautifulSoup** Python libraries. **Pycurl** was also used to handle the HTML requests
+* The web API was built using the **Python Flask REST-plus** framework. It was hosted on a **DigitalOcean** droplet.
 
 #### Front-end ####
 
-* The web application was built using the React Javascript framework, as well as ReactStrap + Bootstrap for the visual element of the website
-* Heatmap visualisation provided through the use of the Google Maps API
-* Natural Language Processing provided through the TextRazor API
-
-
-## Team organisation and conclusion/appraisal ##
-
-* A summary of the key benefits/achievements of your project relating back to your design/implementation
+* The web application was built using the **React** Javascript framework, as well as **ReactStrap** + **Bootstrap** for the visual element of the website
+* Heatmap visualisation provided through the use of the **Google Maps API**
+* Natural Language Processing provided through the **TextRazor API**
 
 ## Project Summary ##
 
@@ -52,9 +48,9 @@ In assessing the functions that needed to be completed, our team decided to nbre
 * **TODO:** discuss limitations (this is probably more about backend than front end)
 * any other points of appraisal pls feel free to add
 
-Overall, we are happy with our final product.
+Overall, we are happy with the final product that was delivered.
 
-Functionality-wise, we are proud to have been able to integrate Machine Learning and Natural Language Processing. We believe these 2 key features separated us from other groups, and the sheer time and effort we invested into them were worth it. We also believe that having the ability to summarise reports and generate graphs and other analytics based on this information was advantageous - it was tied closely to our business goals of automating outbreak report gathering, leaving the user to deal with the more important analysis since our application did all of the information scraping for them.
+In regards to functionality, we believe that we were able to provide a unique solution to the functions that were requested. In developing our solution, we tried to think about what the users of epiWatch would value most in the application, and what would make them likely to pick our solution instead of a solution provided by another team. The precepts that we decided to address were the following: Ease of use and scaling adaptability. In terms of ease-of-use, we believe that the React application we have created is quite intuitive to use, as it provides all the information and functions inside an interface the user will likely be used to.  
 
 In saying that, our frontend design can still be improved upon. We believe we were mostly hindered by our lack of React knowledge, and time. Although we were able to visualise our content and features in a simple and easy to digest manner, we were only able to do so on a very basic level with the aid of Bootstrap. In other words, we were not able to exploit the vast number of React libraries and fully realise its capablilites for our project. We believe this came down to a matter of time and priorities, as at the end of the day learning more advanced techniques to utilise in our project would have taken longer than we could afford.
 
@@ -76,24 +72,13 @@ As mentioned previously, we believe our 2 key achievements was the implementatio
 
 #### Frontend ####
 
-There were a litany of problems with the frontend, mainly boiling down to our lack of proficiency with React. More specifically, they revolved around our desire to make the website look a certain way or perform a certain action without being able to realise it with our language of choice. These issues may not have been necessarily drastic in the grand scheme of our project, but were simple details that would have enhanced the user's experience. For example, our website allows for reports to be selected and later be used to generate an aggregate report. To indicate that a report had been selected, we wanted to highlight said report. However, no matter what we tried, we could not find a way to do this, only being able to highlight the first selected report (even though the other selected reports were being correctly added to the set). Eventually, through a lot of trial and error and assistance from a member of the backend sub-team, we were able to achieve what we initially wanted, but at the cost of almost 2 days worth of time. Frontend design, then, became three times more time consuming than we orginally thought.
+There were a litany of problems with the frontend, mainly boiling down to our lack of proficiency with React. More specifically, they revolved around our desire to make the website look a certain way or perform a certain action without being able to realise it with our language of choice. These issues may not have been necessarily drastic in the grand scheme of our project, but were simple details that would have enhanced the user's experience. For example, our website allows for reports to be selected and later be used to generate an aggregate report. To indicate that a report had been selected, we wanted to highlight said report. However, no matter what we tried, we could not find a way to do this, only being able to highlight the first selected report (even though the other selected reports were being correctly added to the set). Eventually, through a lot of trial and error and assistance from a member of the backend sub-team, we were able to achieve what we initially wanted, but at the cost of almost 2 days worth of time. Frontend design, then, became three times more time consuming than we originally thought.
 
-Another main issue was finding a way to convert the responses we recieved from our API and converting them into a format that we could parse through, extracting the data we needed, or simply changing how the responses were given from the backend in the first place. For example, we chose to use **Axios** to integrate our frontend and backend and part of how Axios works is to add query parameters exactly as they are into the url. This meant that for multi-word queries that involed spaces were added as is. However, having spaces in a url goes against convention and Axios would return an error. By default, Axios would replace spaces with '+', and thus we got around this error by simply changing all the spaces in our parameters through a function in the backend to '+' as well (and vice versa).
+Another main issue was finding a way to convert the responses we recieved from our API and converting them into a format that we could parse through, extracting the data we needed, or simply changing how the responses were given from the backend in the first place. For example, we chose to use **Axios** to integrate our frontend and backend and part of how Axios works is to add query parameters exactly as they are into the url. This meant that for multi-word queries that involved spaces were added as is. However, having spaces in a url goes against convention and Axios would return an error. By default, Axios would replace spaces with '+', and thus we got around this error by simply changing all the spaces in our parameters through a function in the backend to '+' as well (and vice versa).
 
 Some of our most vexing issues were present in the integration of an additional API into our website to assist in the analysis of data from our report summaries. We experimented with several and continued running into errors that would often seem insurmountable.
 
-### What We Would Do Differently ###
-
-* What kind of skills you wish you had before the workshop (this way we can try include them in other courses)
-  * Would you do it any differently now ?
-    * I.e. tools, different technology, time management, etc
-
-
-## Team Organisation ##
-
-* Team organisation and conclusion/appraisal of your work
-  * Responsibilities/organization of the team
-    * Ultimate breakdown of team composition and responsibilities
+## Team Organisation and conclusion/appraisal ##
 
 Thoughout the development of the project, our team continued to work well together - we frequently communicated via Facebook Messanger, referred to the Kanban board for sprint deliverables and other tasks, and utilised Slack to efficiently separate discussions regarding frontend and backend issues.
 
@@ -109,4 +94,10 @@ As detailed in the Management Information report, the team was split into 2 main
 |Jacob Wahib|<br><ul><li>Frontend developer (React)</li></ul><ul><li>Debugger/Tester</li></ul><ul><li>Management Information Report</li></ul><ul><li>Final Report</li></ul>|
 |Estella Arabi|<br><ul><li>Frontend developer (React)</li></ul><ul><li>Debugger/Tester</li></ul><ul><li>Management Information Report</li></ul><ul><li>Final Report</li></ul>|
 
-We are happy with the work that each member contributed to the project and would consider it to be an equal distribution of effort from everyone involv;ed.
+We are happy with the work that each member contributed to the project and would consider it to be an equal distribution of effort from everyone involved.
+
+### What We Would Do Differently ###
+
+* What kind of skills you wish you had before the workshop (this way we can try include them in other courses)
+  * Would you do it any differently now ?
+    * I.e. tools, different technology, time management, etc
