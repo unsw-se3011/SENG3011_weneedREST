@@ -1,3 +1,5 @@
+<link rel="stylesheet" type="text/css" href="final_report.css">
+
 *Team we-need-REST*
 
 # Final Report - EpiWatch Epidemic Tracker #
@@ -20,11 +22,25 @@ Feature | Application implementation
 (3) | Original plans for the application included integration with the Twitter API in order to examine tweets as part of the dataset we were working with. Unfortunately, this feature was not included in the final application due to time constraints not allowing for us to pursue this idea fully.
 (4) | To satisfy this feature, we included both a small-scale and large-scale data analysis feature. In terms of small-scale data analysis, the 'summary' page provides the user with the ability to analyse a number of reports selected using the search feature from the main page, and collate a report which visualises all the reports onto a heat-map together. Additionally, the reports that are part of this summary are analysed using Natural Language Processing. This allows us to extract entities and relevance categories out of each report, giving a better idea of the contextual meaning of each report. For the large-scale data processing, our Machine Learning algorithm is able to analyse environmental and location data, as well as specialised data specific to the area or disease, to make predictions about the possibility of future outbreaks in a certain location. This allows researchers to better analyse large amounts of data by using the alrogithm to process it, instead of having to do lots of manual work to accurately make predictions.
 
-In assessing the functions that needed to be completed, our team decided to nbreak these down into the following requirements, which were completed across the various sprints within the agile process:
+In assessing the functions that needed to be completed, our team decided to break these down into the following requirements, which were completed across the various sprints within the agile process:
 
 * Obtain complete set of reports from Global Incident Map using web scraper
 * Save all reports from web scraper into given JSON format for storage
 * Data is accessed through a web-hosted API
+
+<div class="card">
+  <h5 class="card-header">Use Case name</h5>
+  <div class="card-body">
+    <h5 class="card-title">Preconditions: </h5>
+    <p class="card-text">Descriptions: starts when .... <br/>
+    .....ends when.....</p>
+    <h5 class="card-title">Actors invovled</h5>
+    <ul>
+        <li>actors</li>
+    </ul>
+    <h5 class="card-title">Postconditions: (optional)</h5>
+  </div>
+</div>
 
 ## System design and implementation ##
 
