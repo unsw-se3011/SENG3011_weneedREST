@@ -442,10 +442,6 @@ In assessing the functions that needed to be completed, our team decided to brea
 
 ## Team Organisation ##
 
-* Team organisation and conclusion/appraisal of your work
-  * Responsibilities/organization of the team
-    * Ultimate breakdown of team composition and responsibilities
-
 Thoughout the development of the project, our team continued to work well together - we frequently communicated via Facebook Messanger, referred to the Kanban board for sprint deliverables and other tasks, and utilised Slack to efficiently separate discussions regarding frontend and backend issues.
 
 As expected, some workload overflow for these teams required the assistance of members from the other sub-teams, however this did not hinder our process in either area. If anything, it prompted us to re-evaluate design decisions and our vision for our final product, prioritising features that were more easily implemented in the limited time that we had. This can be most clearly seen in the frontend, as we unanimously agreed that the backend functionality was more important, and if something in the frontend was taking too long (that was not strictly necessary), then we would leave it and come back to it only if we had time to spare afterwards.
