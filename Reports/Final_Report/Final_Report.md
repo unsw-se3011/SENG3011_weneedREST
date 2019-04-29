@@ -494,12 +494,11 @@ One achievement is that any medical professional or field scientist can choose t
 
 #### Backend ####
 
-**back end boys pls write ur problems here**
-
 For web scraping, the description of the report had encoding issues where it would display characters that did not match the UTF-16 character set. For example, characters in the report would display text such as`/X00` in the description.
 
-For machine learning, it was a very difficult task to use the data from the specification to predict future outbreaks. One issue was data quality. There were no features that had a high correlation to disease outbreaks spreading, instead, showing features that measure the impact of the outbreak. Thus, the model had a 10% accuracy *with high variance* and had a *lower accuracy rate* on the training data than the test data. This could be due to the low sample size in the test data. Being able to accurately convert disease cluster locations on an Image to geojson data for the Google Maps API to read was also a difficult task. Another issue was time which was largely spent training the model and debugging. 
+For the API, issues with the endpoints were becoming more complicated. Due to a lack of proficiency with Flask-Restplus API's I was not able to make the API endpoints in accordance to the specification. After a thorough read through of the documentation, use of namespaces, Classes (manager/mediator design pattern), marshal module and other improvements I was able to completly refractor the code and reduce code significantly.
 
+For machine learning, it was a very difficult task to use the data from the specification to predict future outbreaks. One issue was data quality. There were no features that had a high correlation to disease outbreaks spreading, instead, showing features that measure the impact of the outbreak. Thus, the model had a 10% accuracy *with high variance* and had a *lower accuracy rate* on the training data than the test data. This could be due to the low sample size in the test data. Being able to accurately convert disease cluster locations on an Image to geojson data for the Google Maps API to read was also a difficult task. Another issue was time which was largely spent training the model and debugging. 
 
 
 #### Frontend ####
@@ -508,7 +507,7 @@ There were a litany of problems with the frontend, mainly boiling down to our la
 
 Another main issue was finding a way to convert the responses we recieved from our API and converting them into a format that we could parse through, extracting the data we needed, or simply changing how the responses were given from the backend in the first place. For example, we chose to use **Axios** to integrate our frontend and backend and part of how Axios works is to add query parameters exactly as they are into the url. This meant that for multi-word queries that involed spaces were added as is. However, having spaces in a url goes against convention and Axios would return an error. By default, Axios would replace spaces with '+', and thus we got around this error by simply changing all the spaces in our parameters through a function in the backend to '+' as well (and vice versa).
 
-Some of our most vexing issues were present in the integration of an additional API into our website to assist in the analysis of data from our report summaries. We experimented with several and continued running into errors that would often seem insurmountable.
+Some of our most vexing issues were present in the integration of an additional APIs into our website to assist in the analysis of data from our report summaries. We experimented with several and continued running into errors that would often seem insurmountable.
 
 ### What We Would Do Differently ###
 
