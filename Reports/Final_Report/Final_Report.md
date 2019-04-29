@@ -27,6 +27,19 @@ In assessing the functions that needed to be completed, our team decided to brea
 * Obtain complete set of reports from Global Incident Map using web scraper
 * Save all reports from web scraper into given JSON format for storage
 * Data is accessed through a web-hosted API
+* Extend backend API functionality into a Graphical User Intereface
+    * Fetch a singular report 
+    * Fetch all reports
+    * Filter by criteria 
+    * Delete a report
+    * Create a report
+    * Update/Edit a report
+* Summarise selected data in 3 ways:
+    * Display of collected reports
+    * Visualisation of location based data
+    * Natural Language Processing on main text within reports
+* Predict future outbreaks using ML
+* Collect relevant reports using criteria
 
 ## Use Cases ##
 
