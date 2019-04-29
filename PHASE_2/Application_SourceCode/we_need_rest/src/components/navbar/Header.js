@@ -32,36 +32,34 @@ class Header extends Component {
 
     render() {
       return (
-
-        <div>
-            <Link to='/'>
-                <h3 id="brand" onClick={()=>this.handleClick(document.getElementById('home'))}>Sleepy API</h3>
-            </Link>
-            <div className="nav">
-                
-                <ul>
-                    <Link to='/'>
-                        <li className="nav-item" id="home" onClick={()=>this.handleClick(document.getElementById('home'))}>
-                            Home
-                        </li>
-                    </Link>
-                    <Link to='/about'>
-                        <li className="nav-item" id="about" onClick={()=>this.handleClick(document.getElementById('about'))}>
-                            About
-                        </li>
-                    </Link>
-                    <Link to='/create'>
-                        <li className="nav-item" id="create" onClick={()=>this.handleClick(document.getElementById('create'))}>
-                            Create
-                        </li>
-                    </Link>
-                    <Link to='/predict'>
-                        <li className="nav-item" id="predict" onClick={()=>this.handleClick(document.getElementById('predict'))}>
-                            Predict
-                        </li>
-                    </Link>
-                </ul>
-            </div>
+        <div className="nav">
+            <ul>
+                <Link to='/'>
+                    <li className="brand" onClick={()=>this.handleClick(document.getElementById('home'))}>
+                        Sleepy API
+                    </li>
+                </Link>
+                <Link to='/'>
+                    <li className="nav-item" id="home" onClick={()=>this.handleClick(document.getElementById('home'))}>
+                        Home
+                    </li>
+                </Link>
+                <Link to='/about'>
+                    <li className="nav-item" id="about" onClick={()=>this.handleClick(document.getElementById('about'))}>
+                        About
+                    </li>
+                </Link>
+                <Link to='/create'>
+                    <li className="nav-item" id="create" onClick={()=>this.handleClick(document.getElementById('create'))}>
+                        Create
+                    </li>
+                </Link>
+                <Link to='/predict'>
+                    <li className="nav-item" id="predict" onClick={()=>this.handleClick(document.getElementById('predict'))}>
+                        Predict
+                    </li>
+                </Link>
+            </ul>
         </div>
       );
     }
