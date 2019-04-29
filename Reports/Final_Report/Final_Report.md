@@ -461,9 +461,6 @@ We are happy with the work that each member contributed to the project and would
 
 ## Project Summary ##
 
-* **TODO:** discuss limitations (this is probably more about backend than front end)
-* any other points of appraisal pls feel free to add
-
 Overall, we are happy with our final product.
 
 Functionality-wise, we are proud to have been able to integrate Machine Learning and Natural Language Processing. We believe these 2 key features separated us from other groups, and the sheer time and effort we invested into them were worth it. We also believe that having the ability to summarise reports and generate graphs and other analytics based on this information was advantageous - it was tied closely to our business goals of automating outbreak report gathering, leaving the user to deal with the more important analysis since our application did all of the information scraping for them.
@@ -474,10 +471,12 @@ In saying that, our frontend design can still be improved upon. We believe we we
 
 As mentioned previously, we believe our 2 key achievements was the implementation of Machine Learning and Natural Language Processing.
 
-- Machine Learning
+#### Machine Learning ####
 
 One achievement is that any medical professional or field scientist can choose their own image data to feed into the AI with no technical expertise to predict future outbreaks and find new relationships with geographical data and disease outbreaks spreading. Another amazing achievement was applying Spatial Data Analysis to predict outbreak clusters around Singapore on Dengue with 75% accuracy using ArcGIS image data and other non-image features with a Random Forest Classifer model.
 
+
+#### Natural Language Processing ####
 **back end boys pls elaborate**
 
 ### Issues ###
