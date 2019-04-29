@@ -7,7 +7,6 @@ import Map from './Map';
 import { Container, Row, Col, Card, CardTitle, CardHeader, CardText, Badge  } from 'reactstrap';
 import { ContextMenu, MenuItem, ContextMenuTrigger } from "react-contextmenu";
 import ReactTooltip from 'react-tooltip';
-import html2canvas from 'html2canvas';
 
 const MENU_TYPE = "entity-menu";
 
