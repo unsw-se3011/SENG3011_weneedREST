@@ -42,6 +42,8 @@ In assessing the functions that needed to be completed, our team decided to brea
 4. Predict future outbreaks using ML
 5. Collect relevant reports using criteria
 
+**We will continue to use these requirements as references for each use case. Anotated as a R followed by a digit on the top right of each use case card**
+
 ## Use Cases ##
 
 <div class="card-group">
