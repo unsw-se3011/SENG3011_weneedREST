@@ -28,18 +28,18 @@ In assessing the functions that needed to be completed, our team decided to brea
 * Save all reports from web scraper into given JSON format for storage
 * Data is accessed through a web-hosted API
 * Extend backend API functionality into a Graphical User Intereface
-    * Fetch a singular report 
-    * Fetch all reports
-    * Filter by criteria 
-    * Delete a report
-    * Create a report
-    * Update/Edit a report
-* Summarise selected data in 3 ways:
-    * Display of collected reports
-    * Visualisation of location based data
-    * Natural Language Processing on main text within reports
-* Predict future outbreaks using ML
-* Collect relevant reports using criteria
+	    * Fetch a singular report 
+	    * Fetch all reports
+	    * Filter by criteria 
+	    * Delete a report
+	    * Create a report
+	    * Update/Edit a report
+	* Summarise selected data in 3 ways:
+	    * Display of collected reports
+	    * Visualisation of location based data
+	    * Natural Language Processing on main text within reports
+	* Predict future outbreaks using ML
+	* Collect relevant reports using criteria
 
 ## Use Cases ##
 
@@ -534,6 +534,8 @@ One major point of difference we would commit to would be to impose stricter dea
 
 Futhermore, we would have changed the responsiblities we assigned to each team member at the beginning. It became more and more apparent through the development timeline that although the frontend members were struggling with React to craft a website aesthetic to their liking, it was by far much less time consuming than the tasks required of the backend members. This is not to say that members from both frontend and backend did not assist each other in any way that they could, however it was almost considered a last resort - the time spent explaining the inner workings of the backend to the members who were not all that directly involved was time that could have been spent more productively elsewhere.
 
-In terms of the project itself, we would have liked to have added more features for report analysis. Specifically, we wished to have been able to integrate an API that generated graphs based on different data sets, eg Zika outbreaks mapped by time and location. This would have added a different visual aspect to our summary functionality that is easier to digest at a glance. One of the main reasons we chose React was due to the availability of many APIs or libraries/functions that would have helped us implement such a feature, yet we did not exploit this enough. If time was permitted, we also would have liked to better hone our Machine Learning capabilities with larger datasets. With deep regrets we were not able to implement the Twitter API or the Google Trends API (more so due to discontinuation of Trends and it's compatability with Node.js). It would also of been noted that with more time and features we could of collected summary data and display in the form of a infographic, with more time and APIs (the glory) we could of crafted a quality piece of data visualisation. 
+In terms of the project itself, we would have liked to have added more features for report analysis. Specifically, we wished to have been able to integrate an API that generated graphs and infographics based on different data sets, eg Zika outbreaks mapped by time and location. This would have added a different visual aspect to our summary functionality that is easier to digest at a glance. One of the main reasons we chose React was due to the availability of many APIs or libraries/functions that would have helped us implement such a feature, yet we did not exploit this enough. If time was permitted, we also would have liked to better hone our Machine Learning capabilities with larger datasets. We regret that we were not able to implement the Twitter API or the Google Trends API (more so due to discontinuation of Trends and it's compatability with Node.js).
 
-In terms of the technology stack, it would have been nice to integrate more libraries like Redux and Node as the backend. Not using these two libraries certainly put a strain on the readability of our code and hindered our functionality. Not using Node.js was almost certainly the problem when trying to integrate more and more API's, since Node.js handles cross-origin communication faults. Although, this was a thought midway through completing the project and the introduction of new frameworks to learn would of probably been the reason for my teams loss of faith in me. 
+It would have been nice to integrate more libraries like Redux and Node into the backend as well - it certainly put a strain on the readability of our code and hindered our functionality without them. Specifically, not using Node.js was almost certainly the problem when trying to integrate more and more API's, since Node.js handles cross-origin communication faults. 
+Although, this was a thought midway through completing the project and the introduction of new frameworks to learn would of probably been the reason for my teams loss of faith in me.
+
