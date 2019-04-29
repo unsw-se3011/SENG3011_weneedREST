@@ -481,7 +481,7 @@ In saying that, our frontend design can still be improved upon. We believe we we
 
 As mentioned previously, we believe our 2 key achievements was the implementation of Machine Learning and Natural Language Processing.
 
-- Machine Learning
+~Machine Learning~
 
 One achievement is that any medical professional or field scientist can choose their own image data to feed into the AI with no technical expertise to predict future outbreaks and find new relationships with geographical data and disease outbreaks spreading. Another amazing achievement was applying Spatial Data Analysis to predict outbreak clusters around Singapore on Dengue with 75% accuracy using ArcGIS image data and other non-image features with a Random Forest Classifer model.
 
