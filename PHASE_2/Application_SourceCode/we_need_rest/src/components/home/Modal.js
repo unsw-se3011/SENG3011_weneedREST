@@ -71,7 +71,7 @@ class Modal extends Component {
     //Deletes null fields
     Object.keys(params).forEach((key) => (params[key] === undefined) && delete params[key]);
 
-    axios.get('http://46.101.226.130:5000/reports/', {params})
+    axios.get('INSERT API ADDRESS HERE', {params})
       .then(res => {
         res.data.forEach( obj => delete obj['reports']);
         this.props.updateReports(res);

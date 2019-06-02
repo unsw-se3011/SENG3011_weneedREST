@@ -85,7 +85,7 @@ class Create extends Component {
     onSubmit(e) {
         axios({
             method : 'post',
-            url: "http://46.101.226.130:5000/reports/",
+            url: "INSERT API ADDRESS HERE",
             responseType: 'json',
             params: {
                 url: this.state.url,

@@ -87,23 +87,6 @@ const entity = (props, expandSearch) => {
   );
 }
 
-// function MyApp() {
-//   return (
-//     <div>
-//       <ContextMenuTrigger id={MENU_TYPE} holdToDisplay={1000}>
-//         <div className='well'>right click to see the menu</div>
-//       </ContextMenuTrigger>
-
-//       <ContextMenu id={MENU_TYPE}>
-//         <MenuItem  data={{ item: 'entity' }}>Expand search</MenuItem>
-//         {/* <MenuItem  data={{ item: 'item 2' }}>Menu Item 2</MenuItem>
-//         <MenuItem divider />
-//         <MenuItem  data={{ item: 'item 3' }}>Menu Item 3</MenuItem> */}
-//       </ContextMenu>
-//     </div>
-//   );
-// }
-
 
 class Summary extends Component {
   constructor(props) {
@@ -136,7 +119,7 @@ class Summary extends Component {
       return;
     }
     
-    axios.get('http://46.101.226.130:5000/reports/', {key_terms: text})
+    axios.get('INSERT API ADDRESS HERE', {key_terms: text})
       .then(res => {
         let difference = res.data
                  .filter(x => !this.state.response.includes(x))
@@ -147,7 +130,7 @@ class Summary extends Component {
   }
 
   expandSearchFromEntity(text) {
-    axios.get('http://46.101.226.130:5000/reports/', {key_terms: text})
+    axios.get('INSERT API ADDRESS HERE', {key_terms: text})
       .then(res => {
         res.data.forEach( obj => delete obj['reports']);
         this.setState({response: this.state.response.concat(res.data)}, console.log(this.state.response));
@@ -164,7 +147,7 @@ class Summary extends Component {
       body: "extractors=entities,topics,words,relations&text="+text, 
       headers: { 
         "Content-Type": "application/x-www-form-urlencoded", 
-        "X-Textrazor-Key": "1c89b6ad192f7b32536cd1b7d252c45ea2121272f258df695015a18d" 
+        "X-Textrazor-Key": "INSERT TEXTRAZOR KEY HERE" 
       }
     })
       .then(res =>res.json())
@@ -202,7 +185,7 @@ class Summary extends Component {
 
   componentWillMount() {
     this.state.selectedArticles.forEach(id => 
-      axios.get('http://46.101.226.130:5000/reports/' + id)
+      axios.get('INSERT API ADDRESS HERE' + id)
         .then(res => {   
           let response = this.state.response;
           response.push(res.data);

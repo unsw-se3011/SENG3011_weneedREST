@@ -29,7 +29,7 @@ class Report extends Component {
         console.log(this.state.id);
         axios({
             method : 'delete',
-            url: "http://46.101.226.130:5000/reports/" + this.state.id,
+            url: "INSERT API ADDRESS HERE" + this.state.id,
             responseType: 'json',
             params: {
               password: "sl33py"
@@ -49,7 +49,7 @@ class Report extends Component {
         console.log(this.state.headline);
         axios({
             method : 'put',
-            url: "http://46.101.226.130:5000/reports/" + this.state.id,
+            url: "INSERT API ADDRESS HERE" + this.state.id,
             responseType: 'json',
             params: {
                 
@@ -86,7 +86,7 @@ class Report extends Component {
     componentWillMount() {
         axios({
             method : 'get',
-            url: "http://46.101.226.130:5000/reports/" + this.state.id,
+            url: "INSERT API ADDRESS HERE" + this.state.id,
             responseType: 'json'
             })
             .then(response => {

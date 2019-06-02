@@ -43,7 +43,7 @@ class Home extends Component {
   }
 
   componentWillMount() {
-    axios.get('http://46.101.226.130:5000/reports/')
+    axios.get('INSERT API ADDRESS HERE')
       .then(res => {
         res.data.forEach( obj => delete obj['reports']);       
         this.setState({response: res.data})
@@ -80,10 +80,10 @@ class Home extends Component {
     this.setState({selectedArticles: temp})
 
     // Delete report in backend
-    console.log('http://46.101.226.130:5000/reports/'+report);
+    console.log('INSERT API ADDRESS HERE'+report);
     axios({
             method : 'delete',
-            url: "http://46.101.226.130:5000/reports/" + report,
+            url: "INSERT API ADDRESS HERE" + report,
             responseType: 'json',
             params: {
               password: "sl33py"

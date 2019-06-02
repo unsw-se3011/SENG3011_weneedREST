@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 const articles = article => {
     const handleDelete = (id) => {
-      axios.delete('http://46.101.226.130:5000/reports/'+id); 
+      axios.delete('INSERT API ADDRESS HERE'+id); 
       const elem = document.querySelector("#item"+id);
       elem.className = 'editing';
     }
@@ -119,7 +119,7 @@ class Find extends Component {
         
         axios({
             method : 'get',
-            url: "http://46.101.226.130:5000/reports/" + this.state.repId,
+            url: "INSERT API ADDRESS HERE" + this.state.repId,
             responseType: 'json'
             })
             .then(response => {
@@ -159,7 +159,7 @@ class Find extends Component {
         console.log(this.state.repId);
         axios({
             method : 'delete',
-            url: "http://46.101.226.130:5000/reports/" + this.state.repId,
+            url: "INSERT API ADDRESS HERE" + this.state.repId,
             responseType: 'json'
             }).then(response => {
                 console.log(response.data);
@@ -175,7 +175,7 @@ class Find extends Component {
         console.log(this.state.headline);
         axios({
             method : 'put',
-            url: "http://46.101.226.130:5000/reports/" + this.state.repId,
+            url: "INSERT API ADDRESS HERE" + this.state.repId,
             responseType: 'json',
             params: {
                 
