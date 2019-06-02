@@ -1,27 +1,46 @@
-# SENG3011_weneedREST
-Epidemic analytics platform - Project undertaken within SENG3011 19T1
+# Sleepy API - UNSW Software Engineering Major Project #3
+# Epidemic tracking and analytics application
 
-Project team members:
-- Bailey Ivancic (Project manager, Python Flask + backend dev, API)
-- Estella Arabi (Frontend dev + project management)
-- Nabil Shaikh (Frontend dev + backend dev)
-- Harry Tang (Python Flask + backend dev)
-- Jacob Wahib (Frontend dev + project management)
+## Disclaimer: 
+This Repository contains code for the third project completed within Software Engineering. This project was completed in 19T1. This was completed as a group assignment, and remains the work of the individuals listed below. You are free to view, use, run and modify this application in any way you like. **Please do not use any of the work contained within this project without explicitly attributing the original authors, otherwise you are plagiarising.** We assume no responsibility for any damage, harm or other effects that arise from using this software.
 
-## Introduction
-This RESTful API provides access to a list of disease reports in the form of JSON data.
+### Group members:
+- Bailey Ivancic
+- Harry Tang
+- Estella Arabi
+- Jacob Wahib
+- Nabil Shaikh
 
-## Deliverable One
-In the first deliverable, all the management documentation and implementation planning has been included for the project thus far.
+## Project brief:
+The original specification for the project was to create an application used by the UNSW Epiwatch team. The aim of the application was to automate the data collection the team manually performed, as well as helped the team analyse and visualise the information for more efficient tracking and predicition. Additionally, the Epiwatch team consists mainly of medical professionals as well as other personnel. This means that the functions within the application should be intuitive and easy to use, as well as require minimal technical knowledge.
 
-The decisions our team has made in regards to meeting schedules and roles are all outlined in our Management information markdown file. 
+## Project details:
 
-## Deliverable Two - A
-The following things were completed in deliverable two(A):
-1. API deployed as a REST web service via Digital Ocean droplet.
-2. Able to make requests to the API using the Swagger interface. This can be accessed from the url: http://46.101.226.130:5000/
-3. Generates output file / response which can be viewed through Swagger
+The application aims to fulfil the brief by combining the following features
 
-## Deliverable Two - A
-The following things were completed in deliverable two(B):
-1. API is now fully functioning, returning live data that has been scraped from the specified data source
+
+
+
+### Tech stack:
+The application is split into two parts: the web-scraper as well as the main application.
+
+**Web Scraper**
+- Built using Python
+- Python Re library used for regex for HTML searching
+- Python pyCurl library used for HTML scraping
+- Python BeautifulSoup library used for HTML parsing
+- The web scraper was hosted on DigitalOcean
+
+**Application**
+- The application was built using React on the front-end, 
+
+---
+
+For more information on the project, please have a look at the report documentation included inside the repo, or download and run the source code.
+
+
+## How to use and run SleepyAPI:
+For the development and presentation of the application, our Rest API was hosted using a DigitalOcean droplet which allowed us access to the JSON data. This droplet has been closed, and as such the aspplication will not work initially. The source code for the scraper and for the rest API must be downloaded and run (either locally or elsewhere) and then this new address must be accessed. Similarly, API keys (for TextRazor and other APIs used in the application) have been taken out of the code, so these will also need to be replaced to properly run the application.
+
+
+**This project has now been completed and closed, as of 2/6/19.**
