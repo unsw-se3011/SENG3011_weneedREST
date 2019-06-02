@@ -12,27 +12,42 @@ This Repository contains code for the third project completed within Software En
 - Nabil Shaikh
 
 ## Project brief:
-The original specification for the project was to create an application used by the UNSW Epiwatch team. The aim of the application was to automate the data collection the team manually performed, as well as helped the team analyse and visualise the information for more efficient tracking and predicition. Additionally, the Epiwatch team consists mainly of medical professionals as well as other personnel. This means that the functions within the application should be intuitive and easy to use, as well as require minimal technical knowledge.
+The original specification for the project was to create an application used by the UNSW Epiwatch team. The aim of the application was to automate the data collection the team manually performed, as well as helping the team analyse and visualise the information for more efficient tracking and predicition. Additionally, the Epiwatch team consists mainly of medical professionals as well as other personnel. This meant that the functions within the application should be intuitive and easy to use, as well as require minimal technical knowledge.
 
 ## Project details:
+The application aims to fulfil the brief by combining the following features:
+- Automated web scraper/HTML parser which obtains reports from the specified target destination
+- Web-based API for accessing report data, featuring intuitive Swagger documentation and interface
+  - Delete function
+  - Update function
+  - Create function
+  - Search function
+- Web application which allows viewing of selected report data in visual, intuitive way
+  - Heatmap showing all locations of all reports in summary
+  - Natural language processing for all reports in summary
+- Large-scale data analysis through the use of Machine Learning algorithm
 
-The application aims to fulfil the brief by combining the following features
-
-
-
+Our application attempted to solve the problem we were presented with by using a dual-approach to data analysis. 
+For analysing small amounts of report data, we used a combination of NAtural Language Processing comgined with a heatmap visualisation of all the reports. The text processing allows the user to gain contextual information on the reports included in their summary, allowing their search/investigation to be expended into relevant categories as identified by the processor. This allows the application to be a more complete too for the researcher, in terms of bringing all information together which may be important in idenaifying an outbreak or epidemic. The heatmap plots the attached location of each report onto a live map, allowing the user to see any clusters that may be forming, as well as potential future spreads.
 
 ### Tech stack:
-The application is split into two parts: the web-scraper as well as the main application.
+The application is split into three parts: the web-scraper, Rest web API and the user application.
 
 **Web Scraper**
 - Built using Python
 - Python Re library used for regex for HTML searching
 - Python pyCurl library used for HTML scraping
 - Python BeautifulSoup library used for HTML parsing
-- The web scraper was hosted on DigitalOcean
+
+**Rest web API**
+- Built using Python Flask RestPlus
+- Documentation and interface for API automatically generated through Swagger documentation
+- Hosted on private DigitalOcean droplet
 
 **Application**
-- The application was built using React on the front-end, 
+- The application front-end was built using React, in combination with Bootstrap and Reactstrap for the styling
+- Natural Language Processing used through TextRazor API
+- Heatmap visualisation used through Google Maps API
 
 ---
 
