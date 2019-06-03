@@ -2,7 +2,7 @@
 # Epidemic tracking and analytics application
 
 ## Disclaimer: 
-This Repository contains code for the third project completed within Software Engineering. This project was completed in 19T1. This was completed as a group assignment, and remains the work of the individuals listed below. You are free to view, use, run and modify this application in any way you like. **Please do not use any of the work contained within this project without explicitly attributing the original authors, otherwise you are plagiarising.** We assume no responsibility for any damage, harm or other effects that arise from using this software.
+This Repository contains code for the third Software Engineering project. This project was completed in 19T1. This was completed as a group assignment, and remains the work of the individuals listed below. You are free to view, use, run and modify this application in any way you like. **Please do not use any of the work contained within this project without explicitly attributing the original authors, otherwise you are plagiarising.** We assume no responsibility for any damage, harm or other effects that arise from using this software.
 
 ### Group members:
 - Bailey Ivancic
@@ -28,10 +28,10 @@ The application aims to fulfil the brief by combining the following features:
 - Large-scale data analysis through the use of Machine Learning algorithm
 
 Our application attempted to solve the problem we were presented with by using a dual-approach to data analysis. 
-For analysing small amounts of report data, we used a combination of NAtural Language Processing comgined with a heatmap visualisation of all the reports. The text processing allows the user to gain contextual information on the reports included in their summary, allowing their search/investigation to be expended into relevant categories as identified by the processor. This allows the application to be a more complete too for the researcher, in terms of bringing all information together which may be important in idenaifying an outbreak or epidemic. The heatmap plots the attached location of each report onto a live map, allowing the user to see any clusters that may be forming, as well as potential future spreads.
+For analysing small amounts of report data, we used a combination of Natural Language Processing comgined with a heatmap visualisation of all the reports. The text processing allows the user to gain contextual information on the reports included in their summary, allowing their search/investigation to be expended into relevant categories as identified by the processor. This allows the application to be a more complete tool for the researcher, in terms of bringing all information together which may be important in identifying an outbreak or epidemic. The heatmap plots the attached location of each report onto a live map, allowing the user to see any clusters that may be forming, as well as potential future spreads.
 
 ### Tech stack:
-The application is split into three parts: the web-scraper, Rest web API and the user application.
+The application consists of three parts: the web-scraper, Rest web API and the user application.
 
 **Web Scraper**
 - Built using Python
@@ -55,7 +55,7 @@ For more information on the project, please have a look at the report documentat
 
 
 ## How to use and run SleepyAPI:
-For the development and presentation of the application, our Rest API was hosted using a DigitalOcean droplet which allowed us access to the JSON data. This droplet has been closed, and as such the aspplication will not work initially. The source code for the scraper and for the rest API must be downloaded and run (either locally or elsewhere) and then this new address must be accessed. Similarly, API keys (for TextRazor and other APIs used in the application) have been taken out of the code, so these will also need to be replaced to properly run the application.
+For the development and presentation of the application, our Rest API was hosted using a DigitalOcean droplet which allowed us access to the JSON data. This droplet has been closed, and as such the aspplication will not work initially. The source code for the scraper and for the rest API must be downloaded and run (either locally or elsewhere) and then this new address must be accessed. Similarly, API keys (for TextRazor and other APIs used in the application) have been taken out of the code, so these will also need to be replaced to properly run the application. The Rest API will need to be hosted and referenced in the allocated locations inside the code.
 
 
 **This project has now been completed and closed, as of 2/6/19.**
